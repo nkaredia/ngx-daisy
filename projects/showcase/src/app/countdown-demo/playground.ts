@@ -1,4 +1,4 @@
-import { DsyCountdown } from 'ngx-daisy/countdown';
+import { DsyCountdown } from '@ngx-daisy/cdk/countdown';
 import type { Playground } from '../playground/playground.types';
 import { CountdownExample } from './example/countdown-example';
 export const playground: Playground = {

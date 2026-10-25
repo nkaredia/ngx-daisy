@@ -25,7 +25,7 @@ import {
   CdkRow,
   CdkHeaderRow,
   CdkNoDataRow,
-} from 'ngx-daisy/table';
+} from '@ngx-daisy/cdk/table';
 
 @Component({
   selector: 'demo-table-demo',

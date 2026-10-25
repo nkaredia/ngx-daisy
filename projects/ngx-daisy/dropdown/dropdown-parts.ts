@@ -9,7 +9,7 @@ import {
   output,
   TemplateRef,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import { DSY_DROPDOWN } from './dropdown-context';
 @Directive({
   selector: 'button[dsyDropdownTrigger]',

@@ -1,4 +1,4 @@
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import type { Playground } from '../playground/playground.types';
 import { ButtonExample } from './example/button-example';
 

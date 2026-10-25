@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMockupWindow } from 'ngx-daisy/mockup-window';
+import { DsyMockupWindow } from '@ngx-daisy/cdk/mockup-window';
 
 @Component({
   selector: 'demo-mockup-window-demo',

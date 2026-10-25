@@ -5,8 +5,8 @@ import {
   ViewEncapsulation,
   signal,
 } from '@angular/core';
-import { DsyMockupBrowser, DsyBrowserToolbar } from 'ngx-daisy/mockup-browser';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyMockupBrowser, DsyBrowserToolbar } from '@ngx-daisy/cdk/mockup-browser';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 @Component({
   selector: 'demo-mockup-browser-example',

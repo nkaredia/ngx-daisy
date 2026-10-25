@@ -1,4 +1,4 @@
-import { DsyDiff } from 'ngx-daisy/diff';
+import { DsyDiff } from '@ngx-daisy/cdk/diff';
 import type { Playground } from '../playground/playground.types';
 import { DiffExample } from './example/diff-example';
 export const playground: Playground = {

@@ -1,7 +1,7 @@
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   Component,
   ChangeDetectionStrategy,
@@ -10,7 +10,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyJoin, DsyJoinItem } from 'ngx-daisy/join';
+import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
 
 @Component({
   selector: 'demo-join-demo',

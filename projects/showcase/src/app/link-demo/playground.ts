@@ -1,4 +1,4 @@
-import { DsyLink } from 'ngx-daisy/link';
+import { DsyLink } from '@ngx-daisy/cdk/link';
 import type { Playground } from '../playground/playground.types';
 import { LinkExample } from './example/link-example';
 

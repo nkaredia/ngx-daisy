@@ -3,7 +3,7 @@ import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DsySwap } from 'ngx-daisy/swap';
+import { DsySwap } from '@ngx-daisy/cdk/swap';
 @Component({
   selector: 'demo-swap-demo',
   standalone: true,

@@ -1,5 +1,5 @@
-import { DsyValidator } from 'ngx-daisy/validator';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyValidator } from '@ngx-daisy/cdk/validator';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 import type { Playground } from '../playground/playground.types';
 import { ValidatorExample } from './example/validator-example';
 

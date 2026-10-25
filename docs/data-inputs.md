@@ -1,29 +1,29 @@
 # Data Inputs and Angular forms
 
-All 15 families in the [daisyUI Data Input catalog](https://daisyui.com/components/input/) have dedicated secondary entry points and lazy showcase pages. `ngx-daisy/form-field` supplies the shared field composition.
+All 15 families in the [daisyUI Data Input catalog](https://daisyui.com/components/input/) have dedicated secondary entry points and lazy showcase pages. `@ngx-daisy/cdk/form-field` supplies the shared field composition.
 
 The functional approach follows Angular Material's [native input](https://raw.githubusercontent.com/angular/components/main/src/material/input/input.md), [native select](https://raw.githubusercontent.com/angular/components/main/src/material/select/select.md), [radio group](https://raw.githubusercontent.com/angular/components/main/src/material/radio/radio.md) and [form-field](https://raw.githubusercontent.com/angular/components/main/src/material/form-field/form-field.md) patterns. CDK provides focus monitoring, radio navigation and textarea autosizing. There is no Angular Material dependency or Material visual theme.
 
 ## Catalog
 
-| Family            | Import                 | Public control                                                  | Showcase       |
-| ----------------- | ---------------------- | --------------------------------------------------------------- | -------------- |
-| Calendar          | `ngx-daisy/calendar`   | `DsyCalendar`, `DsyDateAdapter`                                 | `/calendars`   |
-| Checkbox          | `ngx-daisy/checkbox`   | `DsyCheckbox`                                                   | `/checkboxes`  |
-| Fieldset          | `ngx-daisy/fieldset`   | `DsyFieldset`, `DsyLegend`                                      | `/fieldsets`   |
-| File Input        | `ngx-daisy/file-input` | `DsyFileInput`                                                  | `/file-inputs` |
-| Filter            | `ngx-daisy/filter`     | `DsyFilter`                                                     | `/filters`     |
-| Label             | `ngx-daisy/label`      | `DsyLabel`, `DsyNativeLabel`, `DsyFloatingLabel`                | `/labels`      |
-| Radio             | `ngx-daisy/radio`      | `DsyRadioGroup`, `DsyRadioButton`                               | `/radios`      |
-| Range             | `ngx-daisy/range`      | `DsyRange`                                                      | `/ranges`      |
-| Rating            | `ngx-daisy/rating`     | `DsyRating`                                                     | `/ratings`     |
-| Select            | `ngx-daisy/select`     | `DsySelect`                                                     | `/selects`     |
-| Text Input        | `ngx-daisy/input`      | `DsyInput`                                                      | `/inputs`      |
-| Textarea          | `ngx-daisy/textarea`   | `DsyTextarea`                                                   | `/textareas`   |
-| Toggle            | `ngx-daisy/toggle`     | `DsyToggle`                                                     | `/toggles`     |
-| Validator         | `ngx-daisy/validator`  | `DsyValidator`, `DsyValidatorHint`                              | `/validators`  |
-| OTP               | `ngx-daisy/otp`        | `DsyOtp`                                                        | `/otp`         |
-| Shared Form Field | `ngx-daisy/form-field` | `DsyFormField`, `DsyHint`, `DsyError`, `DsyPrefix`, `DsySuffix` | `/form-fields` |
+| Family            | Import                      | Public control                                                  | Showcase       |
+| ----------------- | --------------------------- | --------------------------------------------------------------- | -------------- |
+| Calendar          | `@ngx-daisy/cdk/calendar`   | `DsyCalendar`, `DsyDateAdapter`                                 | `/calendars`   |
+| Checkbox          | `@ngx-daisy/cdk/checkbox`   | `DsyCheckbox`                                                   | `/checkboxes`  |
+| Fieldset          | `@ngx-daisy/cdk/fieldset`   | `DsyFieldset`, `DsyLegend`                                      | `/fieldsets`   |
+| File Input        | `@ngx-daisy/cdk/file-input` | `DsyFileInput`                                                  | `/file-inputs` |
+| Filter            | `@ngx-daisy/cdk/filter`     | `DsyFilter`                                                     | `/filters`     |
+| Label             | `@ngx-daisy/cdk/label`      | `DsyLabel`, `DsyNativeLabel`, `DsyFloatingLabel`                | `/labels`      |
+| Radio             | `@ngx-daisy/cdk/radio`      | `DsyRadioGroup`, `DsyRadioButton`                               | `/radios`      |
+| Range             | `@ngx-daisy/cdk/range`      | `DsyRange`                                                      | `/ranges`      |
+| Rating            | `@ngx-daisy/cdk/rating`     | `DsyRating`                                                     | `/ratings`     |
+| Select            | `@ngx-daisy/cdk/select`     | `DsySelect`                                                     | `/selects`     |
+| Text Input        | `@ngx-daisy/cdk/input`      | `DsyInput`                                                      | `/inputs`      |
+| Textarea          | `@ngx-daisy/cdk/textarea`   | `DsyTextarea`                                                   | `/textareas`   |
+| Toggle            | `@ngx-daisy/cdk/toggle`     | `DsyToggle`                                                     | `/toggles`     |
+| Validator         | `@ngx-daisy/cdk/validator`  | `DsyValidator`, `DsyValidatorHint`                              | `/validators`  |
+| OTP               | `@ngx-daisy/cdk/otp`        | `DsyOtp`                                                        | `/otp`         |
+| Shared Form Field | `@ngx-daisy/cdk/form-field` | `DsyFormField`, `DsyHint`, `DsyError`, `DsyPrefix`, `DsySuffix` | `/form-fields` |
 
 ## Signal Forms first
 
@@ -36,8 +36,8 @@ Import the controls and the appropriate forms directives in the consuming compon
 ```ts
 import { Component, signal } from '@angular/core';
 import { email, form, FormField, FormRoot, required } from '@angular/forms/signals';
-import { DsyInput } from 'ngx-daisy/input';
-import { DsyFormField, DsyHint, DsyError } from 'ngx-daisy/form-field';
+import { DsyInput } from '@ngx-daisy/cdk/input';
+import { DsyFormField, DsyHint, DsyError } from '@ngx-daisy/cdk/form-field';
 
 @Component({
   imports: [FormField, FormRoot, DsyInput, DsyFormField, DsyHint, DsyError],

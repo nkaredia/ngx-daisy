@@ -1,4 +1,4 @@
-# ngx-daisy/carousel
+# @ngx-daisy/cdk/carousel
 
 Standalone Angular carousel family with daisyUI styling. See the [Data Display guide](../../../docs/data-display.md) for exports, examples, behavior and customization.
 

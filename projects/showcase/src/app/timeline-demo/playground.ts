@@ -1,4 +1,4 @@
-import { DsyTimeline } from 'ngx-daisy/timeline';
+import { DsyTimeline } from '@ngx-daisy/cdk/timeline';
 import type { Playground } from '../playground/playground.types';
 import { TimelineExample } from './example/timeline-example';
 export const playground: Playground = {

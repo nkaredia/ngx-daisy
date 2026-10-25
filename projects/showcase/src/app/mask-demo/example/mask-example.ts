@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyMask } from 'ngx-daisy/mask';
+import { DsyMask } from '@ngx-daisy/cdk/mask';
 
 interface MaskValues {
   readonly shape?: ReturnType<DsyMask['shape']>;

@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyBadge } from 'ngx-daisy/badge';
+import { DsyBadge } from '@ngx-daisy/cdk/badge';
 export interface BadgeExampleValues {
   readonly color?: ReturnType<DsyBadge['color']>;
   readonly size?: ReturnType<DsyBadge['size']>;

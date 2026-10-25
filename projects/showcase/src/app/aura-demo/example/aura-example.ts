@@ -5,8 +5,8 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyAura } from 'ngx-daisy/aura';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyAura } from '@ngx-daisy/cdk/aura';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 export interface AuraExampleValues {
   readonly preset?: ReturnType<DsyAura['preset']>;
   readonly size?: ReturnType<DsyAura['size']>;

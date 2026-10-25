@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyHoverGallery } from 'ngx-daisy/hover-gallery';
+import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
 
 @Component({
   selector: 'demo-hover-gallery-demo',

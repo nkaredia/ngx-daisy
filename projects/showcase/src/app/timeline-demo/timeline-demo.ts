@@ -14,7 +14,7 @@ import {
   DsyTimelineMiddle,
   DsyTimelineEnd,
   DsyTimelineBox,
-} from 'ngx-daisy/timeline';
+} from '@ngx-daisy/cdk/timeline';
 
 @Component({
   selector: 'demo-timeline-demo',

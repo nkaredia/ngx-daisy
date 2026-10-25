@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyStack } from 'ngx-daisy/stack';
+import { DsyStack } from '@ngx-daisy/cdk/stack';
 
 interface StackValues {
   readonly position?: ReturnType<DsyStack['position']>;

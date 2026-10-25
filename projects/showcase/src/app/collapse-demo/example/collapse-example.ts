@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCollapse } from 'ngx-daisy/collapse';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 export interface CollapseExampleValues {
   readonly title?: ReturnType<DsyCollapse['title']>;
   readonly opened?: ReturnType<DsyCollapse['opened']>;

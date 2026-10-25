@@ -1,4 +1,4 @@
-import { DsySteps, DsyStep, DsyStepIcon } from 'ngx-daisy/steps';
+import { DsySteps, DsyStep, DsyStepIcon } from '@ngx-daisy/cdk/steps';
 import type { Playground } from '../playground/playground.types';
 import { StepsExample } from './example/steps-example';
 

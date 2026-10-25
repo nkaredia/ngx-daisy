@@ -1,4 +1,4 @@
-import { DsyCarousel, DsyCarouselItem } from 'ngx-daisy/carousel';
+import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
 import type { Playground } from '../playground/playground.types';
 import { CarouselExample } from './example/carousel-example';
 export const playground: Playground = {

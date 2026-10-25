@@ -1,18 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { DsyInput, DsyInputWrapper } from 'ngx-daisy/input';
-import { DsySelect, DsySelectWrapper } from 'ngx-daisy/select';
-import { DsyFieldset, DsyFieldsetLabel } from 'ngx-daisy/fieldset';
-import { DsyTable, DsyTableRow } from 'ngx-daisy/table';
-import { DsyLoader } from 'ngx-daisy/loader';
-import { DsyCalendar } from 'ngx-daisy/calendar';
-import { DsyHoverGallery } from 'ngx-daisy/hover-gallery';
-import { DsyTabs } from 'ngx-daisy/tabs';
-import { DsyTimeline } from 'ngx-daisy/timeline';
-import { DsySwap } from 'ngx-daisy/swap';
-import { DsyTextRotate } from 'ngx-daisy/text-rotate';
-import { provideDaisyUI } from 'ngx-daisy/config';
+import { DsyInput, DsyInputWrapper } from '@ngx-daisy/cdk/input';
+import { DsySelect, DsySelectWrapper } from '@ngx-daisy/cdk/select';
+import { DsyFieldset, DsyFieldsetLabel } from '@ngx-daisy/cdk/fieldset';
+import { DsyTable, DsyTableRow } from '@ngx-daisy/cdk/table';
+import { DsyLoader } from '@ngx-daisy/cdk/loader';
+import { DsyCalendar } from '@ngx-daisy/cdk/calendar';
+import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
+import { DsyTabs } from '@ngx-daisy/cdk/tabs';
+import { DsyTimeline } from '@ngx-daisy/cdk/timeline';
+import { DsySwap } from '@ngx-daisy/cdk/swap';
+import { DsyTextRotate } from '@ngx-daisy/cdk/text-rotate';
+import { provideDaisyUI } from '@ngx-daisy/cdk/config';
 
 @Component({
   imports: [

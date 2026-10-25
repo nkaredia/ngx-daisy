@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyProgress } from 'ngx-daisy/progress';
+import { DsyProgress } from '@ngx-daisy/cdk/progress';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyProgress['color']>;

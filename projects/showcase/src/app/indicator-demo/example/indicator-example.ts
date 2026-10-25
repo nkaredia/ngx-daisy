@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
   signal,
 } from '@angular/core';
-import { DsyIndicator, DsyIndicatorItem } from 'ngx-daisy/indicator';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyIndicator, DsyIndicatorItem } from '@ngx-daisy/cdk/indicator';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface IndicatorItemValues {
   readonly horizontal?: ReturnType<DsyIndicatorItem['horizontal']>;

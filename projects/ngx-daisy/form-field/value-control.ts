@@ -10,7 +10,7 @@ import {
   signal,
 } from '@angular/core';
 import { ValidationError } from '@angular/forms/signals';
-import { DsyIdGenerator } from 'ngx-daisy/overlay';
+import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
 import { DsyFieldControl } from './field-control';
 import { DsyErrorStateMatcher, injectDsyFormState } from './form-state';
 /** State contract shared by composed Signal Forms controls. Concrete controls implement FormValueControl. */

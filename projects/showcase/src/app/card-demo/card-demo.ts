@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions } from 'ngx-daisy/card';
+import { DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions } from '@ngx-daisy/cdk/card';
 
 @Component({
   selector: 'demo-card-demo',

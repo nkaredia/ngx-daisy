@@ -8,7 +8,7 @@ Import the standalone components from the secondary entry point and add them to 
 
 ```ts
 import { signal } from '@angular/core';
-import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from 'ngx-daisy/drawer';
+import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/drawer';
 
 // In the consuming component:
 readonly opened = signal(false);
@@ -119,7 +119,7 @@ Use `width` for the panel width. The following CSS custom properties control mot
 
 The component disables motion when reduced motion is preferred.
 
-`panelClass` and `backdropClass` apply app classes to the internal panel and backdrop. For example, `panelClass="bg-primary text-primary-content rounded-box p-6"` or `backdropClass="bg-black/60"`. Use the configured prefix spelling for those classes; ngx-daisy does not rewrite app-supplied strings. Host classes, global styles and the custom properties above are also available. See [daisyUI customization](../../../docs/daisyui-customization.md) for prefixes and state styling variants.
+`panelClass` and `backdropClass` apply app classes to the internal panel and backdrop. For example, `panelClass="bg-primary text-primary-content rounded-box p-6"` or `backdropClass="bg-black/60"`. Use the configured prefix spelling for those classes; `@ngx-daisy/cdk` does not rewrite app-supplied strings. Host classes, global styles and the custom properties above are also available. See [daisyUI customization](../../../docs/daisyui-customization.md) for prefixes and state styling variants.
 
 Over-mode widths are capped at `calc(100vw - 3rem)` to keep a backdrop dismissal area visible. `--dsy-drawer-backdrop` overrides the default translucent black backdrop.
 

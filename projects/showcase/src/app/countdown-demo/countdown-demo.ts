@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyCountdown } from 'ngx-daisy/countdown';
+import { DsyCountdown } from '@ngx-daisy/cdk/countdown';
 import { computed } from '@angular/core';
 
 @Component({

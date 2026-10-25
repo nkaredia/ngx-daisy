@@ -1,4 +1,4 @@
-import { DsyProgress } from 'ngx-daisy/progress';
+import { DsyProgress } from '@ngx-daisy/cdk/progress';
 import type { Playground } from '../playground/playground.types';
 import { ProgressExample } from './example/progress-example';
 

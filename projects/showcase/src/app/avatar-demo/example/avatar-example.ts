@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyAvatar } from 'ngx-daisy/avatar';
+import { DsyAvatar } from '@ngx-daisy/cdk/avatar';
 export interface AvatarExampleValues {
   readonly status?: ReturnType<DsyAvatar['status']>;
   readonly placeholder?: ReturnType<DsyAvatar['placeholder']>;

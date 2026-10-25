@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyFooter, DsyFooterTitle } from 'ngx-daisy/footer';
+import { DsyFooter, DsyFooterTitle } from '@ngx-daisy/cdk/footer';
 
 interface FooterValues {
   readonly orientation?: ReturnType<DsyFooter['orientation']>;

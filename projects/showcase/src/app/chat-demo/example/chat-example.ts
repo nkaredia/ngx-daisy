@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyChat, DsyChatBubble, DsyChatHeader, DsyChatFooter } from 'ngx-daisy/chat';
+import { DsyChat, DsyChatBubble, DsyChatHeader, DsyChatFooter } from '@ngx-daisy/cdk/chat';
 export interface ChatExampleValues {
   readonly position?: ReturnType<DsyChat['position']>;
 }

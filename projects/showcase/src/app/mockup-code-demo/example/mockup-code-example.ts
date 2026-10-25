@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyMockupCode, DsyCodeLine } from 'ngx-daisy/mockup-code';
+import { DsyMockupCode, DsyCodeLine } from '@ngx-daisy/cdk/mockup-code';
 
 interface CodeLineValues {
   readonly prefix?: ReturnType<DsyCodeLine['prefix']>;

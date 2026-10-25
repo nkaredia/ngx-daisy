@@ -7,7 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyRating } from 'ngx-daisy/rating';
+import { DsyRating } from '@ngx-daisy/cdk/rating';
 
 interface ExampleValues {
   readonly hidden?: ReturnType<DsyRating['hidden']>;

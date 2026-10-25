@@ -1,4 +1,4 @@
-import { DsyStack } from 'ngx-daisy/stack';
+import { DsyStack } from '@ngx-daisy/cdk/stack';
 import type { Playground } from '../playground/playground.types';
 import { StackExample } from './example/stack-example';
 

@@ -11,9 +11,9 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DsyLabel } from 'ngx-daisy/label';
-import { DsyIdGenerator } from 'ngx-daisy/overlay';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DsyLabel } from '@ngx-daisy/cdk/label';
+import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
 import { DSY_FIELD_CONTROL } from './field-control';
 @Directive({ selector: '[dsyPrefix]', standalone: true, host: { class: 'dsy-field-prefix' } })
 export class DsyPrefix {}

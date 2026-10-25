@@ -5,8 +5,8 @@ import {
   LucidePanelBottom,
   LucideRotateCcw,
 } from '@lucide/angular';
-import { DsyIcon } from 'ngx-daisy/icon';
-import { DsyTooltip } from 'ngx-daisy/tooltip';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
 import { NgComponentOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -21,8 +21,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCollapse } from 'ngx-daisy/collapse';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import { playgroundActions } from './playground-actions';
 import { ExampleCode } from './example-code';
 import { PLAYGROUND_CONFIGURATIONS } from './provide-playground';

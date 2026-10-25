@@ -7,7 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyOtp } from 'ngx-daisy/otp';
+import { DsyOtp } from '@ngx-daisy/cdk/otp';
 
 interface ExampleValues {
   readonly hidden?: ReturnType<DsyOtp['hidden']>;

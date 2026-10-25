@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyAccordion } from 'ngx-daisy/accordion';
-import { DsyCollapse } from 'ngx-daisy/collapse';
+import { DsyAccordion } from '@ngx-daisy/cdk/accordion';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 export interface CollapseExampleValues {
   readonly title?: ReturnType<DsyCollapse['title']>;
   readonly opened?: ReturnType<DsyCollapse['opened']>;

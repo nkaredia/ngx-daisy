@@ -1,3 +1,3 @@
-# ngx-daisy/kbd
+# @ngx-daisy/cdk/kbd
 
 Standalone Angular kbd family with daisyUI styling. See the [Data Display guide](../../../docs/data-display.md) for exports, examples, behavior and customization.

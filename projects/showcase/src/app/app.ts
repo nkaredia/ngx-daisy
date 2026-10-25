@@ -14,9 +14,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
-import { DsyIcon } from 'ngx-daisy/icon';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from 'ngx-daisy/drawer';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/drawer';
 import { showcaseGroups } from './showcase-pages';
 import libraryPackage from '../../../ngx-daisy/package.json';
 

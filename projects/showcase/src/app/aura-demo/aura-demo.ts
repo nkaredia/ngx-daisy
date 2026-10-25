@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyAura } from 'ngx-daisy/aura';
+import { DsyAura } from '@ngx-daisy/cdk/aura';
 
 @Component({
   selector: 'demo-aura-demo',

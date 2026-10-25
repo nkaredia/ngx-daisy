@@ -1,4 +1,4 @@
-import { DsyIndicator, DsyIndicatorItem } from 'ngx-daisy/indicator';
+import { DsyIndicator, DsyIndicatorItem } from '@ngx-daisy/cdk/indicator';
 import type { Playground } from '../playground/playground.types';
 import { IndicatorExample } from './example/indicator-example';
 

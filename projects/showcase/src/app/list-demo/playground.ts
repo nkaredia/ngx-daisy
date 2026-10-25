@@ -1,4 +1,4 @@
-import { DsyList } from 'ngx-daisy/list';
+import { DsyList } from '@ngx-daisy/cdk/list';
 import type { Playground } from '../playground/playground.types';
 import { ListExample } from './example/list-example';
 export const playground: Playground = {

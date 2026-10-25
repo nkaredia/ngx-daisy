@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyValidator } from 'ngx-daisy/validator';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyValidator } from '@ngx-daisy/cdk/validator';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 
 interface ExampleValues {}
 interface SecondaryValues {

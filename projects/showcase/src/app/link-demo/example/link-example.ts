@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyLink } from 'ngx-daisy/link';
+import { DsyLink } from '@ngx-daisy/cdk/link';
 
 interface LinkValues {
   readonly color?: ReturnType<DsyLink['color']>;

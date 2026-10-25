@@ -5,26 +5,26 @@ import { Directionality } from '@angular/cdk/bidi';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { Subject } from 'rxjs';
 import { vi } from 'vitest';
-import { DsyTabs, DsyTab, DsyTabPanel } from 'ngx-daisy/tabs';
-import { DsyPagination } from 'ngx-daisy/pagination';
+import { DsyTabs, DsyTab, DsyTabPanel } from '@ngx-daisy/cdk/tabs';
+import { DsyPagination } from '@ngx-daisy/cdk/pagination';
 import {
   DsyMenu,
   DsyMenuItem,
   DsyMenuSubmenu,
   DsyMenuDropdown,
   DsyMenuDropdownToggle,
-} from 'ngx-daisy/menu';
-import { DsyLink } from 'ngx-daisy/link';
-import { DsyDock, DsyDockItem } from 'ngx-daisy/dock';
-import { DsyMegamenu, DsyMegamenuItem } from 'ngx-daisy/megamenu';
-import { DsyTooltip } from 'ngx-daisy/tooltip';
-import { DsyToastService, DsyToastOutlet } from 'ngx-daisy/toast';
-import { DsyProgress } from 'ngx-daisy/progress';
-import { DsyRadialProgress } from 'ngx-daisy/radial-progress';
-import { DsyDivider } from 'ngx-daisy/divider';
-import { DsyJoin, DsyJoinItem } from 'ngx-daisy/join';
-import { DsyIndicator, DsyIndicatorItem } from 'ngx-daisy/indicator';
-import { provideDaisyUI } from 'ngx-daisy/config';
+} from '@ngx-daisy/cdk/menu';
+import { DsyLink } from '@ngx-daisy/cdk/link';
+import { DsyDock, DsyDockItem } from '@ngx-daisy/cdk/dock';
+import { DsyMegamenu, DsyMegamenuItem } from '@ngx-daisy/cdk/megamenu';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
+import { DsyToastService, DsyToastOutlet } from '@ngx-daisy/cdk/toast';
+import { DsyProgress } from '@ngx-daisy/cdk/progress';
+import { DsyRadialProgress } from '@ngx-daisy/cdk/radial-progress';
+import { DsyDivider } from '@ngx-daisy/cdk/divider';
+import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
+import { DsyIndicator, DsyIndicatorItem } from '@ngx-daisy/cdk/indicator';
+import { provideDaisyUI } from '@ngx-daisy/cdk/config';
 
 @Component({
   imports: [DsyTabs, DsyTab, DsyTabPanel],

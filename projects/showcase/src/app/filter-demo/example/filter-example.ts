@@ -7,7 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyFilter } from 'ngx-daisy/filter';
+import { DsyFilter } from '@ngx-daisy/cdk/filter';
 
 interface ExampleValues {
   readonly hidden?: ReturnType<DsyFilter['hidden']>;

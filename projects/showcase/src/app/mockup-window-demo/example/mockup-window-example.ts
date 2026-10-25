@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, input, ViewEncapsulation } from '@angular/core';
-import { DsyMockupWindow } from 'ngx-daisy/mockup-window';
-import { DsyInput } from 'ngx-daisy/input';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyMockupWindow } from '@ngx-daisy/cdk/mockup-window';
+import { DsyInput } from '@ngx-daisy/cdk/input';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 @Component({
   selector: 'demo-mockup-window-example',

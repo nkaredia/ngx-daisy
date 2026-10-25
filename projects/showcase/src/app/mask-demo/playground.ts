@@ -1,4 +1,4 @@
-import { DsyMask } from 'ngx-daisy/mask';
+import { DsyMask } from '@ngx-daisy/cdk/mask';
 import type { Playground } from '../playground/playground.types';
 import { MaskExample } from './example/mask-example';
 

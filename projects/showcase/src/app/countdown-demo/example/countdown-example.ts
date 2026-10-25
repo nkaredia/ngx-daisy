@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCountdown } from 'ngx-daisy/countdown';
+import { DsyCountdown } from '@ngx-daisy/cdk/countdown';
 export interface CountdownExampleValues {
   readonly value?: ReturnType<DsyCountdown['value']>;
   readonly digits?: ReturnType<DsyCountdown['digits']>;

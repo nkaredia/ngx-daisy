@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMockupCode, DsyCodeLine } from 'ngx-daisy/mockup-code';
+import { DsyMockupCode, DsyCodeLine } from '@ngx-daisy/cdk/mockup-code';
 
 @Component({
   selector: 'demo-mockup-code-demo',

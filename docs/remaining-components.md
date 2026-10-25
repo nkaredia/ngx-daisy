@@ -6,22 +6,22 @@ Import the declarations a template uses from their secondary entry point and add
 
 ## Navigation APIs
 
-| Entry point             | Declarations and inputs                                                                                                                                                                                                                                  | Showcase       |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `ngx-daisy/breadcrumbs` | `DsyBreadcrumbs` (`dsy-breadcrumbs` or `nav[dsyBreadcrumbs]`), `label`; projects `<li>` elements into a native list                                                                                                                                      | `/breadcrumbs` |
-| `ngx-daisy/dock`        | `DsyDock`: `size`, `label`; `DsyDockItem` on button/a: `active`, `disabled`; `DsyDockLabel`                                                                                                                                                              | `/docks`       |
-| `ngx-daisy/link`        | `DsyLink` on `<a>`: `color`, `hover`, `active`, `disabled`                                                                                                                                                                                               | `/links`       |
-| `ngx-daisy/megamenu`    | `DsyMegamenu`: `activeIndex` model (`number` or `null`), `label`, `size`, `width` auto/wide/full, `vertical`, `panelClass`, `buttonClass`; `DsyMegamenuItem` on `<ng-template>`: label via `dsyMegamenuItem`, `disabled`                                 | `/megamenus`   |
-| `ngx-daisy/menu`        | `DsyMenu` on `<ul>`/`<ol>`: `size`, `orientation`, `paged`; `DsyMenuItem` on a/button: `active`, `disabled`, `focused`; `DsyMenuTitle`, `DsyMenuDropdown`, `DsyMenuDropdownToggle`; `DsyMenuSubmenu` on `<details>`: `opened` model                      | `/menus`       |
-| `ngx-daisy/navbar`      | `DsyNavbar`: `label`; `DsyNavbarStart`, `DsyNavbarCenter`, `DsyNavbarEnd`                                                                                                                                                                                | `/navbars`     |
-| `ngx-daisy/pagination`  | `DsyPagination`: `pageIndex` model (zero-based), `length`, `pageSize`, `disabled`, `size`, `label`, `previousLabel`, `nextLabel`, `pageLabel`; `pageChange` output                                                                                       | `/pagination`  |
-| `ngx-daisy/steps`       | `DsySteps` on ol/ul: `orientation`; `DsyStep` on li: `color`, `current`; `DsyStepIcon`                                                                                                                                                                   | `/steps`       |
-| `ngx-daisy/tabs`        | `DsyTabs`: `selectedIndex` model, `label`, `variant` default/border/box/lift, `size`, `placement` top/bottom, `orientation`, `activation` automatic/manual, `listClass`; `DsyTab` on button: `disabled`, `label`; `DsyTabPanel`: index via `dsyTabPanel` | `/tabs`        |
+| Entry point                  | Declarations and inputs                                                                                                                                                                                                                                  | Showcase       |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `@ngx-daisy/cdk/breadcrumbs` | `DsyBreadcrumbs` (`dsy-breadcrumbs` or `nav[dsyBreadcrumbs]`), `label`; projects `<li>` elements into a native list                                                                                                                                      | `/breadcrumbs` |
+| `@ngx-daisy/cdk/dock`        | `DsyDock`: `size`, `label`; `DsyDockItem` on button/a: `active`, `disabled`; `DsyDockLabel`                                                                                                                                                              | `/docks`       |
+| `@ngx-daisy/cdk/link`        | `DsyLink` on `<a>`: `color`, `hover`, `active`, `disabled`                                                                                                                                                                                               | `/links`       |
+| `@ngx-daisy/cdk/megamenu`    | `DsyMegamenu`: `activeIndex` model (`number` or `null`), `label`, `size`, `width` auto/wide/full, `vertical`, `panelClass`, `buttonClass`; `DsyMegamenuItem` on `<ng-template>`: label via `dsyMegamenuItem`, `disabled`                                 | `/megamenus`   |
+| `@ngx-daisy/cdk/menu`        | `DsyMenu` on `<ul>`/`<ol>`: `size`, `orientation`, `paged`; `DsyMenuItem` on a/button: `active`, `disabled`, `focused`; `DsyMenuTitle`, `DsyMenuDropdown`, `DsyMenuDropdownToggle`; `DsyMenuSubmenu` on `<details>`: `opened` model                      | `/menus`       |
+| `@ngx-daisy/cdk/navbar`      | `DsyNavbar`: `label`; `DsyNavbarStart`, `DsyNavbarCenter`, `DsyNavbarEnd`                                                                                                                                                                                | `/navbars`     |
+| `@ngx-daisy/cdk/pagination`  | `DsyPagination`: `pageIndex` model (zero-based), `length`, `pageSize`, `disabled`, `size`, `label`, `previousLabel`, `nextLabel`, `pageLabel`; `pageChange` output                                                                                       | `/pagination`  |
+| `@ngx-daisy/cdk/steps`       | `DsySteps` on ol/ul: `orientation`; `DsyStep` on li: `color`, `current`; `DsyStepIcon`                                                                                                                                                                   | `/steps`       |
+| `@ngx-daisy/cdk/tabs`        | `DsyTabs`: `selectedIndex` model, `label`, `variant` default/border/box/lift, `size`, `placement` top/bottom, `orientation`, `activation` automatic/manual, `listClass`; `DsyTab` on button: `disabled`, `label`; `DsyTabPanel`: index via `dsyTabPanel` | `/tabs`        |
 
 ### Tabs
 
 ```ts
-import { DsyTabs, DsyTab, DsyTabPanel } from 'ngx-daisy/tabs';
+import { DsyTabs, DsyTab, DsyTabPanel } from '@ngx-daisy/cdk/tabs';
 ```
 
 ```html
@@ -63,7 +63,7 @@ Dock is fixed to the viewport bottom by daisyUI. Applications should reserve spa
 ### Megamenu
 
 ```ts
-import { DsyMegamenu, DsyMegamenuItem } from 'ngx-daisy/megamenu';
+import { DsyMegamenu, DsyMegamenuItem } from '@ngx-daisy/cdk/megamenu';
 ```
 
 ```html
@@ -99,14 +99,14 @@ Portalled content is outside its original DOM ancestors. Theme tokens, typograph
 
 ## Feedback APIs
 
-| Entry point                 | Declarations and inputs                                                                                                                                                                                                                                                | Showcase           |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `ngx-daisy/alert`           | `DsyAlert`: `color` inherit/info/success/warning/error, `variant` solid/outline/dash/soft, `orientation`, `announcement` off/polite/assertive                                                                                                                          | `/alerts`          |
-| `ngx-daisy/progress`        | `DsyProgress` on native `<progress>`: `value` nullable, `max` default 100, `color`, `label`                                                                                                                                                                            | `/progress`        |
-| `ngx-daisy/radial-progress` | `DsyRadialProgress`: `value` 0–100, `color`, `size` CSS length, `thickness` CSS length, `label`; projected label or percentage fallback                                                                                                                                | `/radial-progress` |
-| `ngx-daisy/skeleton`        | `DsySkeleton`: `text`, `animate`; projected noninteractive placeholder content                                                                                                                                                                                         | `/skeletons`       |
-| `ngx-daisy/toast`           | `DsyToast`: `horizontal` start/center/end, `vertical` top/middle/bottom; `DsyToastOutlet`: placement, `toastClass`, `dismissLabel`, `dismissButtonClass`; `DsyToastService`                                                                                            | `/toasts`          |
-| `ngx-daisy/tooltip`         | `DsyTooltip`: text via `dsyTooltip`, `tooltipDisabled`, `opened` model, `position` top/bottom/left/right, `align` start/center/end, `color` inherit/primary/secondary/accent/info/success/warning/error, `tooltipClass`, `showDelay`, `hideDelay`; `show()` / `hide()` | `/tooltips`        |
+| Entry point                      | Declarations and inputs                                                                                                                                                                                                                                                | Showcase           |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `@ngx-daisy/cdk/alert`           | `DsyAlert`: `color` inherit/info/success/warning/error, `variant` solid/outline/dash/soft, `orientation`, `announcement` off/polite/assertive                                                                                                                          | `/alerts`          |
+| `@ngx-daisy/cdk/progress`        | `DsyProgress` on native `<progress>`: `value` nullable, `max` default 100, `color`, `label`                                                                                                                                                                            | `/progress`        |
+| `@ngx-daisy/cdk/radial-progress` | `DsyRadialProgress`: `value` 0–100, `color`, `size` CSS length, `thickness` CSS length, `label`; projected label or percentage fallback                                                                                                                                | `/radial-progress` |
+| `@ngx-daisy/cdk/skeleton`        | `DsySkeleton`: `text`, `animate`; projected noninteractive placeholder content                                                                                                                                                                                         | `/skeletons`       |
+| `@ngx-daisy/cdk/toast`           | `DsyToast`: `horizontal` start/center/end, `vertical` top/middle/bottom; `DsyToastOutlet`: placement, `toastClass`, `dismissLabel`, `dismissButtonClass`; `DsyToastService`                                                                                            | `/toasts`          |
+| `@ngx-daisy/cdk/tooltip`         | `DsyTooltip`: text via `dsyTooltip`, `tooltipDisabled`, `opened` model, `position` top/bottom/left/right, `align` start/center/end, `color` inherit/primary/secondary/accent/info/success/warning/error, `tooltipClass`, `showDelay`, `hideDelay`; `show()` / `hide()` | `/tooltips`        |
 
 The existing [Loader](../projects/ngx-daisy/loader/README.md) covers daisyUI Loading plus the library's additional page/bar/ring states. Progress wrappers are output displays, not form controls. Native progress without a value is indeterminate; finite values clamp between zero and the sanitized maximum. Radial Progress is determinate and exposes progressbar semantics. Supply meaningful labels. Skeletons are decorative (`aria-hidden`); the application owns the busy region and loading announcement. Progress, radial progress, skeleton and toast motion respect reduced-motion preferences.
 
@@ -116,7 +116,7 @@ Alerts announce politely by default (`role="status"`); choose assertive (`role="
 
 ```ts
 import { inject } from '@angular/core';
-import { DsyToastService, DsyToastOutlet } from 'ngx-daisy/toast';
+import { DsyToastService, DsyToastOutlet } from '@ngx-daisy/cdk/toast';
 
 readonly toasts = inject(DsyToastService);
 
@@ -152,15 +152,15 @@ Tooltips use CDK connected positioning, reposition on scroll and remain inside v
 
 ## Layout APIs
 
-| Entry point           | Declarations and inputs                                                                         | Showcase      |
-| --------------------- | ----------------------------------------------------------------------------------------------- | ------------- |
-| `ngx-daisy/divider`   | `DsyDivider`: semantic `color`, line `orientation`, `align` center/start/end; projected text    | `/dividers`   |
-| `ngx-daisy/footer`    | `DsyFooter` on footer/custom wrapper: `orientation`, `center`; `DsyFooterTitle`                 | `/footers`    |
-| `ngx-daisy/hero`      | `DsyHero`, `DsyHeroContent`, `DsyHeroOverlay`                                                   | `/heroes`     |
-| `ngx-daisy/indicator` | `DsyIndicator`, `DsyIndicatorItem`: `horizontal` start/center/end, `vertical` top/middle/bottom | `/indicators` |
-| `ngx-daisy/join`      | `DsyJoin`: `orientation`; `DsyJoinItem` attribute directive                                     | `/joins`      |
-| `ngx-daisy/mask`      | `DsyMask`: `shape`, `half` none/first/second                                                    | `/masks`      |
-| `ngx-daisy/stack`     | `DsyStack`: `position` top/bottom/start/end                                                     | `/stacks`     |
+| Entry point                | Declarations and inputs                                                                         | Showcase      |
+| -------------------------- | ----------------------------------------------------------------------------------------------- | ------------- |
+| `@ngx-daisy/cdk/divider`   | `DsyDivider`: semantic `color`, line `orientation`, `align` center/start/end; projected text    | `/dividers`   |
+| `@ngx-daisy/cdk/footer`    | `DsyFooter` on footer/custom wrapper: `orientation`, `center`; `DsyFooterTitle`                 | `/footers`    |
+| `@ngx-daisy/cdk/hero`      | `DsyHero`, `DsyHeroContent`, `DsyHeroOverlay`                                                   | `/heroes`     |
+| `@ngx-daisy/cdk/indicator` | `DsyIndicator`, `DsyIndicatorItem`: `horizontal` start/center/end, `vertical` top/middle/bottom | `/indicators` |
+| `@ngx-daisy/cdk/join`      | `DsyJoin`: `orientation`; `DsyJoinItem` attribute directive                                     | `/joins`      |
+| `@ngx-daisy/cdk/mask`      | `DsyMask`: `shape`, `half` none/first/second                                                    | `/masks`      |
+| `@ngx-daisy/cdk/stack`     | `DsyStack`: `position` top/bottom/start/end                                                     | `/stacks`     |
 
 The existing [Drawer](../projects/ngx-daisy/drawer/README.md) supplies the remaining layout family. Divider orientation describes the line itself: horizontal maps to native `divider-vertical` (separating vertically stacked content), while vertical maps to native `divider-horizontal` (separating adjacent content). The separator's ARIA orientation follows the public API.
 
@@ -182,12 +182,12 @@ Join and Indicator use attribute directives for their item slots, so they compos
 
 ## Mockup APIs
 
-| Entry point                | Declarations                                                                        | Showcase           |
-| -------------------------- | ----------------------------------------------------------------------------------- | ------------------ |
-| `ngx-daisy/mockup-browser` | `DsyMockupBrowser`, `DsyBrowserToolbar`                                             | `/browser-mockups` |
-| `ngx-daisy/mockup-code`    | `DsyMockupCode`, `DsyCodeLine` on `<pre>`: prefix via `dsyCodeLine`                 | `/code-mockups`    |
-| `ngx-daisy/mockup-phone`   | `DsyMockupPhone`: `displayClass`, `cameraClass`; generated camera and display slots | `/phone-mockups`   |
-| `ngx-daisy/mockup-window`  | `DsyMockupWindow`                                                                   | `/window-mockups`  |
+| Entry point                     | Declarations                                                                        | Showcase           |
+| ------------------------------- | ----------------------------------------------------------------------------------- | ------------------ |
+| `@ngx-daisy/cdk/mockup-browser` | `DsyMockupBrowser`, `DsyBrowserToolbar`                                             | `/browser-mockups` |
+| `@ngx-daisy/cdk/mockup-code`    | `DsyMockupCode`, `DsyCodeLine` on `<pre>`: prefix via `dsyCodeLine`                 | `/code-mockups`    |
+| `@ngx-daisy/cdk/mockup-phone`   | `DsyMockupPhone`: `displayClass`, `cameraClass`; generated camera and display slots | `/phone-mockups`   |
+| `@ngx-daisy/cdk/mockup-window`  | `DsyMockupWindow`                                                                   | `/window-mockups`  |
 
 Mockups decorate projected content and preserve native semantics and interactions. They are not images or iframe sandboxes. Use native pre/code for code samples; syntax highlighting belongs to the app. Use utilities for backgrounds, borders and dimensions. Browser toolbar content is projected; Phone exposes `displayClass` for its internal display surface.
 

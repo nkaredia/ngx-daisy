@@ -1,6 +1,6 @@
 import { computed, Directive, inject } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DsyNativeControl } from 'ngx-daisy/form-field';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DsyNativeControl } from '@ngx-daisy/cdk/form-field';
 /** Angular validation owns bound controls; native validity is used only without a form binding. */
 @Directive({
   selector: 'input[dsyValidator],select[dsyValidator],textarea[dsyValidator]',

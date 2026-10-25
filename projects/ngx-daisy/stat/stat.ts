@@ -6,7 +6,7 @@ import {
   input,
   computed,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'dsy-stats, [dsyStats]',
   standalone: true,

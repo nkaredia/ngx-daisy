@@ -1,4 +1,4 @@
-import { DsyMockupCode, DsyCodeLine } from 'ngx-daisy/mockup-code';
+import { DsyMockupCode, DsyCodeLine } from '@ngx-daisy/cdk/mockup-code';
 import type { Playground } from '../playground/playground.types';
 import { MockupCodeExample } from './example/mockup-code-example';
 

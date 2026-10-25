@@ -6,9 +6,9 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyInput } from 'ngx-daisy/input';
-import { DsySelect } from 'ngx-daisy/select';
-import { DsyToggle } from 'ngx-daisy/toggle';
+import { DsyInput } from '@ngx-daisy/cdk/input';
+import { DsySelect } from '@ngx-daisy/cdk/select';
+import { DsyToggle } from '@ngx-daisy/cdk/toggle';
 import type {
   PlaygroundActionComponents,
   PlaygroundProperty,

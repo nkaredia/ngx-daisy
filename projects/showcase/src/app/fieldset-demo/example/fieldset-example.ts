@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyFieldset, DsyLegend, DsyFieldsetLabel } from 'ngx-daisy/fieldset';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyFieldset, DsyLegend, DsyFieldsetLabel } from '@ngx-daisy/cdk/fieldset';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 
 interface ExampleValues {}
 interface SecondaryValues {

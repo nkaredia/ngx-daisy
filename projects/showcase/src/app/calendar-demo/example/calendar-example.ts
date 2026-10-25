@@ -7,7 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCalendar } from 'ngx-daisy/calendar';
+import { DsyCalendar } from '@ngx-daisy/cdk/calendar';
 
 interface ExampleValues {
   readonly hidden?: ReturnType<DsyCalendar['hidden']>;

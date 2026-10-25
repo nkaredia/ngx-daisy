@@ -7,13 +7,13 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   DsyDropdown,
   DsyDropdownTrigger,
   DsyDropdownContent,
   DsyDropdownItem,
-} from 'ngx-daisy/dropdown';
+} from '@ngx-daisy/cdk/dropdown';
 
 interface DropdownValues {
   readonly opened?: ReturnType<DsyDropdown['opened']>;

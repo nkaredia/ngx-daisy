@@ -5,7 +5,7 @@ import {
   DsyMenuDropdown,
   DsyMenuDropdownToggle,
   DsyMenuTitle,
-} from 'ngx-daisy/menu';
+} from '@ngx-daisy/cdk/menu';
 import type { Playground } from '../playground/playground.types';
 import { MenuExample } from './example/menu-example';
 

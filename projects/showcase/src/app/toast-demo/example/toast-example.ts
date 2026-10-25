@@ -6,8 +6,8 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyToastOutlet, DsyToastService } from 'ngx-daisy/toast';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyToastOutlet, DsyToastService } from '@ngx-daisy/cdk/toast';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface ExampleValues {
   readonly horizontal?: ReturnType<DsyToastOutlet['horizontal']>;

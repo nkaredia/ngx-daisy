@@ -1,5 +1,5 @@
 import { Directive, inject, input } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DSY_MODAL } from './modal-context';
 @Directive({ selector: 'button[dsyModalClose]', standalone: true, host: { '(click)': 'close()' } })
 export class DsyModalClose {

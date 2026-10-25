@@ -9,9 +9,9 @@ import {
   signal,
   Injectable,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { DsyAlert } from 'ngx-daisy/alert';
+import { DsyAlert } from '@ngx-daisy/cdk/alert';
 export interface DsyToastOptions {
   color?: 'info' | 'success' | 'warning' | 'error';
   duration?: number;

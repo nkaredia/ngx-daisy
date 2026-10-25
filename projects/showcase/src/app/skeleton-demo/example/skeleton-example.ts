@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsySkeleton } from 'ngx-daisy/skeleton';
+import { DsySkeleton } from '@ngx-daisy/cdk/skeleton';
 
 interface ExampleValues {
   readonly text?: ReturnType<DsySkeleton['text']>;

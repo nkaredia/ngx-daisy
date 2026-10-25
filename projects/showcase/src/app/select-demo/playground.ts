@@ -1,4 +1,4 @@
-import { DsySelect } from 'ngx-daisy/select';
+import { DsySelect } from '@ngx-daisy/cdk/select';
 import type { Playground } from '../playground/playground.types';
 import { SelectExample } from './example/select-example';
 

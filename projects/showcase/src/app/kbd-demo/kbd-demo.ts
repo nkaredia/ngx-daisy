@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyKbd } from 'ngx-daisy/kbd';
+import { DsyKbd } from '@ngx-daisy/cdk/kbd';
 
 @Component({
   selector: 'demo-kbd-demo',

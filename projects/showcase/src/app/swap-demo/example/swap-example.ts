@@ -6,7 +6,7 @@ import {
   linkedSignal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsySwap } from 'ngx-daisy/swap';
+import { DsySwap } from '@ngx-daisy/cdk/swap';
 
 interface SwapValues {
   readonly checked?: ReturnType<DsySwap['checked']>;

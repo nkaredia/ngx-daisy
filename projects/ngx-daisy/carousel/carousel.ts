@@ -14,7 +14,7 @@ import {
   contentChildren,
   signal,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Directive({
   selector: '[dsyCarouselItem]',
   host: {

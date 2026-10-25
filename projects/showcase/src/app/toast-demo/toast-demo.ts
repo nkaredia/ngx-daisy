@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyToast, DsyToastOutlet, DsyToastService } from 'ngx-daisy/toast';
+import { DsyToast, DsyToastOutlet, DsyToastService } from '@ngx-daisy/cdk/toast';
 
 @Component({
   providers: providePlayground(playground),

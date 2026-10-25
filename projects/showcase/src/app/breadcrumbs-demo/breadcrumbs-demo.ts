@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyBreadcrumbs } from 'ngx-daisy/breadcrumbs';
+import { DsyBreadcrumbs } from '@ngx-daisy/cdk/breadcrumbs';
 
 @Component({
   selector: 'demo-breadcrumbs-demo',

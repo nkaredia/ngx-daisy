@@ -74,7 +74,7 @@ test('resolves multiple source classes and transforms metadata without changing 
     const playgroundPath = join(directory, 'playground.ts');
     await writeFile(
       playgroundPath,
-      `import { DsyButton as Button } from 'ngx-daisy/button';
+      `import { DsyButton as Button } from '@ngx-daisy/cdk/button';
       import { Control } from './control';
       // handwritten configuration stays
       export const playground = { label: 'Preserve me', components: [
@@ -170,7 +170,7 @@ test('resolves multiple source classes and transforms metadata without changing 
       platform: 'node',
       format: 'cjs',
       metafile: true,
-      external: ['@angular/core', 'ngx-daisy/*'],
+      external: ['@angular/core', '@ngx-daisy/cdk/*'],
       plugins: [
         {
           name: 'angular-compiler-probe',

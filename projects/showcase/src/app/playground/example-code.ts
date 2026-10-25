@@ -1,6 +1,6 @@
 import { LucideDynamicIcon, LucideCode, LucideCopy } from '@lucide/angular';
-import { DsyIcon } from 'ngx-daisy/icon';
-import { DsyTooltip } from 'ngx-daisy/tooltip';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
 import { Clipboard } from '@angular/cdk/clipboard';
 import {
   ChangeDetectionStrategy,
@@ -12,8 +12,8 @@ import {
   model,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyTabs, DsyTab, DsyTabPanel } from 'ngx-daisy/tabs';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyTabs, DsyTab, DsyTabPanel } from '@ngx-daisy/cdk/tabs';
 import type { PlaygroundSourceFile } from './playground.types';
 
 let nextCodeId = 0;

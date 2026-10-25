@@ -1,4 +1,4 @@
-import { DsyMockupWindow } from 'ngx-daisy/mockup-window';
+import { DsyMockupWindow } from '@ngx-daisy/cdk/mockup-window';
 import type { Playground } from '../playground/playground.types';
 import { MockupWindowExample } from './example/mockup-window-example';
 

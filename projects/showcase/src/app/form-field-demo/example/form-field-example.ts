@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyFormField, DsyHint } from 'ngx-daisy/form-field';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyFormField, DsyHint } from '@ngx-daisy/cdk/form-field';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 
 interface ExampleValues {
   readonly label?: ReturnType<DsyFormField['label']>;

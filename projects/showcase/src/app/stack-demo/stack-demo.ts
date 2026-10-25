@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyStack } from 'ngx-daisy/stack';
+import { DsyStack } from '@ngx-daisy/cdk/stack';
 
 @Component({
   selector: 'demo-stack-demo',

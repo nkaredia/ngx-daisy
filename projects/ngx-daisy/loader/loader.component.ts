@@ -7,7 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 
 export type DsyLoaderVariant = 'spinner' | 'ring' | 'dots' | 'bars' | 'ball' | 'infinity' | 'bar';
 export type DsyLoaderPlacement = 'inline' | 'overlay' | 'page';

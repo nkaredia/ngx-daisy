@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyAvatar, DsyAvatarGroup } from 'ngx-daisy/avatar';
+import { DsyAvatar, DsyAvatarGroup } from '@ngx-daisy/cdk/avatar';
 
 @Component({
   selector: 'demo-avatar-demo',

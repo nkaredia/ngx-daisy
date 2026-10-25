@@ -8,7 +8,13 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyChat, DsyChatHeader, DsyChatBubble, DsyChatFooter, DsyChatImage } from 'ngx-daisy/chat';
+import {
+  DsyChat,
+  DsyChatHeader,
+  DsyChatBubble,
+  DsyChatFooter,
+  DsyChatImage,
+} from '@ngx-daisy/cdk/chat';
 
 @Component({
   selector: 'demo-chat-demo',

@@ -1,7 +1,7 @@
 import { Component, input, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DsyTooltip } from 'ngx-daisy/tooltip';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
 import { Playground } from './playground.component';
 import { providePlayground } from './provide-playground';
 import type {

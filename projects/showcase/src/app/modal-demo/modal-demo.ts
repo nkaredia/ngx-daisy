@@ -2,7 +2,7 @@ import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   DsyModal,
   DsyModalTitle,
@@ -10,7 +10,7 @@ import {
   DsyModalActions,
   DsyModalClose,
   DsyModalPlacement,
-} from 'ngx-daisy/modal';
+} from '@ngx-daisy/cdk/modal';
 @Component({
   selector: 'demo-modal-demo',
   standalone: true,

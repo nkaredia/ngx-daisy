@@ -6,7 +6,7 @@ import {
   computed,
   numberAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'dsy-radial-progress, [dsyRadialProgress]',
   standalone: true,

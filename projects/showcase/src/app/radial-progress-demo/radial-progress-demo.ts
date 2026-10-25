@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyRadialProgress } from 'ngx-daisy/radial-progress';
+import { DsyRadialProgress } from '@ngx-daisy/cdk/radial-progress';
 
 @Component({
   providers: providePlayground(playground),

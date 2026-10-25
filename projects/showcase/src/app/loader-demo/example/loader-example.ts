@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyLoader } from 'ngx-daisy/loader';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyLoader } from '@ngx-daisy/cdk/loader';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface ExampleValues {
   readonly variant?: ReturnType<DsyLoader['variant']>;

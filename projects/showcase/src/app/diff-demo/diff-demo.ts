@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyDiff } from 'ngx-daisy/diff';
+import { DsyDiff } from '@ngx-daisy/cdk/diff';
 
 @Component({
   selector: 'demo-diff-demo',

@@ -7,8 +7,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyTooltip } from 'ngx-daisy/tooltip';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 
 interface ExampleValues {
   readonly text?: ReturnType<DsyTooltip['text']>;

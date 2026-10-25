@@ -34,7 +34,7 @@ Recovered from the complete “Plan Angular Design System” execution history a
 - Signal-based inputs, outputs, state, computed values, models where appropriate, signal queries and inject(). Use built-in template control flow.
 - Component selectors use dsy-, native element selectors/directives use dsy, and TypeScript classes use Dsy.
 - Scope any library-specific global styles carefully.
-- Preserve daisyUI's CSS configuration surface: arbitrary built-in/custom/nested themes, scoped roots, include/exclude, class prefix and build logging. Support Tailwind's optional class prefix too. Apps own CSS configuration; match runtime class prefixes through the `ngx-daisy/config` provider. Keep styles utility-overridable and inherit applicable theme tokens. Provide panel/backdrop styling hooks for the drawer. Validate native CSS configurations alongside behavior tests; see `docs/daisyui-customization.md` for the support matrix and interaction/layout boundaries.
+- Preserve daisyUI's CSS configuration surface: arbitrary built-in/custom/nested themes, scoped roots, include/exclude, class prefix and build logging. Support Tailwind's optional class prefix too. Apps own CSS configuration; match runtime class prefixes through the `@ngx-daisy/cdk/config` provider. Keep styles utility-overridable and inherit applicable theme tokens. Provide panel/backdrop styling hooks for the drawer. Validate native CSS configurations alongside behavior tests; see `docs/daisyui-customization.md` for the support matrix and interaction/layout boundaries.
 
 ## Workspace and packaging
 
@@ -43,7 +43,7 @@ Recovered from the complete “Plan Angular Design System” execution history a
 - Use an Angular CLI multi-project workspace with a library and docs/showcase application. Prefer CLI commands and generators wherever possible.
 - Give every component family its own lazy-loaded showcase page. The shared showcase catalog lists all current component routes, each with a descriptive browser title. Use one shared catalog for route definitions and responsive component navigation. Keep theme selection in the shared shell so it persists while navigating. Redirect the root URL and unknown paths to `/buttons`.
 - One ng-packagr library; each component family has its own secondary entry point with ng-package.json and public-api.ts. Keep components out of the root barrel and support tree shaking.
-- The requested @ngx-daisy/button spelling was discussed, but it names a separate npm package rather than a secondary entry point. The final published package name remains unresolved. Preserve ngx-daisy/button as a private local placeholder until naming is settled.
+- The package name is `@ngx-daisy/cdk`; component families use secondary entry points such as `@ngx-daisy/cdk/button`. The package remains private until publishing is configured.
 - Local project path: /Users/noorsil/workspace/ngx-daisy.
 
 ## Recreated starter

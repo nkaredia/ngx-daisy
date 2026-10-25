@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyRange } from 'ngx-daisy/range';
+import { DsyRange } from '@ngx-daisy/cdk/range';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyRange['color']>;

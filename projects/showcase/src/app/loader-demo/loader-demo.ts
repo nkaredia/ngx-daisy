@@ -9,7 +9,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   DsyLoader,
   type DsyLoaderAnimation,
@@ -17,7 +17,7 @@ import {
   type DsyLoaderSize,
   type DsyLoaderSpeed,
   type DsyLoaderVariant,
-} from 'ngx-daisy/loader';
+} from '@ngx-daisy/cdk/loader';
 
 @Component({
   providers: providePlayground(playground),

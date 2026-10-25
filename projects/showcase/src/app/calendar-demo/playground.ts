@@ -1,4 +1,4 @@
-import { DsyCalendar } from 'ngx-daisy/calendar';
+import { DsyCalendar } from '@ngx-daisy/cdk/calendar';
 import type { Playground } from '../playground/playground.types';
 import { CalendarExample } from './example/calendar-example';
 

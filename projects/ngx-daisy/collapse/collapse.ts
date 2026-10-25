@@ -14,9 +14,9 @@ import {
   untracked,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
-import { DsyIdGenerator } from 'ngx-daisy/overlay';
+import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
 @Component({
   selector: 'dsy-collapse',
   hostDirectives: [CdkAccordionItem],

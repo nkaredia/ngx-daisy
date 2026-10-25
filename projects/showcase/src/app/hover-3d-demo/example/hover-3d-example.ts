@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyHover3d } from 'ngx-daisy/hover-3d';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyHover3d } from '@ngx-daisy/cdk/hover-3d';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 export interface Hover3dExampleValues {
   readonly disabled?: ReturnType<DsyHover3d['disabled']>;
 }

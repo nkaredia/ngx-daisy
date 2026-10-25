@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions } from 'ngx-daisy/card';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions } from '@ngx-daisy/cdk/card';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 export interface CardExampleValues {
   readonly size?: ReturnType<DsyCard['size']>;
   readonly border?: ReturnType<DsyCard['border']>;

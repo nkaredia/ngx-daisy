@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyIndicator, DsyIndicatorItem } from 'ngx-daisy/indicator';
+import { DsyIndicator, DsyIndicatorItem } from '@ngx-daisy/cdk/indicator';
 
 @Component({
   selector: 'demo-indicator-demo',

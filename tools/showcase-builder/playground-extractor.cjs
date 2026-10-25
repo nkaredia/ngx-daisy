@@ -161,8 +161,8 @@ async function extractPlaygrounds(tsConfig, workspaceRoot, logger) {
     strictNullChecks: true,
     paths: {
       ...config.options.paths,
-      'ngx-daisy': [resolve(workspaceRoot, 'projects/ngx-daisy/public-api.ts')],
-      'ngx-daisy/*': [resolve(workspaceRoot, 'projects/ngx-daisy/*/public-api.ts')],
+      '@ngx-daisy/cdk': [resolve(workspaceRoot, 'projects/ngx-daisy/src/public-api.ts')],
+      '@ngx-daisy/cdk/*': [resolve(workspaceRoot, 'projects/ngx-daisy/*/public-api.ts')],
     },
   };
   const program = ts.createProgram(paths, options);

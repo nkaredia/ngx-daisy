@@ -1,4 +1,4 @@
-import { DsyFilter } from 'ngx-daisy/filter';
+import { DsyFilter } from '@ngx-daisy/cdk/filter';
 import type { Playground } from '../playground/playground.types';
 import { FilterExample } from './example/filter-example';
 

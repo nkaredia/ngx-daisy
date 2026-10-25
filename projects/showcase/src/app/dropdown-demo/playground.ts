@@ -1,4 +1,4 @@
-import { DsyDropdown } from 'ngx-daisy/dropdown';
+import { DsyDropdown } from '@ngx-daisy/cdk/dropdown';
 import type { Playground } from '../playground/playground.types';
 import { DropdownExample } from './example/dropdown-example';
 

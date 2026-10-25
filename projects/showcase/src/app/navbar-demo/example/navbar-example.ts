@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
   signal,
 } from '@angular/core';
-import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from 'ngx-daisy/navbar';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from '@ngx-daisy/cdk/navbar';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface NavbarValues {
   readonly label?: ReturnType<DsyNavbar['label']>;

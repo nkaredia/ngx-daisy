@@ -1,4 +1,4 @@
-# ngx-daisy/tooltip
+# @ngx-daisy/cdk/tooltip
 
 Standalone Angular tooltips with daisyUI appearance. See the [component guide](../../../docs/remaining-components.md) for imports, APIs, examples and behavior. Showcase: `/tooltips`.
 

@@ -1,5 +1,5 @@
 import { afterRenderEffect, Directive, ElementRef, inject, input, output } from '@angular/core';
-import { DSY_DAISYUI_CONFIG } from 'ngx-daisy/config';
+import { DSY_DAISYUI_CONFIG } from '@ngx-daisy/cdk/config';
 export interface DsyThemeControllerChange {
   theme: string;
   checked: boolean;

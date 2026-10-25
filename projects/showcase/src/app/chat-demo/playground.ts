@@ -1,4 +1,4 @@
-import { DsyChat, DsyChatBubble } from 'ngx-daisy/chat';
+import { DsyChat, DsyChatBubble } from '@ngx-daisy/cdk/chat';
 import type { Playground } from '../playground/playground.types';
 import { ChatExample } from './example/chat-example';
 export const playground: Playground = {

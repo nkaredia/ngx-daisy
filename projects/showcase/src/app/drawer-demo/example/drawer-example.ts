@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
   linkedSignal,
 } from '@angular/core';
-import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from 'ngx-daisy/drawer';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/drawer';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface DrawerValues {
   readonly opened?: ReturnType<DsyDrawer['opened']>;

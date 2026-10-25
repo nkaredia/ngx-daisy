@@ -14,8 +14,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DsyNativeControl } from 'ngx-daisy/form-field';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DsyNativeControl } from '@ngx-daisy/cdk/form-field';
 const colors = {
   neutral: 'textarea-neutral',
   primary: 'textarea-primary',

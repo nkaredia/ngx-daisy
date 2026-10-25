@@ -4,10 +4,10 @@ import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { form, FormField } from '@angular/forms/signals';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyCalendar } from 'ngx-daisy/calendar';
-import { DsyFormField } from 'ngx-daisy/form-field';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyCalendar } from '@ngx-daisy/cdk/calendar';
+import { DsyFormField } from '@ngx-daisy/cdk/form-field';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-calendar-demo',

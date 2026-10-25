@@ -8,8 +8,8 @@ import {
   input,
   output,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DSY_FAB } from './fab-context';
 @Directive({
   selector: 'button[dsyFabTrigger]',

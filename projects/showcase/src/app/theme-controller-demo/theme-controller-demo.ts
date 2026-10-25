@@ -2,8 +2,8 @@ import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
-import { DsyThemeController } from 'ngx-daisy/theme-controller';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyThemeController } from '@ngx-daisy/cdk/theme-controller';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 @Component({
   selector: 'demo-theme-controller-demo',
   standalone: true,

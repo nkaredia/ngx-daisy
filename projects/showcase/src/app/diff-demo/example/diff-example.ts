@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyDiff } from 'ngx-daisy/diff';
+import { DsyDiff } from '@ngx-daisy/cdk/diff';
 export interface DiffExampleValues {
   readonly position?: ReturnType<DsyDiff['position']>;
   readonly label?: ReturnType<DsyDiff['label']>;

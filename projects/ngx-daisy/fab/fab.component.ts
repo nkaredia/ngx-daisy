@@ -17,8 +17,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FocusKeyManager } from '@angular/cdk/a11y';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DsyIdGenerator } from 'ngx-daisy/overlay';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
 import { DSY_FAB } from './fab-context';
 import { DsyFabAction, DsyFabTrigger } from './fab-parts';
 export type DsyFabLayout = 'vertical' | 'flower';

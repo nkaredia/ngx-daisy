@@ -7,7 +7,7 @@ import {
   signal,
   linkedSignal,
 } from '@angular/core';
-import { DsyDock, DsyDockItem, DsyDockLabel } from 'ngx-daisy/dock';
+import { DsyDock, DsyDockItem, DsyDockLabel } from '@ngx-daisy/cdk/dock';
 
 interface DockValues {
   readonly size?: ReturnType<DsyDock['size']>;

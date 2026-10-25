@@ -6,7 +6,7 @@ import {
   forwardRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DSY_DRAWER_CONTAINER } from './drawer-context';
 import { DsyDrawer } from './drawer.component';
 

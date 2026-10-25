@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyBadge } from 'ngx-daisy/badge';
+import { DsyBadge } from '@ngx-daisy/cdk/badge';
 
 @Component({
   selector: 'demo-badge-demo',

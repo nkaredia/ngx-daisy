@@ -1,4 +1,4 @@
-import { DsyBreadcrumbs } from 'ngx-daisy/breadcrumbs';
+import { DsyBreadcrumbs } from '@ngx-daisy/cdk/breadcrumbs';
 import type { Playground } from '../playground/playground.types';
 import { BreadcrumbsExample } from './example/breadcrumbs-example';
 

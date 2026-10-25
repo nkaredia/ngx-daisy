@@ -4,7 +4,7 @@ import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { form, FormField } from '@angular/forms/signals';
-import { DsyRating } from 'ngx-daisy/rating';
+import { DsyRating } from '@ngx-daisy/cdk/rating';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-rating-demo',

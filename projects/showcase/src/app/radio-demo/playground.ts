@@ -1,4 +1,4 @@
-import { DsyRadioGroup } from 'ngx-daisy/radio';
+import { DsyRadioGroup } from '@ngx-daisy/cdk/radio';
 import type { Playground } from '../playground/playground.types';
 import { RadioExample } from './example/radio-example';
 

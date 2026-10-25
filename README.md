@@ -46,9 +46,9 @@ The shared shell provides responsive component navigation and a theme switch tha
 - Prefer Angular CLI generators. Workspace component defaults enforce OnPush and no encapsulation.
 - Give each component family a dedicated showcase route. Keep navigation and route definitions in the shared component catalog.
 
-## Package name is provisional
+## Package
 
-`ngx-daisy` is a local build placeholder and the package is private. The published name is undecided. A scoped package needs both scope and package name before secondary entry points. No publishing is configured.
+`@ngx-daisy/cdk` is the private package name. Component families are exposed through secondary entry points such as `@ngx-daisy/cdk/button`. No publishing is configured.
 
 ## Data Inputs and forms
 
@@ -75,11 +75,11 @@ Apps own icon package installation, imports, registration and tree shaking. The 
 <dsy-loader variant="ring" [value]="75" color="success" aria-label="Upload progress" />
 ```
 
-Import it from `ngx-daisy/loader`. The showcase demonstrates the variants, animation controls and placement options. See the [loader guide](projects/ngx-daisy/loader/README.md) for accessibility, progress and styling. Apps control when loaders appear and how loading affects interactions.
+Import it from `@ngx-daisy/cdk/loader`. The showcase demonstrates the variants, animation controls and placement options. See the [loader guide](projects/ngx-daisy/loader/README.md) for accessibility, progress and styling. Apps control when loaders appear and how loading affects interactions.
 
 ## Drawers
 
-Compose `DsyDrawerContainer`, `DsyDrawerContent` and `DsyDrawer` from `ngx-daisy/drawer` for a persistent side panel or a modal viewport drawer. The panel projects app navigation and controls, supports logical start/end positions and exposes a two-way `opened` model. Modal mode manages the backdrop, focus trap, background interaction and scroll locking. See the [drawer guide](projects/ngx-daisy/drawer/README.md) for layout, dismissal and accessible controls.
+Compose `DsyDrawerContainer`, `DsyDrawerContent` and `DsyDrawer` from `@ngx-daisy/cdk/drawer` for a persistent side panel or a modal viewport drawer. The panel projects app navigation and controls, supports logical start/end positions and exposes a two-way `opened` model. Modal mode manages the backdrop, focus trap, background interaction and scroll locking. See the [drawer guide](projects/ngx-daisy/drawer/README.md) for layout, dismissal and accessible controls.
 
 ## Current scope
 
@@ -87,9 +87,9 @@ Implemented: all 15 daisyUI Data Input families with Signal Forms, typed Reactiv
 
 ## Consumer styling
 
-All daisyUI CSS configuration stays in the consuming app. For custom class prefixes, add `provideDaisyUI` from `ngx-daisy/config` with the matching daisyUI and/or Tailwind prefix. See the [configuration and customization guide](docs/daisyui-customization.md) for the option matrix, themes, scoped roots, source detection, utility overrides, component variables and drawer panel styling. `yarn test` includes the CSS compatibility matrix; run it separately with `yarn test:styles`.
+All daisyUI CSS configuration stays in the consuming app. For custom class prefixes, add `provideDaisyUI` from `@ngx-daisy/cdk/config` with the matching daisyUI and/or Tailwind prefix. See the [configuration and customization guide](docs/daisyui-customization.md) for the option matrix, themes, scoped roots, source detection, utility overrides, component variables and drawer panel styling. `yarn test` includes the CSS compatibility matrix; run it separately with `yarn test:styles`.
 
-Consumers compile Tailwind CSS and daisyUI. Include the library distribution in Tailwind source detection, e.g. `@source "../node_modules/ngx-daisy";`, adjusted relative to the stylesheet. The showcase demonstrates this against `dist/ngx-daisy`. Button class names are literal so Tailwind can discover them. Apps choose daisyUI themes through `data-theme`.
+Consumers compile Tailwind CSS and daisyUI. Include the library distribution in Tailwind source detection, e.g. `@source "../node_modules/@ngx-daisy/cdk";`, adjusted relative to the stylesheet. The showcase demonstrates this against `dist/ngx-daisy`. Button class names are literal so Tailwind can discover them. Apps choose daisyUI themes through `data-theme`.
 
 ## Data Display
 

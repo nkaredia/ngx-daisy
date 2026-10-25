@@ -2,7 +2,7 @@ import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   DsyDropdown,
   DsyDropdownTrigger,
@@ -10,7 +10,7 @@ import {
   DsyDropdownItem,
   DsyDropdownPlacement,
   DsyDropdownAlign,
-} from 'ngx-daisy/dropdown';
+} from '@ngx-daisy/cdk/dropdown';
 @Component({
   selector: 'demo-dropdown-demo',
   standalone: true,

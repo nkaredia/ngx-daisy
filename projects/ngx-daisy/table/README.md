@@ -1,4 +1,4 @@
-# ngx-daisy/table
+# @ngx-daisy/cdk/table
 
 Standalone Angular table family with daisyUI styling. See the [Data Display guide](../../../docs/data-display.md) for exports, examples, behavior and customization.
 

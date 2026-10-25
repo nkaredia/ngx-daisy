@@ -7,7 +7,7 @@ import {
   computed,
   booleanAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'ul[dsyTimeline], ol[dsyTimeline]',
   standalone: true,

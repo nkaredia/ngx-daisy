@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyInput['color']>;

@@ -1,4 +1,4 @@
-import { DsyCard } from 'ngx-daisy/card';
+import { DsyCard } from '@ngx-daisy/cdk/card';
 import type { Playground } from '../playground/playground.types';
 import { CardExample } from './example/card-example';
 export const playground: Playground = {

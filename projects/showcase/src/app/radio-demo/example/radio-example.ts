@@ -7,7 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyRadioGroup, DsyRadioButton } from 'ngx-daisy/radio';
+import { DsyRadioGroup, DsyRadioButton } from '@ngx-daisy/cdk/radio';
 
 interface ExampleValues {
   readonly hidden?: ReturnType<DsyRadioGroup['hidden']>;

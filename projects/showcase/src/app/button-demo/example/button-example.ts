@@ -12,7 +12,7 @@ import {
   DsyButtonShape,
   DsyButtonSize,
   DsyButtonVariant,
-} from 'ngx-daisy/button';
+} from '@ngx-daisy/cdk/button';
 
 export interface ButtonExampleValues {
   readonly color?: DsyButtonColor;

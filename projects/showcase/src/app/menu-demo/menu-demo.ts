@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMenu, DsyMenuItem, DsyMenuTitle, DsyMenuSubmenu } from 'ngx-daisy/menu';
+import { DsyMenu, DsyMenuItem, DsyMenuTitle, DsyMenuSubmenu } from '@ngx-daisy/cdk/menu';
 
 @Component({
   selector: 'demo-menu-demo',

@@ -16,14 +16,14 @@ import {
   TemplateRef,
   Injector,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { NgTemplateOutlet } from '@angular/common';
 import { CdkConnectedOverlay, ConnectedPosition } from '@angular/cdk/overlay';
 import { FocusKeyManager, InteractivityChecker } from '@angular/cdk/a11y';
 import { Directionality } from '@angular/cdk/bidi';
 import { Platform } from '@angular/cdk/platform';
 import { afterNextRender, afterRenderEffect, viewChild, signal } from '@angular/core';
-import { DsyIdGenerator, DsyOverlayTheme } from 'ngx-daisy/overlay';
+import { DsyIdGenerator, DsyOverlayTheme } from '@ngx-daisy/cdk/overlay';
 @Directive({ selector: 'ng-template[dsyMegamenuItem]' })
 export class DsyMegamenuItem {
   readonly label = input.required<string>({ alias: 'dsyMegamenuItem' });

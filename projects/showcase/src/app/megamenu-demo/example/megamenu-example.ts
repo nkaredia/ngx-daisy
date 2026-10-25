@@ -6,7 +6,7 @@ import {
   ViewEncapsulation,
   linkedSignal,
 } from '@angular/core';
-import { DsyMegamenu, DsyMegamenuItem } from 'ngx-daisy/megamenu';
+import { DsyMegamenu, DsyMegamenuItem } from '@ngx-daisy/cdk/megamenu';
 
 interface MegamenuValues {
   readonly activeIndex?: ReturnType<DsyMegamenu['activeIndex']>;

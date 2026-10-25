@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMegamenu, DsyMegamenuItem } from 'ngx-daisy/megamenu';
+import { DsyMegamenu, DsyMegamenuItem } from '@ngx-daisy/cdk/megamenu';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';

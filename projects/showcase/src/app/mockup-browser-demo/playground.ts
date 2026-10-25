@@ -1,4 +1,4 @@
-import { DsyMockupBrowser, DsyBrowserToolbar } from 'ngx-daisy/mockup-browser';
+import { DsyMockupBrowser, DsyBrowserToolbar } from '@ngx-daisy/cdk/mockup-browser';
 import type { Playground } from '../playground/playground.types';
 import { MockupBrowserExample } from './example/mockup-browser-example';
 

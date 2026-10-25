@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyHero, DsyHeroContent, DsyHeroOverlay } from 'ngx-daisy/hero';
+import { DsyHero, DsyHeroContent, DsyHeroOverlay } from '@ngx-daisy/cdk/hero';
 
 @Component({
   selector: 'demo-hero-demo',

@@ -2,14 +2,14 @@
 
 All six [daisyUI Actions families](https://daisyui.com/components/) are available as tree-shakable secondary entry points. Apps compile daisyUI and Tailwind; see [configuration](daisyui-customization.md). Every family has a dedicated showcase route.
 
-| Family           | Import                       | Showcase             |
-| ---------------- | ---------------------------- | -------------------- |
-| Button           | `ngx-daisy/button`           | `/buttons`           |
-| Dropdown         | `ngx-daisy/dropdown`         | `/dropdowns`         |
-| FAB / Speed Dial | `ngx-daisy/fab`              | `/fabs`              |
-| Modal            | `ngx-daisy/modal`            | `/modals`            |
-| Swap             | `ngx-daisy/swap`             | `/swaps`             |
-| Theme Controller | `ngx-daisy/theme-controller` | `/theme-controllers` |
+| Family           | Import                            | Showcase             |
+| ---------------- | --------------------------------- | -------------------- |
+| Button           | `@ngx-daisy/cdk/button`           | `/buttons`           |
+| Dropdown         | `@ngx-daisy/cdk/dropdown`         | `/dropdowns`         |
+| FAB / Speed Dial | `@ngx-daisy/cdk/fab`              | `/fabs`              |
+| Modal            | `@ngx-daisy/cdk/modal`            | `/modals`            |
+| Swap             | `@ngx-daisy/cdk/swap`             | `/swaps`             |
+| Theme Controller | `@ngx-daisy/cdk/theme-controller` | `/theme-controllers` |
 
 ## Button
 

@@ -15,11 +15,11 @@ import {
   numberAttribute,
   contentChildren,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Directionality } from '@angular/cdk/bidi';
 import { FocusKeyManager } from '@angular/cdk/a11y';
-import { DsyIdGenerator } from 'ngx-daisy/overlay';
+import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
 @Directive({
   selector: 'button[dsyTab]',
   host: {

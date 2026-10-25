@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsySteps, DsyStep, DsyStepIcon } from 'ngx-daisy/steps';
+import { DsySteps, DsyStep, DsyStepIcon } from '@ngx-daisy/cdk/steps';
 
 interface StepsValues {
   readonly orientation?: ReturnType<DsySteps['orientation']>;

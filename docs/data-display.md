@@ -2,35 +2,35 @@
 
 All 19 families from the installed daisyUI 5.7 catalog have standalone secondary entry points and dedicated lazy showcase routes. Import only the families an application uses. The root package remains empty. Appearance comes from daisyUI; Angular signals, native semantics and CDK provide behavior.
 
-| Entry point               | Exports and options                                                                                                                                                                                  | Showcase           |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| `ngx-daisy/accordion`     | `DsyAccordion`: `multi`, `openAll()`, `closeAll()`; CDK coordinates child `DsyCollapse` items                                                                                                        | `/accordions`      |
-| `ngx-daisy/avatar`        | `DsyAvatar`: `status` none/online/offline, `placeholder`; `DsyAvatarGroup`                                                                                                                           | `/avatars`         |
-| `ngx-daisy/aura`          | `DsyAura`: `preset` gold/silver/rainbow/holo, `size`, `dual`, `glow`                                                                                                                                 | `/auras`           |
-| `ngx-daisy/badge`         | `DsyBadge`: semantic `color`, `size`, `variant` solid/outline/dash/soft/ghost                                                                                                                        | `/badges`          |
-| `ngx-daisy/card`          | `DsyCard`: `size`, `border` none/solid/dash, `side`, `imageFull`; `DsyCardBody`, `DsyCardTitle`, `DsyCardActions`                                                                                    | `/cards`           |
-| `ngx-daisy/carousel`      | `DsyCarousel`, `DsyCarouselItem`: `activeIndex` model, `vertical`, `snap` start/center/end, `loop`, `controls`, `label`, `controlsClass`, `buttonClass`, `previousLabel`, `nextLabel`; slide `label` | `/carousels`       |
-| `ngx-daisy/chat`          | `DsyChat`: `position` start/end; `DsyChatBubble`: `color`; `DsyChatHeader`, `DsyChatFooter`, `DsyChatImage`                                                                                          | `/chat`            |
-| `ngx-daisy/collapse`      | `DsyCollapse`: `opened` model, `title`, `disabled`, `indicator` arrow/plus/none, `titleClass`, `contentClass`                                                                                        | `/collapses`       |
-| `ngx-daisy/countdown`     | `DsyCountdown`: numeric `value` 0–999, `digits` 1/2/3                                                                                                                                                | `/countdowns`      |
-| `ngx-daisy/diff`          | `DsyDiff`: `position` model 0–100, `label`, `disabled`, `stageClass`, `sliderClass`                                                                                                                  | `/diffs`           |
-| `ngx-daisy/hover-3d`      | `DsyHover3d`: `disabled`; projected content retains working links/buttons                                                                                                                            | `/hover-3d`        |
-| `ngx-daisy/hover-gallery` | `DsyHoverGallery`: `images` array of `DsyGalleryImage` (`src`, `alt`), `activeIndex` model, `label`                                                                                                  | `/hover-galleries` |
-| `ngx-daisy/kbd`           | `DsyKbd` on native `<kbd>`: `size`                                                                                                                                                                   | `/keyboard`        |
-| `ngx-daisy/list`          | `DsyList` on `<ul>`/`<ol>`, `DsyListRow` on `<li>`, `DsyListGrow`, `DsyListWrap`                                                                                                                     | `/lists`           |
-| `ngx-daisy/stat`          | `DsyStats`: `orientation` horizontal/vertical; `DsyStat`, `DsyStatTitle`, `DsyStatValue`, `DsyStatDesc`, `DsyStatFigure`, `DsyStatActions`                                                           | `/stats`           |
-| `ngx-daisy/status`        | `DsyStatus`: `color`, `size`; pair with visible text or an application-supplied accessible label                                                                                                     | `/statuses`        |
-| `ngx-daisy/table`         | `DsyTable`, `DsyTableDataSource<T>`, `DsySort`, `DsySortHeader`, CDK table declarations                                                                                                              | `/tables`          |
-| `ngx-daisy/text-rotate`   | `DsyTextRotate`: `items` (native animation supports 2–6 phrases), `duration` milliseconds, `running`, stable `label`                                                                                 | `/text-rotate`     |
-| `ngx-daisy/timeline`      | `DsyTimeline` on `<ul>`/`<ol>`: `orientation`, `compact`, `snapIcon`; `DsyTimelineStart`, `DsyTimelineMiddle`, `DsyTimelineEnd`, `DsyTimelineBox`                                                    | `/timelines`       |
+| Entry point                    | Exports and options                                                                                                                                                                                  | Showcase           |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| `@ngx-daisy/cdk/accordion`     | `DsyAccordion`: `multi`, `openAll()`, `closeAll()`; CDK coordinates child `DsyCollapse` items                                                                                                        | `/accordions`      |
+| `@ngx-daisy/cdk/avatar`        | `DsyAvatar`: `status` none/online/offline, `placeholder`; `DsyAvatarGroup`                                                                                                                           | `/avatars`         |
+| `@ngx-daisy/cdk/aura`          | `DsyAura`: `preset` gold/silver/rainbow/holo, `size`, `dual`, `glow`                                                                                                                                 | `/auras`           |
+| `@ngx-daisy/cdk/badge`         | `DsyBadge`: semantic `color`, `size`, `variant` solid/outline/dash/soft/ghost                                                                                                                        | `/badges`          |
+| `@ngx-daisy/cdk/card`          | `DsyCard`: `size`, `border` none/solid/dash, `side`, `imageFull`; `DsyCardBody`, `DsyCardTitle`, `DsyCardActions`                                                                                    | `/cards`           |
+| `@ngx-daisy/cdk/carousel`      | `DsyCarousel`, `DsyCarouselItem`: `activeIndex` model, `vertical`, `snap` start/center/end, `loop`, `controls`, `label`, `controlsClass`, `buttonClass`, `previousLabel`, `nextLabel`; slide `label` | `/carousels`       |
+| `@ngx-daisy/cdk/chat`          | `DsyChat`: `position` start/end; `DsyChatBubble`: `color`; `DsyChatHeader`, `DsyChatFooter`, `DsyChatImage`                                                                                          | `/chat`            |
+| `@ngx-daisy/cdk/collapse`      | `DsyCollapse`: `opened` model, `title`, `disabled`, `indicator` arrow/plus/none, `titleClass`, `contentClass`                                                                                        | `/collapses`       |
+| `@ngx-daisy/cdk/countdown`     | `DsyCountdown`: numeric `value` 0–999, `digits` 1/2/3                                                                                                                                                | `/countdowns`      |
+| `@ngx-daisy/cdk/diff`          | `DsyDiff`: `position` model 0–100, `label`, `disabled`, `stageClass`, `sliderClass`                                                                                                                  | `/diffs`           |
+| `@ngx-daisy/cdk/hover-3d`      | `DsyHover3d`: `disabled`; projected content retains working links/buttons                                                                                                                            | `/hover-3d`        |
+| `@ngx-daisy/cdk/hover-gallery` | `DsyHoverGallery`: `images` array of `DsyGalleryImage` (`src`, `alt`), `activeIndex` model, `label`                                                                                                  | `/hover-galleries` |
+| `@ngx-daisy/cdk/kbd`           | `DsyKbd` on native `<kbd>`: `size`                                                                                                                                                                   | `/keyboard`        |
+| `@ngx-daisy/cdk/list`          | `DsyList` on `<ul>`/`<ol>`, `DsyListRow` on `<li>`, `DsyListGrow`, `DsyListWrap`                                                                                                                     | `/lists`           |
+| `@ngx-daisy/cdk/stat`          | `DsyStats`: `orientation` horizontal/vertical; `DsyStat`, `DsyStatTitle`, `DsyStatValue`, `DsyStatDesc`, `DsyStatFigure`, `DsyStatActions`                                                           | `/stats`           |
+| `@ngx-daisy/cdk/status`        | `DsyStatus`: `color`, `size`; pair with visible text or an application-supplied accessible label                                                                                                     | `/statuses`        |
+| `@ngx-daisy/cdk/table`         | `DsyTable`, `DsyTableDataSource<T>`, `DsySort`, `DsySortHeader`, CDK table declarations                                                                                                              | `/tables`          |
+| `@ngx-daisy/cdk/text-rotate`   | `DsyTextRotate`: `items` (native animation supports 2–6 phrases), `duration` milliseconds, `running`, stable `label`                                                                                 | `/text-rotate`     |
+| `@ngx-daisy/cdk/timeline`      | `DsyTimeline` on `<ul>`/`<ol>`: `orientation`, `compact`, `snapIcon`; `DsyTimelineStart`, `DsyTimelineMiddle`, `DsyTimelineEnd`, `DsyTimelineBox`                                                    | `/timelines`       |
 
 Sizes are `xs`, `sm`, `md` (default), `lg`, `xl`. Colors are optional: omit color for the native daisyUI base appearance, or choose `neutral`, `primary`, `secondary`, `accent`, `info`, `success`, `warning`, `error`. Badge, Chat Bubble and Status no longer force neutral; set `color="neutral"` explicitly to retain that appearance. Avatar size/shape comes from projected image containers. Aura and badge variants retain complete daisyUI class names for Tailwind discovery.
 
 ## Disclosures
 
 ```ts
-import { DsyAccordion } from 'ngx-daisy/accordion';
-import { DsyCollapse } from 'ngx-daisy/collapse';
+import { DsyAccordion } from '@ngx-daisy/cdk/accordion';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 ```
 
 ```html
@@ -104,7 +104,7 @@ Countdown displays an application-owned value; it never starts a background time
 `DsyTable` decorates a native `<table>` with `size`, `zebra`, `pinRows` and `pinCols`. Scrolling and its available height belong to an application container. It also works with `CdkTable` and custom CDK data sources. The entry point re-exports the CDK column, cell, row, header/footer and no-data declarations; no Material visual styles are included.
 
 ```ts
-import { DsyTableDataSource } from 'ngx-daisy/table';
+import { DsyTableDataSource } from '@ngx-daisy/cdk/table';
 
 // Construct in an Angular injection context (for example a component field).
 readonly source = new DsyTableDataSource([

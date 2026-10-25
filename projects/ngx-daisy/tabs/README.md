@@ -1,4 +1,4 @@
-# ngx-daisy/tabs
+# @ngx-daisy/cdk/tabs
 
 Standalone Angular tabs with daisyUI appearance. See the [component guide](../../../docs/remaining-components.md) for imports, APIs, examples and behavior. Showcase: `/tabs`.
 

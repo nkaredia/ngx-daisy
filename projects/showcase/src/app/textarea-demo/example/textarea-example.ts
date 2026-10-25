@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyTextarea } from 'ngx-daisy/textarea';
+import { DsyTextarea } from '@ngx-daisy/cdk/textarea';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyTextarea['color']>;

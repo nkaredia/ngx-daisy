@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyPagination } from 'ngx-daisy/pagination';
+import { DsyPagination } from '@ngx-daisy/cdk/pagination';
 
 @Component({
   selector: 'demo-pagination-demo',

@@ -4,9 +4,9 @@ import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { form, FormField } from '@angular/forms/signals';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyFormField, DsyHint } from 'ngx-daisy/form-field';
-import { DsyTextarea } from 'ngx-daisy/textarea';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyFormField, DsyHint } from '@ngx-daisy/cdk/form-field';
+import { DsyTextarea } from '@ngx-daisy/cdk/textarea';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-textarea-demo',

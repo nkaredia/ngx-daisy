@@ -1,4 +1,4 @@
-import { DsyHero, DsyHeroContent, DsyHeroOverlay } from 'ngx-daisy/hero';
+import { DsyHero, DsyHeroContent, DsyHeroOverlay } from '@ngx-daisy/cdk/hero';
 import type { Playground } from '../playground/playground.types';
 import { HeroExample } from './example/hero-example';
 

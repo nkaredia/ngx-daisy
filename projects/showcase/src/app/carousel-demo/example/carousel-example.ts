@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCarousel, DsyCarouselItem } from 'ngx-daisy/carousel';
+import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
 export interface CarouselExampleValues {
   readonly label?: ReturnType<DsyCarousel['label']>;
   readonly viewportClass?: ReturnType<DsyCarousel['viewportClass']>;

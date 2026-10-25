@@ -1,4 +1,4 @@
-import { DsyFab } from 'ngx-daisy/fab';
+import { DsyFab } from '@ngx-daisy/cdk/fab';
 import type { Playground } from '../playground/playground.types';
 import { FabExample } from './example/fab-example';
 

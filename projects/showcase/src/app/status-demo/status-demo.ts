@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyStatus } from 'ngx-daisy/status';
+import { DsyStatus } from '@ngx-daisy/cdk/status';
 
 @Component({
   selector: 'demo-status-demo',

@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyFloatingLabel } from 'ngx-daisy/label';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyFloatingLabel } from '@ngx-daisy/cdk/label';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 
 interface ExampleValues {}
 interface SecondaryValues {

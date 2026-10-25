@@ -11,7 +11,7 @@ import {
   signal,
   Injector,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DataSource, CollectionViewer } from '@angular/cdk/collections';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Observable } from 'rxjs';

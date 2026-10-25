@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyTable, DsyTableRow } from 'ngx-daisy/table';
+import { DsyTable, DsyTableRow } from '@ngx-daisy/cdk/table';
 export interface TableExampleValues {
   readonly size?: ReturnType<DsyTable['size']>;
   readonly zebra?: ReturnType<DsyTable['zebra']>;

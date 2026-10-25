@@ -7,14 +7,14 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   DsyModal,
   DsyModalTitle,
   DsyModalContent,
   DsyModalActions,
   DsyModalClose,
-} from 'ngx-daisy/modal';
+} from '@ngx-daisy/cdk/modal';
 
 interface ModalValues {
   readonly opened?: ReturnType<DsyModal['opened']>;

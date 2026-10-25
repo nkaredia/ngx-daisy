@@ -13,9 +13,9 @@ import {
   viewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DSY_DRAWER_CONTAINER } from './drawer-context';
-import { injectDsyModalFocus } from 'ngx-daisy/overlay';
+import { injectDsyModalFocus } from '@ngx-daisy/cdk/overlay';
 
 export type DsyDrawerMode = 'over' | 'side';
 export type DsyDrawerPosition = 'start' | 'end';

@@ -7,7 +7,7 @@ import {
   computed,
   booleanAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 export interface DsyGalleryImage {
   src: string;
   alt: string;

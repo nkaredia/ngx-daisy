@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
   signal,
 } from '@angular/core';
-import { DsyMockupPhone } from 'ngx-daisy/mockup-phone';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyMockupPhone } from '@ngx-daisy/cdk/mockup-phone';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface MockupPhoneValues {
   readonly displayClass?: ReturnType<DsyMockupPhone['displayClass']>;

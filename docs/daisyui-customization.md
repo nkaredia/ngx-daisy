@@ -24,7 +24,7 @@ No Angular provider is required with the default unprefixed configuration. Theme
 ```scss
 @use 'tailwindcss';
 // Adjust this path relative to your global SCSS file.
-@source '../node_modules/ngx-daisy';
+@source '../node_modules/@ngx-daisy/cdk';
 @plugin 'daisyui' {
   themes: all;
   logs: false;
@@ -48,7 +48,7 @@ For daisyUI's `prefix: "d-"`, configure the Angular class renderer once:
 
 ```ts
 import { ApplicationConfig } from '@angular/core';
-import { provideDaisyUI } from 'ngx-daisy/config';
+import { provideDaisyUI } from '@ngx-daisy/cdk/config';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideDaisyUI({ prefix: 'd-' })],
@@ -57,7 +57,7 @@ export const appConfig: ApplicationConfig = {
 
 ```scss
 @use 'tailwindcss';
-@source '../node_modules/ngx-daisy';
+@source '../node_modules/@ngx-daisy/cdk';
 @plugin 'daisyui' {
   prefix: 'd-';
   themes:
@@ -94,7 +94,7 @@ With a Tailwind prefix, library-generated native classes also include daisyUI se
 
 ```scss
 @use 'tailwindcss';
-@source '../node_modules/ngx-daisy';
+@source '../node_modules/@ngx-daisy/cdk';
 @plugin 'daisyui' {
   themes:
     light --default,

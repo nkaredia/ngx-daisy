@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from 'ngx-daisy/navbar';
+import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from '@ngx-daisy/cdk/navbar';
 
 @Component({
   selector: 'demo-navbar-demo',

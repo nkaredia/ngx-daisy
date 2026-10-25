@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyFooter, DsyFooterTitle } from 'ngx-daisy/footer';
+import { DsyFooter, DsyFooterTitle } from '@ngx-daisy/cdk/footer';
 
 @Component({
   selector: 'demo-footer-demo',

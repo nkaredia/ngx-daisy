@@ -1,4 +1,4 @@
-import { DsyJoin, DsyJoinItem } from 'ngx-daisy/join';
+import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
 import type { Playground } from '../playground/playground.types';
 import { JoinExample } from './example/join-example';
 

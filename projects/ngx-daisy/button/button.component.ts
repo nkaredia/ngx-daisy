@@ -11,7 +11,7 @@ import {
   numberAttribute,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 
 // Complete literals preserve Tailwind source detection for the default unprefixed setup.
 const colors = {

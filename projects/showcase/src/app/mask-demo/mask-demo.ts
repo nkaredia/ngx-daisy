@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMask } from 'ngx-daisy/mask';
+import { DsyMask } from '@ngx-daisy/cdk/mask';
 
 @Component({
   selector: 'demo-mask-demo',

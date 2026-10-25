@@ -1,5 +1,5 @@
 import { Directive, input, computed } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Directive({ selector: '[dsyMask]', standalone: true, host: { '[class]': 'classes()' } })
 export class DsyMask {
   readonly daisy = injectDaisyUIClasses();

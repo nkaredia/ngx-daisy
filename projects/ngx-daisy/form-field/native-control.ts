@@ -11,7 +11,7 @@ import {
   Renderer2,
   signal,
 } from '@angular/core';
-import { DsyIdGenerator } from 'ngx-daisy/overlay';
+import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
 import { DSY_FIELD_CONTROL, DsyFieldControl } from './field-control';
 import { DsyErrorStateMatcher, injectDsyFormState } from './form-state';
 @Directive({

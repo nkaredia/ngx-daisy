@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyStatus } from 'ngx-daisy/status';
+import { DsyStatus } from '@ngx-daisy/cdk/status';
 export interface StatusExampleValues {
   readonly color?: ReturnType<DsyStatus['color']>;
   readonly size?: ReturnType<DsyStatus['size']>;

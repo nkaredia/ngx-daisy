@@ -8,7 +8,7 @@ import {
   booleanAttribute,
   signal,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'dsy-hover-3d, [dsyHover3d]',
   template: `<div class="dsy-hover-3d-content"><ng-content /></div>

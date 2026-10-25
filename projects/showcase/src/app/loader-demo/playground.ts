@@ -1,4 +1,4 @@
-import { DsyLoader } from 'ngx-daisy/loader';
+import { DsyLoader } from '@ngx-daisy/cdk/loader';
 import type { Playground } from '../playground/playground.types';
 import { LoaderExample } from './example/loader-example';
 

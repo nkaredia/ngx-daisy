@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyList, DsyListRow, DsyListGrow, DsyListWrap } from 'ngx-daisy/list';
+import { DsyList, DsyListRow, DsyListGrow, DsyListWrap } from '@ngx-daisy/cdk/list';
 
 @Component({
   selector: 'demo-list-demo',

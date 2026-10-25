@@ -1,4 +1,4 @@
-# ngx-daisy/timeline
+# @ngx-daisy/cdk/timeline
 
 Standalone Angular timeline family with daisyUI styling. See the [Data Display guide](../../../docs/data-display.md) for exports, examples, behavior and customization.
 

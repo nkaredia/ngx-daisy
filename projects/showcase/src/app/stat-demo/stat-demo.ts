@@ -16,7 +16,7 @@ import {
   DsyStatDesc,
   DsyStatFigure,
   DsyStatActions,
-} from 'ngx-daisy/stat';
+} from '@ngx-daisy/cdk/stat';
 
 @Component({
   selector: 'demo-stat-demo',

@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsySelect } from 'ngx-daisy/select';
+import { DsySelect } from '@ngx-daisy/cdk/select';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsySelect['color']>;

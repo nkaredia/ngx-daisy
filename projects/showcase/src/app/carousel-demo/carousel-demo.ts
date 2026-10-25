@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyCarousel, DsyCarouselItem } from 'ngx-daisy/carousel';
+import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
 
 @Component({
   selector: 'demo-carousel-demo',

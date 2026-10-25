@@ -1,4 +1,4 @@
-import { DsyTabs, DsyTab, DsyTabPanel } from 'ngx-daisy/tabs';
+import { DsyTabs, DsyTab, DsyTabPanel } from '@ngx-daisy/cdk/tabs';
 import type { Playground } from '../playground/playground.types';
 import { TabsExample } from './example/tabs-example';
 

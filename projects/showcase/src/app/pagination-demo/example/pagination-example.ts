@@ -6,7 +6,7 @@ import {
   ViewEncapsulation,
   linkedSignal,
 } from '@angular/core';
-import { DsyPagination } from 'ngx-daisy/pagination';
+import { DsyPagination } from '@ngx-daisy/cdk/pagination';
 
 interface PaginationValues {
   readonly pageIndex?: ReturnType<DsyPagination['pageIndex']>;

@@ -1,5 +1,5 @@
-import { DsyFieldset } from 'ngx-daisy/fieldset';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyFieldset } from '@ngx-daisy/cdk/fieldset';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 import type { Playground } from '../playground/playground.types';
 import { FieldsetExample } from './example/fieldset-example';
 

@@ -1,4 +1,4 @@
-import { DsyFileInput } from 'ngx-daisy/file-input';
+import { DsyFileInput } from '@ngx-daisy/cdk/file-input';
 import type { Playground } from '../playground/playground.types';
 import { FileInputExample } from './example/file-input-example';
 

@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyBreadcrumbs } from 'ngx-daisy/breadcrumbs';
+import { DsyBreadcrumbs } from '@ngx-daisy/cdk/breadcrumbs';
 
 interface BreadcrumbsValues {
   readonly label?: ReturnType<DsyBreadcrumbs['label']>;

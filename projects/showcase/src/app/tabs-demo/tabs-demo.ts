@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyTabs, DsyTab, DsyTabPanel } from 'ngx-daisy/tabs';
+import { DsyTabs, DsyTab, DsyTabPanel } from '@ngx-daisy/cdk/tabs';
 
 @Component({
   selector: 'demo-tabs-demo',

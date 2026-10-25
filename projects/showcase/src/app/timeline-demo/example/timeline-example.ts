@@ -11,7 +11,7 @@ import {
   DsyTimelineMiddle,
   DsyTimelineEnd,
   DsyTimelineBox,
-} from 'ngx-daisy/timeline';
+} from '@ngx-daisy/cdk/timeline';
 export interface TimelineExampleValues {
   readonly orientation?: ReturnType<DsyTimeline['orientation']>;
   readonly compact?: ReturnType<DsyTimeline['compact']>;

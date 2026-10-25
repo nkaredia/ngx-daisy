@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyToggle } from 'ngx-daisy/toggle';
+import { DsyToggle } from '@ngx-daisy/cdk/toggle';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyToggle['color']>;

@@ -1,4 +1,4 @@
-import { DsyTooltip } from 'ngx-daisy/tooltip';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
 import type { Playground } from '../playground/playground.types';
 import { TooltipExample } from './example/tooltip-example';
 

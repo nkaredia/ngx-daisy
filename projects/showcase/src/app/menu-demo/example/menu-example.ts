@@ -13,7 +13,7 @@ import {
   DsyMenuDropdown,
   DsyMenuDropdownToggle,
   DsyMenuTitle,
-} from 'ngx-daisy/menu';
+} from '@ngx-daisy/cdk/menu';
 
 interface MenuValues {
   readonly size?: ReturnType<DsyMenu['size']>;

@@ -19,22 +19,22 @@ import {
   readonly as readOnly,
   required,
 } from '@angular/forms/signals';
-import { DsyCalendar, DsyDateAdapter } from 'ngx-daisy/calendar';
-import { DsyCheckbox } from 'ngx-daisy/checkbox';
-import { provideDaisyUI } from 'ngx-daisy/config';
-import { DsyFileInput } from 'ngx-daisy/file-input';
-import { DsyFilter } from 'ngx-daisy/filter';
-import { DsyError, DsyFormField, DsyHint } from 'ngx-daisy/form-field';
-import { DsyInput } from 'ngx-daisy/input';
-import { DsyLabel } from 'ngx-daisy/label';
-import { DsyOtp } from 'ngx-daisy/otp';
-import { DsyRadioButton, DsyRadioGroup } from 'ngx-daisy/radio';
-import { DsyRange } from 'ngx-daisy/range';
-import { DsyRating } from 'ngx-daisy/rating';
-import { DsySelect } from 'ngx-daisy/select';
-import { DsyTextarea } from 'ngx-daisy/textarea';
-import { DsyToggle } from 'ngx-daisy/toggle';
-import { DsyValidator } from 'ngx-daisy/validator';
+import { DsyCalendar, DsyDateAdapter } from '@ngx-daisy/cdk/calendar';
+import { DsyCheckbox } from '@ngx-daisy/cdk/checkbox';
+import { provideDaisyUI } from '@ngx-daisy/cdk/config';
+import { DsyFileInput } from '@ngx-daisy/cdk/file-input';
+import { DsyFilter } from '@ngx-daisy/cdk/filter';
+import { DsyError, DsyFormField, DsyHint } from '@ngx-daisy/cdk/form-field';
+import { DsyInput } from '@ngx-daisy/cdk/input';
+import { DsyLabel } from '@ngx-daisy/cdk/label';
+import { DsyOtp } from '@ngx-daisy/cdk/otp';
+import { DsyRadioButton, DsyRadioGroup } from '@ngx-daisy/cdk/radio';
+import { DsyRange } from '@ngx-daisy/cdk/range';
+import { DsyRating } from '@ngx-daisy/cdk/rating';
+import { DsySelect } from '@ngx-daisy/cdk/select';
+import { DsyTextarea } from '@ngx-daisy/cdk/textarea';
+import { DsyToggle } from '@ngx-daisy/cdk/toggle';
+import { DsyValidator } from '@ngx-daisy/cdk/validator';
 
 const controls = [
   DsyInput,

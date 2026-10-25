@@ -15,8 +15,8 @@ import {
   viewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { injectDsyModalFocus } from 'ngx-daisy/overlay';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { injectDsyModalFocus } from '@ngx-daisy/cdk/overlay';
 import { DSY_MODAL } from './modal-context';
 export type DsyModalPlacement = 'top' | 'middle' | 'bottom' | 'start' | 'end';
 export interface DsyModalCloseOptions {

@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyStats, DsyStat, DsyStatTitle, DsyStatValue, DsyStatDesc } from 'ngx-daisy/stat';
+import { DsyStats, DsyStat, DsyStatTitle, DsyStatValue, DsyStatDesc } from '@ngx-daisy/cdk/stat';
 export interface StatsExampleValues {
   readonly orientation?: ReturnType<DsyStats['orientation']>;
 }

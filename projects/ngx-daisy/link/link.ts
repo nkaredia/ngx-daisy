@@ -8,7 +8,7 @@ import {
   Renderer2,
   booleanAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Directive({
   selector: 'a[dsyLink]',
   standalone: true,

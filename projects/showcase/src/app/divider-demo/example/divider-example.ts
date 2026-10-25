@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyDivider } from 'ngx-daisy/divider';
+import { DsyDivider } from '@ngx-daisy/cdk/divider';
 
 interface DividerValues {
   readonly color?: ReturnType<DsyDivider['color']>;

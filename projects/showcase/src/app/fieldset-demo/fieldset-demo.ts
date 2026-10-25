@@ -3,10 +3,10 @@ import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { form, FormField } from '@angular/forms/signals';
-import { DsyCheckbox } from 'ngx-daisy/checkbox';
-import { DsyFieldset, DsyLegend, DsyFieldsetLabel } from 'ngx-daisy/fieldset';
-import { DsyFormField } from 'ngx-daisy/form-field';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyCheckbox } from '@ngx-daisy/cdk/checkbox';
+import { DsyFieldset, DsyLegend, DsyFieldsetLabel } from '@ngx-daisy/cdk/fieldset';
+import { DsyFormField } from '@ngx-daisy/cdk/form-field';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-fieldset-demo',

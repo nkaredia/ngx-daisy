@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { DsyCollapse } from 'ngx-daisy/collapse';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 
 @Component({
   imports: [DsyCollapse],

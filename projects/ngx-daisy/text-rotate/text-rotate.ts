@@ -7,7 +7,7 @@ import {
   booleanAttribute,
   numberAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'dsy-text-rotate',
   template: `<span class="dsy-text-rotate-label">{{ label() || visibleItems().join(', ') }}</span

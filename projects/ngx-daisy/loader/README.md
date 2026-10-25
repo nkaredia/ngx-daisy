@@ -7,7 +7,7 @@
 Import the standalone component from its secondary entry point:
 
 ```ts
-import { DsyLoader } from 'ngx-daisy/loader';
+import { DsyLoader } from '@ngx-daisy/cdk/loader';
 ```
 
 Add `DsyLoader` to the consuming component's `imports`, then use it in the template:

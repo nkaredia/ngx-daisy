@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyAlert } from 'ngx-daisy/alert';
+import { DsyAlert } from '@ngx-daisy/cdk/alert';
 
 @Component({
   providers: providePlayground(playground),

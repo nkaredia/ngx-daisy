@@ -1,4 +1,4 @@
-import { DsyThemeController } from 'ngx-daisy/theme-controller';
+import { DsyThemeController } from '@ngx-daisy/cdk/theme-controller';
 import type { Playground } from '../playground/playground.types';
 import { ThemeControllerExample } from './example/theme-controller-example';
 

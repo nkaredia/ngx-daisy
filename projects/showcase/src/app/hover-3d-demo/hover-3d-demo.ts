@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyHover3d } from 'ngx-daisy/hover-3d';
+import { DsyHover3d } from '@ngx-daisy/cdk/hover-3d';
 
 @Component({
   selector: 'demo-hover-3d-demo',

@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyDock, DsyDockItem, DsyDockLabel } from 'ngx-daisy/dock';
+import { DsyDock, DsyDockItem, DsyDockLabel } from '@ngx-daisy/cdk/dock';
 
 @Component({
   selector: 'demo-dock-demo',

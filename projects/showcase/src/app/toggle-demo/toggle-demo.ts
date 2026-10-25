@@ -4,8 +4,8 @@ import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { form, FormField } from '@angular/forms/signals';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyToggle } from 'ngx-daisy/toggle';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyToggle } from '@ngx-daisy/cdk/toggle';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-toggle-demo',

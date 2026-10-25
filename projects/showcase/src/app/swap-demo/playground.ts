@@ -1,4 +1,4 @@
-import { DsySwap } from 'ngx-daisy/swap';
+import { DsySwap } from '@ngx-daisy/cdk/swap';
 import type { Playground } from '../playground/playground.types';
 import { SwapExample } from './example/swap-example';
 

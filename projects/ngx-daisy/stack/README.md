@@ -1,3 +1,3 @@
-# ngx-daisy/stack
+# @ngx-daisy/cdk/stack
 
 Standalone Angular stacks with daisyUI appearance. See the [component guide](../../../docs/remaining-components.md) for imports, APIs, examples and behavior. Showcase: `/stacks`.

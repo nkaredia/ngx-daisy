@@ -4,7 +4,7 @@ import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { form, FormField } from '@angular/forms/signals';
-import { DsyFilter } from 'ngx-daisy/filter';
+import { DsyFilter } from '@ngx-daisy/cdk/filter';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-filter-demo',

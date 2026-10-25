@@ -1,5 +1,5 @@
 import { Directive } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Directive({ selector: 'fieldset[dsyFieldset]', standalone: true, host: { '[class]': 'classes' } })
 export class DsyFieldset {
   protected readonly classes = injectDaisyUIClasses()('fieldset');

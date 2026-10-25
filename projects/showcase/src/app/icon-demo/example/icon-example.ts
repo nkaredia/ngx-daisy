@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyIcon } from 'ngx-daisy/icon';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
 import { LucideHouse } from '@lucide/angular';
 export interface IconExampleValues {
   readonly size?: ReturnType<DsyIcon['size']>;

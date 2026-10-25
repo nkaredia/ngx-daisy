@@ -10,8 +10,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { DsyButtonColor, DsyButtonSize, DsyButtonVariant } from 'ngx-daisy/button';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { DsyButtonColor, DsyButtonSize, DsyButtonVariant } from '@ngx-daisy/cdk/button';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 export type DsySwapAnimation = 'none' | 'rotate' | 'flip';
 const animations = { none: '', rotate: 'swap-rotate', flip: 'swap-flip' };
 @Component({

@@ -1,4 +1,4 @@
-import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from 'ngx-daisy/navbar';
+import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from '@ngx-daisy/cdk/navbar';
 import type { Playground } from '../playground/playground.types';
 import { NavbarExample } from './example/navbar-example';
 

@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsySkeleton } from 'ngx-daisy/skeleton';
+import { DsySkeleton } from '@ngx-daisy/cdk/skeleton';
 
 @Component({
   providers: providePlayground(playground),

@@ -1,4 +1,4 @@
-import { DsyRange } from 'ngx-daisy/range';
+import { DsyRange } from '@ngx-daisy/cdk/range';
 import type { Playground } from '../playground/playground.types';
 import { RangeExample } from './example/range-example';
 

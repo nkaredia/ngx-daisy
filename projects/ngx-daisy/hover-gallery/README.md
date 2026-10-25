@@ -1,4 +1,4 @@
-# ngx-daisy/hover-gallery
+# @ngx-daisy/cdk/hover-gallery
 
 Standalone Angular hover-gallery family with daisyUI styling. See the [Data Display guide](../../../docs/data-display.md) for exports, examples, behavior and customization.
 

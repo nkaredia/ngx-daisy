@@ -1,4 +1,4 @@
-import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from 'ngx-daisy/drawer';
+import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/drawer';
 import type { Playground } from '../playground/playground.types';
 import { DrawerExample } from './example/drawer-example';
 

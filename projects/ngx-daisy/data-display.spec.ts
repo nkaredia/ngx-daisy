@@ -1,20 +1,20 @@
 import { Component, signal, viewChild, type Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { vi } from 'vitest';
-import { DsyAccordion } from 'ngx-daisy/accordion';
-import { DsyCollapse } from 'ngx-daisy/collapse';
-import { DsyCarousel, DsyCarouselItem } from 'ngx-daisy/carousel';
-import { DsyDiff } from 'ngx-daisy/diff';
-import { DsyHoverGallery } from 'ngx-daisy/hover-gallery';
-import { DsyCountdown } from 'ngx-daisy/countdown';
-import { DsyTextRotate } from 'ngx-daisy/text-rotate';
-import { DsyTableDataSource, DsySort, DsySortHeader } from 'ngx-daisy/table';
-import { DsyChatBubble } from 'ngx-daisy/chat';
-import { DsyStatus } from 'ngx-daisy/status';
-import { DsyBadge } from 'ngx-daisy/badge';
-import { DsyCard, DsyCardTitle } from 'ngx-daisy/card';
-import { DsyTimeline, DsyTimelineEnd, DsyTimelineBox } from 'ngx-daisy/timeline';
-import { provideDaisyUI } from 'ngx-daisy/config';
+import { DsyAccordion } from '@ngx-daisy/cdk/accordion';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
+import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
+import { DsyDiff } from '@ngx-daisy/cdk/diff';
+import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
+import { DsyCountdown } from '@ngx-daisy/cdk/countdown';
+import { DsyTextRotate } from '@ngx-daisy/cdk/text-rotate';
+import { DsyTableDataSource, DsySort, DsySortHeader } from '@ngx-daisy/cdk/table';
+import { DsyChatBubble } from '@ngx-daisy/cdk/chat';
+import { DsyStatus } from '@ngx-daisy/cdk/status';
+import { DsyBadge } from '@ngx-daisy/cdk/badge';
+import { DsyCard, DsyCardTitle } from '@ngx-daisy/cdk/card';
+import { DsyTimeline, DsyTimelineEnd, DsyTimelineBox } from '@ngx-daisy/cdk/timeline';
+import { provideDaisyUI } from '@ngx-daisy/cdk/config';
 
 @Component({
   imports: [DsyAccordion, DsyCollapse],

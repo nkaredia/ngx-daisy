@@ -1,6 +1,6 @@
 import { computed, Directive, inject, input, model } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DsyNativeControl } from 'ngx-daisy/form-field';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DsyNativeControl } from '@ngx-daisy/cdk/form-field';
 
 const colors = {
   neutral: 'checkbox-neutral',

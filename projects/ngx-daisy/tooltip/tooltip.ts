@@ -16,13 +16,13 @@ import {
   numberAttribute,
   Injector,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { AriaDescriber } from '@angular/cdk/a11y';
 import { Platform } from '@angular/cdk/platform';
 import { Overlay, OverlayRef, ConnectedPosition } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { Directionality } from '@angular/cdk/bidi';
-import { DsyOverlayTheme } from 'ngx-daisy/overlay';
+import { DsyOverlayTheme } from '@ngx-daisy/cdk/overlay';
 @Component({
   selector: 'dsy-tooltip-panel',
   imports: [DsyOverlayTheme],

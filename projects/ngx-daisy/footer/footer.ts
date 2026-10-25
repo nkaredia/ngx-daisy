@@ -7,7 +7,7 @@ import {
   computed,
   booleanAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'footer[dsyFooter], dsy-footer',
   standalone: true,

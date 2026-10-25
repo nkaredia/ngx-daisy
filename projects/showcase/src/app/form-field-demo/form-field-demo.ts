@@ -4,10 +4,10 @@ import { providePlayground } from '../playground/provide-playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { email, form, FormField, FormRoot, required } from '@angular/forms/signals';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyError, DsyFormField, DsyHint } from 'ngx-daisy/form-field';
-import { DsyInput } from 'ngx-daisy/input';
-import { DsyValidator } from 'ngx-daisy/validator';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyError, DsyFormField, DsyHint } from '@ngx-daisy/cdk/form-field';
+import { DsyInput } from '@ngx-daisy/cdk/input';
+import { DsyValidator } from '@ngx-daisy/cdk/validator';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-form-field-demo',

@@ -6,7 +6,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyFileInput } from 'ngx-daisy/file-input';
+import { DsyFileInput } from '@ngx-daisy/cdk/file-input';
 
 interface ExampleValues {
   readonly hidden?: ReturnType<DsyFileInput['hidden']>;

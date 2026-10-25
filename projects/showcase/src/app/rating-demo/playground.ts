@@ -1,4 +1,4 @@
-import { DsyRating } from 'ngx-daisy/rating';
+import { DsyRating } from '@ngx-daisy/cdk/rating';
 import type { Playground } from '../playground/playground.types';
 import { RatingExample } from './example/rating-example';
 

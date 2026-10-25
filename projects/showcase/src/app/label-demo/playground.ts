@@ -1,5 +1,5 @@
-import { DsyFloatingLabel } from 'ngx-daisy/label';
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyFloatingLabel } from '@ngx-daisy/cdk/label';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 import type { Playground } from '../playground/playground.types';
 import { LabelExample } from './example/label-example';
 

@@ -3,8 +3,8 @@ import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
 import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
 import { LucideHouse, LucideCheck } from '@lucide/angular';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyIcon, type DsyIconColor } from 'ngx-daisy/icon';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyIcon, type DsyIconColor } from '@ngx-daisy/cdk/icon';
 
 @Component({
   encapsulation: ViewEncapsulation.None,

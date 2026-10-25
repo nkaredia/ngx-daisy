@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsySteps, DsyStep, DsyStepIcon } from 'ngx-daisy/steps';
+import { DsySteps, DsyStep, DsyStepIcon } from '@ngx-daisy/cdk/steps';
 
 @Component({
   selector: 'demo-steps-demo',

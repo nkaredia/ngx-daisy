@@ -12,7 +12,7 @@ Both entries call Angular's exported build APIs with the `ngx-daisy-playground` 
 The plugin registers a loader for imports resolving to a file named exactly `playground.ts`. Each imported file declares an object named `playground` with a `components` array:
 
 ```ts
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 import type { Playground } from '../playground/playground.types';
 
 export const playground: Playground = {
@@ -25,7 +25,7 @@ export const playground: Playground = {
 };
 ```
 
-Each entry needs a `class` reference and placeholder. The extractor resolves references with TypeScript's checker, including aliases and inherited members. This workspace's `ngx-daisy/*` imports resolve to authored library source rather than stale `dist` declarations. Other imports follow the active build tsconfig.
+Each entry needs a `class` reference and placeholder. The extractor resolves references with TypeScript's checker, including aliases and inherited members. This workspace's `@ngx-daisy/cdk/*` imports resolve to authored library source rather than stale `dist` declarations. Other imports follow the active build tsconfig.
 
 Metadata is inserted into a transformed copy held in a Map inside the build process. No authored source, generated JSON or temporary TS file is written. Prettier formats the transformed string in memory. The returned `props` includes input/model kind, property/public alias, read and transformed accepted types, required/optional/nullable flags, literal options, documentation, default expressions and safely recognized literal defaults. Initializers are never evaluated. The metadata contract remains provisional.
 

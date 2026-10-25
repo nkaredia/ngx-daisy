@@ -12,8 +12,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { FormValueControl } from '@angular/forms/signals';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DSY_FIELD_CONTROL, DsyValueControl } from 'ngx-daisy/form-field';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DSY_FIELD_CONTROL, DsyValueControl } from '@ngx-daisy/cdk/form-field';
 import { DsyRadioButton } from './radio-button';
 import { DSY_RADIO_GROUP } from './radio-context';
 const colors = {

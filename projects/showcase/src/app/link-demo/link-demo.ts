@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyLink } from 'ngx-daisy/link';
+import { DsyLink } from '@ngx-daisy/cdk/link';
 
 @Component({
   selector: 'demo-link-demo',

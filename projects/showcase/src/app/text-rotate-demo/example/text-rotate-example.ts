@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyTextRotate } from 'ngx-daisy/text-rotate';
+import { DsyTextRotate } from '@ngx-daisy/cdk/text-rotate';
 export interface TextRotateExampleValues {
   readonly label?: ReturnType<DsyTextRotate['label']>;
   readonly duration?: ReturnType<DsyTextRotate['duration']>;

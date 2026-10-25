@@ -9,9 +9,9 @@ import {
   booleanAttribute,
   numberAttribute,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyJoin, DsyJoinItem } from 'ngx-daisy/join';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
 export interface DsyPageEvent {
   pageIndex: number;
   previousPageIndex: number;

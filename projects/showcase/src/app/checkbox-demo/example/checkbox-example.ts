@@ -7,7 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyCheckbox } from 'ngx-daisy/checkbox';
+import { DsyCheckbox } from '@ngx-daisy/cdk/checkbox';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyCheckbox['color']>;

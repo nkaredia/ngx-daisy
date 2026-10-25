@@ -1,4 +1,4 @@
-import { DsyTable, DsyTableRow } from 'ngx-daisy/table';
+import { DsyTable, DsyTableRow } from '@ngx-daisy/cdk/table';
 import type { Playground } from '../playground/playground.types';
 import { TableExample } from './example/table-example';
 export const playground: Playground = {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal, viewChild } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { provideDaisyUI, injectDaisyUIClassName } from 'ngx-daisy/config';
+import { provideDaisyUI, injectDaisyUIClassName } from '@ngx-daisy/cdk/config';
 import { DsyButton } from '../button/button.component';
 import { DsyDrawerContainer } from '../drawer/drawer-container.component';
 import { DsyDrawerContent } from '../drawer/drawer-content.component';

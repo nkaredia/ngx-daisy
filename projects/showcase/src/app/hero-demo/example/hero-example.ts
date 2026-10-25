@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, input, ViewEncapsulation } from '@angular/core';
-import { DsyHero, DsyHeroContent, DsyHeroOverlay } from 'ngx-daisy/hero';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyHero, DsyHeroContent, DsyHeroOverlay } from '@ngx-daisy/cdk/hero';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 @Component({
   selector: 'demo-hero-example',

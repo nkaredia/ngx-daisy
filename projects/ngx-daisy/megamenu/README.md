@@ -1,4 +1,4 @@
-# ngx-daisy/megamenu
+# @ngx-daisy/cdk/megamenu
 
 Standalone Angular megamenus with daisyUI appearance. See the [component guide](../../../docs/remaining-components.md) for imports, APIs, examples and behavior. Showcase: `/megamenus`.
 

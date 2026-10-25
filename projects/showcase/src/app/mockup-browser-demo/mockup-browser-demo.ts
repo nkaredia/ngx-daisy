@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMockupBrowser, DsyBrowserToolbar } from 'ngx-daisy/mockup-browser';
+import { DsyMockupBrowser, DsyBrowserToolbar } from '@ngx-daisy/cdk/mockup-browser';
 
 @Component({
   selector: 'demo-mockup-browser-demo',

@@ -1,4 +1,4 @@
-import { DsyInput } from 'ngx-daisy/input';
+import { DsyInput } from '@ngx-daisy/cdk/input';
 import type { Playground } from '../playground/playground.types';
 import { InputExample } from './example/input-example';
 

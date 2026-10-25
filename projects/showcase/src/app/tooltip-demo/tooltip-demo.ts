@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyTooltip } from 'ngx-daisy/tooltip';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
 
 @Component({
   providers: providePlayground(playground),

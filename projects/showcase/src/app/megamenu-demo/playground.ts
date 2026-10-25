@@ -1,4 +1,4 @@
-import { DsyMegamenu, DsyMegamenuItem } from 'ngx-daisy/megamenu';
+import { DsyMegamenu, DsyMegamenuItem } from '@ngx-daisy/cdk/megamenu';
 import type { Playground } from '../playground/playground.types';
 import { MegamenuExample } from './example/megamenu-example';
 

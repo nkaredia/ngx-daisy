@@ -5,7 +5,7 @@ import {
   ViewEncapsulation,
   computed,
 } from '@angular/core';
-import { injectDaisyUIClasses } from 'ngx-daisy/config';
+import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 @Component({
   selector: 'ul[dsyList], ol[dsyList]',
   standalone: true,

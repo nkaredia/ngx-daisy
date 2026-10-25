@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyHoverGallery } from 'ngx-daisy/hover-gallery';
+import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
 export interface HoverGalleryExampleValues {
   readonly controls?: ReturnType<DsyHoverGallery['controls']>;
   readonly activeIndex?: ReturnType<DsyHoverGallery['activeIndex']>;

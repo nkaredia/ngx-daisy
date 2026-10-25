@@ -7,8 +7,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyButton } from 'ngx-daisy/button';
-import { DsyFab, DsyFabTrigger, DsyFabAction, DsyFabClose } from 'ngx-daisy/fab';
+import { DsyButton } from '@ngx-daisy/cdk/button';
+import { DsyFab, DsyFabTrigger, DsyFabAction, DsyFabClose } from '@ngx-daisy/cdk/fab';
 
 interface FabValues {
   readonly opened?: ReturnType<DsyFab['opened']>;

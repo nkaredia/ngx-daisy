@@ -1,4 +1,4 @@
-import { DsyDock, DsyDockItem, DsyDockLabel } from 'ngx-daisy/dock';
+import { DsyDock, DsyDockItem, DsyDockLabel } from '@ngx-daisy/cdk/dock';
 import type { Playground } from '../playground/playground.types';
 import { DockExample } from './example/dock-example';
 

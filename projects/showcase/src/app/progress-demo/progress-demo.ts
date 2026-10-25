@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyProgress } from 'ngx-daisy/progress';
+import { DsyProgress } from '@ngx-daisy/cdk/progress';
 
 @Component({
   providers: providePlayground(playground),

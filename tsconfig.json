@@ -6,8 +6,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "ngx-daisy": ["./dist/ngx-daisy"],
-      "ngx-daisy/*": ["./dist/ngx-daisy/*"]
+      "@ngx-daisy/cdk": ["./dist/ngx-daisy"],
+      "@ngx-daisy/cdk/*": ["./dist/ngx-daisy/*"]
     },
     "skipLibCheck": true,
     "isolatedModules": true,

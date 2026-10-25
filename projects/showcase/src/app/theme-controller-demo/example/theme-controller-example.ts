@@ -6,8 +6,8 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyThemeController } from 'ngx-daisy/theme-controller';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyThemeController } from '@ngx-daisy/cdk/theme-controller';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface ThemeControllerValues {
   readonly theme?: ReturnType<DsyThemeController['theme']>;

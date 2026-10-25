@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
   signal,
 } from '@angular/core';
-import { DsyJoin, DsyJoinItem } from 'ngx-daisy/join';
-import { DsyButton } from 'ngx-daisy/button';
+import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
+import { DsyButton } from '@ngx-daisy/cdk/button';
 
 interface JoinValues {
   readonly orientation?: ReturnType<DsyJoin['orientation']>;

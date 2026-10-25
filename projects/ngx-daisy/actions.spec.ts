@@ -2,7 +2,7 @@ import { Component, signal, viewChild } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { OverlayContainer } from '@angular/cdk/overlay';
-import { provideDaisyUI } from 'ngx-daisy/config';
+import { provideDaisyUI } from '@ngx-daisy/cdk/config';
 import { DsyButton } from './button/public-api';
 import {
   DsyDropdown,

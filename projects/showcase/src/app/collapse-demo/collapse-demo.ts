@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyCollapse } from 'ngx-daisy/collapse';
+import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 
 @Component({
   selector: 'demo-collapse-demo',

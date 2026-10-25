@@ -6,7 +6,7 @@ import {
   ViewEncapsulation,
   linkedSignal,
 } from '@angular/core';
-import { DsyTabs, DsyTab, DsyTabPanel } from 'ngx-daisy/tabs';
+import { DsyTabs, DsyTab, DsyTabPanel } from '@ngx-daisy/cdk/tabs';
 
 interface TabsValues {
   readonly selectedIndex?: ReturnType<DsyTabs['selectedIndex']>;

@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyDivider } from 'ngx-daisy/divider';
+import { DsyDivider } from '@ngx-daisy/cdk/divider';
 
 @Component({
   selector: 'demo-divider-demo',

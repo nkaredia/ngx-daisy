@@ -9,7 +9,7 @@ import {
   inject,
   DestroyRef,
 } from '@angular/core';
-import { DsyMockupPhone } from 'ngx-daisy/mockup-phone';
+import { DsyMockupPhone } from '@ngx-daisy/cdk/mockup-phone';
 
 @Component({
   selector: 'demo-mockup-phone-demo',

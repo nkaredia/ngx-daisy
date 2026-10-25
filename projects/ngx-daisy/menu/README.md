@@ -1,4 +1,4 @@
-# ngx-daisy/menu
+# @ngx-daisy/cdk/menu
 
 Standalone Angular menus with daisyUI appearance. See the [component guide](../../../docs/remaining-components.md) for imports, APIs, examples and behavior. Showcase: `/menus`.
 

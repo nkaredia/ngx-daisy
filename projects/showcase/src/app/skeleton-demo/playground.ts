@@ -1,4 +1,4 @@
-import { DsySkeleton } from 'ngx-daisy/skeleton';
+import { DsySkeleton } from '@ngx-daisy/cdk/skeleton';
 import type { Playground } from '../playground/playground.types';
 import { SkeletonExample } from './example/skeleton-example';
 

@@ -2,7 +2,7 @@
 
 `DsyIcon` wraps projected icon content and supplies consistent size, daisyUI color and accessibility. Use your preferred Angular icon component, font markup or inline SVG inside it.
 
-The app owns its icon packages, imports, registration and tree shaking. ngx-daisy does not install a default icon library or resolve icon names. Use the selected provider's documented Angular integration and compatible package versions.
+The app owns its icon packages, imports, registration and tree shaking. `@ngx-daisy/cdk` does not install a default icon library or resolve icon names. Use the selected provider's documented Angular integration and compatible package versions.
 
 ## Lucide (showcase default)
 
@@ -11,7 +11,7 @@ Install `@lucide/angular` in your app and import only the icons you use:
 ```ts
 import { Component } from '@angular/core';
 import { LucideHouse } from '@lucide/angular';
-import { DsyIcon } from 'ngx-daisy/icon';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
 
 @Component({
   selector: 'app-home-icon',
@@ -39,7 +39,7 @@ Import the icon wrapper, the renderer and individual icon definitions:
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import { DsyIcon } from 'ngx-daisy/icon';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
 
 @Component({
   selector: 'app-home-link',
@@ -57,7 +57,7 @@ export class HomeLink {
 }
 ```
 
-Individual Font Awesome imports support tree shaking. Importing and registering a whole pack includes that pack. Font Awesome remains supported as projected content; it is not a consumer dependency of ngx-daisy. See [Font Awesome's Angular integration](https://github.com/FortAwesome/angular-fontawesome) and [tree-shaking documentation](https://docs.fontawesome.com/apis/javascript/tree-shaking/).
+Individual Font Awesome imports support tree shaking. Importing and registering a whole pack includes that pack. Font Awesome remains supported as projected content; it is not a consumer dependency of `@ngx-daisy/cdk`. See [Font Awesome's Angular integration](https://github.com/FortAwesome/angular-fontawesome) and [tree-shaking documentation](https://docs.fontawesome.com/apis/javascript/tree-shaking/).
 
 ## Ng Icons
 
@@ -73,7 +73,7 @@ Register selected imports through the provider's API:
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroUsers } from '@ng-icons/heroicons/outline';
-import { DsyIcon } from 'ngx-daisy/icon';
+import { DsyIcon } from '@ngx-daisy/cdk/icon';
 
 @Component({
   selector: 'app-users-link',

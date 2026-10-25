@@ -8,7 +8,7 @@ import {
   signal,
   effect,
 } from '@angular/core';
-import { DsyTextRotate } from 'ngx-daisy/text-rotate';
+import { DsyTextRotate } from '@ngx-daisy/cdk/text-rotate';
 
 @Component({
   selector: 'demo-text-rotate-demo',

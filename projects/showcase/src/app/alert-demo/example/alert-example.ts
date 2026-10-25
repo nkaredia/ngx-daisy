@@ -5,7 +5,7 @@ import {
   input,
   ViewEncapsulation,
 } from '@angular/core';
-import { DsyAlert } from 'ngx-daisy/alert';
+import { DsyAlert } from '@ngx-daisy/cdk/alert';
 
 interface ExampleValues {
   readonly color?: ReturnType<DsyAlert['color']>;
