@@ -1,0 +1,36 @@
+<div class="max-h-72 overflow-auto">
+  <table
+    dsyTable
+    class="min-w-[32rem]"
+    [size]="props().size ?? 'md'"
+    [zebra]="props().zebra ?? false"
+    [pinRows]="props().pinRows ?? false"
+    [pinCols]="props().pinCols ?? false"
+  >
+    <caption>
+      Project contributors
+    </caption>
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Role</th>
+        <th scope="col">Tasks</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (person of people; track person.name) {
+        <tr dsyTableRow [hover]="row().hover ?? false">
+          <th scope="row">{{ person.name }}</th>
+          <td>{{ person.role }}</td>
+          <td>{{ person.tasks }}</td>
+        </tr>
+      }
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">Total tasks</td>
+        <td>{{ taskTotal }}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>

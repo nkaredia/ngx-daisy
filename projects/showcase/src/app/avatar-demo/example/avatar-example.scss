@@ -1,0 +1,57 @@
+demo-avatar-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.avatar-example-profile {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(100%, 34rem);
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.avatar-example-image {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+.avatar-example-copy {
+  min-width: 0;
+}
+.avatar-example-copy > p {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.avatar-example-copy h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+.avatar-example-copy > span {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.8rem;
+}
+.avatar-example-chip {
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  background: color-mix(in oklab, var(--color-success) 15%, var(--color-base-100));
+  color: var(--color-success);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+@media (max-width: 30rem) {
+  .avatar-example-profile {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .avatar-example-chip {
+    grid-column: 2;
+    justify-self: start;
+  }
+}

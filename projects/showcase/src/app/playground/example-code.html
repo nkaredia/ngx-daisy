@@ -1,0 +1,55 @@
+@if (files().length) {
+  @if (showToggle()) {
+    <div class="example-code-toolbar">
+      <button
+        dsyButton
+        variant="ghost"
+        size="sm"
+        shape="circle"
+        [attr.aria-label]="expanded() ? 'Hide code' : 'Show code'"
+        [dsyTooltip]="expanded() ? 'Hide code' : 'Show code'"
+        [attr.aria-expanded]="expanded()"
+        [attr.aria-controls]="bodyId"
+        (click)="expanded.set(!expanded())"
+      >
+        <dsy-icon><svg [lucideIcon]="icons.code" aria-hidden="true"></svg></dsy-icon>
+      </button>
+    </div>
+  }
+  <div [id]="bodyId" [hidden]="!expanded()" [attr.inert]="expanded() ? null : ''">
+    @if (expanded()) {
+      <dsy-tabs
+        label="Example source files"
+        variant="border"
+        size="sm"
+        shape="circle"
+        [(selectedIndex)]="selectedIndex"
+      >
+        @for (file of files(); track file.path) {
+          <button dsyTab>{{ file.path }}</button>
+        }
+        @for (file of files(); track file.path; let index = $index) {
+          <div [dsyTabPanel]="index" class="example-code-panel">
+            <button
+              dsyButton
+              variant="ghost"
+              size="sm"
+              shape="circle"
+              class="example-code-copy"
+              [attr.aria-label]="'Copy ' + file.path"
+              [dsyTooltip]="'Copy ' + file.path"
+              (click)="copy(file)"
+            >
+              <dsy-icon><svg [lucideIcon]="icons.copy" aria-hidden="true"></svg></dsy-icon>
+            </button>
+            <pre
+              tabindex="0"
+              [attr.aria-label]="'Source code: ' + file.path"
+            ><code [attr.data-language]="file.language">@if (file.tokens; as tokens) {@for (token of tokens; track $index) {<span [style.color]="token.color" [style.font-style]="(token.fontStyle ?? 0) % 2 ? 'italic' : null" [style.font-weight]="(token.fontStyle ?? 0) % 4 >= 2 ? 'bold' : null" [style.text-decoration]="(token.fontStyle ?? 0) % 8 >= 4 ? 'underline' : null" [textContent]="token.content"></span>}}@else {<span [textContent]="file.content"></span>}</code></pre>
+          </div>
+        }
+      </dsy-tabs>
+      <span class="example-code-status" role="status">{{ copyStatus() }}</span>
+    }
+  </div>
+}

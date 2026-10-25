@@ -1,0 +1,61 @@
+demo-indicator-example {
+  display: block;
+  min-inline-size: 0;
+}
+
+demo-indicator-example .indicator-example-card {
+  display: grid;
+  gap: 1rem;
+  inline-size: min(100%, 32rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+demo-indicator-example header,
+demo-indicator-example .indicator-example-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+demo-indicator-example h3,
+demo-indicator-example p {
+  margin: 0;
+}
+
+demo-indicator-example header p,
+demo-indicator-example header > span,
+demo-indicator-example .indicator-example-status {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.7rem;
+}
+
+demo-indicator-example h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+demo-indicator-example .indicator-example-summary {
+  padding: 1rem;
+  border-radius: var(--radius-field);
+  background: var(--color-base-200);
+}
+
+demo-indicator-example .indicator-example-summary > div {
+  display: grid;
+}
+
+demo-indicator-example .indicator-example-summary > div strong {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+
+demo-indicator-example .indicator-example-summary > div span {
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  opacity: 0.62;
+}

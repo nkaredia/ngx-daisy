@@ -1,0 +1,141 @@
+demo-toast-example {
+  display: block;
+}
+
+.toast-example-app {
+  position: relative;
+  min-height: 22rem;
+  overflow: hidden;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 7%, transparent);
+
+  > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-base-300);
+
+    > div {
+      display: grid;
+    }
+
+    span:first-child {
+      font-size: 0.7rem;
+      opacity: 0.6;
+    }
+  }
+}
+
+.toast-example-avatar {
+  display: grid;
+  width: 2.25rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.toast-example-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(13rem, 0.75fr);
+  gap: 2rem;
+  padding: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.toast-example-copy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.65rem;
+
+  > span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-success);
+  }
+
+  h3 {
+    max-width: 25rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 28rem;
+    font-size: 0.85rem;
+    opacity: 0.67;
+  }
+
+  button {
+    margin-top: 0.4rem;
+  }
+}
+
+.toast-example-checks {
+  display: grid;
+  gap: 0.5rem;
+  align-content: center;
+
+  > div {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.7rem;
+    border-radius: var(--radius-field);
+    background: var(--color-base-200);
+  }
+
+  > div > span {
+    display: grid;
+    width: 1.75rem;
+    aspect-ratio: 1;
+    flex: none;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-success);
+    color: var(--color-success-content);
+    font-size: 0.7rem;
+  }
+
+  p {
+    display: grid;
+  }
+
+  small {
+    font-size: 0.7rem;
+    opacity: 0.6;
+  }
+}
+
+.toast-example-stage {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+demo-toast-example .toast-example-stage dsy-toast {
+  position: absolute;
+  max-width: 100%;
+  pointer-events: auto;
+}
+
+@media (max-width: 40rem) {
+  .toast-example-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toast-example-checks {
+    display: none;
+  }
+}

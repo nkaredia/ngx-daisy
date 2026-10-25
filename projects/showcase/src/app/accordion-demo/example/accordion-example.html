@@ -1,0 +1,33 @@
+<section class="accordion-example-faq">
+  <div class="accordion-example-heading">
+    <div>
+      <p>Help center</p>
+      <h3>Common account questions</h3>
+    </div>
+    <label
+      ><input type="checkbox" [checked]="multi()" (change)="multi.set(!multi())" />Allow
+      multiple</label
+    >
+  </div>
+  <dsy-accordion [multi]="multi()"
+    ><dsy-collapse
+      class="bg-base-200"
+      [title]="props().title || 'How do I invite a teammate?'"
+      [opened]="props().opened ?? false"
+      [disabled]="props().disabled ?? false"
+      [indicator]="props().indicator ?? 'none'"
+      [trigger]="props().trigger ?? 'title'"
+      [openLabel]="props().openLabel ?? 'Show details'"
+      [closeLabel]="props().closeLabel ?? 'Hide details'"
+      [titleClass]="props().titleClass ?? ''"
+      [contentClass]="props().contentClass ?? ''"
+      ><p>
+        Open Workspace settings, choose Members, then send an invitation by email.
+      </p></dsy-collapse
+    ><dsy-collapse class="bg-base-200 mt-2" title="Can I change my plan later?" indicator="arrow"
+      ><p>Yes. Plan changes take effect at the start of your next billing period.</p></dsy-collapse
+    ><dsy-collapse class="bg-base-200 mt-2" title="Where can I download invoices?" indicator="arrow"
+      ><p>Invoices are available from Billing in your workspace settings.</p></dsy-collapse
+    ></dsy-accordion
+  >
+</section>

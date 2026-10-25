@@ -1,0 +1,26 @@
+<article class="swap-example-setting">
+  <div class="swap-example-icon" aria-hidden="true">✦</div>
+  <div class="swap-example-copy">
+    <h3>Weekly highlights</h3>
+    <p>Receive one concise summary every Friday.</p>
+  </div>
+  <dsy-swap
+    [checked]="checked()"
+    (checkedChange)="checked.set($event)"
+    [indeterminate]="indeterminate()"
+    (indeterminateChange)="indeterminate.set($event)"
+    [disabled]="props().disabled ?? false"
+    [animation]="props().animation ?? 'none'"
+    [aria-label]="props().label ?? 'Receive weekly highlights'"
+    [color]="props().color"
+    [size]="props().size"
+    [variant]="props().variant ?? 'plain'"
+    [buttonClass]="props().buttonClass ?? ''"
+  >
+    <span dsySwapOff aria-hidden="true">○</span><span dsySwapOn aria-hidden="true">✓</span
+    ><span dsySwapIndeterminate aria-hidden="true">−</span>
+  </dsy-swap>
+</article>
+<p class="swap-example-status" role="status">
+  Weekly highlights {{ checked() ? 'enabled' : 'disabled' }}
+</p>

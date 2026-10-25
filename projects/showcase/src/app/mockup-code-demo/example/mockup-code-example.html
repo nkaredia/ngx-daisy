@@ -1,0 +1,26 @@
+<section class="mockup-code-example-card">
+  <header>
+    <div>
+      <span class="mockup-code-example-eyebrow">Release pipeline</span>
+      <h3>Ship version 0.0.1</h3>
+    </div>
+    <span class="mockup-code-example-environment">
+      <i aria-hidden="true"></i>
+      Production
+    </span>
+  </header>
+
+  <p>Install, verify, and publish the design system from one repeatable workflow.</p>
+
+  <dsy-mockup-code>
+    <pre [dsyCodeLine]="line().prefix ?? '>'"><code>yarn install</code></pre>
+    <pre dsyCodeLine="$"><code>yarn build</code></pre>
+    <pre dsyCodeLine="$"><code>yarn test</code></pre>
+    <pre dsyCodeLine="✓" class="text-success"><code>Ready to publish.</code></pre>
+  </dsy-mockup-code>
+
+  <footer>
+    <span>Last run 2 minutes ago</span>
+    <strong>Finished in 12.4s</strong>
+  </footer>
+</section>

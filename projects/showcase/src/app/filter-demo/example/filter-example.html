@@ -1,0 +1,41 @@
+<section class="filter-example-board" aria-labelledby="filter-example-title">
+  <header>
+    <div>
+      <p>Team workspace</p>
+      <h3 id="filter-example-title">Open projects</h3>
+    </div>
+    <span>12 active</span>
+  </header>
+  <dsy-filter
+    [hidden]="props().hidden ?? false"
+    [disabled]="props().disabled ?? false"
+    [readonly]="props().readonly ?? false"
+    [required]="props().required ?? false"
+    [invalid]="props().invalid ?? false"
+    [touched]="props().touched ?? false"
+    [dirty]="props().dirty ?? false"
+    [pending]="props().pending ?? false"
+    [name]="props().name ?? ''"
+    [id]="props().id ?? 'playground-filter'"
+    [aria-label]="props().ariaLabel ?? 'Filter example'"
+    [aria-labelledby]="props().ariaLabelledBy"
+    [aria-describedby]="props().ariaDescribedBy ?? ''"
+    [color]="props().color"
+    [size]="props().size"
+    [resetLabel]="props().resetLabel ?? 'Clear filter'"
+    [value]="selected()"
+    (valueChange)="selected.set($event)"
+    [options]="options"
+  ></dsy-filter>
+  <div class="filter-example-results">
+    <article>
+      <span>DS</span>
+      <div><strong>Design system</strong><small>Updated 12 min ago</small></div>
+    </article>
+    <article>
+      <span>AP</span>
+      <div><strong>Analytics portal</strong><small>Updated yesterday</small></div>
+    </article>
+  </div>
+  <p class="filter-example-status" aria-live="polite">Showing {{ selected() ?? 'all teams' }}</p>
+</section>

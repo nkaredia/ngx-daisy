@@ -1,0 +1,28 @@
+<section class="tooltip-example-toolbar">
+  <div>
+    <span>Project access</span>
+    <strong>Invite your collaborators</strong>
+    <p>Share a secure invitation link with people who need access.</p>
+  </div>
+  <button
+    type="button"
+    [class]="buttonClasses"
+    [dsyTooltip]="props().text ?? 'Copy invitation link'"
+    [tooltipDisabled]="props().disabled ?? false"
+    [position]="props().position ?? 'top'"
+    [align]="props().align ?? 'center'"
+    [color]="props().color ?? 'inherit'"
+    [tooltipClass]="props().tooltipClass ?? ''"
+    [showDelay]="props().showDelay ?? 0"
+    [hideDelay]="props().hideDelay ?? 100"
+    [opened]="opened()"
+    (openedChange)="opened.set($event)"
+  >
+    <span aria-hidden="true">⌁</span> Copy link
+  </button>
+</section>
+@if (!props().text) {
+  <p class="tooltip-example-hint">
+    Enter tooltip text in the property controls to show a custom message.
+  </p>
+}

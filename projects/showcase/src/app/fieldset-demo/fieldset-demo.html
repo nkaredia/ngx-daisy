@@ -1,0 +1,25 @@
+<section class="action-demo input-demo">
+  <h2>Fieldsets</h2>
+  <p>
+    Native fieldset and legend semantics group related controls and disable their descendants
+    together.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-card">
+    <fieldset dsyFieldset [disabled]="locked()" class="border border-base-300 rounded-box p-5">
+      <legend dsyLegend>Workspace preferences</legend>
+      <p dsyFieldsetLabel>Manage the workspace name and notification preferences.</p>
+      <dsy-form-field label="Workspace name"
+        ><input dsyInput [formField]="fields.name" /></dsy-form-field
+      ><label class="demo-row mt-4"
+        ><input type="checkbox" dsyCheckbox [formField]="fields.updates" /> Email updates</label
+      >
+    </fieldset>
+    <label class="mt-4"
+      ><input type="checkbox" #d (change)="locked.set(d.checked)" /> Disable fieldset</label
+    >
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<section class="timeline-example-release">
+  <header>
+    <p>Release plan</p>
+    <h3>From idea to launch</h3>
+  </header>
+  <div class="timeline-example-scroll">
+    <ol
+      dsyTimeline
+      [orientation]="props().orientation ?? 'horizontal'"
+      [compact]="props().compact ?? false"
+      [snapIcon]="props().snapIcon ?? false"
+    >
+      <li>
+        <div dsyTimelineStart><time datetime="2026-10-12">October 12</time></div>
+        <div dsyTimelineMiddle aria-hidden="true">✓</div>
+        <div dsyTimelineEnd dsyTimelineBox>
+          <strong>Kickoff</strong><span>Scope and success metrics agreed</span>
+        </div>
+        <hr />
+      </li>
+      <li>
+        <hr />
+        <div dsyTimelineStart><time datetime="2026-10-20">October 20</time></div>
+        <div dsyTimelineMiddle aria-hidden="true">✓</div>
+        <div dsyTimelineEnd dsyTimelineBox>
+          <strong>Beta review</strong><span>Customer feedback incorporated</span>
+        </div>
+        <hr />
+      </li>
+      <li>
+        <hr />
+        <div dsyTimelineStart><time datetime="2026-10-28">October 28</time></div>
+        <div dsyTimelineMiddle aria-hidden="true">●</div>
+        <div dsyTimelineEnd dsyTimelineBox>
+          <strong>Launch</strong><span>Release notes and rollout ready</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>

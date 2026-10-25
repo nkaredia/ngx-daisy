@@ -1,0 +1,27 @@
+<section class="action-demo catalog-demo">
+  <h2>Join Groups</h2>
+  <p>Join adjacent buttons and fields while preserving each control’s behavior.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Grouped buttons</h3>
+    <dsy-join
+      ><button type="button" dsyJoinItem dsyButton (click)="selected.set('Day')">Day</button
+      ><button type="button" dsyJoinItem dsyButton (click)="selected.set('Week')">Week</button
+      ><button type="button" dsyJoinItem dsyButton (click)="selected.set('Month')">
+        Month
+      </button></dsy-join
+    >
+    <p class="demo-status" aria-live="polite">View: {{ selected() }}</p>
+  </section>
+  <section class="demo-card">
+    <h3>Vertical group</h3>
+    <dsy-join orientation="vertical"
+      ><button dsyJoinItem type="button" dsyButton>First</button
+      ><button dsyJoinItem type="button" dsyButton>Second</button
+      ><button dsyJoinItem type="button" dsyButton>Third</button></dsy-join
+    >
+  </section>
+</section>

@@ -1,0 +1,125 @@
+demo-mockup-phone-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-mockup-phone-example dsy-mockup-phone {
+  max-inline-size: 100%;
+  filter: drop-shadow(
+    0 1.5rem 2rem color-mix(in oklab, var(--color-base-content) 14%, transparent)
+  );
+}
+demo-mockup-phone-example .mockup-phone-example-screen {
+  display: grid;
+  align-content: start;
+  gap: 1.1rem;
+  inline-size: min(18rem, 60vw);
+  min-block-size: 30rem;
+  padding: 1.25rem;
+  color: var(--color-base-content);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in oklab, var(--color-primary) 9%, var(--color-base-100)),
+    var(--color-base-100) 35%
+  );
+}
+
+demo-mockup-phone-example header,
+demo-mockup-phone-example nav,
+demo-mockup-phone-example .mockup-phone-example-stats,
+demo-mockup-phone-example .mockup-phone-example-people {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+demo-mockup-phone-example header,
+demo-mockup-phone-example nav {
+  font-size: 0.6rem;
+  font-weight: 650;
+}
+
+demo-mockup-phone-example h3,
+demo-mockup-phone-example h4,
+demo-mockup-phone-example p {
+  margin: 0;
+}
+
+demo-mockup-phone-example .mockup-phone-example-greeting p,
+demo-mockup-phone-example .mockup-phone-example-feature > span,
+demo-mockup-phone-example .mockup-phone-example-feature p {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.65rem;
+}
+
+demo-mockup-phone-example h3 {
+  margin-top: 0.15rem;
+  font-size: 1.25rem;
+  font-weight: 750;
+}
+
+demo-mockup-phone-example .mockup-phone-example-feature {
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--color-primary-content);
+  background: linear-gradient(
+    145deg,
+    var(--color-primary),
+    color-mix(in oklab, var(--color-primary) 72%, black)
+  );
+  box-shadow: 0 1rem 2rem color-mix(in oklab, var(--color-primary) 18%, transparent);
+}
+
+demo-mockup-phone-example .mockup-phone-example-feature > span,
+demo-mockup-phone-example .mockup-phone-example-feature p {
+  color: color-mix(in oklab, var(--color-primary-content) 72%, transparent);
+}
+
+demo-mockup-phone-example h4 {
+  margin-block: 0.45rem 0.2rem;
+  font-size: 0.9rem;
+}
+
+demo-mockup-phone-example .mockup-phone-example-people {
+  justify-content: start;
+  margin-top: 1rem;
+}
+
+demo-mockup-phone-example .mockup-phone-example-people i {
+  display: grid;
+  place-items: center;
+  inline-size: 1.6rem;
+  block-size: 1.6rem;
+  margin-inline-end: -0.75rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-secondary);
+  font-size: 0.48rem;
+  font-style: normal;
+  font-weight: 750;
+}
+
+demo-mockup-phone-example .mockup-phone-example-stats span {
+  display: grid;
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--color-base-200);
+  font-size: 0.62rem;
+}
+
+demo-mockup-phone-example .mockup-phone-example-stats strong {
+  font-size: 1.1rem;
+}
+
+demo-mockup-phone-example nav {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-base-300);
+  color: color-mix(in oklab, var(--color-base-content) 55%, transparent);
+}
+
+demo-mockup-phone-example nav span:first-child {
+  color: var(--color-primary);
+  font-weight: 750;
+}

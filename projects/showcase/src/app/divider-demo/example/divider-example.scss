@@ -1,0 +1,55 @@
+demo-divider-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-divider-example .divider-example-content {
+  inline-size: min(100%, 36rem);
+  min-block-size: 8rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+demo-divider-example article {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-inline-size: 0;
+}
+demo-divider-example article > span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  border-radius: 0.7rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+demo-divider-example h3,
+demo-divider-example p {
+  margin: 0;
+}
+demo-divider-example h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+demo-divider-example p {
+  margin-top: 0.2rem;
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.72rem;
+}
+demo-divider-example .divider-example-content-vertical {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+}
+demo-divider-example .divider-example-content-vertical article {
+  flex: 1;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}

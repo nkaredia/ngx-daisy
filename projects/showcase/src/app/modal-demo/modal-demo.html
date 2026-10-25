@@ -1,0 +1,55 @@
+<section class="action-demo">
+  <h2>Modals</h2>
+  <p>
+    Dialogs keep keyboard focus inside, make the background inert and return focus to the opener.
+    Nested dialogs share the same focus and scroll management as drawers.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-card">
+    <h3>Placement and dismissal</h3>
+    <div class="demo-row">
+      <label
+        >Placement
+        <select #p (change)="placement.set($any(p.value))">
+          @for (value of placements; track value) {
+            <option>{{ value }}</option>
+          }
+        </select></label
+      ><label
+        ><input type="checkbox" #lock (change)="locked.set(lock.checked)" /> Require an explicit
+        choice</label
+      ><button dsyButton color="primary" (click)="dialog.open()">Open dialog</button>
+    </div>
+    <p class="demo-status" aria-live="polite">{{ result() }}</p>
+  </div>
+  <dsy-modal
+    #dialog
+    [placement]="placement()"
+    [disableClose]="locked()"
+    aria-labelledby="project-dialog-title"
+    (closed)="result.set($event ? 'Result: ' + $event : 'Dismissed')"
+    ><h3 dsyModalTitle id="project-dialog-title">Create a project</h3>
+    <div dsyModalContent>
+      <p class="mb-4">Choose a name for your next project.</p>
+      <label>Project name <input type="text" value="My project" cdkFocusInitial /></label>
+      <p class="mt-4">You can open another dialog without losing your place.</p>
+      <button dsyButton variant="outline" class="mt-4" (click)="nested.open()">
+        Open nested dialog
+      </button>
+    </div>
+    <div dsyModalActions>
+      <button dsyButton dsyModalClose="cancelled">Cancel</button
+      ><button dsyButton color="primary" dsyModalClose="created">Create project</button>
+    </div>
+    <dsy-modal #nested aria-labelledby="confirm-title" width="24rem"
+      ><h3 dsyModalTitle id="confirm-title">A second dialog</h3>
+      <p dsyModalContent>Escape closes only this dialog and returns focus to the first.</p>
+      <div dsyModalActions>
+        <button dsyButton color="primary" dsyModalClose>Back to project</button>
+      </div></dsy-modal
+    ></dsy-modal
+  >
+</section>

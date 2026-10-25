@@ -1,0 +1,101 @@
+<div
+  class="dsy-calendar-view"
+  [class]="daisy('react-day-picker') + ' ' + panelClass()"
+  [id]="id()"
+  [attr.aria-describedby]="describedBy()"
+  [attr.aria-invalid]="errorState() || null"
+>
+  <div [class]="parts('rdp-months')">
+    <div class="dsy-calendar-header" [class]="parts('rdp-nav')">
+      <button
+        type="button"
+        class="dsy-calendar-nav"
+        [class]="parts('rdp-button_previous')"
+        aria-label="Previous month"
+        [disabled]="!canNavigate(-1)"
+        (click)="navigate(-1)"
+      >
+        <svg [class]="parts('rdp-chevron')" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m14 6-6 6 6 6 2-2-4-4 4-4z" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        class="dsy-calendar-nav"
+        [class]="parts('rdp-button_next')"
+        aria-label="Next month"
+        [disabled]="!canNavigate(1)"
+        (click)="navigate(1)"
+      >
+        <svg [class]="parts('rdp-chevron')" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="m10 6 6 6-6 6-2-2 4-4-4-4z" />
+        </svg>
+      </button>
+    </div>
+    <div [class]="parts('rdp-month')">
+      <div [class]="parts('rdp-month_caption')">
+        <span [class]="parts('rdp-caption_label')" aria-live="polite" [id]="id() + '-month'">{{
+          title()
+        }}</span>
+      </div>
+      <table
+        [class]="parts('rdp-month_grid')"
+        role="grid"
+        [attr.aria-label]="ariaLabel() || 'Choose date'"
+        [attr.aria-labelledby]="
+          labelledBy() ? labelledBy() + ' ' + id() + '-month' : id() + '-month'
+        "
+        [attr.aria-readonly]="readonly() || null"
+      >
+        <thead>
+          <tr [class]="parts('rdp-weekdays')">
+            @for (day of weekdays(); track $index) {
+              <th [class]="parts('rdp-weekday')" scope="col" [attr.aria-label]="day.long">
+                {{ day.short }}
+              </th>
+            }
+          </tr>
+        </thead>
+        <tbody [class]="parts('rdp-weeks')">
+          @for (week of weeks(); track week[0]) {
+            <tr [class]="parts('rdp-week')">
+              @for (day of week; track day) {
+                <td
+                  [class]="
+                    parts(
+                      'rdp-day',
+                      selected(day) ? 'rdp-selected' : '',
+                      outsideMonth(day) ? 'rdp-outside' : '',
+                      day === today ? 'rdp-today' : '',
+                      !enabled(day) ? 'rdp-disabled' : ''
+                    )
+                  "
+                  role="gridcell"
+                  [attr.aria-disabled]="!enabled(day)"
+                  [attr.aria-selected]="selected(day)"
+                >
+                  <button
+                    type="button"
+                    [attr.data-date]="day"
+                    [class]="parts('rdp-day_button') + ' ' + dateClass()(day)"
+                    [attr.data-outside]="outsideMonth(day)"
+                    [attr.aria-label]="label(day)"
+                    [attr.aria-current]="day === today ? 'date' : null"
+                    [attr.data-selected]="selected(day)"
+                    [tabIndex]="tabIndex(day)"
+                    [disabled]="!enabled(day)"
+                    (focus)="activeDate.set(day)"
+                    (keydown)="keydown($event, day)"
+                    (click)="choose(day)"
+                  >
+                    {{ number(day) }}
+                  </button>
+                </td>
+              }
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

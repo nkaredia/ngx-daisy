@@ -1,0 +1,36 @@
+<section class="calendar-example-card" aria-labelledby="calendar-example-title">
+  <header>
+    <div>
+      <p class="calendar-example-eyebrow">Schedule a call</p>
+      <h3 id="calendar-example-title">Choose a date</h3>
+    </div>
+    <span class="calendar-example-duration">30 min</span>
+  </header>
+  <p class="calendar-example-intro">Pick a day that works for your team.</p>
+  <dsy-calendar
+    [hidden]="props().hidden ?? false"
+    [disabled]="props().disabled ?? false"
+    [readonly]="props().readonly ?? false"
+    [required]="props().required ?? false"
+    [invalid]="props().invalid ?? false"
+    [touched]="props().touched ?? false"
+    [dirty]="props().dirty ?? false"
+    [pending]="props().pending ?? false"
+    [name]="props().name ?? ''"
+    [id]="props().id ?? 'playground-calendar'"
+    [aria-label]="props().ariaLabel ?? 'Calendar example'"
+    [aria-labelledby]="props().ariaLabelledBy"
+    [aria-describedby]="props().ariaDescribedBy ?? ''"
+    [panelClass]="props().panelClass ?? ''"
+    [min]="props().min"
+    [max]="props().max"
+    [startAt]="props().startAt ?? '2026-10-01'"
+    [locale]="locale()"
+    [firstDayOfWeek]="props().firstDayOfWeek ?? 0"
+    [value]="selected()"
+    (valueChange)="selected.set($event)"
+  ></dsy-calendar>
+  <p class="calendar-example-selection" aria-live="polite">
+    <span>Selected date</span><strong>{{ selected() ?? 'Choose a day' }}</strong>
+  </p>
+</section>

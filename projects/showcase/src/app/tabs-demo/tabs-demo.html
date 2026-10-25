@@ -1,0 +1,58 @@
+<section class="action-demo catalog-demo">
+  <h2>Tabs</h2>
+  <p>
+    CDK keyboard navigation with roving focus, labelled panels and automatic or manual activation.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Project details</h3>
+    <dsy-tabs label="Project details" [(selectedIndex)]="selected" variant="border"
+      ><button dsyTab>Overview</button><button dsyTab>Activity</button
+      ><button dsyTab disabled>Archived</button><button dsyTab>Settings</button>
+      <section dsyTabPanel="0" class="catalog-tab-panel">
+        <h3>Overview</h3>
+        <p>A shared foundation for reusable interfaces.</p>
+        <a href="/cards">Browse cards</a>
+      </section>
+      <section dsyTabPanel="1" class="catalog-tab-panel">
+        <h3>Activity</h3>
+        <p>Three updates are ready for review.</p>
+      </section>
+      <section dsyTabPanel="2" class="catalog-tab-panel">Archived content</section>
+      <section dsyTabPanel="3" class="catalog-tab-panel">
+        <h3>Settings</h3>
+        <label>Project name <input type="text" value="Design system" /></label></section
+    ></dsy-tabs>
+    <p class="demo-status">Selected index: {{ selected() }}</p>
+  </section>
+  <section class="demo-card">
+    <h3>Manual activation</h3>
+    <p>Arrow keys move focus. Enter or Space selects a tab.</p>
+    <dsy-tabs label="Manual activation" activation="manual" variant="box"
+      ><button dsyTab>Details</button><button dsyTab>History</button>
+      <div dsyTabPanel="0" class="catalog-tab-panel">Current release details.</div>
+      <div dsyTabPanel="1" class="catalog-tab-panel">Previous release history.</div></dsy-tabs
+    >
+  </section>
+  <section class="demo-card">
+    <h3>Lifted tabs</h3>
+    <dsy-tabs label="Lifted details" variant="lift"
+      ><button dsyTab>Overview</button><button dsyTab>Activity</button
+      ><button dsyTab>Settings</button>
+      <section [dsyTabPanel]="0" class="catalog-tab-panel">Overview panel</section>
+      <section [dsyTabPanel]="1" class="catalog-tab-panel">Activity panel</section>
+      <section [dsyTabPanel]="2" class="catalog-tab-panel">Settings panel</section></dsy-tabs
+    >
+  </section>
+  <section class="demo-card">
+    <h3>Bottom tabs</h3>
+    <dsy-tabs label="Bottom details" variant="lift" placement="bottom"
+      ><button dsyTab>Details</button><button dsyTab>History</button>
+      <section [dsyTabPanel]="0" class="catalog-tab-panel">Current details</section>
+      <section [dsyTabPanel]="1" class="catalog-tab-panel">Release history</section></dsy-tabs
+    >
+  </section>
+</section>

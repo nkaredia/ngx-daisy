@@ -1,0 +1,169 @@
+demo-mockup-browser-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-mockup-browser-example .mockup-browser-example-content {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  min-block-size: 24rem;
+}
+
+demo-mockup-browser-example dsy-mockup-browser {
+  display: block;
+  inline-size: min(100%, 56rem);
+  overflow: hidden;
+  box-shadow: 0 1.25rem 3rem color-mix(in oklab, var(--color-base-content) 10%, transparent);
+}
+
+demo-mockup-browser-example aside {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  padding: 1rem 0.75rem;
+  background: var(--color-base-200);
+  font-size: 0.68rem;
+}
+
+demo-mockup-browser-example aside strong {
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  margin-bottom: 0.75rem;
+  border-radius: 0.6rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.58rem;
+}
+
+demo-mockup-browser-example aside span {
+  padding: 0.5rem;
+  border-radius: 0.45rem;
+}
+
+demo-mockup-browser-example aside span:first-of-type {
+  background: var(--color-base-300);
+  font-weight: 700;
+}
+
+demo-mockup-browser-example .mockup-browser-example-main {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  min-inline-size: 0;
+  padding: clamp(1rem, 3vw, 1.75rem);
+}
+
+demo-mockup-browser-example header,
+demo-mockup-browser-example section > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+demo-mockup-browser-example h3,
+demo-mockup-browser-example h4,
+demo-mockup-browser-example p {
+  margin: 0;
+}
+
+demo-mockup-browser-example header p,
+demo-mockup-browser-example section p,
+demo-mockup-browser-example small,
+demo-mockup-browser-example .mockup-browser-example-status {
+  color: color-mix(in oklab, var(--color-base-content) 58%, transparent);
+  font-size: 0.62rem;
+}
+
+demo-mockup-browser-example h3 {
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+demo-mockup-browser-example header > span {
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 50%;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.6rem;
+  font-weight: 750;
+}
+
+demo-mockup-browser-example .mockup-browser-example-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+demo-mockup-browser-example article,
+demo-mockup-browser-example section {
+  padding: 0.75rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-field);
+}
+
+demo-mockup-browser-example article span,
+demo-mockup-browser-example article strong,
+demo-mockup-browser-example article small {
+  display: block;
+}
+
+demo-mockup-browser-example article span {
+  font-size: 0.62rem;
+}
+
+demo-mockup-browser-example article strong {
+  margin-block: 0.25rem;
+  font-size: 1.2rem;
+}
+
+demo-mockup-browser-example section {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+}
+
+demo-mockup-browser-example h4 {
+  font-size: 0.72rem;
+}
+
+demo-mockup-browser-example .mockup-browser-example-chart {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: end;
+  gap: 0.35rem;
+  block-size: 5rem;
+}
+
+demo-mockup-browser-example .mockup-browser-example-chart i {
+  flex: 1;
+  block-size: 45%;
+  border-radius: 0.2rem 0.2rem 0 0;
+  background: var(--color-primary);
+}
+
+demo-mockup-browser-example .mockup-browser-example-chart i:nth-child(2n) {
+  block-size: 75%;
+}
+
+demo-mockup-browser-example .mockup-browser-example-chart i:nth-child(3n) {
+  block-size: 60%;
+}
+
+@media (max-width: 36rem) {
+  demo-mockup-browser-example .mockup-browser-example-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  demo-mockup-browser-example aside {
+    display: none;
+  }
+
+  demo-mockup-browser-example .mockup-browser-example-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

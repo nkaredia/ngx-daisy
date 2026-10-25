@@ -1,0 +1,13 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    @media (prefers-reduced-motion: reduce) {
+      progress[dsyProgress],
+      progress[dsyProgress]::after,
+      progress[dsyProgress]::-webkit-progress-value,
+      progress[dsyProgress]::-moz-progress-bar {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}

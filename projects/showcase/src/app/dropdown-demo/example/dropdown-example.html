@@ -1,0 +1,48 @@
+<article class="dropdown-example-project">
+  <div class="dropdown-example-mark" aria-hidden="true">ND</div>
+  <div class="dropdown-example-copy">
+    <h3>New dashboard</h3>
+    <p>Updated 8 minutes ago · 4 collaborators</p>
+  </div>
+  <dsy-dropdown
+    [opened]="opened()"
+    (openedChange)="opened.set($event)"
+    [placement]="props().placement ?? 'bottom'"
+    [align]="props().align ?? 'start'"
+    [kind]="props().kind ?? 'menu'"
+    [hover]="props().hover ?? false"
+    [disabled]="props().disabled ?? false"
+    [autoFocus]="props().autoFocus ?? true"
+    [panelClass]="props().panelClass ?? ''"
+    [aria-label]="props().label ?? 'Project actions'"
+    [id]="props().id ?? 'playground-project-actions'"
+  >
+    <button
+      dsyButton
+      dsyDropdownTrigger
+      shape="circle"
+      variant="ghost"
+      aria-label="Project actions"
+      [disabled]="props().disabled ?? false"
+    >
+      <span aria-hidden="true">•••</span>
+    </button>
+    <ng-template dsyDropdownContent>
+      @if ((props().kind ?? 'menu') === 'menu') {
+        <button dsyDropdownItem (triggered)="selection.set('Project opened')">Open project</button>
+        <button dsyDropdownItem (triggered)="selection.set('Share link copied')">
+          Copy share link
+        </button>
+        <button dsyDropdownItem (triggered)="selection.set('Project duplicated')">Duplicate</button>
+        <button dsyDropdownItem disabled>Archive unavailable</button>
+      } @else {
+        <p class="font-semibold">Project notifications</p>
+        <label class="dropdown-example-option"
+          ><input type="checkbox" checked /> Weekly activity summary</label
+        >
+        <button dsyButton size="sm" class="mt-3" (click)="opened.set(false)">Done</button>
+      }
+    </ng-template>
+  </dsy-dropdown>
+</article>
+<p class="dropdown-example-status" role="status">{{ selection() }}</p>

@@ -1,0 +1,39 @@
+demo-hover-3d-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.hover-3d-example-card {
+  background:
+    radial-gradient(
+      circle at 85% 12%,
+      color-mix(in oklab, white 22%, transparent),
+      transparent 32%
+    ),
+    var(--color-primary);
+  box-shadow: 0 1.5rem 3rem color-mix(in oklab, var(--color-primary) 30%, transparent);
+}
+.hover-3d-example-card > span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+.hover-3d-example-card h3 {
+  margin-top: 0.35rem;
+}
+.hover-3d-example-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+.hover-3d-example-meta strong {
+  font-size: 1.5rem;
+}
+.hover-3d-example-meta span {
+  font-size: 0.8rem;
+  opacity: 0.75;
+}

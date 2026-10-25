@@ -1,0 +1,27 @@
+<dsy-mockup-phone
+  [displayClass]="props().displayClass ?? ''"
+  [cameraClass]="props().cameraClass ?? ''"
+>
+  <div class="mockup-phone-example-screen">
+    <header><span>9:41</span><span aria-hidden="true">● ●●</span></header>
+    <div class="mockup-phone-example-greeting">
+      <p>Good morning</p>
+      <h3>Your day at a glance</h3>
+    </div>
+    <article class="mockup-phone-example-feature">
+      <span>Next meeting · 10:30 AM</span>
+      <h4>Design system review</h4>
+      <p>With Alex, Morgan and 3 others</p>
+      <div class="mockup-phone-example-people" aria-hidden="true"><i>AJ</i><i>MK</i><i>+3</i></div>
+    </article>
+    <div class="mockup-phone-example-stats">
+      <span><strong>4</strong> tasks</span><span><strong>2</strong> reviews</span>
+    </div>
+    <button dsyButton type="button" (click)="saved.update(toggle)">
+      {{ saved() ? 'Added to your day' : 'Add to my day' }}
+    </button>
+    <nav aria-label="Mobile preview navigation">
+      <span>Home</span><span>Projects</span><span>Profile</span>
+    </nav>
+  </div>
+</dsy-mockup-phone>

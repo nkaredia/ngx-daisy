@@ -1,0 +1,41 @@
+demo-timeline-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.timeline-example-release {
+  width: min(100%, 48rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.timeline-example-release header {
+  margin-bottom: 1rem;
+}
+.timeline-example-release header p {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.timeline-example-release header h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+.timeline-example-scroll {
+  overflow: auto;
+  padding: 0.25rem;
+}
+.timeline-example-release [dsyTimelineBox] {
+  display: grid;
+  min-width: 9rem;
+}
+.timeline-example-release [dsyTimelineBox] span {
+  margin-top: 0.2rem;
+  color: color-mix(in oklab, var(--color-base-content) 62%, transparent);
+  font-size: 0.72rem;
+}

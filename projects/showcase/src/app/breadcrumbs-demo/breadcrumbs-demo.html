@@ -1,0 +1,26 @@
+<section class="action-demo catalog-demo">
+  <h2>Breadcrumbs</h2>
+  <p>A labelled navigation landmark with native list and link semantics.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Project location</h3>
+    <dsy-breadcrumbs
+      ><li><a href="/buttons">Components</a></li>
+      <li><a href="/cards">Data Display</a></li>
+      <li aria-current="page">Breadcrumbs</li></dsy-breadcrumbs
+    >
+  </section>
+  <section class="demo-card">
+    <h3>Long paths</h3>
+    <dsy-breadcrumbs class="max-w-full"
+      ><li>Workspace</li>
+      <li>Design system</li>
+      <li>Documentation</li>
+      <li>Navigation</li>
+      <li aria-current="page">Current example</li></dsy-breadcrumbs
+    >
+  </section>
+</section>

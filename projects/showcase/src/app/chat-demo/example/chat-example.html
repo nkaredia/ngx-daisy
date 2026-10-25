@@ -1,0 +1,15 @@
+<section class="chat-example-thread" aria-label="Project conversation">
+  <p class="chat-example-date">Today</p>
+  <dsy-chat [position]="props().position ?? 'start'">
+    <dsy-chat-header>Alex <time datetime="2026-10-25T09:15:00">09:15</time></dsy-chat-header>
+    <dsy-chat-bubble [color]="bubble().color"
+      >Ready to share the new component collection?</dsy-chat-bubble
+    >
+    <dsy-chat-footer>Delivered</dsy-chat-footer>
+  </dsy-chat>
+  <dsy-chat position="end">
+    <dsy-chat-header>You <time datetime="2026-10-25T09:16:00">09:16</time></dsy-chat-header>
+    <dsy-chat-bubble color="primary">Yes — the release notes are ready to review.</dsy-chat-bubble>
+    <dsy-chat-footer>Seen</dsy-chat-footer>
+  </dsy-chat>
+</section>

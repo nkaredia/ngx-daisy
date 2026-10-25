@@ -1,0 +1,38 @@
+demo-collapse-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.collapse-example-shell {
+  width: min(100%, 40rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.collapse-example-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.collapse-example-heading > span {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
+  color: var(--color-primary);
+  font-weight: 800;
+}
+.collapse-example-heading p {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.72rem;
+}
+.collapse-example-heading h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}

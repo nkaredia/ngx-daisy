@@ -1,0 +1,83 @@
+demo-textarea-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-textarea-example .textarea-example-card {
+  display: grid;
+  gap: 1rem;
+  inline-size: min(100%, 32rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+demo-textarea-example header,
+demo-textarea-example footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+demo-textarea-example header {
+  justify-content: start;
+}
+
+demo-textarea-example header > span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 50%;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+demo-textarea-example h3,
+demo-textarea-example p {
+  margin: 0;
+}
+
+demo-textarea-example h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+demo-textarea-example p,
+demo-textarea-example footer {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.7rem;
+}
+
+demo-textarea-example label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+demo-textarea-example .textarea-example-label {
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+demo-textarea-example textarea {
+  inline-size: 100%;
+  min-block-size: 6rem;
+}
+
+demo-textarea-example .textarea-example-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+demo-textarea-example .textarea-example-tags span {
+  padding: 0.25rem 0.45rem;
+  border-radius: 999px;
+  background: var(--color-base-200);
+}

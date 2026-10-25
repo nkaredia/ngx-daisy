@@ -1,0 +1,50 @@
+<div class="dsy-dropdown-origin" [dir]="direction()">
+  <ng-content select="[dsyDropdownTrigger]" />
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger()?.element ?? host"
+    [cdkConnectedOverlayOpen]="opened() && !disabled() && !!content()"
+    [cdkConnectedOverlayPositions]="positions()"
+    [cdkConnectedOverlayViewportMargin]="8"
+    [cdkConnectedOverlayPush]="true"
+    [cdkConnectedOverlayHasBackdrop]="false"
+    (attach)="attached()"
+    (overlayOutsideClick)="outside($event)"
+    (detach)="close(false)"
+  >
+    <div class="dsy-dropdown-theme" [dsyOverlayTheme]="host">
+      @if (kind() === 'menu') {
+        <div
+          #panel
+          role="menu"
+          tabindex="-1"
+          [id]="id()"
+          class="dsy-dropdown-panel"
+          [class]="daisyClasses('dropdown-content', 'menu') + ' ' + panelClass()"
+          [attr.aria-label]="label()"
+          (keydown)="panelKeydown($event)"
+          (mouseenter)="hoverEnter()"
+          (mouseleave)="hoverLeave()"
+        >
+          <ng-container [ngTemplateOutlet]="content()!.template" />
+        </div>
+      } @else {
+        <div
+          #panel
+          [id]="id()"
+          class="dsy-dropdown-panel"
+          [class]="daisyClasses('dropdown-content') + ' ' + panelClass()"
+          role="dialog"
+          aria-modal="false"
+          tabindex="-1"
+          [attr.aria-label]="label()"
+          (keydown)="panelKeydown($event)"
+          (mouseenter)="hoverEnter()"
+          (mouseleave)="hoverLeave()"
+        >
+          <ng-container [ngTemplateOutlet]="content()!.template" />
+        </div>
+      }
+    </div>
+  </ng-template>
+</div>

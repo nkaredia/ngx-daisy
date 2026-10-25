@@ -1,0 +1,31 @@
+<section class="action-demo catalog-demo">
+  <h2>Toasts</h2>
+  <p>
+    Position notifications around the viewport. Timed notifications pause while hovered or focused.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Notifications</h3>
+    <div class="demo-row">
+      <button type="button" class="catalog-button" (click)="notify()">Show notification</button
+      ><button type="button" class="catalog-button" (click)="timed()">
+        Show timed notification</button
+      ><button type="button" class="catalog-button" (click)="service.clear()">
+        Clear notifications
+      </button>
+    </div>
+    <p class="demo-status">Active notifications: {{ service.messages().length }}</p>
+    <dsy-toast-outlet />
+  </section>
+  <section class="demo-card">
+    <h3>Projected content</h3>
+    <dsy-toast class="catalog-toast-preview" horizontal="start" vertical="top"
+      ><div class="catalog-notice">
+        Toast is also a positioning wrapper for application content.
+      </div></dsy-toast
+    >
+  </section>
+</section>

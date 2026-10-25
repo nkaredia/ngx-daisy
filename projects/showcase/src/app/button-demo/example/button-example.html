@@ -1,0 +1,29 @@
+<section class="button-example-surface" aria-label="Workspace invitation">
+  <div>
+    <p class="button-example-eyebrow">Workspace</p>
+    <h3>Invite your team</h3>
+    <p>Bring collaborators into this project and choose their access later.</p>
+  </div>
+  <button
+    dsyButton
+    [color]="props().color"
+    [size]="props().size"
+    [variant]="props().variant ?? 'solid'"
+    [shape]="props().shape ?? 'normal'"
+    [layout]="props().layout ?? 'auto'"
+    [disabled]="props().disabled ?? false"
+    [loading]="props().loading ?? false"
+    [active]="props().active ?? false"
+    [type]="props().type ?? 'button'"
+    [tabIndex]="props().tabIndex"
+    [attr.aria-label]="
+      props().shape === 'circle' || props().shape === 'square' ? 'Invite a team member' : null
+    "
+  >
+    @if (props().shape === 'circle' || props().shape === 'square') {
+      <span aria-hidden="true">+</span>
+    } @else {
+      Invite member
+    }
+  </button>
+</section>

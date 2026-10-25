@@ -1,0 +1,42 @@
+<section class="action-demo display-demo">
+  <h2>Cards</h2>
+  <p>Compose semantic headings, figures and actions inside responsive cards.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-grid">
+    <dsy-card border="solid" class="bg-base-200"
+      ><figure
+        class="display-art art-mountain"
+        role="img"
+        aria-label="Alpine escape landscape"
+      ></figure>
+      <dsy-card-body
+        ><h3 dsyCardTitle>Alpine escape</h3>
+        <p>A quiet weekend above the clouds.</p>
+        <dsy-card-actions
+          ><button type="button" (click)="selected.set('Alpine escape')" class="display-button">
+            Explore
+          </button></dsy-card-actions
+        ></dsy-card-body
+      ></dsy-card
+    ><dsy-card border="dash" class="bg-base-200"
+      ><figure
+        class="display-art art-coast"
+        role="img"
+        aria-label="Coastal trails landscape"
+      ></figure>
+      <dsy-card-body
+        ><h3 dsyCardTitle>Coastal trails</h3>
+        <p>Follow the shoreline at your own pace.</p>
+        <dsy-card-actions
+          ><button type="button" (click)="selected.set('Coastal trails')" class="display-button">
+            Explore
+          </button></dsy-card-actions
+        ></dsy-card-body
+      ></dsy-card
+    >
+  </div>
+  <p aria-live="polite">Selected: {{ selected() }}</p>
+</section>

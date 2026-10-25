@@ -1,0 +1,28 @@
+@let progressValue = props().value ?? 0;
+<article class="radial-progress-example-card">
+  <div class="radial-progress-example-copy">
+    <span>Workspace storage</span>
+    <h3>Your files are comfortably within the plan</h3>
+    <p>Assets, recordings, and shared documents count toward your team storage.</p>
+    <dl>
+      <div>
+        <dt>Used</dt>
+        <dd>18.4 GB</dd>
+      </div>
+      <div>
+        <dt>Available</dt>
+        <dd>31.6 GB</dd>
+      </div>
+    </dl>
+  </div>
+  <div class="radial-progress-example-meter">
+    <dsy-radial-progress
+      [color]="props().color ?? 'inherit'"
+      [value]="progressValue"
+      [size]="props().size ?? '5rem'"
+      [thickness]="props().thickness ?? '.5rem'"
+      [label]="props().label ?? 'Progress'"
+    />
+    <span>{{ progressValue }}% used</span>
+  </div>
+</article>

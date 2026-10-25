@@ -1,0 +1,31 @@
+demo-button-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+}
+.button-example-surface {
+  display: grid;
+  width: min(100%, 32rem);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.button-example-surface h3 {
+  margin-top: 0.2rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.button-example-surface p:not(.button-example-eyebrow) {
+  margin-top: 0.35rem;
+  color: color-mix(in oklab, var(--color-base-content) 70%, transparent);
+}
+.button-example-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

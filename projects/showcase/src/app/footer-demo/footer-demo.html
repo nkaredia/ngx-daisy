@@ -1,0 +1,32 @@
+<section class="action-demo catalog-demo">
+  <h2>Footers</h2>
+  <p>Semantic footer content with horizontal, vertical or centered composition.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Site footer</h3>
+    <footer dsyFooter orientation="horizontal" class="bg-base-200 p-6 rounded-box">
+      <nav>
+        <h4 dsyFooterTitle>Components</h4>
+        <a href="/buttons">Actions</a><a href="/inputs">Data Input</a
+        ><a href="/cards">Data Display</a>
+      </nav>
+      <nav>
+        <h4 dsyFooterTitle>Resources</h4>
+        <a href="/tables">Table example</a><a href="/drawers">Drawer example</a>
+      </nav>
+      <aside>
+        <strong>ngx-daisy</strong>
+        <p>A reusable Angular component collection.</p>
+      </aside>
+    </footer>
+  </section>
+  <section class="demo-card">
+    <h3>Centered footer</h3>
+    <footer dsyFooter center class="bg-base-200 p-6 rounded-box">
+      <p>Built with Angular and daisyUI.</p>
+    </footer>
+  </section>
+</section>

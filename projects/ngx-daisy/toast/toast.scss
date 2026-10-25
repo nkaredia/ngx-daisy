@@ -1,0 +1,30 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-toast, [dsyToast]) {
+      max-width: calc(100vw - 2rem);
+      z-index: 40;
+      max-height: calc(100dvh - 2rem);
+      overflow: auto;
+    }
+    :where(dsy-toast-outlet dsy-alert) {
+      max-width: 28rem;
+      overflow-wrap: anywhere;
+    }
+    :where(dsy-toast-outlet button) {
+      cursor: pointer;
+      font-size: 1.3rem;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid currentColor;
+      border-radius: var(--radius-field);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      dsy-toast,
+      dsy-toast *,
+      [dsyToast],
+      [dsyToast] * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}

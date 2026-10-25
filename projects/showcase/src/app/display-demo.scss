@@ -1,0 +1,105 @@
+.display-demo {
+  grid-template-columns: minmax(0, 1fr);
+}
+.display-demo .demo-card {
+  min-width: 0;
+}
+.display-demo .display-avatar {
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.2rem;
+}
+.display-demo .display-tile {
+  padding: 2rem;
+  text-align: center;
+  min-height: 8rem;
+  display: grid;
+  place-items: center;
+}
+.display-demo .display-art {
+  height: 10rem;
+}
+.display-demo .display-slide {
+  min-height: 20rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: var(--radius-box);
+  color: white;
+}
+.display-demo .display-slide h3 {
+  font-size: 2rem;
+}
+.display-demo .art-mountain {
+  background: linear-gradient(155deg, #92adc1, #243a57);
+}
+.display-demo .art-coast {
+  background: linear-gradient(145deg, #9bc9c5, #096a76);
+}
+.display-demo .art-desert {
+  background: linear-gradient(155deg, #e8bc97, #884b42);
+}
+.display-demo .display-button {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-field);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.display-demo .display-button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.display-demo .display-number {
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+.display-demo .display-comparison {
+  width: 100%;
+  min-height: 18rem;
+  padding: 3rem;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+}
+.display-demo .display-comparison strong {
+  display: block;
+  font-size: 2.5rem;
+}
+.display-demo .display-tilt-card {
+  max-width: 32rem;
+}
+.display-demo .display-table-scroll {
+  overflow: auto;
+  margin-block-start: 1rem;
+}
+.display-demo table {
+  width: 100%;
+}
+.display-demo caption {
+  text-align: start;
+  padding-block: 1rem;
+  font-weight: 600;
+}
+.display-demo dsy-hover-gallery {
+  max-width: 44rem;
+}
+.display-demo dsy-countdown {
+  display: inline-block;
+}
+.display-demo dsy-stats {
+  max-width: 100%;
+}
+@media (max-width: 600px) {
+  .display-demo .stats-horizontal {
+    display: grid;
+    grid-auto-flow: row;
+  }
+  .display-demo .display-slide {
+    padding: 1.25rem;
+  }
+  .display-demo .display-comparison {
+    padding: 1.5rem;
+  }
+}

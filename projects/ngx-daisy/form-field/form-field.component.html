@@ -1,0 +1,21 @@
+@if (label() || projectedLabel()) {
+  <label
+    class="dsy-field-label"
+    [id]="labelId"
+    (click)="control()?.focus()"
+    [attr.for]="control()?.controlId()"
+    >{{ label() }}<ng-content select="dsy-label" />
+    @if (control()?.isRequired() && !hideRequiredMarker()) {
+      <span aria-hidden="true"> *</span>
+    }
+  </label>
+}
+<div class="dsy-field-row">
+  <ng-content select="[dsyPrefix]" />
+  <div class="dsy-field-control"><ng-content /></div>
+  <ng-content select="[dsySuffix]" />
+</div>
+<div class="dsy-field-messages" aria-live="polite">
+  <div [hidden]="showErrors()"><ng-content select="dsy-hint" /></div>
+  <div [hidden]="!showErrors()"><ng-content select="dsy-error,dsy-validator-hint" /></div>
+</div>

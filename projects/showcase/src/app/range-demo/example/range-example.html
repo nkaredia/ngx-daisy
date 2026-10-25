@@ -1,0 +1,27 @@
+<section
+  class="range-example-player"
+  [class.range-example-player-vertical]="props().vertical ?? false"
+  aria-labelledby="range-example-title"
+>
+  <div class="range-example-cover" aria-hidden="true"><span>NX</span></div>
+  <div class="range-example-details">
+    <p>Now playing</p>
+    <h3 id="range-example-title">Designing in the open</h3>
+    <span>New Exponents · Episode 18</span>
+  </div>
+  <label class="range-example-control">
+    <span>Volume</span><strong>{{ value() }}%</strong>
+    <input
+      #control
+      type="range"
+      dsyRange
+      min="0"
+      max="100"
+      [color]="props().color"
+      [size]="props().size"
+      [vertical]="props().vertical ?? false"
+      [value]="value()"
+      (input)="value.set(control.valueAsNumber)"
+    />
+  </label>
+</section>

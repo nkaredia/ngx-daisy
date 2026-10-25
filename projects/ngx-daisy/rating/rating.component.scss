@@ -1,0 +1,16 @@
+@layer components {
+  .dsy-rating {
+    display: inline-block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dsy-rating input {
+    transition: none !important;
+  }
+}
+
+@layer utilities {
+  :where(.dsy-rating-item) {
+    background-color: var(--dsy-rating-color, var(--color-base-content));
+  }
+}

@@ -1,0 +1,15 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    @media (prefers-reduced-motion: reduce) {
+      dsy-radial-progress,
+      [dsyRadialProgress],
+      dsy-radial-progress::before,
+      dsy-radial-progress::after,
+      [dsyRadialProgress]::before,
+      [dsyRadialProgress]::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<section class="otp-example-card" aria-labelledby="otp-example-title">
+  <div class="otp-example-lock" aria-hidden="true">✓</div>
+  <p>Secure verification</p>
+  <h3 id="otp-example-title">Check your inbox</h3>
+  <span>We sent a one-time code to n•••&#64;example.com</span>
+  <dsy-otp
+    [hidden]="props().hidden ?? false"
+    [disabled]="props().disabled ?? false"
+    [readonly]="props().readonly ?? false"
+    [required]="props().required ?? false"
+    [invalid]="props().invalid ?? false"
+    [touched]="props().touched ?? false"
+    [dirty]="props().dirty ?? false"
+    [pending]="props().pending ?? false"
+    [name]="props().name ?? ''"
+    [id]="props().id ?? 'playground-otp'"
+    [aria-label]="props().ariaLabel ?? 'Otp example'"
+    [aria-labelledby]="props().ariaLabelledBy"
+    [aria-describedby]="props().ariaDescribedBy ?? ''"
+    [color]="props().color"
+    [size]="props().size"
+    [visualClass]="props().visualClass ?? ''"
+    [inputClass]="props().inputClass ?? ''"
+    [boxClass]="props().boxClass ?? ''"
+    [length]="props().length ?? 6"
+    [numeric]="props().numeric ?? true"
+    [joined]="props().joined ?? false"
+    [value]="selected()"
+    (valueChange)="selected.set($event)"
+  ></dsy-otp>
+  <div class="otp-example-progress" aria-hidden="true">
+    <span [style.width.%]="((selected()?.length ?? 0) / (props().length ?? 6)) * 100"></span>
+  </div>
+  <strong aria-live="polite">
+    {{ selected()?.length ?? 0 }} of {{ props().length ?? 6 }} characters entered
+  </strong>
+</section>

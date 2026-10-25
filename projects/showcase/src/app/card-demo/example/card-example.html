@@ -1,0 +1,22 @@
+<dsy-card
+  class="card-example-product bg-base-100 max-w-xl"
+  [size]="props().size ?? 'md'"
+  [border]="props().border ?? 'none'"
+  [side]="props().side ?? false"
+  [imageFull]="props().imageFull ?? false"
+>
+  <figure>
+    <img src="/display/mountain.svg" alt="Alpine landscape" class="h-40 w-full object-cover" />
+  </figure>
+  <dsy-card-body
+    ><h3 dsyCardTitle>Alpine escape</h3>
+    <p class="card-example-eyebrow">3 nights · Innsbruck</p>
+    <p>A quiet weekend above the clouds, with breakfast and guided trails included.</p>
+    <div class="card-example-meta"><span>★ 4.9</span><span>From $680</span></div>
+    <dsy-card-actions
+      ><button dsyButton type="button" color="primary" (click)="saved.update(toggle)">
+        {{ saved() ? 'Saved' : 'Save trip' }}
+      </button></dsy-card-actions
+    ></dsy-card-body
+  >
+</dsy-card>

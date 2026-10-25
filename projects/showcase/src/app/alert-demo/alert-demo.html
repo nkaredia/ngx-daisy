@@ -1,0 +1,35 @@
+<section class="action-demo catalog-demo">
+  <h2>Alerts</h2>
+  <p>
+    Feedback with configurable announcement priority. Static examples have announcements turned off.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Semantic feedback</h3>
+    <div class="catalog-column">
+      <dsy-alert color="info" announcement="off"
+        ><span aria-hidden="true">ⓘ</span
+        ><span>Your workspace is ready to customize.</span></dsy-alert
+      ><dsy-alert color="success" announcement="off"
+        ><span aria-hidden="true">✓</span><span>Changes saved successfully.</span></dsy-alert
+      ><dsy-alert color="warning" announcement="off"
+        ><span aria-hidden="true">!</span
+        ><span>Review the pending changes before continuing.</span></dsy-alert
+      ><dsy-alert color="error" announcement="off"
+        ><span aria-hidden="true">×</span
+        ><span>The request could not be completed.</span></dsy-alert
+      >
+    </div>
+  </section>
+  <section class="demo-card">
+    <h3>Styles</h3>
+    <div class="catalog-column">
+      <dsy-alert color="info" variant="outline" announcement="off">Outline feedback</dsy-alert
+      ><dsy-alert color="info" variant="dash" announcement="off">Dash feedback</dsy-alert
+      ><dsy-alert color="info" variant="soft" announcement="off">Soft feedback</dsy-alert>
+    </div>
+  </section>
+</section>

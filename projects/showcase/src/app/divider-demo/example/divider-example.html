@@ -1,0 +1,25 @@
+<div
+  class="divider-example-content"
+  [class.divider-example-content-vertical]="props().orientation === 'vertical'"
+>
+  <article>
+    <span>01</span>
+    <div>
+      <h3>Draft the brief</h3>
+      <p>Capture the problem, audience and desired outcome.</p>
+    </div>
+  </article>
+  <dsy-divider
+    [color]="props().color ?? 'inherit'"
+    [orientation]="props().orientation ?? 'horizontal'"
+    [align]="props().align ?? 'center'"
+    >Next</dsy-divider
+  >
+  <article>
+    <span>02</span>
+    <div>
+      <h3>Invite the team</h3>
+      <p>Share the brief and turn feedback into decisions.</p>
+    </div>
+  </article>
+</div>

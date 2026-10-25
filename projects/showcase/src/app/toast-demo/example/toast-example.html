@@ -1,0 +1,37 @@
+<section class="toast-example-app">
+  <header>
+    <div><span>Release workspace</span><strong>Homepage refresh</strong></div>
+    <span class="toast-example-avatar" aria-label="Signed in as Taylor">TS</span>
+  </header>
+  <div class="toast-example-content">
+    <div class="toast-example-copy">
+      <span>Ready to publish</span>
+      <h3>Your changes passed every check</h3>
+      <p>Notify the team when the latest homepage is ready for review.</p>
+      <button dsyButton (click)="show()">Publish and notify</button>
+    </div>
+    <div class="toast-example-checks" aria-label="Publishing checks">
+      <div>
+        <span aria-hidden="true">✓</span>
+        <p><strong>Content review</strong><small>Complete</small></p>
+      </div>
+      <div>
+        <span aria-hidden="true">✓</span>
+        <p><strong>Accessibility</strong><small>Complete</small></p>
+      </div>
+      <div>
+        <span aria-hidden="true">✓</span>
+        <p><strong>Responsive preview</strong><small>Complete</small></p>
+      </div>
+    </div>
+  </div>
+  <div class="toast-example-stage">
+    <dsy-toast-outlet
+      [horizontal]="props().horizontal ?? 'end'"
+      [vertical]="props().vertical ?? 'bottom'"
+      [toastClass]="props().toastClass ?? ''"
+      [dismissLabel]="props().dismissLabel ?? 'Dismiss'"
+      [dismissButtonClass]="props().dismissButtonClass ?? ''"
+    />
+  </div>
+</section>

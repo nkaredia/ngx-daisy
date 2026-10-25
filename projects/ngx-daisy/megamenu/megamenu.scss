@@ -1,0 +1,121 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-megamenu) {
+      display: block;
+      min-width: 0;
+      max-width: 100%;
+    }
+    // Angular owns disclosure; native vertical popover defaults must not hide the navigation.
+    .dsy-megamenu-nav {
+      opacity: 1;
+      scale: 1;
+      translate: none;
+      max-block-size: none;
+      pointer-events: auto;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      inset: auto;
+      margin: 0;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+    .dsy-megamenu-nav[data-vertical='true'] {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+    }
+    :where(.dsy-megamenu-nav button) {
+      height: var(--size);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: var(--border) solid transparent;
+      isolation: isolate;
+      z-index: 1;
+      padding-inline: var(--mm-p, 1rem);
+      min-height: var(--size, 2.5rem);
+      font-size: var(--fontsize, 0.875rem);
+      cursor: pointer;
+      text-align: start;
+    }
+    :where(.dsy-megamenu-nav button:disabled) {
+      opacity: 0.45;
+      cursor: default;
+    }
+    :where(.dsy-megamenu-nav button:focus-visible) {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+    :where(.dsy-megamenu-nav button[aria-expanded='true']) {
+      color: var(--color-base-content);
+    }
+    :where(.dsy-megamenu-theme) {
+      width: 100%;
+    }
+    :where(.dsy-megamenu-panel) {
+      width: 100%;
+      padding: 1.25rem;
+      background: var(--color-base-100);
+      color: var(--color-base-content);
+      border: 1px solid var(--color-base-300);
+      border-radius: var(--radius-box);
+      box-shadow: 0 1rem 2rem #0002;
+      min-width: min(18rem, calc(100vw - 1rem));
+      max-width: calc(100vw - 1rem);
+      max-height: calc(100dvh - 4rem);
+      overflow: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dsy-megamenu-nav,
+      .dsy-megamenu-nav *,
+      .dsy-megamenu-panel,
+      .dsy-megamenu-panel * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    .dsy-megamenu-nav .dsy-megamenu-highlight {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      border-radius: var(--radius-field);
+      background: var(--color-base-200);
+      transition:
+        left 0.2s ease-out,
+        top 0.2s ease-out,
+        width 0.2s ease-out,
+        height 0.2s ease-out,
+        opacity 0.2s;
+    }
+    .dsy-megamenu-trigger::after {
+      content: '';
+      opacity: 0.25;
+      width: 0.375rem;
+      height: 0.375rem;
+      display: block;
+      rotate: -135deg;
+      box-shadow: inset 2px 2px;
+      transition:
+        opacity 0.2s ease-out,
+        rotate 0.2s ease-out;
+    }
+    .dsy-megamenu-trigger[aria-expanded='true']::after {
+      opacity: 1;
+      rotate: 45deg;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dsy-megamenu-highlight {
+        transition: none !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+demo-breadcrumbs-example {
+  display: block;
+  min-inline-size: 0;
+}
+
+.breadcrumbs-example-card {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 44rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 7%, transparent);
+}
+
+.breadcrumbs-example-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+
+  h3 {
+    margin-block: 0.2rem 0.35rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  p {
+    max-width: 35rem;
+    color: color-mix(in oklab, var(--color-base-content) 68%, transparent);
+  }
+}
+
+.breadcrumbs-example-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.breadcrumbs-example-status {
+  flex: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-selector);
+  background: var(--color-warning);
+  color: var(--color-warning-content);
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+@media (max-width: 36rem) {
+  .breadcrumbs-example-heading {
+    flex-direction: column;
+  }
+}

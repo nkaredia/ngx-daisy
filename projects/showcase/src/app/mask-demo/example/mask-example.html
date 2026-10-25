@@ -1,0 +1,16 @@
+<section class="mask-example-card" aria-labelledby="mask-example-title">
+  <div class="mask-example-cover" aria-hidden="true"></div>
+  <img
+    dsyMask
+    [shape]="props().shape ?? 'squircle'"
+    [half]="props().half ?? 'none'"
+    src="/display/mountain.svg"
+    alt="Alpine landscape"
+  />
+  <div class="mask-example-copy">
+    <span>Featured destination</span>
+    <h3 id="mask-example-title">A quiet weekend in the Alps</h3>
+    <p>Mountain trails, local food and clear autumn skies.</p>
+    <div><strong>4.9</strong><span>128 traveler reviews</span></div>
+  </div>
+</section>

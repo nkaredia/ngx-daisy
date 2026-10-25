@@ -1,0 +1,50 @@
+<section class="action-demo">
+  <h2>Swaps</h2>
+  <p>
+    One accessible toggle button with two or three projected states. Use a checked model or Angular
+    forms, with rotate and flip animations.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Rotate</h3>
+      <dsy-swap animation="rotate" [(checked)]="sound" aria-label="Enable sound" size="lg"
+        ><span dsySwapOff>🔇</span><span dsySwapOn>🔊</span></dsy-swap
+      >
+      <p class="demo-status">Sound {{ sound() ? 'on' : 'off' }}</p>
+    </div>
+    <div class="demo-card">
+      <h3>Flip</h3>
+      <dsy-swap animation="flip" aria-label="Change expression" size="lg"
+        ><span dsySwapOff>🙂</span><span dsySwapOn>😎</span></dsy-swap
+      >
+    </div>
+    <div class="demo-card">
+      <h3>Indeterminate</h3>
+      <dsy-swap
+        [indeterminate]="true"
+        aria-label="Select all items"
+        color="primary"
+        variant="outline"
+        ><span dsySwapOff>None</span><span dsySwapOn>All</span
+        ><span dsySwapIndeterminate>Some</span></dsy-swap
+      >
+    </div>
+  </div>
+  <div class="demo-card">
+    <h3>Angular forms</h3>
+    <div class="demo-row">
+      <dsy-swap
+        [ngModel]="formValue()"
+        (ngModelChange)="formValue.set($event)"
+        [disabled]="disabled()"
+        aria-label="Receive updates"
+        ><span dsySwapOff>Updates off</span><span dsySwapOn>Updates on</span></dsy-swap
+      ><label><input type="checkbox" #d (change)="disabled.set(d.checked)" /> Disabled</label>
+    </div>
+    <p class="demo-status">Form value: {{ formValue() }}</p>
+  </div>
+</section>

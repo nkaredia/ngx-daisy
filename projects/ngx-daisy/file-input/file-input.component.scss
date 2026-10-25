@@ -1,0 +1,15 @@
+@layer components {
+  .dsy-file-input {
+    display: inline-block;
+    min-width: 0;
+  }
+  .dsy-file-input > input {
+    max-width: 100%;
+  }
+}
+
+@layer utilities {
+  :where(.dsy-file-input > input) {
+    width: 100%;
+  }
+}

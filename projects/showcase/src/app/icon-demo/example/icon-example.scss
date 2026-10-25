@@ -1,0 +1,61 @@
+demo-icon-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.icon-example-destination {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(100%, 36rem);
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.icon-example-glyph {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--color-primary) 14%, var(--color-base-100));
+}
+.icon-example-destination > div:nth-child(2) {
+  min-width: 0;
+}
+.icon-example-destination p {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.icon-example-destination h3 {
+  font-size: 1.1rem;
+  font-weight: 750;
+}
+.icon-example-destination > div:nth-child(2) > span {
+  color: color-mix(in oklab, var(--color-base-content) 62%, transparent);
+  font-size: 0.78rem;
+}
+.icon-example-shortcut {
+  border: 1px solid var(--color-base-300);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.55rem;
+  color: color-mix(in oklab, var(--color-base-content) 62%, transparent);
+  font-family: monospace;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+@media (max-width: 28rem) {
+  .icon-example-shortcut {
+    display: none;
+  }
+  .icon-example-destination {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+}

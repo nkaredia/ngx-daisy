@@ -1,0 +1,21 @@
+<section class="action-demo display-demo">
+  <h2>Hover Galleries</h2>
+  <p>
+    Move across the image to preview the gallery. Focus it and use arrow keys, Home or End with a
+    keyboard.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Places to explore</h3>
+    <dsy-hover-gallery
+      label="Landscape collection"
+      [images]="images"
+      [controls]="true"
+      [(activeIndex)]="selected"
+    />
+    <p class="demo-status">{{ images[selected()].alt }}</p>
+  </section>
+</section>

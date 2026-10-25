@@ -1,0 +1,32 @@
+<section class="navbar-example-app">
+  <dsy-navbar class="navbar-example-navigation" [label]="props().label ?? 'Primary'">
+    <dsy-navbar-start>
+      <a class="navbar-example-brand" href="/buttons" aria-label="Northstar home">
+        <span aria-hidden="true">N</span><strong>Northstar</strong>
+      </a>
+    </dsy-navbar-start>
+    <dsy-navbar-center>
+      <nav class="navbar-example-links" aria-label="Workspace">
+        <a href="/cards">Projects</a><a href="/stats">Reports</a><a href="/menus">Team</a>
+      </nav>
+    </dsy-navbar-center>
+    <dsy-navbar-end>
+      <button dsyButton type="button" size="sm" (click)="signedIn.update(toggle)">
+        {{ signedIn() ? 'Account' : 'Sign in' }}
+      </button>
+    </dsy-navbar-end>
+  </dsy-navbar>
+  <div class="navbar-example-hero">
+    <span>Workspace overview</span>
+    <h3>{{ signedIn() ? 'Welcome back, Taylor' : 'Plan the week with your team' }}</h3>
+    <p>Track priorities, reviews, and delivery dates in one place.</p>
+    <div class="navbar-example-metrics">
+      <div><strong>8</strong><span>Active projects</span></div>
+      <div><strong>94%</strong><span>On track</span></div>
+      <div><strong>3</strong><span>Reviews due</span></div>
+    </div>
+  </div>
+  <p class="navbar-example-status" aria-live="polite">
+    {{ signedIn() ? 'Welcome back' : 'Browsing as guest' }}
+  </p>
+</section>

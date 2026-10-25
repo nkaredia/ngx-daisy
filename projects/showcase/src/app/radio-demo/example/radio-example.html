@@ -1,0 +1,32 @@
+<section class="radio-example-card" aria-labelledby="radio-example-title">
+  <span class="radio-example-step">Team setup</span>
+  <h3 id="radio-example-title">What will you work on?</h3>
+  <p>We’ll tailor starter templates to your focus.</p>
+  <dsy-radio-group
+    [hidden]="props().hidden ?? false"
+    [disabled]="props().disabled ?? false"
+    [readonly]="props().readonly ?? false"
+    [required]="props().required ?? false"
+    [invalid]="props().invalid ?? false"
+    [touched]="props().touched ?? false"
+    [dirty]="props().dirty ?? false"
+    [pending]="props().pending ?? false"
+    [name]="props().name ?? ''"
+    [id]="props().id ?? 'playground-radio'"
+    [aria-label]="props().ariaLabel ?? 'Radio example'"
+    [aria-labelledby]="props().ariaLabelledBy"
+    [aria-describedby]="props().ariaDescribedBy ?? ''"
+    [color]="props().color"
+    [size]="props().size"
+    [labelPosition]="props().labelPosition ?? 'after'"
+    [value]="selected()"
+    (valueChange)="selected.set($event)"
+  >
+    <dsy-radio-button value="design">Design and research</dsy-radio-button>
+    <dsy-radio-button value="engineering">Engineering</dsy-radio-button>
+    <dsy-radio-button value="research">Product strategy</dsy-radio-button>
+  </dsy-radio-group>
+  <strong class="radio-example-status" aria-live="polite">
+    Selected: {{ selected() ?? 'none' }}
+  </strong>
+</section>

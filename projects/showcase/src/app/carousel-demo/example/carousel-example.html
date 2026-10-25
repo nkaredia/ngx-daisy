@@ -1,0 +1,42 @@
+<dsy-carousel
+  [label]="props().label ?? 'Slides'"
+  [viewportClass]="props().viewportClass ?? ''"
+  [slideSize]="props().slideSize ?? 'auto'"
+  [controlsClass]="props().controlsClass ?? ''"
+  [buttonClass]="props().buttonClass ?? ''"
+  [previousLabel]="props().previousLabel ?? 'Previous slide'"
+  [nextLabel]="props().nextLabel ?? 'Next slide'"
+  [activeIndex]="props().activeIndex ?? 0"
+  [vertical]="props().vertical ?? false"
+  [loop]="props().loop ?? false"
+  [controls]="props().controls ?? true"
+  [snap]="props().snap ?? 'start'"
+>
+  <div dsyCarouselItem [label]="item().label || 'Alpine retreat'" class="w-64">
+    <article class="carousel-example-card">
+      <img src="/display/mountain.svg" alt="Alpine landscape" />
+      <div>
+        <p>Switzerland</p>
+        <strong>Alpine retreat</strong><span>4.9 · 3 nights</span>
+      </div>
+    </article>
+  </div>
+  <div dsyCarouselItem label="Coastal landscape" class="w-64">
+    <article class="carousel-example-card">
+      <img src="/display/coast.svg" alt="Coastal landscape" />
+      <div>
+        <p>Portugal</p>
+        <strong>Coastal hideaway</strong><span>4.8 · 5 nights</span>
+      </div>
+    </article>
+  </div>
+  <div dsyCarouselItem label="Desert landscape" class="w-64">
+    <article class="carousel-example-card">
+      <img src="/display/desert.svg" alt="Desert landscape" />
+      <div>
+        <p>Morocco</p>
+        <strong>Desert camp</strong><span>4.7 · 2 nights</span>
+      </div>
+    </article>
+  </div>
+</dsy-carousel>

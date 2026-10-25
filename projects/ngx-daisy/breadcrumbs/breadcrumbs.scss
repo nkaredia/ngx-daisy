@@ -1,0 +1,10 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-breadcrumbs, nav[dsyBreadcrumbs]) {
+      display: block;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: auto;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<section class="action-demo">
+  <h2>Dropdowns</h2>
+  <p>
+    Menus with keyboard navigation, hover opening and flexible content. Overlays follow the
+    surrounding theme and stay inside the viewport.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-card">
+    <h3>Menu placement</h3>
+    <div class="demo-row">
+      <label
+        >Placement
+        <select #p (change)="placement.set($any(p.value))">
+          @for (value of placements; track value) {
+            <option>{{ value }}</option>
+          }
+        </select></label
+      ><label
+        >Alignment
+        <select #a (change)="align.set($any(a.value))">
+          @for (value of alignments; track value) {
+            <option>{{ value }}</option>
+          }
+        </select></label
+      >
+      <dsy-dropdown [placement]="placement()" [align]="align()" aria-label="Project actions"
+        ><button dsyButton dsyDropdownTrigger color="primary">Project actions</button
+        ><ng-template dsyDropdownContent
+          ><button dsyDropdownItem (triggered)="selection.set('Edit project')">Edit project</button
+          ><button dsyDropdownItem (triggered)="selection.set('Duplicate project')">
+            Duplicate project</button
+          ><button dsyDropdownItem disabled>Archive unavailable</button
+          ><button dsyDropdownItem (triggered)="selection.set('Export project')">
+            Export project
+          </button></ng-template
+        ></dsy-dropdown
+      >
+    </div>
+    <p class="demo-status" aria-live="polite">{{ selection() }}</p>
+  </div>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Hover or click</h3>
+      <dsy-dropdown hover
+        ><button dsyButton dsyDropdownTrigger variant="outline">Quick links</button
+        ><ng-template dsyDropdownContent
+          ><a
+            dsyDropdownItem
+            href="https://daisyui.com/components/dropdown/"
+            target="_blank"
+            rel="noreferrer"
+            >daisyUI documentation</a
+          ><button dsyDropdownItem (triggered)="selection.set('Help selected')">
+            Get help
+          </button></ng-template
+        ></dsy-dropdown
+      >
+    </div>
+    <div class="demo-card" data-theme="dark">
+      <h3>Custom content and nested theme</h3>
+      <dsy-dropdown kind="content" aria-label="Notification preferences" panelClass="w-72"
+        ><button dsyButton dsyDropdownTrigger color="secondary">Preferences</button
+        ><ng-template dsyDropdownContent
+          ><p class="font-semibold mb-3">Notifications</p>
+          <label><input type="checkbox" checked /> Email updates</label>
+          <p class="mt-3 text-sm">
+            Use Tab to move through custom content; Escape closes it.
+          </p></ng-template
+        ></dsy-dropdown
+      >
+    </div>
+  </div>
+</section>

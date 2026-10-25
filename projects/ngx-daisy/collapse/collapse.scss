@@ -1,0 +1,91 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-collapse) {
+      visibility: visible;
+    }
+    :where(dsy-collapse .dsy-collapse-heading) {
+      margin: 0;
+      font: inherit;
+    }
+    :where(
+      dsy-collapse .dsy-collapse-heading > button,
+      dsy-collapse .dsy-collapse-default-trigger
+    ) {
+      width: 100%;
+      text-align: start;
+      cursor: pointer;
+      background: none;
+      border: 0;
+      color: inherit;
+      font: inherit;
+    }
+    dsy-collapse [hidden] {
+      display: none !important;
+    }
+    :where(dsy-collapse [role='region']) {
+      min-height: 0;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      dsy-collapse * {
+        transition: none !important;
+      }
+    }
+
+    :where(dsy-collapse[data-indicator] .dsy-collapse-heading > button) {
+      position: relative;
+      padding-inline-end: 3rem;
+    }
+    :where(dsy-collapse[data-indicator='arrow'] .dsy-collapse-heading > button)::after {
+      content: '';
+      position: absolute;
+      inset-inline-end: 1.5rem;
+      top: 50%;
+      width: 0.5rem;
+      height: 0.5rem;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: translateY(-75%) rotate(45deg);
+    }
+    :where(
+      dsy-collapse[data-indicator='arrow'][data-opened='true'] .dsy-collapse-heading > button
+    )::after {
+      transform: translateY(-25%) rotate(225deg);
+    }
+    :where(dsy-collapse[data-indicator='plus'] .dsy-collapse-heading > button)::after {
+      content: '+';
+      position: absolute;
+      inset-inline-end: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    :where(
+      dsy-collapse[data-indicator='plus'][data-opened='true'] .dsy-collapse-heading > button
+    )::after {
+      content: '−';
+    }
+    :where(dsy-collapse .dsy-collapse-heading > button:disabled) {
+      cursor: default;
+      opacity: 0.5;
+    }
+  }
+}
+
+:where(dsy-collapse .dsy-collapse-button-heading) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: default;
+}
+:where(dsy-collapse .dsy-collapse-header) {
+  flex: 1;
+  min-width: 0;
+}
+:where(dsy-collapse .dsy-collapse-default-trigger) {
+  width: auto;
+  padding: 0.5rem;
+  border-radius: var(--radius-field);
+}
+:where(dsy-collapse .dsy-collapse-default-trigger:focus-visible) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,45 @@
+<dsy-mockup-browser class="border border-base-300 bg-base-200">
+  <dsy-browser-toolbar
+    ><div class="input">https://studio.example/dashboard</div></dsy-browser-toolbar
+  >
+  <div class="mockup-browser-example-content bg-base-100">
+    <aside aria-hidden="true">
+      <strong>ND</strong><span>Overview</span><span>Projects</span><span>Team</span
+      ><span>Settings</span>
+    </aside>
+    <div class="mockup-browser-example-main">
+      <header>
+        <div>
+          <p>Monday, October 25</p>
+          <h3>Good morning, Noor</h3>
+        </div>
+        <span>NS</span>
+      </header>
+      <div class="mockup-browser-example-stats">
+        <article>
+          <span>Active projects</span><strong>24</strong><small>+8% this month</small>
+        </article>
+        <article><span>Team velocity</span><strong>86%</strong><small>On track</small></article>
+        <article>
+          <span>Open reviews</span><strong>{{ 6 + clicks() }}</strong
+          ><small>Needs attention</small>
+        </article>
+      </div>
+      <section>
+        <div>
+          <h4>Weekly activity</h4>
+          <p>Reviews completed across your team.</p>
+        </div>
+        <button dsyButton size="sm" type="button" (click)="clicks.update(increment)">
+          Add review
+        </button>
+        <div class="mockup-browser-example-chart" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </section>
+      <p class="mockup-browser-example-status" aria-live="polite">
+        {{ clicks() }} sample reviews added
+      </p>
+    </div>
+  </div>
+</dsy-mockup-browser>

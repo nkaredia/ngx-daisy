@@ -1,0 +1,34 @@
+<div
+  [class]="classes"
+  role="radiogroup"
+  [id]="id()"
+  [attr.aria-label]="ariaLabel() || 'Filter'"
+  [attr.aria-labelledby]="labelledBy()"
+  [attr.aria-describedby]="describedBy()"
+  [attr.aria-invalid]="errorState() || null"
+>
+  <button
+    type="button"
+    [class]="resetClasses()"
+    [disabled]="isDisabled() || readonly()"
+    [attr.aria-label]="resetLabel()"
+    (click)="clear()"
+  >
+    ×
+  </button>
+  @for (option of options(); track option.value) {
+    <input
+      type="radio"
+      [class]="optionClasses()"
+      [name]="groupName()"
+      [value]="option.value"
+      [checked]="value() === option.value"
+      [disabled]="isDisabled() || !!option.disabled"
+      [attr.aria-label]="option.label"
+      [attr.aria-readonly]="readonly() || null"
+      (keydown)="guardReadonly($event)"
+      (click)="guardReadonlyClick($event)"
+      (change)="commit(option.value)"
+    />
+  }
+</div>

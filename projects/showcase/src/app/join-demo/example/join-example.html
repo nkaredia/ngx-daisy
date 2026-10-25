@@ -1,0 +1,50 @@
+<section class="join-example-card" aria-labelledby="join-example-title">
+  <header>
+    <div>
+      <p>Engagement</p>
+      <h3 id="join-example-title">1,284 active users</h3>
+    </div>
+    <span>+12.4%</span>
+  </header>
+  <div class="join-example-chart" aria-hidden="true">
+    <span style="--value: 42%"></span><span style="--value: 68%"></span
+    ><span style="--value: 54%"></span><span style="--value: 82%"></span
+    ><span style="--value: 64%"></span><span style="--value: 92%"></span
+    ><span style="--value: 75%"></span>
+  </div>
+  <footer>
+    <p aria-live="polite">Showing: {{ selected() }}</p>
+    <dsy-join [orientation]="props().orientation ?? 'horizontal'">
+      <button
+        dsyButton
+        dsyJoinItem
+        type="button"
+        size="sm"
+        [active]="selected() === 'Day'"
+        (click)="selected.set('Day')"
+      >
+        Day
+      </button>
+      <button
+        dsyButton
+        dsyJoinItem
+        type="button"
+        size="sm"
+        [active]="selected() === 'Week'"
+        (click)="selected.set('Week')"
+      >
+        Week
+      </button>
+      <button
+        dsyButton
+        dsyJoinItem
+        type="button"
+        size="sm"
+        [active]="selected() === 'Month'"
+        (click)="selected.set('Month')"
+      >
+        Month
+      </button>
+    </dsy-join>
+  </footer>
+</section>

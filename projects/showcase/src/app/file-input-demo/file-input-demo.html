@@ -1,0 +1,34 @@
+<section class="action-demo input-demo">
+  <h2>File Inputs</h2>
+  <p>File arrays are the form value. Apps own uploading; resetting clears the native picker.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Signal Forms</h3>
+      <dsy-form-field label="Attachments"
+        ><dsy-file-input
+          #files
+          [formField]="fields.value"
+          multiple
+          accept="image/*,.pdf"
+          color="primary"
+        /><dsy-hint>Images or PDF documents. Multiple files supported.</dsy-hint></dsy-form-field
+      >
+      <ul class="demo-status">
+        @for (file of model().value; track $index) {
+          <li>{{ file.name }} ({{ file.size }} bytes)</li>
+        }
+      </ul>
+      <button dsyButton (click)="files.clear()">Clear files</button>
+    </div>
+    <div class="demo-card">
+      <h3>Typed Reactive Forms</h3>
+      <dsy-form-field label="Single document"
+        ><dsy-file-input [formControl]="reactive" accept=".pdf" /></dsy-form-field
+      ><button dsyButton class="mt-4" (click)="reactive.reset([])">Reset picker</button>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    @media (prefers-reduced-motion: reduce) {
+      dsy-aura,
+      [dsyAura],
+      dsy-aura::before,
+      dsy-aura::after,
+      [dsyAura]::before,
+      [dsyAura]::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}

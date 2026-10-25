@@ -1,0 +1,56 @@
+demo-radio-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-radio-example .radio-example-card {
+  display: grid;
+  gap: 0.75rem;
+  inline-size: min(100%, 30rem);
+  padding: 1.5rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+demo-radio-example h3,
+demo-radio-example p {
+  margin: 0;
+}
+
+demo-radio-example .radio-example-step {
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+demo-radio-example h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+demo-radio-example p,
+demo-radio-example .radio-example-status {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.75rem;
+}
+
+demo-radio-example dsy-radio-group {
+  display: grid;
+  gap: 0.35rem;
+  margin-block: 0.35rem;
+}
+
+demo-radio-example dsy-radio-button {
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-field);
+}
+
+demo-radio-example dsy-radio-button:has(input:checked) {
+  border-color: var(--color-primary);
+  background: color-mix(in oklab, var(--color-primary) 8%, var(--color-base-100));
+}

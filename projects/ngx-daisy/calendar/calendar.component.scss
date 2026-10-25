@@ -1,0 +1,18 @@
+@layer components {
+  .dsy-calendar {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .dsy-calendar-view {
+    max-width: none;
+    overflow-x: auto;
+  }
+  .dsy-calendar-view table {
+    border-collapse: collapse;
+  }
+  .dsy-calendar button:focus-visible {
+    outline: 2px solid var(--color-base-content);
+    outline-offset: 2px;
+  }
+}

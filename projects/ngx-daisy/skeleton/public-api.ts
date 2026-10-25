@@ -1,0 +1,1 @@
+export { DsySkeleton } from './skeleton';

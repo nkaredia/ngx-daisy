@@ -1,0 +1,139 @@
+demo-drawer-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-drawer-example .drawer-example-container {
+  min-block-size: 22rem;
+  inline-size: min(100%, 46rem);
+  overflow: hidden;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+demo-drawer-example .drawer-example-content {
+  display: grid;
+  gap: 1.25rem;
+  min-inline-size: 0;
+  padding: 1.25rem;
+}
+demo-drawer-example .drawer-example-content header,
+demo-drawer-example .drawer-example-metrics {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+demo-drawer-example .drawer-example-content h3,
+demo-drawer-example .drawer-example-content h4,
+demo-drawer-example .drawer-example-content p {
+  margin: 0;
+}
+demo-drawer-example .drawer-example-content header span,
+demo-drawer-example .drawer-example-content small {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.68rem;
+}
+demo-drawer-example .drawer-example-content h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+demo-drawer-example .drawer-example-metrics {
+  align-items: stretch;
+}
+demo-drawer-example .drawer-example-metrics article {
+  display: grid;
+  flex: 1;
+  gap: 0.2rem;
+  min-inline-size: 0;
+  padding: 1rem;
+  border-radius: var(--radius-field);
+  background: var(--color-base-200);
+}
+demo-drawer-example .drawer-example-metrics article > span {
+  font-size: 0.7rem;
+  opacity: 0.62;
+}
+demo-drawer-example .drawer-example-metrics strong {
+  font-size: 1.5rem;
+}
+demo-drawer-example .drawer-example-activity {
+  display: grid;
+  gap: 0.6rem;
+}
+demo-drawer-example .drawer-example-activity h4 {
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+demo-drawer-example .drawer-example-activity p {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0 0.65rem;
+  padding: 0.75rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-field);
+  font-size: 0.72rem;
+}
+demo-drawer-example .drawer-example-activity p > span {
+  display: grid;
+  grid-row: 1 / 3;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 50%;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.6rem;
+  font-weight: 750;
+}
+demo-drawer-example .drawer-example-navigation {
+  display: grid;
+  align-content: start;
+  gap: 0.75rem;
+  min-block-size: 100%;
+  padding: 1rem;
+  background: var(--color-base-200);
+}
+demo-drawer-example .drawer-example-navigation h3 {
+  margin: 0.5rem 0 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  opacity: 0.55;
+  text-transform: uppercase;
+}
+demo-drawer-example .drawer-example-navigation a {
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-field);
+  color: inherit;
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+demo-drawer-example .drawer-example-navigation a:first-of-type {
+  background: var(--color-base-300);
+  font-weight: 700;
+}
+demo-drawer-example .drawer-example-navigation button {
+  margin-top: auto;
+}
+demo-drawer-example .drawer-example-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+demo-drawer-example .drawer-example-brand span {
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 0.6rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.58rem;
+  font-weight: 800;
+}
+@media (max-width: 30rem) {
+  demo-drawer-example .drawer-example-metrics {
+    flex-direction: column;
+  }
+}

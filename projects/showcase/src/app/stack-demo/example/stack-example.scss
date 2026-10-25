@@ -1,0 +1,86 @@
+demo-stack-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-stack-example .stack-example-cards {
+  margin: 1.5rem;
+}
+demo-stack-example .stack-example-cards > article {
+  inline-size: min(16rem, 100%);
+  block-size: 11rem;
+  border-radius: var(--radius-box);
+}
+demo-stack-example .stack-example-front {
+  display: grid;
+  align-content: space-between;
+  padding: 1.25rem;
+  color: var(--color-primary-content);
+  background: linear-gradient(
+    145deg,
+    var(--color-primary),
+    color-mix(in oklab, var(--color-primary) 72%, black)
+  );
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-primary) 25%, transparent);
+}
+demo-stack-example header,
+demo-stack-example footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+}
+demo-stack-example header > span {
+  display: grid;
+  place-items: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 0.6rem;
+  background: color-mix(in oklab, white 18%, transparent);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+demo-stack-example h3,
+demo-stack-example p {
+  margin: 0;
+}
+demo-stack-example p,
+demo-stack-example small,
+demo-stack-example strong {
+  font-size: 0.68rem;
+}
+demo-stack-example h3 {
+  margin-block: 0.2rem;
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+demo-stack-example footer {
+  justify-content: start;
+}
+demo-stack-example footer > span,
+demo-stack-example footer > small {
+  display: grid;
+  place-items: center;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  margin-inline-end: -0.75rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-secondary);
+}
+demo-stack-example footer > span:nth-child(2) {
+  background: var(--color-accent);
+}
+demo-stack-example footer > span:nth-child(3) {
+  background: var(--color-warning);
+}
+demo-stack-example footer > small {
+  margin-inline-start: 0.5rem;
+  border: 0;
+  background: color-mix(in oklab, white 18%, transparent);
+}
+demo-stack-example .stack-example-middle {
+  background: color-mix(in oklab, var(--color-secondary) 70%, var(--color-base-100));
+}
+demo-stack-example .stack-example-back {
+  background: color-mix(in oklab, var(--color-accent) 65%, var(--color-base-100));
+}

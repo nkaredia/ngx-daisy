@@ -1,0 +1,34 @@
+demo-kbd-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.kbd-example-search {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(100%, 34rem);
+  gap: 0.9rem;
+  padding: 1rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.kbd-example-search > span:first-child {
+  font-size: 1.5rem;
+  opacity: 0.6;
+}
+.kbd-example-search strong {
+  font-size: 0.9rem;
+}
+.kbd-example-search p {
+  color: color-mix(in oklab, var(--color-base-content) 62%, transparent);
+  font-size: 0.75rem;
+}
+.kbd-example-shortcut {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}

@@ -1,0 +1,19 @@
+<div class="alert-example-context">
+  <span class="alert-example-eyebrow">Account settings</span>
+  <dsy-alert
+    [color]="props().color ?? 'inherit'"
+    [variant]="props().variant ?? 'solid'"
+    [orientation]="props().orientation ?? 'horizontal'"
+    [announcement]="props().announcement ?? 'polite'"
+  >
+    <span class="alert-example-icon" aria-hidden="true">!</span>
+    <div class="alert-example-copy">
+      <strong>Complete your billing profile</strong>
+      <span>Add a billing address before your trial ends in 4 days.</span>
+    </div>
+    <a href="#alert-example-billing">Review billing</a>
+  </dsy-alert>
+  <p id="alert-example-billing">
+    Your workspace stays active while the account owner reviews these details.
+  </p>
+</div>

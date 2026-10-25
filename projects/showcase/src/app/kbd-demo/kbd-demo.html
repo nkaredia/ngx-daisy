@@ -1,0 +1,19 @@
+<section class="action-demo display-demo">
+  <h2>Keyboard Shortcuts</h2>
+  <p>Native keyboard markup for shortcuts and key combinations.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Search</h3>
+    <p>Press <kbd dsyKbd>⌘</kbd> + <kbd dsyKbd>K</kbd> to open search.</p>
+  </section>
+  <section class="demo-card">
+    <h3>Sizes</h3>
+    <div class="demo-row">
+      <kbd dsyKbd size="xs">XS</kbd><kbd dsyKbd size="sm">SM</kbd><kbd dsyKbd size="md">MD</kbd
+      ><kbd dsyKbd size="lg">LG</kbd><kbd dsyKbd size="xl">XL</kbd>
+    </div>
+  </section>
+</section>

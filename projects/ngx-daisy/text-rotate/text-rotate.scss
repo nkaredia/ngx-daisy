@@ -1,0 +1,25 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    @media (prefers-reduced-motion: reduce) {
+      dsy-text-rotate * {
+        animation: none !important;
+        transform: none !important;
+      }
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-display {
+    .dsy-text-rotate-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+    dsy-text-rotate [data-running='false'] > span {
+      animation-play-state: paused;
+    }
+  }
+}

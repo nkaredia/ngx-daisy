@@ -1,0 +1,33 @@
+<section class="rating-example-card" aria-labelledby="rating-example-title">
+  <div class="rating-example-brand" aria-hidden="true">ND</div>
+  <p>Feedback</p>
+  <h3 id="rating-example-title">How was your experience?</h3>
+  <span>Your feedback helps us improve the component library.</span>
+  <dsy-rating
+    [hidden]="props().hidden ?? false"
+    [disabled]="props().disabled ?? false"
+    [readonly]="props().readonly ?? false"
+    [required]="props().required ?? false"
+    [invalid]="props().invalid ?? false"
+    [touched]="props().touched ?? false"
+    [dirty]="props().dirty ?? false"
+    [pending]="props().pending ?? false"
+    [name]="props().name ?? ''"
+    [id]="props().id ?? 'playground-rating'"
+    [aria-label]="props().ariaLabel ?? 'Rating example'"
+    [aria-labelledby]="props().ariaLabelledBy"
+    [aria-describedby]="props().ariaDescribedBy ?? ''"
+    [max]="props().max ?? 5"
+    [half]="props().half ?? false"
+    [allowClear]="props().allowClear ?? false"
+    [size]="props().size"
+    [shape]="props().shape ?? 'star'"
+    [color]="props().color ?? ''"
+    [itemClass]="props().itemClass ?? ''"
+    [value]="selected()"
+    (valueChange)="selected.set($event)"
+  ></dsy-rating>
+  <strong class="rating-example-value" aria-live="polite">
+    {{ selected() === null ? 'Choose a rating' : selected() + ' out of ' + (props().max ?? 5) }}
+  </strong>
+</section>

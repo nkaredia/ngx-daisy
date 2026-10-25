@@ -1,0 +1,27 @@
+<section class="indicator-example-card" aria-labelledby="indicator-example-title">
+  <header>
+    <div>
+      <p>Workspace</p>
+      <h3 id="indicator-example-title">Good morning, Noor</h3>
+    </div>
+    <span>9:41</span>
+  </header>
+  <div class="indicator-example-summary">
+    <div><strong>8</strong><span>Unread updates</span></div>
+    <dsy-indicator>
+      <span
+        dsyIndicatorItem
+        class="badge badge-primary"
+        [horizontal]="item().horizontal ?? 'end'"
+        [vertical]="item().vertical ?? 'top'"
+        >8</span
+      >
+      <button dsyButton type="button" variant="outline" (click)="opened.update(toggle)">
+        Open inbox
+      </button>
+    </dsy-indicator>
+  </div>
+  <p class="indicator-example-status" aria-live="polite">
+    {{ opened() ? 'Inbox opened · eight updates are waiting.' : 'Your team was active overnight.' }}
+  </p>
+</section>

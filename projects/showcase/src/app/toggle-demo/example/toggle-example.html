@@ -1,0 +1,24 @@
+<section class="toggle-example-card" aria-labelledby="toggle-example-title">
+  <div class="toggle-example-header">
+    <div class="toggle-example-icon" aria-hidden="true">◎</div>
+    <div>
+      <h3 id="toggle-example-title">Focus mode</h3>
+      <p>Silence nonessential notifications.</p>
+    </div>
+    <label>
+      <span class="sr-only">Enable focus mode</span>
+      <input
+        #control
+        type="checkbox"
+        dsyToggle
+        [color]="props().color"
+        [size]="props().size"
+        [checked]="checked()"
+        (change)="checked.set(control.checked)"
+      />
+    </label>
+  </div>
+  <div class="toggle-example-schedule">
+    <span>Today</span><strong>{{ checked() ? 'Until 5:00 PM' : 'Available all day' }}</strong>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+<section class="action-demo display-demo">
+  <h2>Chat Bubbles</h2>
+  <p>Conversation layouts with headers, timestamps and semantic bubble colors.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Team conversation</h3>
+    <dsy-chat
+      ><dsy-chat-image
+        ><div
+          class="display-avatar rounded-full bg-base-300 grid place-items-center"
+          aria-label="Alex"
+        >
+          AM
+        </div></dsy-chat-image
+      ><dsy-chat-header>Alex <time datetime="2026-10-20T09:15:00">09:15</time></dsy-chat-header
+      ><dsy-chat-bubble>Ready to share the new component collection?</dsy-chat-bubble
+      ><dsy-chat-footer>Delivered</dsy-chat-footer></dsy-chat
+    ><dsy-chat position="end"
+      ><dsy-chat-header>You <time datetime="2026-10-20T09:16:00">09:16</time></dsy-chat-header
+      ><dsy-chat-bubble color="primary">Yes! Keyboard and touch controls are ready.</dsy-chat-bubble
+      ><dsy-chat-footer>Seen</dsy-chat-footer></dsy-chat
+    >
+  </section>
+</section>

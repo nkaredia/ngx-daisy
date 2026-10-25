@@ -1,0 +1,34 @@
+<section class="action-demo input-demo">
+  <h2>Labels</h2>
+  <p>
+    Labels name native and composed controls. Form fields automatically connect the label, hint and
+    error descriptions.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Projected form label</h3>
+      <dsy-form-field
+        ><dsy-label>Project name</dsy-label
+        ><input dsyInput [formField]="fields.name" placeholder="Name" /><dsy-hint
+          >Click the label to focus this input.</dsy-hint
+        ></dsy-form-field
+      >
+    </div>
+    <div class="demo-card">
+      <h3>Floating native label</h3>
+      <label dsyFloatingLabel
+        ><span>Email address</span
+        ><input dsyInput [formField]="fields.floating" placeholder="Email address"
+      /></label>
+    </div>
+    <div class="demo-card">
+      <h3>Standalone label</h3>
+      <label dsyLabel for="label-example">Website</label
+      ><input id="label-example" dsyInput type="url" placeholder="https://example.com" />
+    </div>
+  </div>
+</section>

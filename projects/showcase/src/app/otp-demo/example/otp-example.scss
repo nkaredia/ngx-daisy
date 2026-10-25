@@ -1,0 +1,81 @@
+demo-otp-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-otp-example .otp-example-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  inline-size: min(100%, 33rem);
+  padding: 1.75rem 1.25rem;
+  overflow: auto;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+  text-align: center;
+}
+
+demo-otp-example .otp-example-lock {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  margin-bottom: 0.25rem;
+  border-radius: 50%;
+  color: var(--color-success-content);
+  background: var(--color-success);
+  font-weight: 800;
+}
+
+demo-otp-example h3,
+demo-otp-example p {
+  margin: 0;
+}
+
+demo-otp-example p {
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+demo-otp-example h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+demo-otp-example .otp-example-card > span,
+demo-otp-example .otp-example-card > strong {
+  color: color-mix(in oklab, var(--color-base-content) 62%, transparent);
+  font-size: 0.72rem;
+}
+
+demo-otp-example dsy-otp {
+  max-inline-size: 100%;
+  margin-block: 0.75rem 0.25rem;
+}
+
+demo-otp-example .otp-example-progress {
+  inline-size: min(100%, 16rem);
+  block-size: 0.25rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-base-300);
+}
+
+demo-otp-example .otp-example-progress span {
+  display: block;
+  block-size: 100%;
+  border-radius: inherit;
+  background: var(--color-primary);
+  transition: width 180ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  demo-otp-example .otp-example-progress span {
+    transition: none;
+  }
+}

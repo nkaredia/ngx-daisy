@@ -1,0 +1,41 @@
+// This checkbox mirrors state only; it must never become an interactive control.
+.dsy-drawer-toggle {
+  display: none !important;
+}
+
+// daisyUI components occupy nested utility layers. Unnested, zero-specificity
+// defaults preserve our Angular layout while allowing app utilities to override it.
+@layer utilities {
+  :where(.dsy-drawer-container) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-columns: auto;
+    align-items: stretch;
+    position: relative;
+    inline-size: 100%;
+    min-inline-size: 0;
+  }
+  :where(.dsy-drawer-container > .dsy-drawer-content) {
+    grid-area: 1 / 1;
+  }
+  :where(.dsy-drawer-container[data-mode='side'][data-opened='true']) {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  :where(.dsy-drawer-container[data-mode='side'][data-opened='true'] > .dsy-drawer-content) {
+    grid-column: 2;
+  }
+  :where(.dsy-drawer-container[data-mode='side'][data-opened='true'][data-position='end']) {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  :where(
+    .dsy-drawer-container[data-mode='side'][data-opened='true'][data-position='end']
+      > .dsy-drawer-content
+  ) {
+    grid-column: 1;
+  }
+  :where(
+    .dsy-drawer-container[data-mode='side'][data-opened='true'][data-position='end'] > .dsy-drawer
+  ) {
+    grid-column: 2;
+  }
+}

@@ -1,0 +1,7 @@
+<section class="inline-preview-shell" [attr.aria-labelledby]="headingId">
+  <h3 [id]="headingId">{{ title() }}</h3>
+  <demo-inline-preview [component]="component()" />
+  @if (sourceFiles().length) {
+    <demo-example-code [files]="sourceFiles()" [showToggle]="false" [expanded]="true" />
+  }
+</section>

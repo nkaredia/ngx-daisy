@@ -1,0 +1,43 @@
+<section class="pagination-example-browser">
+  <header>
+    <div>
+      <span>Project files</span><strong>{{ props().length ?? 0 }} results</strong>
+    </div>
+    <span class="pagination-example-filter">Updated recently</span>
+  </header>
+  @if ((props().length ?? 0) > 0) {
+    <div class="pagination-example-results">
+      <article>
+        <span>DS</span>
+        <div><strong>Design system</strong><small>Updated 12 min ago</small></div>
+      </article>
+      <article>
+        <span>MR</span>
+        <div><strong>Mobile refresh</strong><small>Updated yesterday</small></div>
+      </article>
+      <article>
+        <span>WR</span>
+        <div><strong>Weekly report</strong><small>Updated 3 days ago</small></div>
+      </article>
+    </div>
+  } @else {
+    <div class="pagination-example-empty">
+      <span aria-hidden="true">⌕</span><strong>No results yet</strong>
+      <p>Increase <code>length</code> in Properties to preview page navigation.</p>
+    </div>
+  }
+  <footer>
+    <dsy-pagination
+      [(pageIndex)]="pageIndex"
+      [pageSize]="props().pageSize ?? 10"
+      [length]="props().length ?? 0"
+      [disabled]="props().disabled ?? false"
+      [size]="props().size ?? 'md'"
+      [label]="props().label ?? 'Pagination'"
+      [previousLabel]="props().previousLabel ?? 'Previous page'"
+      [nextLabel]="props().nextLabel ?? 'Next page'"
+      [pageLabel]="props().pageLabel ?? 'Page'"
+    />
+    <p aria-live="polite">Page {{ pageIndex() + 1 }}</p>
+  </footer>
+</section>

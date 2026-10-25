@@ -1,0 +1,53 @@
+demo-list-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.list-example-activity {
+  width: min(100%, 42rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.list-example-activity header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.list-example-activity header p {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.list-example-activity header h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+.list-example-activity header > span {
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+  background: var(--color-base-200);
+  font-size: 0.75rem;
+}
+.list-example-number {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border-radius: 0.65rem;
+  background: var(--color-base-100);
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 750;
+}
+.list-example-activity time {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.72rem;
+}

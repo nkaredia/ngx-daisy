@@ -1,0 +1,55 @@
+<section class="tabs-example-workspace">
+  <header>
+    <div>
+      <span>Project</span>
+      <h3>Mobile refresh</h3>
+    </div>
+    <span class="tabs-example-status">On track</span>
+  </header>
+  <dsy-tabs
+    [(selectedIndex)]="selectedIndex"
+    [label]="props().label ?? 'Tabs'"
+    [listClass]="props().listClass ?? ''"
+    [variant]="props().variant ?? 'default'"
+    [size]="props().size ?? 'md'"
+    [placement]="props().placement ?? 'top'"
+    [orientation]="props().orientation ?? 'horizontal'"
+    [activation]="props().activation ?? 'automatic'"
+  >
+    <button dsyTab [disabled]="tab().disabled ?? false" [label]="tab().label ?? ''">
+      Overview
+    </button>
+    <button dsyTab>Activity</button><button dsyTab>Settings</button>
+    <section [dsyTabPanel]="panel().index ?? 0" class="tabs-example-panel">
+      <div class="tabs-example-summary">
+        <div><span>Completion</span><strong>72%</strong><small>8 tasks remaining</small></div>
+        <div><span>Next milestone</span><strong>Oct 30</strong><small>Prototype review</small></div>
+        <div><span>Contributors</span><strong>6</strong><small>Across 3 teams</small></div>
+      </div>
+      <div class="tabs-example-progress" aria-label="Project completion"><span></span></div>
+    </section>
+    <section [dsyTabPanel]="1" class="tabs-example-panel">
+      <div class="tabs-example-activity">
+        <span class="tabs-example-avatar">AM</span>
+        <div>
+          <strong>Alex shared a new prototype</strong>
+          <p>12 minutes ago · Ready for review</p>
+        </div>
+      </div>
+      <div class="tabs-example-activity">
+        <span class="tabs-example-avatar tabs-example-avatar-secondary">JR</span>
+        <div>
+          <strong>Jordan completed “Navigation states”</strong>
+          <p>Yesterday · Design task</p>
+        </div>
+      </div>
+    </section>
+    <section [dsyTabPanel]="2" class="tabs-example-panel">
+      <div class="tabs-example-form">
+        <label>Project name <input aria-label="Project name" value="Mobile refresh" /></label>
+        <label>Owner <input aria-label="Project owner" value="Taylor Smith" /></label>
+      </div>
+    </section>
+  </dsy-tabs>
+  <p class="tabs-example-selection" aria-live="polite">Selected tab index: {{ selectedIndex() }}</p>
+</section>

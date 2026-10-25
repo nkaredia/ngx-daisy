@@ -1,0 +1,19 @@
+{
+  "name": "@ngx-daisy/showcase-builder",
+  "version": "0.0.1",
+  "private": true,
+  "builders": "builders.json",
+  "dependencies": {
+    "@angular-devkit/architect": "0.2202.3",
+    "prettier": "^3.8.1",
+    "rxjs": "~7.8.0",
+    "shiki": "^4.5.0",
+    "typescript": "~6.0.2"
+  },
+  "peerDependencies": {
+    "@angular/build": "22.2.x"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

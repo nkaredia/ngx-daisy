@@ -1,0 +1,28 @@
+<section class="action-demo catalog-demo">
+  <h2>Links</h2>
+  <p>Underlined links with semantic colors and optional hover-only decoration.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Semantic colors</h3>
+    <div class="demo-row">
+      <a dsyLink color="neutral" href="/buttons">Neutral</a
+      ><a dsyLink color="primary" href="/buttons">Primary</a
+      ><a dsyLink color="secondary" href="/buttons">Secondary</a
+      ><a dsyLink color="accent" href="/buttons">Accent</a
+      ><a dsyLink color="info" href="/buttons">Info</a
+      ><a dsyLink color="success" href="/buttons">Success</a
+      ><a dsyLink color="warning" href="/buttons">Warning</a
+      ><a dsyLink color="error" href="/buttons">Error</a>
+    </div>
+  </section>
+  <section class="demo-card">
+    <h3>Behavior</h3>
+    <div class="demo-row">
+      <a dsyLink hover href="/cards">Underline on hover</a
+      ><a dsyLink href="/tables" disabled>Unavailable link</a>
+    </div>
+  </section>
+</section>

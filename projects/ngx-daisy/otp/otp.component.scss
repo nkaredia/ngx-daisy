@@ -1,0 +1,14 @@
+@layer components {
+  .dsy-otp {
+    display: inline-block;
+    max-width: 100%;
+  }
+  .dsy-otp-visual {
+    max-width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dsy-otp span {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,58 @@
+demo-rating-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-rating-example .rating-example-card {
+  display: grid;
+  justify-items: center;
+  gap: 0.6rem;
+  inline-size: min(100%, 28rem);
+  padding: 1.75rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+  text-align: center;
+}
+
+demo-rating-example .rating-example-brand {
+  display: grid;
+  place-items: center;
+  inline-size: 3rem;
+  block-size: 3rem;
+  margin-bottom: 0.25rem;
+  border-radius: 1rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+demo-rating-example h3,
+demo-rating-example p {
+  margin: 0;
+}
+
+demo-rating-example p {
+  color: var(--color-primary);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+demo-rating-example h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+demo-rating-example .rating-example-card > span,
+demo-rating-example .rating-example-value {
+  color: color-mix(in oklab, var(--color-base-content) 62%, transparent);
+  font-size: 0.75rem;
+}
+
+demo-rating-example dsy-rating {
+  margin-block: 0.55rem;
+}

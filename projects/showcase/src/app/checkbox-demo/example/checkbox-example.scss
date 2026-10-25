@@ -1,0 +1,59 @@
+demo-checkbox-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-checkbox-example .checkbox-example-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.875rem;
+  inline-size: min(100%, 30rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 0.75rem 2rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+demo-checkbox-example .checkbox-example-icon {
+  display: grid;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.85rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+}
+
+demo-checkbox-example h3,
+demo-checkbox-example p {
+  margin: 0;
+}
+
+demo-checkbox-example h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+demo-checkbox-example p {
+  margin-top: 0.25rem;
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+demo-checkbox-example .checkbox-example-control {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--color-base-300);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+demo-checkbox-example .checkbox-example-control input {
+  order: 2;
+}

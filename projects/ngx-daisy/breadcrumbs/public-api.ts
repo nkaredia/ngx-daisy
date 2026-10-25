@@ -1,0 +1,1 @@
+export { DsyBreadcrumbs } from './breadcrumbs';

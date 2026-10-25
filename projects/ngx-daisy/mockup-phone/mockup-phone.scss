@@ -1,0 +1,7 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-mockup-phone, [dsyMockupPhone]) {
+      max-width: 100%;
+    }
+  }
+}

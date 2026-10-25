@@ -1,0 +1,68 @@
+<section class="action-demo display-demo">
+  <h2>Tables</h2>
+  <p>
+    Native table semantics and CDK rendering, with signal-driven filtering, sorting and pagination.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Team directory</h3>
+    <label
+      >Search team
+      <input type="text" [value]="source.filter()" (input)="search($any($event.target).value)"
+    /></label>
+    <div class="display-table-scroll">
+      <table
+        dsyTable
+        cdk-table
+        dsySort
+        #sort="dsySort"
+        [dataSource]="source"
+        [zebra]="true"
+        (activeChange)="source.sort.set({ active: $event, direction: sort.direction() })"
+        (directionChange)="source.sort.set({ active: sort.active(), direction: $event })"
+      >
+        <caption>
+          Project contributors
+        </caption>
+        <ng-container cdkColumnDef="name"
+          ><th cdk-header-cell *cdkHeaderCellDef dsySortHeader="name">Name</th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.name }}</td></ng-container
+        ><ng-container cdkColumnDef="role"
+          ><th cdk-header-cell *cdkHeaderCellDef dsySortHeader="role">Role</th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.role }}</td></ng-container
+        ><ng-container cdkColumnDef="tasks"
+          ><th cdk-header-cell *cdkHeaderCellDef dsySortHeader="tasks">Tasks</th>
+          <td cdk-cell *cdkCellDef="let row">{{ row.tasks }}</td></ng-container
+        >
+        <tr cdk-header-row *cdkHeaderRowDef="columns"></tr>
+        <tr dsyTableRow hover cdk-row *cdkRowDef="let row; columns: columns"></tr>
+        <tr *cdkNoDataRow>
+          <td colspan="3">No team members match your search.</td>
+        </tr>
+      </table>
+    </div>
+    <div class="demo-row mt-4">
+      <button
+        type="button"
+        class="display-button"
+        [disabled]="source.effectivePageIndex() === 0"
+        (click)="source.pageIndex.set(source.effectivePageIndex() - 1)"
+      >
+        Previous page</button
+      ><span aria-live="polite"
+        >Page {{ source.effectivePageIndex() + 1 }} of {{ source.pageCount() }} ·
+        {{ source.filteredCount() }} members</span
+      ><button
+        type="button"
+        class="display-button"
+        [disabled]="source.effectivePageIndex() + 1 >= source.pageCount()"
+        (click)="source.pageIndex.set(source.effectivePageIndex() + 1)"
+      >
+        Next page
+      </button>
+    </div>
+  </section>
+</section>

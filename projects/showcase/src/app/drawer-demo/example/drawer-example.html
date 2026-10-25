@@ -1,0 +1,57 @@
+<dsy-drawer-container class="drawer-example-container">
+  <dsy-drawer-content
+    ><div class="drawer-example-content">
+      <header>
+        <div>
+          <span>Workspace</span>
+          <h3>Product overview</h3>
+        </div>
+        <button
+          dsyButton
+          type="button"
+          size="sm"
+          [attr.aria-expanded]="opened()"
+          aria-controls="playground-navigation-drawer"
+          (click)="drawer.toggle()"
+        >
+          {{ opened() ? 'Close menu' : 'Open menu' }}
+        </button>
+      </header>
+      <div class="drawer-example-metrics">
+        <article>
+          <span>Active projects</span><strong>12</strong><small>+2 this month</small>
+        </article>
+        <article><span>Team members</span><strong>28</strong><small>4 online now</small></article>
+      </div>
+      <div class="drawer-example-activity">
+        <h4>Recent activity</h4>
+        <p>
+          <span aria-hidden="true">AJ</span><strong>Alex updated Buttons</strong
+          ><small>12 min ago</small>
+        </p>
+      </div>
+    </div></dsy-drawer-content
+  >
+  <dsy-drawer
+    #drawer
+    id="playground-navigation-drawer"
+    [(opened)]="opened"
+    [mode]="props().mode ?? 'over'"
+    [position]="props().position ?? 'start'"
+    [width]="props().width"
+    [disableClose]="props().disableClose ?? false"
+    [aria-label]="props().label ?? 'Navigation'"
+    [panelClass]="props().panelClass ?? ''"
+    [backdropClass]="props().backdropClass ?? ''"
+    ><nav class="drawer-example-navigation" aria-label="Workspace sections">
+      <div class="drawer-example-brand">
+        <span aria-hidden="true">ND</span><strong>Studio</strong>
+      </div>
+      <h3>Workspace</h3>
+      <a href="/buttons">Overview</a><a href="/cards">Projects</a><a href="/tables">Reports</a
+      ><button dsyButton type="button" variant="outline" (click)="drawer.close()">
+        Close menu
+      </button>
+    </nav></dsy-drawer
+  >
+</dsy-drawer-container>

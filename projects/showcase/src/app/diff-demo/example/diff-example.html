@@ -1,0 +1,26 @@
+<dsy-diff
+  [position]="props().position ?? 50"
+  [label]="props().label ?? 'Comparison position'"
+  [disabled]="props().disabled ?? false"
+  [stageClass]="props().stageClass ?? ''"
+  [sliderClass]="props().sliderClass ?? ''"
+>
+  <div dsyDiffBefore class="diff-example-layer diff-example-before">
+    <article>
+      <span>Starter</span>
+      <h3>Simple analytics</h3>
+      <strong>12.4k</strong>
+      <p>Monthly visitors</p>
+      <div aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </article>
+  </div>
+  <div dsyDiffAfter class="diff-example-layer diff-example-after">
+    <article>
+      <span>Refreshed</span>
+      <h3>Focused analytics</h3>
+      <strong>18.7k</strong>
+      <p>Monthly visitors · 51% growth</p>
+      <div aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </article>
+  </div>
+</dsy-diff>

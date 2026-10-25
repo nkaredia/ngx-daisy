@@ -1,0 +1,97 @@
+@if (active()) {
+  <div class="dsy-loader-content">
+    <span class="dsy-loader-visual" aria-hidden="true">
+      @if (native()) {
+        <span
+          class="dsy-loader-native"
+          [style.width]="'var(--dsy-loader-size, 100%)'"
+          [style.height]="'var(--dsy-loader-size, 100%)'"
+          [class]="nativeClasses()"
+        ></span>
+      }
+      <span class="dsy-loader-fallback">
+        @switch (variant()) {
+          @case ('spinner') {
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              focusable="false"
+            >
+              @for (spoke of spokes; track spoke) {
+                <path
+                  d="M12 2v3"
+                  [attr.transform]="'rotate(' + spoke * 45 + ' 12 12)'"
+                  [attr.opacity]="(spoke + 1) / 8"
+                />
+              }
+            </svg>
+          }
+          @case ('ring') {
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              focusable="false"
+            >
+              <circle class="dsy-loader-track" cx="12" cy="12" r="10" />
+              <circle
+                class="dsy-loader-ring-value"
+                cx="12"
+                cy="12"
+                r="10"
+                pathLength="100"
+                stroke-linecap="round"
+                [attr.stroke-dasharray]="(progress() ?? 72) + ' 100'"
+                [attr.opacity]="progress() === 0 ? 0 : null"
+              />
+            </svg>
+          }
+          @case ('dots') {
+            <span class="dsy-loader-dot"></span>
+            <span class="dsy-loader-dot"></span>
+            <span class="dsy-loader-dot"></span>
+          }
+          @case ('bars') {
+            <span class="dsy-loader-column"></span>
+            <span class="dsy-loader-column"></span>
+            <span class="dsy-loader-column"></span>
+            <span class="dsy-loader-column"></span>
+          }
+          @case ('ball') {
+            <span class="dsy-loader-ball"></span>
+          }
+          @case ('infinity') {
+            <svg
+              viewBox="0 0 100 100"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="7"
+              stroke-linecap="round"
+              focusable="false"
+            >
+              <path class="dsy-loader-track" [attr.d]="infinityPath" />
+              <path
+                class="dsy-loader-infinity-value"
+                [attr.d]="infinityPath"
+                pathLength="100"
+                stroke-dasharray="72 28"
+              />
+            </svg>
+          }
+          @case ('bar') {
+            <span class="dsy-loader-bar-track">
+              <span class="dsy-loader-bar-value" [style.width.%]="progress() ?? 35"></span>
+            </span>
+          }
+        }
+      </span>
+    </span>
+    <span class="dsy-loader-label" [class.dsy-loader-label-visible]="showLabel()">{{
+      accessibleLabel()
+    }}</span>
+  </div>
+}

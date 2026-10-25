@@ -1,0 +1,28 @@
+<section class="select-example-card" aria-labelledby="select-example-title">
+  <div class="select-example-heading">
+    <span aria-hidden="true">↗</span>
+    <div>
+      <h3 id="select-example-title">Move this project</h3>
+      <p>Choose its new team workspace.</p>
+    </div>
+  </div>
+  <label>
+    <span>Destination workspace</span>
+    <select
+      #control
+      dsySelect
+      [color]="props().color"
+      [size]="props().size"
+      [variant]="props().variant ?? 'bordered'"
+      [value]="value()"
+      (change)="value.set(control.value)"
+    >
+      <option value="design">Design system</option>
+      <option value="engineering">Engineering</option>
+      <option value="research">Research lab</option>
+    </select>
+  </label>
+  <div class="select-example-route" aria-live="polite">
+    <span>Product workspace</span><span aria-hidden="true">→</span><strong>{{ value() }}</strong>
+  </div>
+</section>

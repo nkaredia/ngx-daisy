@@ -1,0 +1,51 @@
+<section class="action-demo input-demo">
+  <h2>Form Fields</h2>
+  <p>
+    Angular validation is the source of truth. Errors appear after touch or submission; pending,
+    disabled and programmatic changes stay reactive.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Signal Forms submission</h3>
+      <form [formRoot]="fields">
+        <dsy-form-field label="Email"
+          ><input
+            type="email"
+            dsyInput
+            dsyValidator
+            [formField]="fields.email"
+            placeholder="you@example.com"
+          /><dsy-hint>Blur the field to reveal validation errors.</dsy-hint
+          ><dsy-error>
+            @for (error of fields.email().errors(); track $index) {
+              <span>{{ error.message }}</span>
+            }
+          </dsy-error></dsy-form-field
+        >
+        <p class="demo-status">
+          Invalid: {{ fields.email().invalid() }} · Touched: {{ fields.email().touched() }}
+        </p>
+        <button dsyButton type="submit" color="primary">Submit form</button>
+        <button dsyButton (click)="fields().reset({ email: '' }); submitted.set(false)">
+          Reset form
+        </button>
+        <p class="demo-status" aria-live="polite">
+          {{ submitted() ? 'Form submitted' : 'Ready to submit' }}
+        </p>
+      </form>
+    </div>
+    <div class="demo-card">
+      <h3>Typed Reactive Forms validation</h3>
+      <dsy-form-field label="Reactive email"
+        ><input type="email" dsyInput dsyValidator [formControl]="reactive" /><dsy-hint
+          >Required, valid email address.</dsy-hint
+        ><dsy-error>Enter a valid email address.</dsy-error></dsy-form-field
+      ><button dsyButton class="mt-4" (click)="reactive.markAsTouched()">Mark touched</button
+      ><button dsyButton class="mt-4" (click)="reactive.reset()">Reset</button>
+    </div>
+  </div>
+</section>

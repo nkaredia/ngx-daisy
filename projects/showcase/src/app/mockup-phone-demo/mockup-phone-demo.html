@@ -1,0 +1,21 @@
+<section class="action-demo catalog-demo">
+  <h2>Phone Mockups</h2>
+  <p>A phone-shaped frame that preserves interactive projected content.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Mobile preview</h3>
+    <dsy-mockup-phone
+      ><div class="catalog-phone-screen">
+        <span class="text-sm opacity-70">9:41</span>
+        <h3>Your workspace</h3>
+        <p>Everything you need, wherever you go.</p>
+        <button type="button" class="catalog-button" (click)="saved.update(toggle)">
+          {{ saved() ? 'Saved' : 'Save for later' }}
+        </button>
+      </div></dsy-mockup-phone
+    >
+  </section>
+</section>

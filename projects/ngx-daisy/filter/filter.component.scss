@@ -1,0 +1,10 @@
+@layer components {
+  .dsy-filter {
+    display: inline-block;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dsy-filter input {
+    transition: none !important;
+  }
+}

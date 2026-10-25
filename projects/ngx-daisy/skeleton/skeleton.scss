@@ -1,0 +1,22 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-skeleton, [dsySkeleton]) {
+      display: block;
+    }
+    [dsySkeleton][data-animate='false'],
+    dsy-skeleton[data-animate='false'] {
+      animation: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      dsy-skeleton,
+      [dsySkeleton],
+      dsy-skeleton::before,
+      dsy-skeleton::after,
+      [dsySkeleton]::before,
+      [dsySkeleton]::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}

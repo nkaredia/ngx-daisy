@@ -1,0 +1,13 @@
+<div class="p-4">
+  <dsy-hover-3d [disabled]="props().disabled ?? false"
+    ><div class="hover-3d-example-card rounded-box bg-primary text-primary-content p-8 max-w-sm">
+      <span>Featured · Autumn 2026</span>
+      <h3 class="text-2xl font-bold">Take a different angle</h3>
+      <p class="my-4">A curated set of bold layouts, layered depth, and warmer color.</p>
+      <div class="hover-3d-example-meta"><strong>24</strong><span>saved ideas</span></div>
+      <button dsyButton type="button" (click)="saved.update(toggle)">
+        {{ saved() ? 'Saved' : 'Save collection' }}
+      </button>
+    </div></dsy-hover-3d
+  >
+</div>

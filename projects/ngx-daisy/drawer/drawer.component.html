@@ -1,0 +1,23 @@
+<button
+  class="dsy-drawer-backdrop"
+  [class]="daisyClasses('drawer-overlay') + ' ' + backdropClass()"
+  type="button"
+  tabindex="-1"
+  aria-hidden="true"
+  [disabled]="!modal() || disableClose()"
+  (mousedown)="$event.preventDefault()"
+  (click)="dismiss()"
+></button>
+<div
+  #panel
+  class="dsy-drawer-panel"
+  [class]="panelClass()"
+  tabindex="-1"
+  [attr.role]="modal() ? 'dialog' : null"
+  [attr.aria-modal]="modal() ? 'true' : null"
+  [attr.aria-label]="modal() ? accessibleLabel() : null"
+  [attr.aria-hidden]="opened() ? null : 'true'"
+  [attr.inert]="opened() ? null : ''"
+>
+  <ng-content />
+</div>

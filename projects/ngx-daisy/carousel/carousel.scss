@@ -1,0 +1,54 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-carousel) {
+      display: block;
+      min-width: 0;
+      contain: inline-size;
+    }
+    :where(dsy-carousel .dsy-carousel-viewport) {
+      display: flex;
+      overflow: auto;
+      scroll-snap-type: x mandatory;
+    }
+    :where(dsy-carousel [data-vertical='true']) {
+      flex-direction: column;
+      scroll-snap-type: y mandatory;
+    }
+    :where(dsy-carousel [dsyCarouselItem]) {
+      min-width: 0;
+      flex: 0 0 auto;
+      scroll-snap-align: var(--dsy-carousel-snap, start);
+    }
+    :where(.dsy-carousel-controls) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-block-start: 1rem;
+    }
+    :where(.dsy-carousel-controls button) {
+      cursor: pointer;
+      border: 1px solid currentColor;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+    }
+    :where(.dsy-carousel-controls button:disabled) {
+      opacity: 0.4;
+      cursor: default;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      dsy-carousel * {
+        scroll-behavior: auto !important;
+      }
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-carousel [data-slide-size='full'] > [dsyCarouselItem]) {
+      flex-basis: 100%;
+      width: 100%;
+    }
+  }
+}

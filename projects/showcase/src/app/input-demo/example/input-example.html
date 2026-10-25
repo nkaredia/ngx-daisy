@@ -1,0 +1,26 @@
+<section class="input-example-card" aria-labelledby="input-example-title">
+  <div class="input-example-people" aria-hidden="true">
+    <span>AJ</span><span>MK</span><span>+</span>
+  </div>
+  <h3 id="input-example-title">Invite a teammate</h3>
+  <p>Collaborate on components, reviews and release notes.</p>
+  <label>
+    <span>Email or name</span>
+    <input
+      #control
+      type="text"
+      dsyInput
+      autocomplete="off"
+      placeholder="alex@example.com"
+      [color]="props().color"
+      [size]="props().size"
+      [variant]="props().variant ?? 'bordered'"
+      [value]="value()"
+      (input)="value.set(control.value)"
+    />
+  </label>
+  <div class="input-example-permission"><span>Permission</span><strong>Can edit</strong></div>
+  <p class="input-example-status" aria-live="polite">
+    {{ value() ? 'Ready to invite ' + value() : 'Enter a person to continue' }}
+  </p>
+</section>

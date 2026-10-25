@@ -1,0 +1,132 @@
+demo-megamenu-example {
+  display: block;
+  min-inline-size: 0;
+}
+
+.megamenu-example-shell {
+  position: relative;
+  min-height: 21rem;
+  overflow: hidden;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background:
+    radial-gradient(
+      circle at 80% 70%,
+      color-mix(in oklab, var(--color-primary) 17%, transparent),
+      transparent 35%
+    ),
+    var(--color-base-100);
+
+  > header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1rem;
+    min-height: 4rem;
+    padding-inline: 1rem;
+    border-bottom: 1px solid var(--color-base-300);
+    background: color-mix(in oklab, var(--color-base-100) 90%, transparent);
+  }
+}
+
+.megamenu-example-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: inherit;
+  font-weight: 750;
+  text-decoration: none;
+
+  span {
+    display: grid;
+    width: 2rem;
+    aspect-ratio: 1;
+    place-items: center;
+    border-radius: 0.65rem;
+    background: var(--color-primary);
+    color: var(--color-primary-content);
+  }
+}
+
+.megamenu-example-avatar {
+  display: grid;
+  width: 2rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-base-300);
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.megamenu-example-hero {
+  display: grid;
+  align-content: center;
+  gap: 0.6rem;
+  min-height: 16rem;
+  max-width: 38rem;
+  padding: 2.5rem clamp(1.25rem, 6vw, 4rem);
+
+  > span {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  h3 {
+    font-size: clamp(1.55rem, 4vw, 2.3rem);
+    font-weight: 750;
+    line-height: 1.1;
+  }
+
+  p {
+    color: color-mix(in oklab, var(--color-base-content) 68%, transparent);
+  }
+}
+
+.megamenu-example-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.5rem;
+  padding: 0.75rem;
+
+  a {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+    padding: 0.8rem;
+    border-radius: var(--radius-field);
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-base-200);
+    }
+  }
+
+  span {
+    font-size: 0.75rem;
+    opacity: 0.65;
+  }
+}
+
+.megamenu-example-status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 40rem) {
+  .megamenu-example-shell > header {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .megamenu-example-brand {
+    display: none;
+  }
+}

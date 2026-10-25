@@ -1,0 +1,34 @@
+<button
+  type="button"
+  class="dsy-swap-button"
+  [class]="classes()"
+  [disabled]="isDisabled()"
+  [style.color]="variant() === 'plain' && color() ? 'var(--color-' + color() + ')' : null"
+  [attr.data-state]="indeterminate() ? 'mixed' : checked() ? 'on' : 'off'"
+  [attr.aria-label]="label().trim() || 'Toggle'"
+  [attr.aria-pressed]="indeterminate() ? 'mixed' : checked()"
+  (click)="toggle()"
+  (blur)="blur()"
+>
+  <span
+    class="dsy-swap-on"
+    [class]="daisyClasses('swap-on')"
+    [attr.aria-hidden]="checked() && !indeterminate() ? null : 'true'"
+    [attr.inert]="checked() && !indeterminate() ? null : ''"
+    ><ng-content select="[dsySwapOn]"
+  /></span>
+  <span
+    class="dsy-swap-off"
+    [class]="daisyClasses('swap-off')"
+    [attr.aria-hidden]="!checked() && !indeterminate() ? null : 'true'"
+    [attr.inert]="!checked() && !indeterminate() ? null : ''"
+    ><ng-content select="[dsySwapOff]"
+  /></span>
+  <span
+    class="dsy-swap-mixed"
+    [class]="daisyClasses('swap-indeterminate')"
+    [attr.aria-hidden]="indeterminate() ? null : 'true'"
+    [attr.inert]="indeterminate() ? null : ''"
+    ><ng-content select="[dsySwapIndeterminate]"
+  /></span>
+</button>

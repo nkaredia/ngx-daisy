@@ -1,0 +1,156 @@
+demo-hero-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-hero-example .hero-example-landscape {
+  min-block-size: 25rem;
+  overflow: hidden;
+  border-radius: var(--radius-box);
+  color: white;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      color-mix(in oklab, white 16%, transparent),
+      transparent 16rem
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in oklab, var(--color-primary) 82%, black),
+      var(--color-secondary)
+    );
+}
+
+demo-hero-example .hero-example-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.9fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  inline-size: min(100%, 64rem);
+  padding: clamp(1.75rem, 5vw, 4rem);
+}
+
+demo-hero-example .hero-example-copy {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 1.25rem;
+}
+
+demo-hero-example .hero-example-kicker {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid color-mix(in oklab, white 35%, transparent);
+  border-radius: 999px;
+  background: color-mix(in oklab, white 12%, transparent);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+demo-hero-example h3,
+demo-hero-example p {
+  margin: 0;
+}
+
+demo-hero-example h3 {
+  max-inline-size: 13ch;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 760;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+demo-hero-example p {
+  max-inline-size: 52ch;
+  color: color-mix(in oklab, white 76%, transparent);
+  line-height: 1.6;
+}
+
+demo-hero-example .hero-example-actions,
+demo-hero-example .hero-example-proof {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+demo-hero-example .hero-example-actions > a:not([dsyButton]) {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+demo-hero-example .hero-example-proof {
+  padding-top: 0.5rem;
+  font-size: 0.68rem;
+}
+
+demo-hero-example .hero-example-proof span {
+  display: grid;
+}
+
+demo-hero-example .hero-example-proof strong {
+  font-size: 1.15rem;
+}
+
+demo-hero-example .hero-example-art {
+  position: relative;
+  align-self: center;
+  min-block-size: 17rem;
+}
+
+demo-hero-example .hero-example-window {
+  position: absolute;
+  inset: 1rem 0 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 0.5rem) 1fr;
+  align-content: start;
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid color-mix(in oklab, white 28%, transparent);
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, var(--color-base-100) 88%, transparent);
+  box-shadow: 0 2rem 4rem color-mix(in oklab, black 25%, transparent);
+  transform: rotate(3deg);
+}
+
+demo-hero-example .hero-example-window i {
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+demo-hero-example .hero-example-window span {
+  grid-column: 1 / -1;
+  block-size: 2.5rem;
+  border-radius: 0.7rem;
+  background: var(--color-base-200);
+}
+
+demo-hero-example .hero-example-window span:nth-of-type(1) {
+  margin-top: 1rem;
+  block-size: 5rem;
+  background: color-mix(in oklab, var(--color-primary) 22%, var(--color-base-200));
+}
+
+demo-hero-example .hero-example-chip {
+  position: absolute;
+  inset-inline-start: -1rem;
+  inset-block-end: 1.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.8rem;
+  color: var(--color-base-content);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2rem color-mix(in oklab, black 18%, transparent);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+@media (max-width: 44rem) {
+  demo-hero-example .hero-example-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  demo-hero-example .hero-example-art {
+    min-block-size: 13rem;
+  }
+}

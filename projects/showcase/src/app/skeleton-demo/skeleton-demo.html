@@ -1,0 +1,32 @@
+<section class="action-demo catalog-demo">
+  <h2>Skeletons</h2>
+  <p>
+    Decorative placeholders while the application owns loading state and busy-region announcements.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card" [attr.aria-busy]="loading()">
+    <h3>Profile preview</h3>
+    @if (loading()) {
+      <div class="demo-row">
+        <dsy-skeleton class="h-16 w-16 rounded-full" />
+        <div class="catalog-column grow">
+          <dsy-skeleton class="h-4 w-32" /><dsy-skeleton class="h-4 w-full" />
+        </div>
+      </div>
+      <dsy-skeleton class="h-32 w-full mt-4" />
+    } @else {
+      <strong>Alex Morgan</strong>
+      <p>Designing clear, accessible interfaces.</p>
+    }
+    <button type="button" class="catalog-button mt-4" (click)="loading.update(toggle)">
+      {{ loading() ? 'Show content' : 'Show skeleton' }}
+    </button>
+  </section>
+  <section class="demo-card">
+    <h3>Text placeholder</h3>
+    <dsy-skeleton text class="text-2xl">Loading your next idea</dsy-skeleton>
+  </section>
+</section>

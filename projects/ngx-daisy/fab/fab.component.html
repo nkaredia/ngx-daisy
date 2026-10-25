@@ -1,0 +1,12 @@
+<ng-content select="[dsyFabTrigger]" />
+<ng-content select="[dsyFabMainAction], [dsyFabClose]" />
+<div
+  class="dsy-fab-actions"
+  [id]="id()"
+  role="group"
+  [attr.aria-label]="label()"
+  [attr.inert]="opened() ? null : ''"
+  [attr.aria-hidden]="opened() ? null : 'true'"
+>
+  <ng-content />
+</div>

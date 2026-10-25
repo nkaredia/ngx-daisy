@@ -1,0 +1,48 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-hover-gallery) {
+      display: block;
+    }
+    :where(dsy-hover-gallery .dsy-gallery-stage) {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    dsy-hover-gallery .dsy-gallery-stage img {
+      grid-area: 1/1;
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+      object-fit: cover;
+    }
+    :where(dsy-hover-gallery .dsy-gallery-stage > img:not([hidden])) {
+      display: block;
+    }
+    dsy-hover-gallery img[hidden] {
+      display: none !important;
+    }
+    :where(.dsy-gallery-controls) {
+      display: flex;
+      gap: 0.5rem;
+      margin-block-start: 0.5rem;
+    }
+    :where(.dsy-gallery-controls button) {
+      border: 1px solid currentColor;
+      border-radius: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      cursor: pointer;
+    }
+    :where(.dsy-gallery-controls [aria-pressed='true']) {
+      background: var(--color-primary);
+      color: var(--color-primary-content);
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-hover-gallery .dsy-gallery-stage:focus-visible) {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+  }
+}

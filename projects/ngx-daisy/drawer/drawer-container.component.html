@@ -1,0 +1,13 @@
+<!-- A disabled state mirror enables daisyUI's is-drawer-open/close variants. Angular owns state. -->
+<input
+  class="dsy-drawer-toggle"
+  [class]="daisyClasses('drawer-toggle')"
+  type="checkbox"
+  [checked]="drawer()?.opened() ?? false"
+  disabled
+  hidden
+  tabindex="-1"
+  aria-hidden="true"
+/>
+<ng-content select="dsy-drawer-content" />
+<ng-content select="dsy-drawer" />

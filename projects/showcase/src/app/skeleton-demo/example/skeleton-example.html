@@ -1,0 +1,24 @@
+<article class="skeleton-example-card" aria-label="Loading team update">
+  <header>
+    <dsy-skeleton class="skeleton-example-avatar" [animate]="props().animate ?? true" />
+    <div>
+      <dsy-skeleton class="h-4 w-36 max-w-full" [animate]="props().animate ?? true" />
+      <dsy-skeleton class="h-3 w-24 max-w-full" [animate]="props().animate ?? true" />
+    </div>
+    <dsy-skeleton class="h-7 w-16" [animate]="props().animate ?? true" />
+  </header>
+  <dsy-skeleton
+    class="skeleton-example-cover"
+    [text]="props().text ?? false"
+    [animate]="props().animate ?? true"
+    >Loading workspace details</dsy-skeleton
+  >
+  <div class="skeleton-example-lines">
+    <dsy-skeleton class="h-4 w-full" [animate]="props().animate ?? true" />
+    <dsy-skeleton class="h-4 w-4/5" [animate]="props().animate ?? true" />
+  </div>
+  <footer>
+    <dsy-skeleton class="h-8 w-24" [animate]="props().animate ?? true" />
+    <dsy-skeleton class="h-8 w-24" [animate]="props().animate ?? true" />
+  </footer>
+</article>

@@ -1,0 +1,121 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-diff) {
+      display: block;
+    }
+    :where(dsy-diff .dsy-diff-stage) {
+      display: grid;
+      position: relative;
+      overflow: hidden;
+      container-type: normal;
+      grid-template: 1fr / 1fr;
+    }
+    :where(dsy-diff .dsy-diff-stage > div) {
+      grid-area: 1/1;
+      position: relative;
+      width: auto;
+      resize: none;
+      overflow: hidden;
+      pointer-events: none;
+      border: 0;
+      box-shadow: none;
+    }
+    :where(dsy-diff .dsy-diff-stage > div > *) {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+    }
+    :where(dsy-diff .dsy-diff-before) {
+      z-index: 1;
+    }
+    :where(dsy-diff .dsy-diff-after) {
+      z-index: 0;
+    }
+    dsy-diff .dsy-diff-after::after {
+      content: none;
+    }
+    :where(dsy-diff .dsy-diff-stage > .dsy-diff-divider) {
+      position: absolute;
+      overflow: visible;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      height: auto;
+      min-width: 0;
+      max-width: none;
+      background: currentColor;
+      z-index: 2;
+      opacity: 1;
+      clip-path: none;
+      transform: none;
+      transition: none;
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-diff .dsy-diff-slider) {
+      appearance: none;
+      position: absolute;
+      inset-block: 0;
+      inset-inline-start: -1.2rem;
+      width: calc(100% + 2.4rem);
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      z-index: 3;
+      background: transparent;
+      border: 0;
+      cursor: ew-resize;
+      opacity: 0;
+    }
+    .dsy-diff-slider::-webkit-slider-thumb {
+      appearance: none;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+    .dsy-diff-slider::-moz-range-thumb {
+      width: 2.4rem;
+      height: 2.4rem;
+      border: 0;
+    }
+    :where(dsy-diff .dsy-diff-handle) {
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      translate: -50% -50%;
+      display: grid;
+      place-items: center;
+      width: 2.4rem;
+      max-width: none;
+      height: 1.8rem;
+      border-radius: 999px;
+      background: var(--color-base-100);
+      color: var(--color-base-content);
+      font:
+        1rem ui-monospace,
+        monospace;
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--color-base-content) 10%, transparent),
+        0 1px 3px #0003;
+      transition: height 0.2s;
+    }
+    :where(dsy-diff .dsy-diff-stage:hover .dsy-diff-handle) {
+      height: 2.4rem;
+    }
+    :where(dsy-diff .dsy-diff-stage:has(.dsy-diff-slider:focus-visible)) {
+      outline: 2px solid var(--color-base-content);
+      outline-offset: 2px;
+    }
+    :where(dsy-diff .dsy-diff-stage:has(.dsy-diff-slider:disabled)) {
+      cursor: default;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dsy-diff-handle {
+        transition: none !important;
+      }
+    }
+  }
+}

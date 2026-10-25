@@ -1,0 +1,67 @@
+demo-calendar-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-calendar-example .calendar-example-card {
+  inline-size: min(100%, 25rem);
+  padding: 1.25rem;
+  overflow: auto;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 9%, transparent);
+}
+
+demo-calendar-example header,
+demo-calendar-example .calendar-example-selection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+demo-calendar-example h3,
+demo-calendar-example p {
+  margin: 0;
+}
+
+demo-calendar-example h3 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+demo-calendar-example .calendar-example-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+demo-calendar-example .calendar-example-duration,
+demo-calendar-example .calendar-example-selection {
+  border-radius: var(--radius-field);
+  background: var(--color-base-200);
+  font-size: 0.75rem;
+}
+
+demo-calendar-example .calendar-example-duration {
+  flex: none;
+  padding: 0.35rem 0.6rem;
+}
+
+demo-calendar-example .calendar-example-intro {
+  margin-block: 0.45rem 1rem;
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.875rem;
+}
+
+demo-calendar-example dsy-calendar {
+  margin-inline: auto;
+}
+
+demo-calendar-example .calendar-example-selection {
+  margin-top: 1rem;
+  padding: 0.75rem;
+}

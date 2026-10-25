@@ -1,0 +1,41 @@
+<section class="action-demo catalog-demo">
+  <h2>Docks</h2>
+  <p>
+    Bottom navigation with native buttons or application links. The preview is positioned inside
+    this page.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Workspace navigation</h3>
+    <dsy-dock class="catalog-dock" label="Workspace"
+      ><button
+        dsyDockItem
+        type="button"
+        [active]="selected() === 'Home'"
+        (click)="selected.set('Home')"
+      >
+        <span aria-hidden="true">⌂</span><span dsyDockLabel>Home</span></button
+      ><button
+        dsyDockItem
+        type="button"
+        [active]="selected() === 'Projects'"
+        (click)="selected.set('Projects')"
+      >
+        <span aria-hidden="true">▦</span><span dsyDockLabel>Projects</span></button
+      ><button
+        dsyDockItem
+        type="button"
+        [active]="selected() === 'Activity'"
+        (click)="selected.set('Activity')"
+      >
+        <span aria-hidden="true">◷</span><span dsyDockLabel>Activity</span></button
+      ><button dsyDockItem type="button" disabled>
+        <span aria-hidden="true">⚙</span><span dsyDockLabel>Settings</span>
+      </button></dsy-dock
+    >
+    <p class="demo-status" aria-live="polite">Selected: {{ selected() }}</p>
+  </section>
+</section>

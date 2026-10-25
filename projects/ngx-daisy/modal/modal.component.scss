@@ -1,0 +1,127 @@
+// The same structural class is used by CDK's shared scroll strategy.
+.cdk-global-scrollblock {
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+}
+@layer components {
+  .dsy-modal-panel {
+    width: 91.6667%;
+    max-width: 32rem;
+    max-height: 100dvh;
+    overflow: auto;
+    padding: 1.5rem;
+    border-radius: var(--radius-box);
+    background: var(--color-base-100);
+    color: var(--color-base-content);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 25%);
+  }
+  .dsy-modal-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  .dsy-modal-content {
+    display: block;
+    margin-block-start: 1rem;
+  }
+  .dsy-modal-actions {
+    display: flex;
+    justify-content: end;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-start: 1.5rem;
+  }
+}
+@layer utilities {
+  :where(.dsy-modal) {
+    display: grid;
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    place-items: center;
+    overflow: clip;
+    visibility: hidden;
+    pointer-events: none;
+    background: transparent;
+    z-index: calc(var(--dsy-modal-z-index, 1000) + var(--dsy-modal-level, 0));
+    transition: visibility var(--dsy-modal-duration, 300ms) allow-discrete;
+  }
+  :where(.dsy-modal-backdrop) {
+    grid-area: 1 / 1;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: var(--dsy-modal-backdrop, rgb(0 0 0 / 40%));
+    opacity: 0;
+    transition: opacity var(--dsy-modal-duration, 300ms);
+  }
+  :where(.dsy-modal-panel) {
+    grid-area: 1 / 1;
+    position: relative;
+    opacity: 0;
+    scale: 0.95;
+    translate: none;
+    will-change: auto;
+    transition:
+      opacity var(--dsy-modal-duration, 300ms),
+      scale var(--dsy-modal-duration, 300ms);
+  }
+  :where(.dsy-modal-panel:focus) {
+    outline: none;
+  }
+  :where(.dsy-modal[data-opened='true']) {
+    visibility: visible;
+    pointer-events: auto;
+    transition: none;
+  }
+  :where(.dsy-modal[data-opened='true'] > .dsy-modal-backdrop) {
+    opacity: 1;
+  }
+  :where(.dsy-modal[data-opened='true'] > .dsy-modal-panel) {
+    opacity: 1;
+    scale: none;
+    translate: none;
+  }
+  :where(.dsy-modal[data-placement='top']) {
+    place-items: start center;
+  }
+  :where(.dsy-modal[data-placement='bottom']) {
+    place-items: end center;
+  }
+  :where(.dsy-modal[data-placement='start']) {
+    place-items: center start;
+  }
+  :where(.dsy-modal[data-placement='end']) {
+    place-items: center end;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.dsy-modal, .dsy-modal-panel, .dsy-modal-backdrop) {
+      transition: none !important;
+    }
+  }
+}
+
+// Focus anchors must not contribute extra grid/flex tracks.
+.dsy-modal > .cdk-focus-trap-anchor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  outline: 0;
+}

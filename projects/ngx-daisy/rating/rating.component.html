@@ -1,0 +1,40 @@
+<div
+  [class]="classes()"
+  [id]="id()"
+  role="radiogroup"
+  [attr.aria-label]="ariaLabel() || 'Rating'"
+  [attr.aria-labelledby]="labelledBy()"
+  [attr.aria-describedby]="describedBy()"
+  [attr.aria-invalid]="errorState() || null"
+  [attr.aria-readonly]="readonly() || null"
+  [style.--dsy-rating-color]="resolvedColor()"
+>
+  @if (allowClear()) {
+    <input
+      type="radio"
+      [class]="daisy('rating-hidden')"
+      [name]="groupName()"
+      aria-label="Clear rating"
+      [checked]="!value()"
+      [disabled]="isDisabled()"
+      (click)="guardReadonlyClick($event)"
+      (keydown)="guardReadonly($event)"
+      (change)="rate(0)"
+    />
+  }
+  @for (item of items(); track item; let index = $index) {
+    <input
+      type="radio"
+      class="dsy-rating-item"
+      [class]="itemClasses(index)"
+      [name]="groupName()"
+      [checked]="value() === item"
+      [disabled]="isDisabled()"
+      [attr.aria-label]="label(item)"
+      [attr.aria-readonly]="readonly() || null"
+      (click)="guardReadonlyClick($event)"
+      (keydown)="guardReadonly($event)"
+      (change)="rate(item)"
+    />
+  }
+</div>

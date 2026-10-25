@@ -1,0 +1,60 @@
+@layer components {
+  .dsy-form-field {
+    display: grid;
+    gap: 0.4rem;
+    min-inline-size: 0;
+  }
+  .dsy-field-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    inline-size: fit-content;
+  }
+  .dsy-field-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-inline-size: 0;
+  }
+  .dsy-field-control {
+    flex: 1;
+    min-inline-size: 0;
+  }
+  .dsy-field-control > :is(input, textarea, select, dsy-file-input) {
+    width: 100%;
+  }
+  .dsy-field-messages {
+    font-size: 0.8rem;
+    min-height: 1.2em;
+    color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  }
+  .dsy-field-messages .dsy-error {
+    color: var(--color-error);
+  }
+  .dsy-field-disabled .dsy-field-label {
+    opacity: 0.5;
+  }
+  .dsy-field-prefix,
+  .dsy-field-suffix {
+    flex: none;
+  }
+}
+@layer utilities {
+  :where(
+    .dsy-field-control > input,
+    .dsy-field-control > textarea,
+    .dsy-field-control > select,
+    .dsy-field-control > dsy-file-input
+  ) {
+    width: 100%;
+  }
+
+  :where(.dsy-field-messages .dsy-error) {
+    display: block;
+    visibility: visible;
+    margin: 0;
+    height: auto;
+  }
+}
+.dsy-field-messages [hidden] {
+  display: none !important;
+}

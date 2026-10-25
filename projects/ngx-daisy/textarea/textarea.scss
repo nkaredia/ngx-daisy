@@ -1,0 +1,15 @@
+// CDK measures content height; keep native daisyUI padding outside that measurement.
+@layer utilities {
+  :where(textarea[dsyTextarea][data-autosize='true']) {
+    box-sizing: content-box;
+    min-height: 0;
+    width: calc(20rem - var(--dsy-textarea-inset, 0px));
+    max-width: calc(100% - var(--dsy-textarea-inset, 0px));
+  }
+  :where(.dsy-field-control > textarea[dsyTextarea][data-autosize='true']) {
+    width: calc(100% - var(--dsy-textarea-inset, 0px));
+  }
+  :where(textarea[dsyTextarea][data-autosize='false']) {
+    resize: vertical;
+  }
+}

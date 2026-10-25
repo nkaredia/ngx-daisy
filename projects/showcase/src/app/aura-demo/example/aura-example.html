@@ -1,0 +1,24 @@
+<div class="aura-example-stage">
+  <dsy-aura
+    [preset]="props().preset ?? 'gold'"
+    [size]="props().size ?? 'md'"
+    [dual]="props().dual ?? false"
+    [glow]="props().glow ?? false"
+  >
+    <article class="aura-product-card">
+      <div class="aura-product-art" aria-hidden="true">
+        <span class="aura-product-orbit"></span>
+        <span class="aura-product-gem">N</span>
+      </div>
+      <div class="aura-product-copy">
+        <span class="badge badge-soft badge-primary">Limited release</span>
+        <h3>Nebula desk lamp</h3>
+        <p>Soft ambient light with a sculptural, color-shifting glass shade.</p>
+        <div class="aura-product-footer">
+          <strong>$129</strong>
+          <button dsyButton size="sm" color="primary" type="button">View collection</button>
+        </div>
+      </div>
+    </article>
+  </dsy-aura>
+</div>

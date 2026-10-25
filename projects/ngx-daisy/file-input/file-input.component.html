@@ -1,0 +1,19 @@
+<input
+  #file
+  type="file"
+  [class]="classes()"
+  [id]="id()"
+  [name]="name()"
+  [accept]="accept()"
+  [multiple]="multiple()"
+  [attr.capture]="capture()"
+  [disabled]="isDisabled()"
+  [attr.aria-readonly]="readonly() || null"
+  [required]="isRequired()"
+  [attr.aria-label]="ariaLabel()"
+  [attr.aria-labelledby]="labelledBy()"
+  [attr.aria-describedby]="describedBy()"
+  [attr.aria-invalid]="errorState() || null"
+  (click)="guardReadonlyClick($event)"
+  (change)="select($event)"
+/>

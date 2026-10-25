@@ -1,0 +1,55 @@
+demo-dropdown-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.dropdown-example-project {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(100%, 34rem);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.dropdown-example-mark {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 0.8rem;
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+  font-weight: 750;
+}
+.dropdown-example-copy {
+  min-width: 0;
+}
+.dropdown-example-copy h3 {
+  font-weight: 700;
+}
+.dropdown-example-copy p,
+.dropdown-example-status {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.8rem;
+}
+.dropdown-example-copy p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dropdown-example-status {
+  width: min(100%, 34rem);
+  min-height: 1.25rem;
+  margin-top: 0.6rem;
+}
+.dropdown-example-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}

@@ -1,0 +1,56 @@
+<section class="dock-example-app">
+  <header>
+    <div>
+      <span class="dock-example-eyebrow">Project space</span>
+      <h3>{{ firstActive() ? 'Good morning, Taylor' : selected() || 'Your workspace' }}</h3>
+    </div>
+    <span class="dock-example-avatar" aria-label="Signed in as Taylor">TS</span>
+  </header>
+  <div class="dock-example-content">
+    <span class="dock-example-content-icon" aria-hidden="true">✦</span>
+    <strong>{{ firstActive() ? 'Today at a glance' : (selected() || 'Home') + ' view' }}</strong>
+    <p>
+      {{
+        selected() === 'Projects'
+          ? 'Three active projects are moving forward.'
+          : selected() === 'Activity'
+            ? 'Your team shared five new updates.'
+            : 'Two reviews and one handoff are ready.'
+      }}
+    </p>
+  </div>
+  <dsy-dock
+    class="dock-example-navigation"
+    [size]="props().size ?? 'md'"
+    [label]="props().label ?? 'Primary'"
+  >
+    <button
+      dsyDockItem
+      type="button"
+      [active]="firstActive()"
+      [disabled]="item().disabled ?? false"
+      (click)="select('Home')"
+    >
+      <span aria-hidden="true">⌂</span><span dsyDockLabel>Home</span>
+    </button>
+    <button
+      dsyDockItem
+      type="button"
+      [active]="selected() === 'Projects'"
+      (click)="select('Projects')"
+    >
+      <span aria-hidden="true">▦</span><span dsyDockLabel>Projects</span>
+    </button>
+    <button
+      dsyDockItem
+      type="button"
+      [active]="selected() === 'Activity'"
+      (click)="select('Activity')"
+    >
+      <span aria-hidden="true">◷</span><span dsyDockLabel>Activity</span>
+    </button>
+  </dsy-dock>
+  <p class="dock-example-selection" aria-live="polite">
+    Selected: {{ firstActive() ? 'Home' : selected() || 'None' }}
+  </p>
+</section>

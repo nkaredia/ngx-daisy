@@ -1,0 +1,28 @@
+<section class="textarea-example-card" aria-labelledby="textarea-example-title">
+  <header>
+    <span aria-hidden="true">NS</span>
+    <div>
+      <h3 id="textarea-example-title">Share an update</h3>
+      <p>Post to Design systems</p>
+    </div>
+  </header>
+  <label>
+    <span class="textarea-example-label">Message</span>
+    <textarea
+      dsyTextarea
+      maxlength="280"
+      placeholder="What changed, and what should the team know?"
+      [color]="props().color"
+      [size]="props().size"
+      [variant]="props().variant ?? 'bordered'"
+      [rows]="props().rows ?? 2"
+      [autosize]="props().autosize ?? false"
+      [value]="value()"
+      (input)="onInput($event)"
+    ></textarea>
+  </label>
+  <footer>
+    <div class="textarea-example-tags"><span>#release</span><span>#angular</span></div>
+    <strong>{{ value().length }}/280</strong>
+  </footer>
+</section>

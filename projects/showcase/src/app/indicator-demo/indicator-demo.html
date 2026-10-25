@@ -1,0 +1,40 @@
+<section class="action-demo catalog-demo">
+  <h2>Indicators</h2>
+  <p>Position badges or supplementary content around any projected element.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Notification badge</h3>
+    <dsy-indicator class="m-4"
+      ><span dsyIndicatorItem class="catalog-indicator-badge">8</span>
+      <div class="catalog-indicator-target">Inbox</div></dsy-indicator
+    >
+  </section>
+  <section class="demo-card">
+    <h3>Logical placement</h3>
+    <div class="demo-row">
+      <dsy-indicator class="m-4"
+        ><span dsyIndicatorItem horizontal="start" vertical="top" class="catalog-indicator-badge"
+          >●</span
+        >
+        <div class="catalog-indicator-target">Start / top</div></dsy-indicator
+      ><dsy-indicator class="m-4"
+        ><span
+          dsyIndicatorItem
+          horizontal="center"
+          vertical="middle"
+          class="catalog-indicator-badge"
+          >●</span
+        >
+        <div class="catalog-indicator-target">Center / middle</div></dsy-indicator
+      ><dsy-indicator class="m-4"
+        ><span dsyIndicatorItem horizontal="end" vertical="bottom" class="catalog-indicator-badge"
+          >●</span
+        >
+        <div class="catalog-indicator-target">End / bottom</div></dsy-indicator
+      >
+    </div>
+  </section>
+</section>

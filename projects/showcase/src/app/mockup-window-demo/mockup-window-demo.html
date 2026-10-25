@@ -1,0 +1,17 @@
+<section class="action-demo catalog-demo">
+  <h2>Window Mockups</h2>
+  <p>An operating-system window frame for application content.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Desktop preview</h3>
+    <dsy-mockup-window class="border border-base-300 bg-base-200"
+      ><div class="catalog-mockup-content bg-base-100">
+        <h3>Welcome to your workspace</h3>
+        <p>The frame decorates content without changing its semantics.</p>
+        <label>Workspace name <input type="text" value="Design system" /></label></div
+    ></dsy-mockup-window>
+  </section>
+</section>

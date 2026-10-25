@@ -1,0 +1,41 @@
+<section class="action-demo display-demo">
+  <h2>Timelines</h2>
+  <p>Native list semantics for milestones and activity histories.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Release journey</h3>
+    <ol dsyTimeline orientation="vertical" [snapIcon]="true">
+      <li>
+        <div dsyTimelineStart><time>October 12</time></div>
+        <div dsyTimelineMiddle aria-hidden="true">●</div>
+        <div dsyTimelineEnd dsyTimelineBox>
+          <strong>Foundations</strong>
+          <p>Themes, tokens and shared behavior</p>
+        </div>
+        <hr />
+      </li>
+      <li>
+        <hr />
+        <div dsyTimelineStart><time>October 16</time></div>
+        <div dsyTimelineMiddle aria-hidden="true">●</div>
+        <div dsyTimelineEnd dsyTimelineBox>
+          <strong>Inputs and actions</strong>
+          <p>Forms, menus and accessible overlays</p>
+        </div>
+        <hr />
+      </li>
+      <li>
+        <hr />
+        <div dsyTimelineStart><time>October 20</time></div>
+        <div dsyTimelineMiddle aria-hidden="true">●</div>
+        <div dsyTimelineEnd dsyTimelineBox>
+          <strong>Data display</strong>
+          <p>Content, galleries and tables</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+</section>

@@ -1,0 +1,25 @@
+<fieldset dsyFieldset class="fieldset-example-card">
+  <legend dsyLegend>Workspace details</legend>
+  <p class="fieldset-example-intro">Give your team a clear, recognizable home.</p>
+  <label class="fieldset-example-field">
+    <span>Project name</span>
+    <input
+      #control
+      dsyInput
+      placeholder="Acme design system"
+      [color]="secondary().color"
+      [size]="secondary().size"
+      [variant]="secondary().variant ?? 'bordered'"
+      [value]="value()"
+      (input)="value.set(control.value)"
+    />
+  </label>
+  <p dsyFieldsetLabel>Visible to everyone you invite to this workspace.</p>
+  <div class="fieldset-example-summary">
+    <span class="fieldset-example-avatar" aria-hidden="true">A</span>
+    <span
+      ><strong>{{ value() || 'Untitled workspace' }}</strong
+      ><small>Free plan · 3 members</small></span
+    >
+  </div>
+</fieldset>

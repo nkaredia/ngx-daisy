@@ -1,0 +1,57 @@
+<section class="action-demo display-demo">
+  <h2>Carousels</h2>
+  <p>
+    Swipe, scroll or use the buttons and arrow keys to navigate. Home and End jump to the first and
+    last slides.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Featured destinations</h3>
+    <dsy-carousel
+      label="Featured destinations"
+      slideSize="full"
+      [(activeIndex)]="slide"
+      [loop]="loop()"
+      ><div dsyCarouselItem label="Alpine mornings">
+        <div class="display-slide art-mountain">
+          <span>01</span>
+          <h3>Alpine mornings</h3>
+          <p>A fresh perspective above the clouds.</p>
+        </div>
+      </div>
+      <div dsyCarouselItem label="Coastal afternoons">
+        <div class="display-slide art-coast">
+          <span>02</span>
+          <h3>Coastal afternoons</h3>
+          <p>Find your own rhythm along the shore.</p>
+        </div>
+      </div>
+      <div dsyCarouselItem label="Desert evenings">
+        <div class="display-slide art-desert">
+          <span>03</span>
+          <h3>Desert evenings</h3>
+          <p>Warm light and wide open spaces.</p>
+        </div>
+      </div></dsy-carousel
+    ><label class="mt-4"
+      ><input type="checkbox" [checked]="loop()" (change)="loop.set($any($event.target).checked)" />
+      Loop navigation</label
+    >
+    <p class="demo-status">Selected slide: {{ slide() + 1 }}</p>
+  </section>
+  <section class="demo-card">
+    <h3>Intrinsic-width slides</h3>
+    <dsy-carousel label="Project cards" viewportClass="gap-4" [controls]="false"
+      ><div dsyCarouselItem class="w-48">
+        <div class="display-slide art-mountain">Mountain</div>
+      </div>
+      <div dsyCarouselItem class="w-48"><div class="display-slide art-coast">Coast</div></div>
+      <div dsyCarouselItem class="w-48">
+        <div class="display-slide art-desert">Desert</div>
+      </div></dsy-carousel
+    >
+  </section>
+</section>

@@ -1,0 +1,25 @@
+<section class="label-example-card" aria-labelledby="label-example-title">
+  <span class="label-example-step">1 of 3</span>
+  <h3 id="label-example-title">Create your profile</h3>
+  <p>Tell teammates what to call you. You can change this later.</p>
+  <label dsyFloatingLabel>
+    <span>Display name</span>
+    <input
+      #control
+      dsyInput
+      autocomplete="name"
+      placeholder="Display name"
+      [color]="secondary().color"
+      [size]="secondary().size"
+      [variant]="secondary().variant ?? 'bordered'"
+      [value]="value()"
+      (input)="value.set(control.value)"
+    />
+  </label>
+  <div class="label-example-preview">
+    <span aria-hidden="true">{{ value().slice(0, 1).toUpperCase() || '?' }}</span>
+    <div>
+      <small>Profile preview</small><strong>{{ value() || 'Your name' }}</strong>
+    </div>
+  </div>
+</section>

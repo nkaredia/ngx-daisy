@@ -1,0 +1,26 @@
+<button
+  type="button"
+  class="dsy-modal-backdrop"
+  [class]="daisyClasses('modal-backdrop') + ' ' + backdropClass()"
+  tabindex="-1"
+  aria-hidden="true"
+  [disabled]="!opened() || disableClose()"
+  (mousedown)="$event.preventDefault()"
+  (click)="dismiss()"
+></button>
+<div
+  #panel
+  class="dsy-modal-panel"
+  [class]="daisyClasses('modal-box') + ' ' + panelClass()"
+  [style.width]="width()"
+  tabindex="-1"
+  [attr.role]="opened() ? role() : null"
+  [attr.aria-modal]="opened() ? 'true' : null"
+  [attr.aria-label]="opened() && !labelledBy() ? label().trim() || 'Dialog' : null"
+  [attr.aria-labelledby]="opened() ? labelledBy() : null"
+  [attr.aria-describedby]="opened() ? describedBy() : null"
+  [attr.inert]="opened() ? null : ''"
+  [attr.aria-hidden]="opened() ? null : 'true'"
+>
+  <ng-content />
+</div>

@@ -1,0 +1,34 @@
+@layer components {
+  .dsy-swap {
+    display: inline-block;
+  }
+}
+@layer utilities {
+  :where(.dsy-swap-button) {
+    display: inline-grid;
+    gap: 0;
+    place-items: center;
+  }
+  :where(.dsy-swap-button > span) {
+    grid-area: 1 / 1;
+  }
+  :where(.dsy-swap-button > .dsy-swap-mixed) {
+    opacity: 0;
+  }
+  :where(
+    .dsy-swap-button[data-state='mixed'] > .dsy-swap-on,
+    .dsy-swap-button[data-state='mixed'] > .dsy-swap-off
+  ) {
+    opacity: 0;
+  }
+  :where(.dsy-swap-button[data-state='mixed'] > .dsy-swap-mixed) {
+    opacity: 1;
+    rotate: none;
+    transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :where(.dsy-swap-button > span) {
+      transition: none !important;
+    }
+  }
+}

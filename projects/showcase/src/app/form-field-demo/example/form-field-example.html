@@ -1,0 +1,29 @@
+<section class="form-field-example-card" aria-labelledby="form-field-example-title">
+  <header>
+    <span aria-hidden="true">01</span>
+    <div>
+      <h3 id="form-field-example-title">Start a project</h3>
+      <p>Create a shared space for your team.</p>
+    </div>
+  </header>
+  <dsy-form-field
+    [label]="props().label ?? 'Project name'"
+    [hideRequiredMarker]="props().hideRequiredMarker ?? false"
+  >
+    <input
+      #control
+      dsyInput
+      required
+      placeholder="Workspace redesign"
+      [color]="secondary().color"
+      [size]="secondary().size"
+      [variant]="secondary().variant ?? 'bordered'"
+      [value]="value()"
+      (input)="value.set(control.value)"
+    />
+    <dsy-hint>A short, descriptive name for your team.</dsy-hint>
+  </dsy-form-field>
+  <div class="form-field-example-preview">
+    <span>Project URL</span><strong>studio.example/{{ value() || 'project-name' }}</strong>
+  </div>
+</section>

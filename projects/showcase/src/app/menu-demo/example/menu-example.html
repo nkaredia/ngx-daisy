@@ -1,0 +1,54 @@
+<section class="menu-example-shell">
+  <div class="menu-example-brand">
+    <span aria-hidden="true">N</span>
+    <div><strong>Northstar</strong><small>Product workspace</small></div>
+  </div>
+  <ul
+    dsyMenu
+    class="menu-example-navigation"
+    [size]="props().size ?? 'md'"
+    [orientation]="props().orientation ?? 'vertical'"
+    [paged]="props().paged ?? false"
+  >
+    <li dsyMenuTitle>Workspace</li>
+    <li>
+      <a
+        dsyMenuItem
+        href="#menu-example-overview"
+        [disabled]="item().disabled ?? false"
+        [active]="item().active ?? false"
+        [focused]="item().focused ?? false"
+        ><span aria-hidden="true">⌂</span>Overview <span class="menu-example-count">4</span></a
+      >
+    </li>
+    <li>
+      <details dsyMenuSubmenu [(opened)]="submenuOpened">
+        <summary><span aria-hidden="true">▦</span>Projects</summary>
+        <ul>
+          <li><a dsyMenuItem href="/buttons">Mobile refresh</a></li>
+          <li><a dsyMenuItem href="/cards">Design system</a></li>
+        </ul>
+      </details>
+    </li>
+    <li>
+      <button
+        dsyMenuDropdownToggle
+        type="button"
+        [opened]="dropdownOpened()"
+        (click)="dropdownOpened.update(toggle)"
+      >
+        <span aria-hidden="true">◇</span>Team resources
+      </button>
+      <ul dsyMenuDropdown [opened]="dropdownOpened()">
+        <li><a dsyMenuItem href="/tabs">Planning board</a></li>
+        <li><a dsyMenuItem href="/drawers">Shared files</a></li>
+      </ul>
+    </li>
+  </ul>
+  <article class="menu-example-overview" id="menu-example-overview">
+    <span>This week</span>
+    <strong>4 milestones are on track</strong>
+    <p>Use the menu to move between your workspace and nested project destinations.</p>
+    <div aria-label="Project completion"><span style="width: 72%"></span></div>
+  </article>
+</section>

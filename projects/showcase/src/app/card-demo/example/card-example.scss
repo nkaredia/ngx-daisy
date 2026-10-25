@@ -1,0 +1,26 @@
+demo-card-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.card-example-product {
+  width: min(100%, 36rem);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 10%, transparent);
+}
+.card-example-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.card-example-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 650;
+}

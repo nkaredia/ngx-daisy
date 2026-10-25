@@ -1,0 +1,36 @@
+<section class="action-demo display-demo">
+  <h2>Collapse</h2>
+  <p>Disclosure panels use native buttons, labelled regions and explicit signal state.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Independent panels</h3>
+    <dsy-collapse title="What is included?" class="bg-base-200" [(opened)]="opened"
+      ><p>Content wrappers and accessible interactive data displays.</p>
+      <a href="https://daisyui.com/components/">Read the daisyUI catalog</a></dsy-collapse
+    ><dsy-collapse title="Can I customize the theme?" indicator="plus" class="bg-base-200 mt-4"
+      ><p>Yes. Theme tokens, utility classes and daisyUI prefixes are supported.</p></dsy-collapse
+    ><dsy-collapse title="Unavailable details" [disabled]="true" class="bg-base-200 mt-4"
+      >This panel is disabled.</dsy-collapse
+    >
+    <p class="demo-status" aria-live="polite">First panel: {{ opened() ? 'open' : 'closed' }}</p>
+  </section>
+  <section class="demo-card">
+    <h3>Button-only disclosure</h3>
+    <dsy-collapse
+      title="Details"
+      trigger="button"
+      indicator="none"
+      class="bg-base-200"
+      openLabel="Show details"
+      closeLabel="Hide details"
+    >
+      <p>
+        Only the disclosure button opens or closes this panel. Clicking its titlebar leaves it
+        unchanged.
+      </p>
+    </dsy-collapse>
+  </section>
+</section>

@@ -1,0 +1,54 @@
+<section class="action-demo input-demo">
+  <h2>Selects</h2>
+  <p>
+    Native selects retain Angular forms, object comparison, option groups and multiple-selection
+    behavior.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-grid">
+    <div class="demo-card">
+      <h3>Signal Forms</h3>
+      <dsy-form-field label="Framework"
+        ><select dsySelect [formField]="fields.value">
+          <option value="angular">Angular</option>
+          <option value="react">React</option>
+          <option disabled value="other">Unavailable</option></select
+        ><dsy-hint>Native keyboard navigation and mobile picker.</dsy-hint></dsy-form-field
+      >
+      <p class="demo-status">Value: {{ model().value }}</p>
+      <button dsyButton variant="outline" (click)="fields().reset({ value: 'angular' })">
+        Reset signal form
+      </button>
+    </div>
+    <div class="demo-card">
+      <h3>Typed Reactive Forms</h3>
+      <dsy-form-field label="Reactive framework"
+        ><select dsySelect [formControl]="reactive">
+          <option value="angular">Angular</option>
+          <option value="react">React</option>
+        </select></dsy-form-field
+      >
+      <p class="demo-status">Value: {{ reactive.value }}</p>
+      <button
+        dsyButton
+        variant="outline"
+        (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
+      >
+        Toggle disabled
+      </button>
+    </div>
+  </div>
+  <section class="demo-card">
+    <h3>Native select wrapper</h3>
+    <label dsySelectWrapper color="primary"
+      ><span>Framework</span
+      ><select dsySelect aria-label="Framework">
+        <option>Angular</option>
+        <option>React</option>
+      </select></label
+    >
+  </section>
+</section>

@@ -1,0 +1,28 @@
+<section class="action-demo display-demo">
+  <h2>Auras</h2>
+  <p>Decorative gradients for featured content. Themes and utilities control the surface.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Presets</h3>
+    <div class="demo-grid">
+      <dsy-aura preset="gold" [glow]="true"
+        ><div class="display-tile bg-base-100 rounded-box">Gold aura</div></dsy-aura
+      ><dsy-aura preset="silver" [glow]="true"
+        ><div class="display-tile bg-base-100 rounded-box">Silver aura</div></dsy-aura
+      ><dsy-aura preset="rainbow" [glow]="true"
+        ><div class="display-tile bg-base-100 rounded-box">Rainbow aura</div></dsy-aura
+      ><dsy-aura preset="holo" [glow]="true"
+        ><div class="display-tile bg-base-100 rounded-box">Holo aura</div></dsy-aura
+      >
+    </div>
+  </section>
+  <section class="demo-card">
+    <h3>Dual aura</h3>
+    <dsy-aura preset="holo" [dual]="true" size="lg"
+      ><div class="display-tile bg-base-100 rounded-box">Featured collection</div></dsy-aura
+    >
+  </section>
+</section>

@@ -1,0 +1,51 @@
+<section class="action-demo">
+  <h2>Theme Controllers</h2>
+  <p>
+    Native checkbox and radio controls use daisyUI’s theme-controller class. Apps enable themes in
+    their stylesheet and decide how to persist the selection.
+  </p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <div class="demo-card">
+    <h3>Choose a theme</h3>
+    <div class="demo-row">
+      @for (name of themes; track name) {
+        <label
+          ><input
+            type="radio"
+            name="demo-theme"
+            [dsyThemeController]="name"
+            [checked]="theme() === name"
+            (changed)="theme.set($event.theme)"
+          />{{ name }}</label
+        >
+      }
+    </div>
+  </div>
+  <div class="demo-card" [attr.data-theme]="theme()">
+    <h3>Scoped preview: {{ theme() }}</h3>
+    <p class="mb-4">
+      This preview follows the selected theme while the showcase keeps its shared theme.
+    </p>
+    <div class="demo-row">
+      <button dsyButton color="primary">Primary</button
+      ><button dsyButton color="secondary">Secondary</button
+      ><button dsyButton color="accent" variant="outline">Accent</button>
+    </div>
+  </div>
+  <div class="demo-card">
+    <h3>Checkbox / toggle</h3>
+    <label
+      ><input
+        type="checkbox"
+        class="toggle"
+        dsyThemeController="dark"
+        [checked]="theme() === 'dark'"
+        (changed)="theme.set($event.checked ? 'dark' : 'light')"
+      />
+      Dark preview</label
+    >
+  </div>
+</section>

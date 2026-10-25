@@ -1,0 +1,31 @@
+@let progressValue = props().value;
+@let progressMax = props().max ?? 100;
+<article class="progress-example-card">
+  <header>
+    <span class="progress-example-file" aria-hidden="true">ZIP</span>
+    <div><strong>Brand-assets.zip</strong><small>284 MB · Uploading to Project files</small></div>
+    <span class="progress-example-value">
+      {{
+        progressValue === null || progressValue === undefined
+          ? 'Preparing…'
+          : progressValue + ' / ' + progressMax
+      }}
+    </span>
+  </header>
+  <progress
+    dsyProgress
+    class="w-full"
+    [color]="props().color ?? 'inherit'"
+    [value]="progressValue ?? null"
+    [max]="progressMax"
+    [label]="props().label ?? 'Progress'"
+  ></progress>
+  <footer>
+    <span>{{
+      progressValue === null || progressValue === undefined
+        ? 'Calculating time'
+        : 'About 2 minutes left'
+    }}</span>
+    <span>Encrypted upload</span>
+  </footer>
+</article>

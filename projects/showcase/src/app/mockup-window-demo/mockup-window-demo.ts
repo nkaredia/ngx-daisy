@@ -1,0 +1,25 @@
+import { playground } from './playground';
+import { Playground } from '../playground/playground.component';
+import { providePlayground } from '../playground/provide-playground';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ViewEncapsulation,
+  signal,
+  inject,
+  DestroyRef,
+} from '@angular/core';
+import { DsyMockupWindow } from 'ngx-daisy/mockup-window';
+
+@Component({
+  selector: 'demo-mockup-window-demo',
+  providers: providePlayground(playground),
+  imports: [Playground, DsyMockupWindow],
+  templateUrl: './mockup-window-demo.html',
+  styleUrl: './mockup-window-demo.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+})
+export class MockupWindowDemo {
+  readonly playground = playground;
+}

@@ -1,0 +1,44 @@
+<section class="megamenu-example-shell">
+  <header>
+    <a class="megamenu-example-brand" href="/buttons"><span>N</span>Northstar</a>
+    <dsy-megamenu
+      [(activeIndex)]="activeIndex"
+      [label]="props().label ?? 'Main menu'"
+      [size]="props().size ?? 'md'"
+      [width]="props().width ?? 'wide'"
+      [vertical]="props().vertical ?? false"
+      [panelClass]="props().panelClass ?? ''"
+      [buttonClass]="props().buttonClass ?? ''"
+    >
+      <ng-template
+        [dsyMegamenuItem]="item().label ?? 'Products'"
+        [disabled]="item().disabled ?? false"
+      >
+        <nav class="megamenu-example-links" aria-label="Products">
+          <a href="/buttons"><strong>Launch</strong><span>Actions for getting work done</span></a>
+          <a href="/inputs"><strong>Collect</strong><span>Thoughtful forms and inputs</span></a>
+          <a href="/cards"><strong>Understand</strong><span>Cards, charts, and data views</span></a>
+        </nav>
+      </ng-template>
+      <ng-template dsyMegamenuItem="Resources">
+        <nav class="megamenu-example-links" aria-label="Resources">
+          <a href="/tabs"><strong>Patterns</strong><span>Proven navigation recipes</span></a>
+          <a href="/drawers"
+            ><strong>Starter kits</strong><span>Layouts for common products</span></a
+          >
+        </nav>
+      </ng-template>
+    </dsy-megamenu>
+    <span class="megamenu-example-avatar" aria-label="Signed in as Taylor">TS</span>
+  </header>
+  <div class="megamenu-example-hero">
+    <span>New collection</span>
+    <h3>Interfaces your customers understand</h3>
+    <p>Open a menu above to explore reusable building blocks and practical guides.</p>
+  </div>
+  <p class="megamenu-example-status" aria-live="polite">
+    {{
+      activeIndex() === null ? 'Choose a collection to open its panel.' : 'A collection is open.'
+    }}
+  </p>
+</section>

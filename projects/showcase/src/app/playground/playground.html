@@ -1,0 +1,148 @@
+<div class="playground-shell" [attr.data-props-position]="propsPosition()">
+  <dsy-collapse
+    #codeCollapse
+    trigger="button"
+    [triggerTemplate]="codeTrigger"
+    indicator="none"
+    openLabel="Show code"
+    closeLabel="Hide code"
+    titleClass="playground-toolbar"
+    contentClass="playground-example-source"
+    class="playground-code-collapse"
+  >
+    <div dsyCollapseHeader class="playground-header-controls">
+      <span class="playground-title">Playground</span>
+      <button
+        dsyButton
+        size="sm"
+        shape="circle"
+        variant="ghost"
+        aria-label="Properties below preview"
+        [attr.aria-pressed]="propsPosition() === 'bottom'"
+        [dsyTooltip]="propsPosition() === 'side' ? 'Show below' : 'Show on the side'"
+        (click)="propsPosition.set(propsPosition() === 'side' ? 'bottom' : 'side')"
+      >
+        <dsy-icon
+          ><svg
+            [lucideIcon]="propsPosition() === 'side' ? icons.bottom : icons.side"
+            aria-hidden="true"
+          ></svg
+        ></dsy-icon>
+      </button>
+      <button
+        dsyButton
+        size="sm"
+        shape="circle"
+        variant="ghost"
+        aria-label="Reset"
+        dsyTooltip="Reset"
+        (click)="reset()"
+      >
+        <dsy-icon><svg [lucideIcon]="icons.reset" aria-hidden="true"></svg></dsy-icon>
+      </button>
+    </div>
+    @if (codeCollapse.contentVisible() && sourceFiles().length) {
+      <demo-example-code [files]="sourceFiles()" [showToggle]="false" [expanded]="true" />
+    }
+  </dsy-collapse>
+  <div class="playground-layout">
+    <section class="playground-preview" aria-label="Component preview">
+      <div class="playground-example">
+        @for (generation of previewGenerations(); track generation) {
+          <ng-container *ngComponentOutlet="component(); inputs: { values: values() }" />
+        }
+      </div>
+    </section>
+    <section class="playground-props" aria-label="Component properties">
+      <div class="playground-props-heading">Properties</div>
+      <div class="playground-property-list">
+        @for (group of groups(); track $index; let componentIndex = $index) {
+          <fieldset class="playground-component-props">
+            <legend>{{ group.component.name ?? group.component.class.name }}</legend>
+            <div class="playground-controls">
+              @for (control of group.controls; track control.property.property) {
+                @let prop = control.property;
+                @let controlId = id + '-' + componentIndex + '-' + prop.property;
+                <div class="playground-property">
+                  <div class="playground-property-heading">
+                    <label [attr.for]="controlId">{{ prop.name }}</label>
+                    @if (prop.required) {
+                      <span class="playground-required">Required</span>
+                    }
+                  </div>
+                  <div class="playground-property-type" [id]="controlId + '-description'">
+                    {{ prop.type }}
+                  </div>
+                  <ng-container
+                    *ngComponentOutlet="
+                      actions[prop.action.kind];
+                      inputs: {
+                        property: prop,
+                        value: value(componentIndex, prop),
+                        controlId: controlId,
+                        update: control.update,
+                      }
+                    "
+                  />
+                  @if (prop.description) {
+                    <p class="playground-property-description">{{ prop.description }}</p>
+                  }
+                  @if (prop.optional || prop.nullable) {
+                    <div class="playground-special-values">
+                      @if (prop.optional) {
+                        <button
+                          dsyButton
+                          size="xs"
+                          variant="ghost"
+                          [attr.aria-label]="'Unset ' + prop.name"
+                          [attr.aria-pressed]="value(componentIndex, prop) === undefined"
+                          (click)="setValue(componentIndex, prop, undefined)"
+                        >
+                          Unset
+                        </button>
+                      }
+                      @if (prop.nullable) {
+                        <button
+                          dsyButton
+                          size="xs"
+                          variant="ghost"
+                          [attr.aria-label]="'Set ' + prop.name + ' to null'"
+                          [attr.aria-pressed]="value(componentIndex, prop) === null"
+                          (click)="setValue(componentIndex, prop, null)"
+                        >
+                          Null
+                        </button>
+                      }
+                    </div>
+                  }
+                </div>
+              } @empty {
+                <p class="playground-empty">No properties to configure.</p>
+              }
+            </div>
+          </fieldset>
+        }
+      </div>
+    </section>
+  </div>
+</div>
+
+<ng-template #codeTrigger let-collapse>
+  <button
+    dsyButton
+    type="button"
+    size="sm"
+    shape="circle"
+    variant="ghost"
+    class="dsy-collapse-trigger"
+    [id]="collapse.id + '-trigger'"
+    [disabled]="collapse.disabled()"
+    [attr.aria-expanded]="collapse.opened()"
+    [attr.aria-controls]="collapse.id + '-panel'"
+    [attr.aria-label]="collapse.opened() ? 'Hide code' : 'Show code'"
+    [dsyTooltip]="collapse.opened() ? 'Hide code' : 'Show code'"
+    (click)="collapse.toggle()"
+  >
+    <dsy-icon><svg [lucideIcon]="icons.code" aria-hidden="true"></svg></dsy-icon>
+  </button>
+</ng-template>

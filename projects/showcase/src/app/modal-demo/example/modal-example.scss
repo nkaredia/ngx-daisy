@@ -1,0 +1,59 @@
+demo-modal-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.modal-example-project {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(100%, 42rem);
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.modal-example-icon {
+  display: grid;
+  width: 3.5rem;
+  height: 3.5rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+.modal-example-project h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.modal-example-project p:not(.modal-example-eyebrow),
+.modal-example-status {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.85rem;
+}
+.modal-example-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.modal-example-status {
+  width: min(100%, 42rem);
+  min-height: 1.25rem;
+  margin-top: 0.6rem;
+}
+@media (max-width: 36rem) {
+  .modal-example-project {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .modal-example-project button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+}

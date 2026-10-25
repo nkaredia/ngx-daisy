@@ -1,0 +1,22 @@
+<section class="action-demo catalog-demo">
+  <h2>Browser Mockups</h2>
+  <p>A browser frame for previews, demos and documentation content.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Application preview</h3>
+    <dsy-mockup-browser class="border border-base-300 bg-base-200"
+      ><dsy-browser-toolbar><div class="catalog-address">localhost:4200</div></dsy-browser-toolbar>
+      <div class="catalog-mockup-content bg-base-100">
+        <strong>Your application preview</strong>
+        <p>Project real markup into the frame.</p>
+        <button type="button" class="catalog-button" (click)="clicks.update(increment)">
+          Try interaction
+        </button>
+        <p aria-live="polite">Preview clicks: {{ clicks() }}</p>
+      </div></dsy-mockup-browser
+    >
+  </section>
+</section>

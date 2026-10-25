@@ -1,0 +1,9 @@
+demo-stat-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.stat-example-overview {
+  width: min(100%, 48rem);
+}

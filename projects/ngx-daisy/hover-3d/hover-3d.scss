@@ -1,0 +1,33 @@
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(.dsy-hover-3d-content) {
+      position: relative;
+    }
+    :where(.dsy-hover-3d-zone) {
+      pointer-events: none;
+    }
+    :where(dsy-hover-3d, [dsyHover3d])[data-disabled='true'] {
+      filter: none;
+    }
+    :where(dsy-hover-3d, [dsyHover3d])[data-disabled='true'] > .dsy-hover-3d-content {
+      transform: none;
+    }
+    :where(dsy-hover-3d, [dsyHover3d])[data-disabled='true'] > .dsy-hover-3d-content::before {
+      content: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      :where(dsy-hover-3d, [dsyHover3d]) {
+        filter: none;
+        transition: none;
+      }
+      .dsy-hover-3d-content {
+        transform: none !important;
+        scale: 1 !important;
+        transition: none !important;
+      }
+      .dsy-hover-3d-content::before {
+        content: none !important;
+      }
+    }
+  }
+}

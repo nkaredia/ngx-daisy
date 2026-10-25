@@ -1,0 +1,57 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    .dsy-tooltip-root {
+      display: block;
+    }
+    .dsy-tooltip-root::before {
+      display: none !important;
+    }
+    .dsy-tooltip-root::after {
+      display: block;
+      opacity: 1;
+      inset: auto;
+      pointer-events: none;
+    }
+    .dsy-tooltip-root[data-side='top']::after {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .dsy-tooltip-root[data-side='bottom']::after {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+    }
+    .dsy-tooltip-root[data-side='left']::after {
+      left: 100%;
+      top: 50%;
+      transform: translate(-30%, -50%) rotate(-90deg);
+    }
+    .dsy-tooltip-root[data-side='right']::after {
+      right: 100%;
+      top: 50%;
+      transform: translate(30%, -50%) rotate(90deg);
+    }
+    .dsy-tooltip-root > .dsy-tooltip-surface {
+      display: block;
+      position: relative;
+      inset: auto;
+      translate: none;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      max-width: min(24rem, calc(100vw - 2rem));
+      width: max-content;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      pointer-events: auto;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .dsy-tooltip-root,
+      .dsy-tooltip-root * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  }
+}

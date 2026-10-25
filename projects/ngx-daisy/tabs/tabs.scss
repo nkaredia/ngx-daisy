@@ -1,0 +1,60 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-tabs) {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      max-width: 100%;
+    }
+    :where(dsy-tabs > .dsy-tab-list) {
+      flex: none;
+    }
+    :where(dsy-tabs > .dsy-tab-panel) {
+      display: block;
+      height: auto;
+      order: 1;
+    }
+    :where(dsy-tabs[data-placement='bottom'] > .dsy-tab-list) {
+      order: 2;
+    }
+    :where(dsy-tabs[data-orientation='vertical'] > .dsy-tab-list) {
+      flex-direction: column;
+    }
+    dsy-tabs > .dsy-tab-panel[hidden] {
+      display: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-tabs[data-variant='lift'] > .dsy-tab-list) {
+      z-index: 1;
+    }
+    :where(dsy-tabs[data-variant='lift'] > .dsy-tab-panel) {
+      border-color: var(--tab-border-color, var(--color-base-300));
+      background: var(--tab-bg, var(--color-base-100));
+    }
+    :where(dsy-tabs[data-variant='lift'][data-first-active='false'] > .dsy-tab-panel) {
+      --tabcontent-radius-ss: var(--radius-box);
+    }
+    :where(
+      dsy-tabs[data-variant='lift'][data-placement='bottom'][data-first-active='false']
+        > .dsy-tab-panel
+    ) {
+      --tabcontent-radius-es: var(--radius-box);
+    }
+  }
+}
+
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-tabs[data-orientation='vertical']) {
+      flex-direction: row;
+    }
+    :where(dsy-tabs[data-orientation='vertical'] > .dsy-tab-panel) {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+}

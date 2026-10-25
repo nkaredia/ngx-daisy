@@ -1,0 +1,100 @@
+demo-dock-example {
+  display: block;
+  min-inline-size: 0;
+}
+
+.dock-example-app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 25rem;
+  max-width: 34rem;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid var(--color-base-300);
+  border-radius: calc(var(--radius-box) * 1.25);
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      color-mix(in oklab, var(--color-primary) 16%, transparent),
+      transparent 35%
+    ),
+    var(--color-base-100);
+  box-shadow: 0 1.25rem 3rem color-mix(in oklab, var(--color-base-content) 9%, transparent);
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem;
+
+    h3 {
+      margin-top: 0.2rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.dock-example-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.dock-example-avatar {
+  display: grid;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-primary-content);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.dock-example-content {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 0.55rem;
+  padding: 2rem;
+  text-align: center;
+
+  p {
+    max-width: 24rem;
+    color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  }
+}
+
+.dock-example-content-icon {
+  display: grid;
+  width: 3.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  margin-bottom: 0.25rem;
+  border-radius: 1.1rem;
+  background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
+  color: var(--color-primary);
+  font-size: 1.5rem;
+}
+
+demo-dock-example .dock-example-navigation {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  border-top: 1px solid var(--color-base-300);
+}
+
+.dock-example-selection {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

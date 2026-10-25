@@ -1,0 +1,35 @@
+<div class="loader-example-actions">
+  <div>
+    <strong>Quarterly report</strong><span>Preview a loading state inside this workspace</span>
+  </div>
+  <div>
+    <button dsyButton variant="outline" (click)="launched.set(true)">Start preview</button>
+    <button dsyButton variant="ghost" (click)="launched.set(false)">Stop</button>
+  </div>
+</div>
+<div class="loader-example-stage" [attr.aria-busy]="isActive()">
+  <div class="loader-example-document" aria-hidden="true">
+    <header>
+      <span></span>
+      <div><strong>Revenue overview</strong><small>Updated just now</small></div>
+    </header>
+    <div class="loader-example-metrics"><span></span><span></span><span></span></div>
+    <div class="loader-example-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <dsy-loader
+    [variant]="props().variant ?? 'spinner'"
+    [placement]="props().placement ?? 'inline'"
+    [size]="props().size ?? 'md'"
+    [color]="props().color ?? 'inherit'"
+    [animation]="props().animation ?? 'auto'"
+    [speed]="props().speed ?? 'normal'"
+    [showLabel]="props().showLabel ?? false"
+    [aria-label]="props().label ?? 'Loading'"
+    [active]="isActive()"
+    [value]="progress()"
+  />
+</div>
+<p class="mt-3 text-sm">
+  Overlay and page placements stay inside this report and start only when launched. Determinate
+  values apply to ring and bar styles.
+</p>

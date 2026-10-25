@@ -1,0 +1,37 @@
+<section class="file-input-example-card" aria-labelledby="file-input-example-title">
+  <div class="file-input-example-heading">
+    <span class="file-input-example-icon" aria-hidden="true">↑</span>
+    <div>
+      <h3 id="file-input-example-title">Add project files</h3>
+      <p>Share briefs, research or reference images with your team.</p>
+    </div>
+  </div>
+  <dsy-file-input
+    [hidden]="props().hidden ?? false"
+    [disabled]="props().disabled ?? false"
+    [readonly]="props().readonly ?? false"
+    [required]="props().required ?? false"
+    [invalid]="props().invalid ?? false"
+    [touched]="props().touched ?? false"
+    [dirty]="props().dirty ?? false"
+    [pending]="props().pending ?? false"
+    [name]="props().name ?? ''"
+    [id]="props().id ?? 'playground-file-input'"
+    [aria-label]="props().ariaLabel ?? 'File-Input example'"
+    [aria-labelledby]="props().ariaLabelledBy"
+    [aria-describedby]="props().ariaDescribedBy ?? ''"
+    [color]="props().color"
+    [size]="props().size"
+    [inputClass]="props().inputClass ?? ''"
+    [accept]="props().accept ?? ''"
+    [multiple]="props().multiple ?? false"
+    [capture]="props().capture"
+    [variant]="props().variant ?? 'bordered'"
+    [value]="selected()"
+    (valueChange)="selected.set($event)"
+  ></dsy-file-input>
+  <div class="file-input-example-meta">
+    <span>PDF, PNG or JPG</span>
+    <strong aria-live="polite">{{ selected()?.length ?? 0 }} selected</strong>
+  </div>
+</section>

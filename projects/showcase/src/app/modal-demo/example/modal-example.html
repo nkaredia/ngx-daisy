@@ -1,0 +1,33 @@
+<article class="modal-example-project">
+  <div class="modal-example-icon" aria-hidden="true">P</div>
+  <div>
+    <p class="modal-example-eyebrow">Create your next space</p>
+    <h3>Start a new project</h3>
+    <p>Choose a name now. You can invite teammates and add details later.</p>
+  </div>
+  <button dsyButton color="primary" (click)="opened.set(true)">Create project</button>
+</article>
+<dsy-modal
+  [opened]="opened()"
+  (openedChange)="opened.set($event)"
+  [placement]="props().placement ?? 'middle'"
+  [disableClose]="props().disableClose ?? false"
+  [aria-label]="props().label ?? 'Create a project'"
+  [aria-labelledby]="props().labelledBy"
+  [aria-describedby]="props().describedBy"
+  [role]="props().role ?? 'dialog'"
+  [width]="props().width"
+  [panelClass]="props().panelClass ?? ''"
+  [backdropClass]="props().backdropClass ?? ''"
+  (closed)="result.set($event === 'created' ? 'Project created' : 'Dialog dismissed')"
+>
+  <h3 dsyModalTitle>Create a project</h3>
+  <div dsyModalContent>
+    <label>Project name <input class="input w-full mt-2" value="My project" /></label>
+  </div>
+  <div dsyModalActions>
+    <button dsyButton dsyModalClose>Cancel</button>
+    <button dsyButton color="primary" dsyModalClose="created">Create</button>
+  </div>
+</dsy-modal>
+<p class="modal-example-status" role="status">{{ result() }}</p>

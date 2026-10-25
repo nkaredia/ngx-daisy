@@ -1,0 +1,9 @@
+@use 'tailwindcss';
+@source "../../../dist/ngx-daisy";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    cupcake,
+    synthwave;
+}

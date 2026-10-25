@@ -1,0 +1,38 @@
+<section class="theme-example-shell">
+  <div class="theme-example-toolbar">
+    <div>
+      <p>Theme preview</p>
+      <strong>{{ props().theme?.trim() || 'dark' }}</strong>
+    </div>
+    <label class="theme-example-switch">
+      <span>Apply theme</span>
+      <input
+        type="checkbox"
+        class="toggle"
+        [dsyThemeController]="props().theme?.trim() || 'dark'"
+        [checked]="enabled()"
+        (changed)="enabled.set($event.checked)"
+      />
+    </label>
+  </div>
+  <div
+    class="theme-example-preview"
+    [attr.data-theme]="enabled() ? props().theme?.trim() || 'dark' : 'light'"
+  >
+    <div class="theme-example-heading">
+      <div>
+        <p>Workspace activity</p>
+        <strong>1,248</strong>
+      </div>
+      <span>+18%</span>
+    </div>
+    <div class="theme-example-chart" aria-label="Activity increased over four weeks">
+      <span style="height: 38%"></span><span style="height: 55%"></span
+      ><span style="height: 48%"></span><span style="height: 82%"></span>
+    </div>
+    <div class="theme-example-actions">
+      <button dsyButton color="primary">View report</button>
+      <button dsyButton color="secondary" variant="outline">Share</button>
+    </div>
+  </div>
+</section>

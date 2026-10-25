@@ -1,0 +1,21 @@
+<section class="checkbox-example-card" aria-labelledby="checkbox-example-title">
+  <div class="checkbox-example-icon" aria-hidden="true">✦</div>
+  <div class="checkbox-example-copy">
+    <h3 id="checkbox-example-title">Weekly product digest</h3>
+    <p>Get release notes, useful patterns and component tips every Friday.</p>
+  </div>
+  <label class="checkbox-example-control">
+    <input
+      #control
+      type="checkbox"
+      dsyCheckbox
+      [color]="props().color"
+      [size]="props().size"
+      [indeterminate]="indeterminate()"
+      (indeterminateChange)="indeterminate.set($event)"
+      [checked]="checked()"
+      (change)="checked.set(control.checked)"
+    />
+    <span>{{ checked() ? 'Subscribed' : 'Subscribe' }}</span>
+  </label>
+</section>

@@ -1,0 +1,18 @@
+.input-demo .demo-card {
+  min-width: 0;
+}
+.input-demo .demo-card > dsy-form-field {
+  margin-bottom: 1rem;
+}
+.input-demo .demo-card > p {
+  max-width: 60ch;
+}
+.input-demo dsy-calendar {
+  max-width: 100%;
+}
+.input-demo input[type='range'] {
+  max-width: 100%;
+}
+.input-demo .demo-status {
+  overflow-wrap: anywhere;
+}

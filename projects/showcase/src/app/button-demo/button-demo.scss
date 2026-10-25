@@ -1,0 +1,10 @@
+@use '../action-demo';
+
+.button-inline-previews {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr));
+  gap: 1.5rem;
+}
+.button-inline-previews > demo-inline-preview-shell:last-child {
+  grid-column: 1 / -1;
+}

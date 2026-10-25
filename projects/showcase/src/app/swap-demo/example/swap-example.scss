@@ -1,0 +1,43 @@
+demo-swap-example {
+  display: grid;
+  width: 100%;
+  place-items: center;
+  min-width: 0;
+}
+.swap-example-setting {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(100%, 34rem);
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+.swap-example-icon {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
+  color: var(--color-primary);
+}
+.swap-example-copy {
+  min-width: 0;
+}
+.swap-example-copy h3 {
+  font-weight: 700;
+}
+.swap-example-copy p,
+.swap-example-status {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.8rem;
+}
+.swap-example-status {
+  width: min(100%, 34rem);
+  min-height: 1.25rem;
+  margin-top: 0.6rem;
+}

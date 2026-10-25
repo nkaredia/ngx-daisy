@@ -1,0 +1,59 @@
+.action-demo {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 70rem;
+}
+.action-demo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.action-demo h3 {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-bottom: 1rem;
+}
+.action-demo > p {
+  max-width: 65ch;
+  opacity: 0.8;
+}
+.action-demo .demo-card {
+  padding: 1.5rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  background: var(--color-base-100);
+}
+.action-demo .demo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+.action-demo .demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+}
+.action-demo .demo-stage {
+  position: relative;
+  min-height: 20rem;
+  border: 1px dashed var(--color-base-300);
+  border-radius: var(--radius-box, 1rem);
+  padding: 1rem;
+}
+.action-demo label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.action-demo select:not([dsySelect]),
+.action-demo input[type='text']:not([dsyInput]):not(.dsy-otp-input) {
+  border: 1px solid var(--color-base-300);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  background: var(--color-base-100);
+  color: var(--color-base-content);
+}
+.action-demo .demo-status {
+  min-height: 1.5rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,27 @@
+<label class="dsy-otp-visual" [class]="classes()">
+  @for (index of boxes(); track index) {
+    <span aria-hidden="true" [class]="boxClass()"></span>
+  }
+  <input
+    #code
+    class="dsy-otp-input"
+    type="text"
+    [class]="inputClass()"
+    autocomplete="one-time-code"
+    [id]="id()"
+    [name]="name()"
+    [value]="value() ?? ''"
+    [maxLength]="count()"
+    [attr.inputmode]="numeric() ? 'numeric' : 'text'"
+    [pattern]="numeric() ? '[0-9]{' + count() + '}' : '.{' + count() + '}'"
+    [disabled]="isDisabled()"
+    [readOnly]="readonly()"
+    [required]="isRequired()"
+    [attr.aria-label]="ariaLabel() || 'Verification code'"
+    [attr.aria-labelledby]="labelledBy()"
+    [attr.aria-describedby]="describedBy()"
+    [attr.aria-invalid]="errorState() || null"
+    (input)="update($event)"
+    (compositionstart)="startComposition()"
+    (compositionend)="endComposition($event)"
+/></label>

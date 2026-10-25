@@ -1,0 +1,22 @@
+<section class="action-demo display-demo">
+  <h2>Diff</h2>
+  <p>Drag the slider or use its arrow keys to compare two layers.</p>
+  @for (preview of playground.previews; track preview) {
+    <demo-playground [component]="preview" />
+  }
+
+  <section class="demo-card">
+    <h3>Theme comparison</h3>
+    <dsy-diff [(position)]="position" label="Reveal original design"
+      ><div dsyDiffBefore class="display-comparison" data-theme="light">
+        <strong>Original</strong>
+        <p>A light surface with familiar details.</p>
+      </div>
+      <div dsyDiffAfter class="display-comparison" data-theme="dark">
+        <strong>Refreshed</strong>
+        <p>A different mood, the same content.</p>
+      </div></dsy-diff
+    >
+    <p class="demo-status">Original revealed: {{ position() }}%</p>
+  </section>
+</section>

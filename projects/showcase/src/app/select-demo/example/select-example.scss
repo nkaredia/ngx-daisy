@@ -1,0 +1,76 @@
+demo-select-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-select-example .select-example-card {
+  display: grid;
+  gap: 1rem;
+  inline-size: min(100%, 30rem);
+  padding: 1.5rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+demo-select-example .select-example-heading,
+demo-select-example .select-example-route {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+demo-select-example .select-example-heading > span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 0.75rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 1.1rem;
+}
+
+demo-select-example h3,
+demo-select-example p {
+  margin: 0;
+}
+
+demo-select-example h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+demo-select-example p,
+demo-select-example .select-example-route {
+  color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  font-size: 0.72rem;
+}
+
+demo-select-example label {
+  display: grid;
+  gap: 0.45rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+demo-select-example select {
+  inline-size: 100%;
+}
+
+demo-select-example .select-example-route {
+  padding: 0.75rem;
+  border-radius: var(--radius-field);
+  background: var(--color-base-200);
+}
+
+demo-select-example .select-example-route strong {
+  color: var(--color-base-content);
+  text-transform: capitalize;
+}
+
+demo-select-example .select-example-route span:first-child {
+  margin-inline-end: auto;
+}

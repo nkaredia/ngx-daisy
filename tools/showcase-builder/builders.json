@@ -1,0 +1,14 @@
+{
+  "builders": {
+    "application": {
+      "implementation": "./application.cjs",
+      "schema": "./application.schema.json",
+      "description": "Showcase application pipeline."
+    },
+    "dev-server": {
+      "implementation": "./dev-server.cjs",
+      "schema": "./dev-server.schema.json",
+      "description": "Showcase dev-server pipeline."
+    }
+  }
+}

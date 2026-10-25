@@ -1,0 +1,61 @@
+@layer components {
+  .dsy-dropdown {
+    display: inline-block;
+  }
+  .dsy-dropdown-origin {
+    display: inline-block;
+  }
+  .dsy-dropdown-panel {
+    min-inline-size: 13rem;
+    max-inline-size: calc(100vw - 1rem);
+    padding: 0.5rem;
+    border-radius: var(--radius-box);
+    background: var(--color-base-100);
+    color: var(--color-base-content);
+    box-shadow:
+      0 1px 3px rgb(0 0 0 / 10%),
+      0 1px 2px rgb(0 0 0 / 10%);
+  }
+  .dsy-dropdown-item {
+    display: flex;
+    align-items: center;
+    inline-size: 100%;
+    gap: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    text-align: start;
+    border: 0;
+    border-radius: var(--radius-field);
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    font-size: 0.875rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .dsy-dropdown-item:hover,
+  .dsy-dropdown-item:focus-visible {
+    background: color-mix(in oklab, var(--color-base-content) 10%, transparent);
+    outline: none;
+  }
+  .dsy-dropdown-item[aria-disabled='true'] {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+@layer utilities {
+  :where(.dsy-dropdown-theme) {
+    display: contents;
+  }
+  :where(.dsy-dropdown-panel) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+  :where(.dsy-dropdown-panel:focus) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}

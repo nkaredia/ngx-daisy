@@ -1,0 +1,17 @@
+<article class="avatar-example-profile">
+  <dsy-avatar [status]="props().status ?? 'none'" [placeholder]="props().placeholder ?? false">
+    <div class="avatar-example-image rounded-full bg-primary text-primary-content">
+      @if (props().placeholder) {
+        <span aria-label="Alex Morgan">AM</span>
+      } @else {
+        <img src="/display/mountain.svg" alt="Alex Morgan" />
+      }
+    </div>
+  </dsy-avatar>
+  <div class="avatar-example-copy">
+    <p>Design team</p>
+    <h3>Alex Morgan</h3>
+    <span>Product designer · Chicago</span>
+  </div>
+  <span class="avatar-example-chip">Available</span>
+</article>

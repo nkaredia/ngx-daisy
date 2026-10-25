@@ -1,0 +1,136 @@
+demo-mockup-window-example {
+  display: block;
+  min-inline-size: 0;
+}
+demo-mockup-window-example .mockup-window-example-content {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1fr);
+  min-block-size: 24rem;
+}
+
+demo-mockup-window-example dsy-mockup-window {
+  display: block;
+  inline-size: min(100%, 56rem);
+  overflow: hidden;
+  box-shadow: 0 1.25rem 3rem color-mix(in oklab, var(--color-base-content) 10%, transparent);
+}
+
+demo-mockup-window-example aside {
+  display: grid;
+  align-content: start;
+  gap: 0.35rem;
+  padding: 1.25rem 0.85rem;
+  background: var(--color-base-200);
+  font-size: 0.68rem;
+}
+
+demo-mockup-window-example aside strong {
+  margin-bottom: 0.6rem;
+  font-size: 0.78rem;
+}
+
+demo-mockup-window-example aside span {
+  padding: 0.55rem;
+  border-radius: 0.45rem;
+}
+
+demo-mockup-window-example aside span:first-of-type {
+  background: var(--color-base-300);
+  font-weight: 700;
+}
+
+demo-mockup-window-example section {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+  min-inline-size: 0;
+  padding: clamp(1rem, 4vw, 2rem);
+}
+
+demo-mockup-window-example header,
+demo-mockup-window-example footer,
+demo-mockup-window-example .mockup-window-example-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+demo-mockup-window-example h3,
+demo-mockup-window-example p {
+  margin: 0;
+}
+
+demo-mockup-window-example header p,
+demo-mockup-window-example small {
+  color: color-mix(in oklab, var(--color-base-content) 58%, transparent);
+  font-size: 0.65rem;
+}
+
+demo-mockup-window-example h3 {
+  font-size: 1.15rem;
+  font-weight: 750;
+}
+
+demo-mockup-window-example header > span {
+  padding: 0.3rem 0.5rem;
+  border-radius: 999px;
+  color: var(--color-success-content);
+  background: var(--color-success);
+  font-size: 0.62rem;
+  font-weight: 700;
+}
+
+demo-mockup-window-example .mockup-window-example-profile {
+  justify-content: start;
+  padding: 0.85rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-field);
+}
+
+demo-mockup-window-example .mockup-window-example-profile > span {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  border-radius: 0.75rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+demo-mockup-window-example .mockup-window-example-profile strong,
+demo-mockup-window-example .mockup-window-example-profile small {
+  display: block;
+}
+
+demo-mockup-window-example .mockup-window-example-profile button {
+  margin-inline-start: auto;
+}
+
+demo-mockup-window-example label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 650;
+}
+
+demo-mockup-window-example label input {
+  inline-size: 100%;
+}
+
+demo-mockup-window-example footer {
+  justify-content: end;
+}
+
+@media (max-width: 36rem) {
+  demo-mockup-window-example .mockup-window-example-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  demo-mockup-window-example aside {
+    display: none;
+  }
+}

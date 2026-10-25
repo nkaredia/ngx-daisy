@@ -1,0 +1,18 @@
+@layer utilities {
+  @layer ngx-daisy-catalog {
+    :where(dsy-pagination) {
+      display: block;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+    :where(dsy-pagination nav) {
+      width: max-content;
+      max-width: 100%;
+    }
+    :where(.dsy-pagination-gap) {
+      display: inline-flex;
+      align-items: center;
+      padding-inline: 0.5rem;
+    }
+  }
+}

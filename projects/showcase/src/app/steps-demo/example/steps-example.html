@@ -1,0 +1,23 @@
+<section class="steps-example-card">
+  <header>
+    <div>
+      <span>Workspace setup</span>
+      <h3>You’re almost ready to invite your team</h3>
+    </div>
+    <strong>2 of 3</strong>
+  </header>
+  <ol dsySteps [orientation]="props().orientation ?? 'horizontal'">
+    <li dsyStep [color]="step().color ?? 'inherit'" [current]="step().current ?? false">
+      <span dsyStepIcon aria-hidden="true">✓</span>Account
+    </li>
+    <li dsyStep color="primary" current><span dsyStepIcon aria-hidden="true">2</span>Workspace</li>
+    <li dsyStep><span dsyStepIcon aria-hidden="true">3</span>Invite team</li>
+  </ol>
+  <div class="steps-example-callout">
+    <span aria-hidden="true">✦</span>
+    <div>
+      <strong>Choose how your team will work</strong>
+      <p>You can update roles and permissions at any time.</p>
+    </div>
+  </div>
+</section>

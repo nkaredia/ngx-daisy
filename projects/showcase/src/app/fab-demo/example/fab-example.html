@@ -1,0 +1,31 @@
+<div class="fab-example-stage">
+  <div class="fab-example-heading">
+    <div>
+      <p>Ideas board</p>
+      <strong>Q4 campaign</strong>
+    </div>
+    <span>6 items</span>
+  </div>
+  <div class="fab-example-notes" aria-hidden="true">
+    <span>Research</span><span>Concept</span><span>Launch plan</span>
+  </div>
+  <dsy-fab
+    [opened]="opened()"
+    (openedChange)="opened.set($event)"
+    [layout]="props().layout ?? 'vertical'"
+    [position]="props().position ?? 'fixed'"
+    [corner]="props().corner ?? 'end'"
+    [radius]="props().radius"
+    [openOnFocus]="props().openOnFocus ?? false"
+    [id]="props().id ?? 'playground-create-actions'"
+    [aria-label]="props().label ?? 'Create content'"
+  >
+    <button dsyButton dsyFabTrigger shape="circle" color="primary" aria-label="Create content">
+      ＋
+    </button>
+    <button dsyButton dsyFabClose shape="circle" aria-label="Close actions">×</button>
+    <button dsyButton dsyFabAction (triggered)="action.set('Note created')">New note</button>
+    <button dsyButton dsyFabAction (triggered)="action.set('Task created')">New task</button>
+  </dsy-fab>
+  <p class="fab-example-status" role="status">{{ action() }}</p>
+</div>

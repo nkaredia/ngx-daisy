@@ -1,0 +1,68 @@
+demo-file-input-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-file-input-example .file-input-example-card {
+  display: grid;
+  gap: 1rem;
+  inline-size: min(100%, 32rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 0.75rem 2rem color-mix(in oklab, var(--color-base-content) 7%, transparent);
+}
+
+demo-file-input-example .file-input-example-heading,
+demo-file-input-example .file-input-example-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+demo-file-input-example .file-input-example-heading {
+  justify-content: start;
+}
+
+demo-file-input-example .file-input-example-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.85rem;
+  color: var(--color-primary-content);
+  background: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+demo-file-input-example h3,
+demo-file-input-example p {
+  margin: 0;
+}
+
+demo-file-input-example h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+demo-file-input-example p,
+demo-file-input-example .file-input-example-meta {
+  color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
+  font-size: 0.75rem;
+}
+
+demo-file-input-example p {
+  margin-top: 0.2rem;
+}
+
+demo-file-input-example dsy-file-input {
+  inline-size: 100%;
+}
+
+demo-file-input-example .file-input-example-meta strong {
+  color: var(--color-base-content);
+}

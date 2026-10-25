@@ -1,0 +1,20 @@
+@use '../action-demo';
+@use '../catalog-demo';
+
+.catalog-mega-panel .demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1.5rem;
+}
+.catalog-mega-panel h3 {
+  font-weight: 650;
+  margin-block-end: 0.5rem;
+}
+.catalog-mega-panel a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.catalog-mega-panel p {
+  margin-block-start: 0.5rem;
+  opacity: 0.75;
+}

@@ -1,0 +1,17 @@
+<article class="status-example-service">
+  <div class="status-example-heading">
+    <div>
+      <p>Production</p>
+      <h3>API gateway</h3>
+    </div>
+    <span class="status-example-state">
+      <dsy-status [color]="props().color" [size]="props().size ?? 'md'" aria-hidden="true" />
+      Operational
+    </span>
+  </div>
+  <div class="status-example-metrics">
+    <div><span>Uptime</span><strong>99.99%</strong></div>
+    <div><span>Latency</span><strong>84 ms</strong></div>
+    <div><span>Last checked</span><strong>Just now</strong></div>
+  </div>
+</article>

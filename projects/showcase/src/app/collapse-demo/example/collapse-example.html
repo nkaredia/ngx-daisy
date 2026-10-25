@@ -1,0 +1,23 @@
+<section class="collapse-example-shell">
+  <div class="collapse-example-heading">
+    <span aria-hidden="true">?</span>
+    <div>
+      <p>Workspace help</p>
+      <h3>Quick answers</h3>
+    </div>
+  </div>
+  <dsy-collapse
+    class="bg-base-200"
+    [title]="props().title || 'What is included in my plan?'"
+    [opened]="props().opened ?? false"
+    [disabled]="props().disabled ?? false"
+    [indicator]="props().indicator ?? 'none'"
+    [trigger]="props().trigger ?? 'title'"
+    [openLabel]="props().openLabel ?? 'Show details'"
+    [closeLabel]="props().closeLabel ?? 'Hide details'"
+    [titleClass]="props().titleClass ?? ''"
+    [contentClass]="props().contentClass ?? ''"
+    ><p>Unlimited projects, theme customization, and access for up to ten collaborators.</p>
+    <a href="https://daisyui.com/components/collapse/">Review plan details</a></dsy-collapse
+  >
+</section>

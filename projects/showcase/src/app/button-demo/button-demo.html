@@ -1,0 +1,15 @@
+<section class="action-demo" aria-labelledby="buttons">
+  <h2 id="buttons" class="text-xl font-semibold">Buttons</h2>
+  @for (preview of playground.previews; track $index) {
+    <demo-playground [component]="preview" />
+  }
+  <div class="button-inline-previews">
+    @for (preview of playground.inlinePreviews ?? []; track $index) {
+      <demo-inline-preview-shell
+        [component]="preview.component"
+        [title]="preview.title"
+        [showTypescript]="preview.showTypescript ?? false"
+      />
+    }
+  </div>
+</section>

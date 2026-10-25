@@ -1,0 +1,61 @@
+demo-progress-example {
+  display: block;
+  max-width: 100%;
+}
+
+.progress-example-card {
+  display: grid;
+  gap: 1.2rem;
+  max-width: 42rem;
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 7%, transparent);
+
+  header {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.8rem;
+
+    > div {
+      display: grid;
+      min-width: 0;
+    }
+
+    small {
+      overflow: hidden;
+      font-size: 0.75rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      opacity: 0.62;
+    }
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.72rem;
+    opacity: 0.62;
+  }
+}
+
+.progress-example-file {
+  display: grid;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 0.75rem;
+  background: color-mix(in oklab, var(--color-primary) 14%, var(--color-base-100));
+  color: var(--color-primary);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.progress-example-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,100 @@
+demo-range-example {
+  display: block;
+  max-width: 100%;
+}
+
+demo-range-example .range-example-player {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  inline-size: min(100%, 34rem);
+  padding: 1.25rem;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  background: var(--color-base-100);
+  box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
+}
+
+demo-range-example .range-example-cover {
+  display: grid;
+  place-items: center;
+  inline-size: 4.25rem;
+  block-size: 4.25rem;
+  border-radius: 1rem;
+  color: var(--color-primary-content);
+  background:
+    linear-gradient(
+      145deg,
+      transparent 35%,
+      color-mix(in oklab, white 18%, transparent) 35% 55%,
+      transparent 55%
+    ),
+    var(--color-primary);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+demo-range-example h3,
+demo-range-example p {
+  margin: 0;
+}
+
+demo-range-example h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+demo-range-example .range-example-details p,
+demo-range-example .range-example-details > span {
+  color: color-mix(in oklab, var(--color-base-content) 58%, transparent);
+  font-size: 0.7rem;
+}
+
+demo-range-example .range-example-details p {
+  color: var(--color-primary);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+demo-range-example .range-example-control {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  font-size: 0.75rem;
+}
+
+demo-range-example .range-example-control input {
+  grid-column: 1 / -1;
+  inline-size: 100%;
+}
+
+demo-range-example .range-example-player-vertical {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+demo-range-example .range-example-player-vertical .range-example-control {
+  grid-column: auto;
+  grid-row: 1;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto minmax(8rem, 1fr);
+  justify-items: center;
+}
+
+demo-range-example .range-example-player-vertical .range-example-control input {
+  grid-column: 1;
+  inline-size: auto;
+  min-block-size: 8rem;
+}
+
+@media (max-width: 28rem) {
+  demo-range-example .range-example-player {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  demo-range-example .range-example-player-vertical {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+}

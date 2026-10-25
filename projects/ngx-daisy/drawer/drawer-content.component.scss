@@ -1,0 +1,6 @@
+@layer utilities {
+  :where(.dsy-drawer-content) {
+    display: block;
+    min-inline-size: 0;
+  }
+}

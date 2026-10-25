@@ -1,0 +1,21 @@
+@layer components {
+  .dsy-button-spinner {
+    inline-size: 1em;
+    block-size: 1em;
+    flex: none;
+    border: 2px solid currentColor;
+    border-inline-end-color: transparent;
+    border-radius: 50%;
+    animation: dsy-button-spin 700ms linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dsy-button-spinner {
+      animation: none;
+    }
+  }
+}
+@keyframes dsy-button-spin {
+  to {
+    rotate: 1turn;
+  }
+}

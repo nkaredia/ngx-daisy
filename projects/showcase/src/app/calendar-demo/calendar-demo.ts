@@ -1,0 +1,36 @@
+import { playground } from './playground';
+import { Playground } from '../playground/playground.component';
+import { providePlayground } from '../playground/provide-playground';
+import { ChangeDetectionStrategy, Component, signal, ViewEncapsulation } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { form, FormField } from '@angular/forms/signals';
+import { DsyButton } from 'ngx-daisy/button';
+import { DsyCalendar } from 'ngx-daisy/calendar';
+import { DsyFormField } from 'ngx-daisy/form-field';
+import { DsyInput } from 'ngx-daisy/input';
+@Component({
+  providers: providePlayground(playground),
+  selector: 'demo-calendar-demo',
+  standalone: true,
+  imports: [
+    Playground,
+    FormField,
+    ReactiveFormsModule,
+    DsyFormField,
+    DsyButton,
+    DsyCalendar,
+    DsyInput,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  templateUrl: './calendar-demo.html',
+  styleUrl: './calendar-demo.scss',
+})
+export class CalendarDemo {
+  readonly playground = playground;
+  readonly model = signal<{ value: string | null }>({ value: '2026-10-20' });
+  readonly fields = form(this.model);
+  readonly reactive = new FormControl<string | null>('2026-10-23');
+  readonly weekdaysOnly = (date: string) =>
+    ![0, 6].includes(new Date(date + 'T12:00:00Z').getUTCDay());
+}
