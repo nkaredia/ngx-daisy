@@ -87,6 +87,8 @@ Implemented: all 15 daisyUI Data Input families with Signal Forms, typed Reactiv
 
 ## Consumer styling
 
+Open **Theme Builder** from the showcase sidebar to design and save custom themes, preview them across the showcase, and copy a daisyUI-compatible SCSS export. Runtime theme helpers are available from `@ngx-daisy/cdk/theme`; see the [theme guide](projects/ngx-daisy/theme/README.md).
+
 All daisyUI CSS configuration stays in the consuming app. For custom class prefixes, add `provideDaisyUI` from `@ngx-daisy/cdk/config` with the matching daisyUI and/or Tailwind prefix. See the [configuration and customization guide](docs/daisyui-customization.md) for the option matrix, themes, scoped roots, source detection, utility overrides, component variables and drawer panel styling. `yarn test` includes the CSS compatibility matrix; run it separately with `yarn test:styles`.
 
 Consumers compile Tailwind CSS and daisyUI. Include the library distribution in Tailwind source detection, e.g. `@source "../node_modules/@ngx-daisy/cdk";`, adjusted relative to the stylesheet. The showcase demonstrates this against `dist/ngx-daisy`. Button class names are literal so Tailwind can discover them. Apps choose daisyUI themes through `data-theme`.

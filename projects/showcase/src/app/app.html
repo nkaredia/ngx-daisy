@@ -1,4 +1,8 @@
-<div class="showcase-shell" [attr.data-theme]="theme()">
+<div
+  class="showcase-shell"
+  [attr.data-theme]="customThemes.active()?.name ?? theme()"
+  [ngStyle]="customThemes.styles()"
+>
   <dsy-drawer-container class="showcase-drawer-container">
     <dsy-drawer-content>
       <a
@@ -8,7 +12,7 @@
         queryParamsHandling="preserve"
         >Skip to examples</a
       >
-      @if (!desktop()) {
+      @if (!desktop() && !themeBuilderPage()) {
         <header class="showcase-mobile-titlebar">
           <button
             dsyButton
@@ -28,6 +32,23 @@
           >
         </header>
       }
+      @if (themeBuilderPage()) {
+        <button
+          dsyButton
+          class="showcase-floating-navigation"
+          [class.invisible]="navigationOpened()"
+          shape="circle"
+          type="button"
+          dsyTooltip="Open component navigation"
+          position="left"
+          aria-label="Open component navigation"
+          aria-controls="showcase-navigation"
+          [attr.aria-expanded]="navigationOpened()"
+          (click)="navigationDrawer.toggle()"
+        >
+          <dsy-icon size="1.25rem"><svg lucideMenu aria-hidden="true"></svg></dsy-icon>
+        </button>
+      }
       <main
         #showcaseContent
         id="showcase-content"
@@ -42,13 +63,13 @@
       #navigationDrawer
       id="showcase-navigation"
       width="18rem"
-      [mode]="desktop() ? 'side' : 'over'"
+      [mode]="persistentNavigation() ? 'side' : 'over'"
       [(opened)]="navigationOpened"
       aria-label="Component navigation"
     >
       <div class="showcase-sidebar">
         <div class="showcase-navigation-header">
-          @if (desktop()) {
+          @if (persistentNavigation()) {
             <a class="showcase-brand" routerLink="/buttons"
               ><span class="showcase-brand-name">ngx-daisy</span
               ><span class="showcase-version">v{{ version }}</span></a
@@ -95,33 +116,158 @@
           }
         </nav>
         <footer class="showcase-sidebar-footer">
-          <button
-            dsyButton
-            variant="ghost"
-            type="button"
-            class="showcase-theme-button"
-            aria-label="Switch theme"
-            [attr.aria-pressed]="theme() === 'dark'"
-            (click)="toggleTheme()"
-          >
-            <svg
-              class="showcase-theme-icon"
-              [lucideIcon]="theme() === 'dark' ? themeIcons.moon : themeIcons.sun"
-              aria-hidden="true"
-            ></svg>
-            <span class="showcase-theme-copy"
-              >Switch theme
-              <small aria-hidden="true"
-                >{{ theme() === 'dark' ? 'Dark' : 'Light' }} mode</small
-              ></span
+          <div class="showcase-theme-toolbar" aria-label="Theme controls">
+            <label
+              class="showcase-color-mode"
+              dsyTooltip="Switch between light and dark"
+              position="top"
             >
-            <span
-              class="showcase-theme-toggle"
-              aria-hidden="true"
-              [attr.data-enabled]="theme() === 'dark'"
-              ><span></span
-            ></span>
-          </button>
+              <dsy-icon size="0.875rem"><svg lucideSun aria-hidden="true"></svg></dsy-icon>
+              <input
+                dsyToggle
+                size="sm"
+                type="checkbox"
+                [checked]="!customThemes.active() && theme() === 'dark'"
+                [attr.aria-label]="theme() === 'dark' ? 'Use light theme' : 'Use dark theme'"
+                (change)="setColorMode($any($event.target).checked)"
+              />
+              <dsy-icon size="0.875rem"><svg lucideMoon aria-hidden="true"></svg></dsy-icon>
+            </label>
+
+            <dsy-dropdown
+              placement="top"
+              align="center"
+              label="Choose a theme"
+              panelClass="showcase-theme-menu"
+            >
+              <button
+                dsyButton
+                dsyDropdownTrigger
+                dsyTooltip="Choose a theme"
+                position="top"
+                variant="ghost"
+                size="sm"
+                type="button"
+                class="group gap-1.5 px-1.5"
+                aria-label="Choose a theme"
+              >
+                <div
+                  class="bg-base-100 group-hover:border-base-content/20 border-base-content/10 grid shrink-0 grid-cols-2 gap-0.5 rounded-md border p-1 transition-colors"
+                  aria-hidden="true"
+                >
+                  <div class="bg-base-content size-1 rounded-full"></div>
+                  <div class="bg-primary size-1 rounded-full"></div>
+                  <div class="bg-secondary size-1 rounded-full"></div>
+                  <div class="bg-accent size-1 rounded-full"></div>
+                </div>
+                <svg
+                  width="12"
+                  height="12"
+                  class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 2048 2048"
+                  aria-hidden="true"
+                >
+                  <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
+                </svg>
+              </button>
+              <ng-template dsyDropdownContent>
+                <ul class="menu w-56 showcase-theme-list" role="presentation">
+                  <li class="menu-title text-xs" role="presentation">Theme</li>
+                  @for (theme of daisyThemes; track theme) {
+                    <li role="presentation">
+                      <button
+                        dsyDropdownItem
+                        class="gap-3 px-2"
+                        [attr.aria-label]="theme"
+                        (triggered)="selectTheme('daisy:' + theme)"
+                      >
+                        <div
+                          [attr.data-theme]="theme"
+                          class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"
+                          aria-hidden="true"
+                        >
+                          <div class="bg-base-content size-1 rounded-full"></div>
+                          <div class="bg-primary size-1 rounded-full"></div>
+                          <div class="bg-secondary size-1 rounded-full"></div>
+                          <div class="bg-accent size-1 rounded-full"></div>
+                        </div>
+                        <div class="w-32 truncate">{{ theme }}</div>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="h-3 w-3 shrink-0"
+                          [class.invisible]="themeSelection() !== 'daisy:' + theme"
+                          aria-hidden="true"
+                        >
+                          <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                          ></path>
+                        </svg>
+                      </button>
+                    </li>
+                  }
+                  @if (customThemes.saved().length) {
+                    <li class="menu-title text-xs" role="presentation">My themes</li>
+                    @for (theme of customThemes.saved(); track theme.name) {
+                      <li role="presentation">
+                        <button
+                          dsyDropdownItem
+                          class="gap-3 px-2"
+                          [attr.aria-label]="theme.name"
+                          (triggered)="selectTheme('custom:' + theme.name)"
+                        >
+                          <div
+                            [ngStyle]="theme.tokens"
+                            class="bg-base-100 grid shrink-0 grid-cols-2 gap-0.5 rounded-md p-1 shadow-sm"
+                            aria-hidden="true"
+                          >
+                            <div class="bg-base-content size-1 rounded-full"></div>
+                            <div class="bg-primary size-1 rounded-full"></div>
+                            <div class="bg-secondary size-1 rounded-full"></div>
+                            <div class="bg-accent size-1 rounded-full"></div>
+                          </div>
+                          <div class="w-32 truncate">{{ theme.name }}</div>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="16"
+                            height="16"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="h-3 w-3 shrink-0"
+                            [class.invisible]="themeSelection() !== 'custom:' + theme.name"
+                            aria-hidden="true"
+                          >
+                            <path
+                              d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                    }
+                  }
+                </ul>
+              </ng-template>
+            </dsy-dropdown>
+
+            <a
+              dsyButton
+              dsyTooltip="Open Theme Builder"
+              position="top"
+              variant="ghost"
+              shape="square"
+              size="sm"
+              routerLink="/themes"
+              routerLinkActive="showcase-navigation-active"
+              ariaCurrentWhenActive="page"
+              aria-label="Open Theme Builder"
+            >
+              <dsy-icon size="1rem"><svg lucidePaintbrush aria-hidden="true"></svg></dsy-icon>
+            </a>
+          </div>
         </footer>
       </div>
     </dsy-drawer>

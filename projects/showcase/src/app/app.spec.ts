@@ -44,6 +44,8 @@ function buttonNamed(root: HTMLElement, name: string) {
 }
 
 describe('Showcase routes', () => {
+  beforeEach(() => localStorage.removeItem('ngx-daisy.showcase-theme'));
+
   it('groups every route once and keeps branding and theme controls outside the scrolling list', async () => {
     const { root } = await renderShowcase('/buttons');
     expect(showcaseGroups.map((group) => group.label)).toEqual([
@@ -61,10 +63,37 @@ describe('Showcase routes', () => {
     expect(root.querySelector('.showcase-brand-name')?.textContent).toBe('ngx-daisy');
     expect(root.querySelector('.showcase-version')?.textContent).toMatch(/^v\d+\.\d+\.\d+/);
     expect(root.querySelectorAll('.showcase-navigation-group')).toHaveLength(7);
-    expect(
-      root.querySelector('.showcase-sidebar-footer button[aria-label="Switch theme"]'),
-    ).not.toBeNull();
+    expect(root.querySelector('dsy-dropdown')).not.toBeNull();
+    expect(root.querySelector<HTMLInputElement>('input[dsyToggle]')?.checked).toBe(false);
+    expect(root.querySelector('[aria-label="Open Theme Builder"]')).not.toBeNull();
     expect(root.querySelector('.showcase-mobile-titlebar')).toBeNull();
+  });
+
+  it('uses a closed overlay drawer on the theme builder and restores desktop navigation when leaving', async () => {
+    const { fixture, router, root, breakpoints } = await renderShowcase('/themes');
+    const navigation = root.querySelector<HTMLElement>('#showcase-navigation')!;
+    expect(navigation.getAttribute('data-mode')).toBe('over');
+    expect(navigation.getAttribute('data-opened')).toBe('false');
+    expect(root.querySelector('.showcase-mobile-titlebar')).toBeNull();
+    buttonNamed(root, 'Open component navigation').click();
+    await fixture.whenStable();
+    expect(navigation.getAttribute('data-opened')).toBe('true');
+    buttonNamed(root, 'Close component navigation').click();
+    await fixture.whenStable();
+    expect(navigation.getAttribute('data-opened')).toBe('false');
+    breakpoints.next(breakpointState(false));
+    await fixture.whenStable();
+    expect(root.querySelector('.showcase-mobile-titlebar')).toBeNull();
+    expect(navigation.getAttribute('data-opened')).toBe('false');
+    breakpoints.next(breakpointState(true));
+    await fixture.whenStable();
+    expect(navigation.getAttribute('data-mode')).toBe('over');
+    expect(navigation.getAttribute('data-opened')).toBe('false');
+    await router.navigateByUrl('/buttons');
+    await fixture.whenStable();
+    expect(navigation.getAttribute('data-mode')).toBe('side');
+    expect(navigation.getAttribute('data-opened')).toBe('true');
+    expect(root.querySelector('.showcase-floating-navigation')).toBeNull();
   });
 
   it('redirects the root and unknown paths to the buttons page', async () => {
@@ -224,15 +253,16 @@ describe('Showcase routes', () => {
     expect(home?.classList.contains('dsy-icon-success')).toBe(true);
   });
 
-  it('retains the shared theme and shell while component navigation changes the page', async () => {
+  it('selects, persists and retains built-in themes while component navigation changes the page', async () => {
     const { fixture, router, root } = await renderShowcase('/buttons');
     const shell = root.querySelector<HTMLElement>('.showcase-shell');
     const main = root.querySelector('main#showcase-content');
     expect(shell?.getAttribute('data-theme')).toBe('light');
 
-    buttonNamed(root, 'Switch theme').click();
+    fixture.componentInstance.selectTheme('daisy:dracula');
     await fixture.whenStable();
-    expect(shell?.getAttribute('data-theme')).toBe('dark');
+    expect(shell?.getAttribute('data-theme')).toBe('dracula');
+    expect(localStorage.getItem('ngx-daisy.showcase-theme')).toBe('dracula');
 
     const iconsLink = Array.from(root.querySelectorAll<HTMLAnchorElement>('nav a')).find(
       (link) => link.textContent?.trim() === 'Icons',
@@ -242,11 +272,7 @@ describe('Showcase routes', () => {
     expect(router.url).toBe('/icons');
     expect(root.querySelector('.showcase-shell')).toBe(shell);
     expect(root.querySelector('main#showcase-content')).toBe(main);
-    expect(shell?.getAttribute('data-theme')).toBe('dark');
-
-    buttonNamed(root, 'Switch theme').click();
-    await fixture.whenStable();
-    expect(shell?.getAttribute('data-theme')).toBe('light');
+    expect(shell?.getAttribute('data-theme')).toBe('dracula');
   });
 
   it('removes the page-loader preview and cancels its timeout when navigating away', async () => {
@@ -319,7 +345,7 @@ describe('Showcase routes', () => {
     menu.focus();
     menu.click();
     await fixture.whenStable();
-    buttonNamed(root, 'Switch theme').click();
+    fixture.componentInstance.selectTheme('daisy:night');
     await fixture.whenStable();
     navigation.querySelector<HTMLAnchorElement>('nav a[href="/drawers"]')!.click();
     await fixture.whenStable();
@@ -332,7 +358,7 @@ describe('Showcase routes', () => {
     expect(navigation.querySelectorAll('.cdk-focus-trap-anchor')).toHaveLength(0);
     expect(main.closest('[inert]')).toBeNull();
     expect(document.activeElement).toBe(main);
-    expect(shell.getAttribute('data-theme')).toBe('dark');
+    expect(shell.getAttribute('data-theme')).toBe('night');
     expect(root.querySelector('.showcase-shell')).toBe(shell);
   });
 

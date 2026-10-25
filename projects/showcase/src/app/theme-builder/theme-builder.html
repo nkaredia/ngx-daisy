@@ -1,0 +1,310 @@
+<div class="theme-generator">
+  <aside class="theme-generator-library" aria-label="Themes">
+    <h1>Themes</h1>
+    <button dsyButton variant="outline" size="sm" layout="block" (click)="newTheme()">
+      <svg lucidePlus aria-hidden="true"></svg> Add theme
+    </button>
+    <ul class="menu theme-generator-theme-list">
+      <li class="menu-title">My themes</li>
+      @for (theme of store.saved(); track theme.name) {
+        <li>
+          <button
+            [class.menu-active]="selectedTheme() === 'custom:' + theme.name"
+            (click)="load(theme)"
+          >
+            <span class="theme-generator-mini" [ngStyle]="theme.tokens" aria-hidden="true"
+              ><i></i><i></i><i></i><i></i></span
+            ><span class="truncate">{{ theme.name }}</span>
+          </button>
+        </li>
+      } @empty {
+        <li class="theme-generator-empty">Save a theme to keep it here.</li>
+      }
+      <li class="menu-title">daisyUI themes</li>
+      @for (name of presets; track name) {
+        <li>
+          <button
+            [class.menu-active]="selectedTheme() === 'daisy:' + name"
+            (click)="startFrom(name)"
+          >
+            <span class="theme-generator-mini" [attr.data-theme]="name" aria-hidden="true"
+              ><i></i><i></i><i></i><i></i></span
+            >{{ name }}
+          </button>
+        </li>
+      }
+    </ul>
+  </aside>
+
+  <section class="theme-generator-editor" aria-label="Theme settings">
+    <label class="theme-generator-name"
+      >Name
+      <input
+        dsyInput
+        size="sm"
+        [value]="draft().name"
+        (input)="update({ name: $any($event.target).value })"
+        aria-describedby="theme-validation"
+    /></label>
+    <div class="theme-generator-actions">
+      <button dsyButton size="sm" variant="outline" (click)="randomize()">
+        <svg lucideShuffle aria-hidden="true"></svg>Random</button
+      ><button dsyButton size="sm" color="neutral" (click)="exportOpened.set(true)">
+        <svg lucideCode aria-hidden="true"></svg>CSS
+      </button>
+    </div>
+    <h2>Change Colors</h2>
+    <div class="theme-generator-color-groups">
+      @for (group of colorGroups(); track group.name) {
+        <div
+          class="theme-generator-color-group"
+          [class.theme-generator-base]="group.name === 'base'"
+        >
+          <div class="theme-generator-colors">
+            @for (key of group.tokens; track key) {
+              <label
+                class="theme-generator-color"
+                [style.background]="
+                  key.endsWith('-content')
+                    ? preview().tokens[group.name === 'base' ? '--color-base-300' : group.tokens[0]]
+                    : preview().tokens[key]
+                "
+                [style.color]="
+                  key.endsWith('-content')
+                    ? preview().tokens[key]
+                    : preview().tokens['--color-base-content']
+                "
+              >
+                <input
+                  type="color"
+                  [attr.aria-label]="'Pick ' + label(key)"
+                  [title]="key + ': ' + draft().tokens[key]"
+                  [value]="pickerColors()[key]"
+                  (input)="token(key, $any($event.target).value)"
+                />
+                <span aria-hidden="true">{{
+                  key.endsWith('-content') ? 'A' : group.name === 'base' ? key.slice(-3) : ''
+                }}</span>
+              </label>
+            }
+          </div>
+          <span>{{ group.name }}</span>
+        </div>
+      }
+    </div>
+    <details class="theme-generator-values">
+      <summary>Edit color values</summary>
+      <div class="theme-generator-text-colors">
+        @for (key of colors; track key) {
+          <label
+            >{{ label(key)
+            }}<input
+              dsyInput
+              size="xs"
+              [value]="draft().tokens[key]"
+              (input)="token(key, $any($event.target).value)"
+              spellcheck="false"
+          /></label>
+        }
+      </div>
+    </details>
+    <h2>Radius</h2>
+    @for (radius of radii; track radius.key) {
+      <fieldset class="theme-generator-radius">
+        <legend>
+          {{ radius.title }} <small>{{ radius.description }}</small>
+        </legend>
+        <div class="theme-generator-radius-options">
+          @for (value of radiusValues; track value) {
+            <label
+              [style.border-radius]="value"
+              [class.theme-generator-radius-selected]="draft().tokens[radius.key] === value"
+              ><input
+                type="radio"
+                [name]="radius.key"
+                [attr.aria-label]="radius.title + ' radius ' + value"
+                [checked]="draft().tokens[radius.key] === value"
+                (change)="token(radius.key, value)" /><span></span
+            ></label>
+          }
+        </div>
+        <input
+          dsyInput
+          size="xs"
+          [attr.aria-label]="radius.title + ' radius value'"
+          [value]="draft().tokens[radius.key]"
+          (input)="token(radius.key, $any($event.target).value)"
+        />
+      </fieldset>
+    }
+    <h2>Effects</h2>
+    <label class="theme-generator-setting"
+      ><span>Depth Effect<small>3D depth on fields &amp; selectors</small></span
+      ><input
+        dsyToggle
+        size="sm"
+        type="checkbox"
+        [checked]="draft().tokens['--depth'] === '1'"
+        (change)="token('--depth', $any($event.target).checked ? '1' : '0')"
+    /></label>
+    <label class="theme-generator-setting"
+      ><span>Noise Effect<small>Noise pattern on fields &amp; selectors</small></span
+      ><input
+        dsyToggle
+        size="sm"
+        type="checkbox"
+        [checked]="draft().tokens['--noise'] === '1'"
+        (change)="token('--noise', $any($event.target).checked ? '1' : '0')"
+    /></label>
+    <h2>Sizes</h2>
+    @for (size of sizes; track size.key) {
+      <label class="theme-generator-size"
+        ><span
+          >{{ size.title }}<small>{{ size.description }}</small></span
+        >
+        <div class="theme-generator-size-scale">
+          @for (factor of size.factors; track factor; let i = $index) {
+            <span
+              ><small>{{ ['xs', 'sm', 'md', 'lg', 'xl'][i] }}</small
+              >{{ (pixels(size.key) * factor).toFixed(0) }}</span
+            >
+          }
+        </div>
+        <span class="theme-generator-size-value"
+          >{{ size.title }} base size
+          <strong>{{ pixels(size.key).toFixed(1) }}</strong> Pixels</span
+        ><input
+          dsyRange
+          size="xs"
+          type="range"
+          min="2"
+          max="6"
+          step="0.25"
+          [attr.aria-label]="size.title + ' base size'"
+          [value]="pixels(size.key)"
+          (input)="token(size.key, $any($event.target).value + 'px')"
+      /></label>
+    }
+    <label class="theme-generator-size"
+      >Border Width <small>All components</small
+      ><span class="theme-generator-size-value">{{ draft().tokens['--border'] }}</span
+      ><input
+        dsyRange
+        size="xs"
+        type="range"
+        min="0"
+        max="5"
+        step="0.5"
+        [value]="pixels('--border')"
+        aria-label="Border width"
+        (input)="token('--border', $any($event.target).value + 'px')"
+    /></label>
+    <h2>Options</h2>
+    <label class="theme-generator-setting"
+      >Default theme<input
+        dsyToggle
+        size="sm"
+        type="checkbox"
+        [checked]="draft().default"
+        (change)="update({ default: $any($event.target).checked })"
+    /></label>
+    <label class="theme-generator-setting"
+      >Default dark theme<input
+        dsyToggle
+        size="sm"
+        type="checkbox"
+        [checked]="draft().prefersDark"
+        (change)="update({ prefersDark: $any($event.target).checked })"
+    /></label>
+    <label class="theme-generator-setting"
+      >Dark color scheme<input
+        dsyToggle
+        size="sm"
+        type="checkbox"
+        [checked]="draft().colorScheme === 'dark'"
+        (change)="update({ colorScheme: $any($event.target).checked ? 'dark' : 'light' })"
+    /></label>
+    <p id="theme-validation" role="status" class="text-error text-xs">{{ error() }}</p>
+    <div class="theme-generator-save">
+      <button
+        dsyButton
+        size="sm"
+        color="primary"
+        [disabled]="!!error()"
+        (click)="store.save(preview())"
+      >
+        Save theme</button
+      ><button dsyButton size="sm" variant="ghost" (click)="reset()">Reset theme</button
+      ><button
+        dsyButton
+        size="sm"
+        variant="outline"
+        [disabled]="!!error()"
+        (click)="store.apply(preview())"
+      >
+        Apply to showcase
+      </button>
+      @if (store.saved().some(isCurrentTheme)) {
+        <button
+          dsyButton
+          size="sm"
+          variant="ghost"
+          color="error"
+          (click)="store.remove(draft().name)"
+        >
+          Remove theme
+        </button>
+      }
+    </div>
+    <p role="status" class="text-xs opacity-60">{{ store.message() }}</p>
+  </section>
+
+  <section
+    class="theme-generator-canvas bg-base-200 text-base-content"
+    [dsyTheme]="preview()"
+    aria-label="Themed components"
+  >
+    <header>
+      <h2>{{ views[view() === 'demo' ? 0 : view() === 'variants' ? 1 : 2].label }}</h2>
+      <div class="theme-generator-view-buttons" role="group" aria-label="Preview mode">
+        @for (option of views; track option.id) {
+          <button
+            dsyButton
+            size="sm"
+            shape="square"
+            variant="ghost"
+            [active]="view() === option.id"
+            [attr.aria-label]="option.label"
+            [attr.aria-pressed]="view() === option.id"
+            (click)="view.set(option.id)"
+          >
+            <svg [lucideIcon]="option.icon" aria-hidden="true"></svg>
+          </button>
+        }
+      </div>
+    </header>
+    <demo-theme-preview [view]="view()" [theme]="preview()" />
+  </section>
+</div>
+<dsy-modal [(opened)]="exportOpened" width="56rem" aria-label="Theme export">
+  <section class="theme-generator-export" aria-label="Theme export">
+    <div class="theme-generator-export-heading">
+      <div>
+        <h2>Add theme to your SCSS file</h2>
+        <p>Add it after &#64;plugin "daisyui";</p>
+      </div>
+      <button
+        dsyButton
+        variant="ghost"
+        size="sm"
+        shape="square"
+        aria-label="Close theme export"
+        (click)="exportOpened.set(false)"
+      >
+        <svg lucideX aria-hidden="true"></svg>
+      </button>
+    </div>
+    <demo-example-code [files]="files()" [expanded]="true" [showToggle]="false" />
+    <pre><code>{{ usage() }}</code></pre>
+  </section>
+</dsy-modal>

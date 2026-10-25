@@ -92,6 +92,10 @@ With a Tailwind prefix, library-generated native classes also include daisyUI se
 
 ## Custom themes and scoped roots
 
+Use the showcase **Theme Builder** at `/themes` to edit colors, radii, sizing and effects, preview real CDK components, save themes locally and export a complete native theme plugin. The optional `@ngx-daisy/cdk/theme` entry point provides typed definitions, `exportDaisyTheme()` and the `[dsyTheme]` directive for runtime theme scopes. See the [custom theme guide](../projects/ngx-daisy/theme/README.md). Existing CSS-only theme setup needs no Angular provider.
+
+The showcase enables every daisyUI built-in theme so its sidebar picker can demonstrate all 35. Consumer applications should enable only the built-ins they use to keep generated CSS smaller.
+
 ```scss
 @use 'tailwindcss';
 @source '../node_modules/@ngx-daisy/cdk';

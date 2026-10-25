@@ -1,8 +1,16 @@
-import { LucideDynamicIcon, LucideMenu, LucideX, LucideMoon, LucideSun } from '@lucide/angular';
+import {
+  LucideDynamicIcon,
+  LucideMenu,
+  LucideMoon,
+  LucidePaintbrush,
+  LucideSun,
+  LucideX,
+} from '@lucide/angular';
 import {
   afterNextRender,
   ChangeDetectionStrategy,
   Component,
+  computed,
   ElementRef,
   inject,
   Injector,
@@ -19,15 +27,40 @@ import { DsyButton } from '@ngx-daisy/cdk/button';
 import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/drawer';
 import { showcaseGroups } from './showcase-pages';
 import libraryPackage from '../../../ngx-daisy/package.json';
+import { NgStyle } from '@angular/common';
+import { ThemeStore } from './theme-builder/theme-store';
+import {
+  daisyThemes,
+  displayThemeName,
+  type DaisyThemeName,
+} from './theme-builder/showcase-themes';
+import { DsyToggle } from '@ngx-daisy/cdk/toggle';
+import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
+import {
+  DsyDropdown,
+  DsyDropdownContent,
+  DsyDropdownItem,
+  DsyDropdownTrigger,
+} from '@ngx-daisy/cdk/dropdown';
 
 @Component({
   selector: 'demo-root',
   imports: [
+    NgStyle,
     LucideDynamicIcon,
     LucideMenu,
+    LucideMoon,
+    LucidePaintbrush,
+    LucideSun,
     LucideX,
     DsyIcon,
     DsyButton,
+    DsyToggle,
+    DsyTooltip,
+    DsyDropdown,
+    DsyDropdownContent,
+    DsyDropdownItem,
+    DsyDropdownTrigger,
     DsyDrawer,
     DsyDrawerContainer,
     DsyDrawerContent,
@@ -41,39 +74,80 @@ import libraryPackage from '../../../ngx-daisy/package.json';
   encapsulation: ViewEncapsulation.None,
 })
 export class App {
-  readonly themeIcons = { moon: LucideMoon, sun: LucideSun };
-  readonly theme = signal<'light' | 'dark'>('light');
+  readonly customThemes = inject(ThemeStore);
+  readonly daisyThemes = daisyThemes.filter((theme) => theme !== 'light' && theme !== 'dark');
+  readonly displayThemeName = displayThemeName;
+  readonly theme = signal<DaisyThemeName>('light');
+  readonly themeSelection = computed(() =>
+    this.customThemes.active()
+      ? `custom:${this.customThemes.active()!.name}`
+      : `daisy:${this.theme()}`,
+  );
   readonly groups = showcaseGroups;
   readonly version = libraryPackage.version;
+  private readonly router = inject(Router);
+  readonly themeBuilderPage = signal(this.router.url.split(/[?#]/)[0] === '/themes');
   private readonly breakpoints = inject(BreakpointObserver);
   readonly desktop = signal(this.breakpoints.isMatched('(min-width: 1024px)'));
-  readonly navigationOpened = signal(this.desktop());
+  readonly persistentNavigation = computed(() => this.desktop() && !this.themeBuilderPage());
+  readonly navigationOpened = signal(this.persistentNavigation());
   private readonly navigation = viewChild<DsyDrawer>('navigationDrawer');
   private readonly content = viewChild.required<ElementRef<HTMLElement>>('showcaseContent');
 
   constructor() {
     const injector = inject(Injector);
+    afterNextRender(
+      () => {
+        try {
+          const theme = localStorage.getItem('ngx-daisy.showcase-theme');
+          if (theme && daisyThemes.includes(theme as DaisyThemeName))
+            this.theme.set(theme as DaisyThemeName);
+        } catch {
+          // Theme selection remains available when browser storage is unavailable.
+        }
+      },
+      { injector },
+    );
     this.breakpoints
       .observe('(min-width: 1024px)')
       .pipe(takeUntilDestroyed())
       .subscribe(({ matches }) => {
         this.desktop.set(matches);
-        this.navigationOpened.set(matches);
+        this.navigationOpened.set(this.persistentNavigation());
       });
-    inject(Router)
-      .events.pipe(
+    this.router.events
+      .pipe(
         filter((event) => event instanceof NavigationEnd),
         takeUntilDestroyed(),
       )
-      .subscribe(() => {
-        if (!this.desktop()) this.navigation()?.close({ restoreFocus: false });
+      .subscribe((event) => {
+        const wasThemeBuilder = this.themeBuilderPage();
+        this.themeBuilderPage.set(event.urlAfterRedirects.split(/[?#]/)[0] === '/themes');
+        if (!this.persistentNavigation()) this.navigation()?.close({ restoreFocus: false });
+        else if (wasThemeBuilder) this.navigationOpened.set(true);
         afterNextRender(() => this.content().nativeElement.focus({ preventScroll: true }), {
           injector,
         });
       });
   }
 
-  toggleTheme() {
-    this.theme.update((value) => (value === 'light' ? 'dark' : 'light'));
+  setColorMode(dark: boolean) {
+    this.selectTheme(`daisy:${dark ? 'dark' : 'light'}`);
+  }
+
+  selectTheme(value: string) {
+    if (value.startsWith('custom:')) {
+      this.customThemes.activate(value.slice('custom:'.length));
+      return;
+    }
+    const theme = value.slice('daisy:'.length);
+    if (!daisyThemes.includes(theme as DaisyThemeName)) return;
+    this.customThemes.apply(null);
+    this.theme.set(theme as DaisyThemeName);
+    try {
+      localStorage.setItem('ngx-daisy.showcase-theme', theme);
+    } catch {
+      // Theme selection remains available for this session when storage is unavailable.
+    }
   }
 }

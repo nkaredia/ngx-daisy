@@ -1,0 +1,480 @@
+@if (view() === 'demo') {
+  <div class="theme-preview-masonry">
+    <article class="theme-preview-card">
+      <header>
+        <h3><svg lucideChartPie aria-hidden="true"></svg>Preview</h3>
+        <a
+          href="https://daisyui.com/components/"
+          target="_blank"
+          rel="noreferrer"
+          class="link text-xs"
+          >more</a
+        >
+      </header>
+      <div class="flex gap-2"><span dsyBadge> Shoes × </span><span dsyBadge> Bags × </span></div>
+      <div class="theme-preview-categories">
+        @for (category of categories; track category.name) {
+          <label
+            ><input dsyCheckbox type="checkbox" size="sm" [checked]="category.checked" /><span>{{
+              category.name
+            }}</span
+            ><span dsyBadge size="xs" [color]="category.count ? 'neutral' : 'warning'">{{
+              category.count
+            }}</span></label
+          >
+        }
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <div class="theme-preview-week">
+        @for (date of [12, 13, 14, 15, 16, 17, 18]; track date; let i = $index) {
+          <button
+            dsyButton
+            size="xs"
+            variant="ghost"
+            [color]="day() === date ? 'primary' : undefined"
+            [active]="day() === date"
+            (click)="day.set(date)"
+          >
+            {{ date }}<small>{{ ['M', 'T', 'W', 'T', 'F', 'S', 'S'][i] }}</small>
+          </button>
+        }
+      </div>
+      <label class="input input-sm w-full"
+        ><svg lucideSearch aria-hidden="true"></svg
+        ><input aria-label="Search for events" placeholder="Search for events"
+      /></label>
+      <label class="flex items-center gap-2 text-xs"
+        ><input dsyToggle size="xs" type="checkbox" checked />Show all day events</label
+      >
+      <div class="bg-base-200 rounded-box p-3 text-xs">
+        <strong>Team Sync Meeting</strong>
+        <p class="opacity-60 mt-1">Weekly product review with design and development teams</p>
+        <span dsyBadge size="xs" color="neutral">1h</span>
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <dsy-tabs variant="lift" size="sm" [selectedIndex]="1"
+        ><button dsyTab>Tab 1</button><button dsyTab>Tab 2</button><button dsyTab>Tab 3</button>
+        <div [dsyTabPanel]="0" class="p-4 bg-base-100 border-base-300">Tab content 1</div>
+        <div [dsyTabPanel]="1" class="p-4 bg-base-100 border-base-300">Tab content 2</div>
+        <div [dsyTabPanel]="2" class="p-4 bg-base-100 border-base-300">Tab content 3</div></dsy-tabs
+      >
+      <h3>
+        Price range <span class="float-right">{{ price() }}</span>
+      </h3>
+      <input
+        dsyRange
+        type="range"
+        size="sm"
+        min="0"
+        max="100"
+        aria-label="Price range"
+        [value]="price()"
+        (input)="price.set(+$any($event.target).value)"
+      />
+    </article>
+    <article class="theme-preview-card theme-preview-product">
+      <img
+        src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+        alt="Nike shoes"
+        loading="lazy"
+      />
+      <h3>Nike Shoes <span dsyBadge color="secondary" size="sm">SALE</span></h3>
+      <div class="flex justify-between text-xs">
+        <span class="text-warning" aria-label="5 out of 5 stars">★★★★★</span
+        ><span class="opacity-60">420 reviews</span>
+      </div>
+      <p><strong>$120</strong> <s class="opacity-40 text-sm">$150</s></p>
+    </article>
+    <article class="theme-preview-card">
+      <div class="join w-full">
+        <input
+          dsyInput
+          size="sm"
+          placeholder="Search"
+          aria-label="Search products"
+          class="join-item min-w-0 w-full"
+        /><button
+          dsyButton
+          size="sm"
+          class="join-item"
+          (click)="message.set('Search preview updated.')"
+        >
+          Find
+        </button>
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <h3>Create new account</h3>
+      <p class="opacity-60 text-xs">Registration is free and only takes a minute</p>
+      <label class="text-xs"
+        >Username<input dsyInput size="sm" placeholder="Username" autocomplete="off" /></label
+      ><label class="text-xs"
+        >Password<input
+          dsyInput
+          size="sm"
+          type="password"
+          placeholder="Password"
+          autocomplete="new-password"
+          minlength="8"
+        /><small class="opacity-60">Password must be 8+ characters</small></label
+      ><label class="text-xs flex gap-2"
+        ><input dsyCheckbox size="xs" type="checkbox" />Accept terms without reading</label
+      ><label class="text-xs flex gap-2"
+        ><input dsyCheckbox size="xs" type="checkbox" />Subscribe to spam emails</label
+      ><button
+        dsyButton
+        color="primary"
+        size="sm"
+        (click)="message.set('Account registration preview — no account was created.')"
+      >
+        Register</button
+      ><button dsyButton variant="ghost" size="sm" (click)="message.set('Login preview selected.')">
+        Or login
+      </button>
+    </article>
+    <article class="theme-preview-card">
+      <div class="theme-preview-chart" role="img" aria-label="Sales increased throughout the week">
+        @for (height of barHeights; track $index) {
+          <i [style.height.%]="height"></i>
+        }
+      </div>
+      <p class="text-xs">
+        Sales volume reached $12,450 this week, showing a 15% increase from the previous period.
+      </p>
+      <div class="flex gap-2">
+        <button dsyButton size="sm" (click)="message.set('Weekly sales chart selected.')">
+          Charts</button
+        ><button
+          dsyButton
+          size="sm"
+          color="neutral"
+          (click)="message.set('Sales increased by 15% this week.')"
+        >
+          Details
+        </button>
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <p class="opacity-60 text-xs">Page Score</p>
+      <div class="flex items-center justify-between">
+        <strong class="text-4xl">91<small class="text-sm">/100</small></strong
+        ><dsy-radial-progress [value]="91" size="3rem" thickness="3px" label="Page score"
+          >91</dsy-radial-progress
+        >
+      </div>
+      <p class="text-xs text-success">✓ All good</p>
+    </article>
+    <article class="theme-preview-card">
+      <h3><svg lucideArrowUpRight aria-hidden="true"></svg>Recent orders</h3>
+      <table class="table table-xs">
+        <tbody>
+          @for (order of orders; track order.name) {
+            <tr>
+              <td>{{ order.name }}</td>
+              <td>
+                <span dsyBadge size="xs" [color]="order.color">{{ order.status }}</span>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </article>
+    <article class="theme-preview-card">
+      <p class="opacity-60 text-xs">October Revenue</p>
+      <strong class="text-3xl">$32,400</strong>
+      <p class="text-xs text-success">↗ 21% more than last month</p>
+    </article>
+    <article class="theme-preview-card">
+      <h3><svg lucideMessageSquare aria-hidden="true"></svg>Write a new post</h3>
+      <div class="flex gap-1">
+        @for (format of ['B', 'I', 'U']; track format) {
+          <button
+            dsyButton
+            size="xs"
+            variant="ghost"
+            [active]="formats().includes(format)"
+            (click)="toggleFormat(format)"
+          >
+            {{ format }}
+          </button>
+        }
+        <label class="btn btn-xs btn-ghost ml-auto"
+          ><svg lucidePaperclip aria-hidden="true"></svg>Add files<input
+            type="file"
+            multiple
+            class="hidden"
+            aria-label="Add files"
+        /></label>
+      </div>
+      <textarea
+        dsyTextarea
+        rows="4"
+        maxlength="1200"
+        aria-label="New post"
+        [value]="post()"
+        (input)="post.set($any($event.target).value)"
+      ></textarea
+      ><small class="opacity-50">{{ 1200 - post().length }} characters remaining</small>
+      <div class="flex gap-2 justify-end">
+        <button
+          dsyButton
+          size="sm"
+          variant="ghost"
+          (click)="message.set('Draft saved for this preview.')"
+        >
+          Draft</button
+        ><button
+          dsyButton
+          size="sm"
+          color="primary"
+          (click)="message.set('Post preview published locally.')"
+        >
+          Publish
+        </button>
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <div class="chat chat-start">
+        <div class="chat-header text-xs">Obi-Wan Kenobi <time class="opacity-50">12:45</time></div>
+        <div class="chat-bubble">It's over Anakin</div>
+      </div>
+      <div class="chat chat-start">
+        <div class="chat-bubble">I have the high ground</div>
+        <div class="chat-footer opacity-50 text-xs">Delivered</div>
+      </div>
+      <div class="chat chat-end">
+        <div class="chat-bubble chat-bubble-primary">You underestimate my power</div>
+        <div class="chat-footer opacity-50 text-xs">Seen at 12:46</div>
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <div class="flex justify-between gap-2">
+        <button
+          dsyButton
+          size="sm"
+          shape="square"
+          color="neutral"
+          aria-label="Previous track"
+          (click)="message.set('Previous track selected.')"
+        >
+          <svg lucideSkipBack aria-hidden="true"></svg></button
+        ><button
+          dsyButton
+          color="neutral"
+          shape="square"
+          [attr.aria-label]="playing() ? 'Pause audio' : 'Play audio'"
+          (click)="playing.set(!playing())"
+        >
+          @if (playing()) {
+            <svg lucidePause aria-hidden="true"></svg>
+          } @else {
+            <svg lucidePlay aria-hidden="true"></svg>
+          }</button
+        ><button
+          dsyButton
+          size="sm"
+          shape="square"
+          color="neutral"
+          aria-label="Next track"
+          (click)="message.set('Next track selected.')"
+        >
+          <svg lucideSkipForward aria-hidden="true"></svg>
+        </button>
+      </div>
+      <h3 class="text-center">PM Zoomcall ASMR</h3>
+      <p class="text-xs opacity-50 text-center">Project Manager talking for 2 hours</p>
+      <progress dsyProgress [value]="11" max="100" label="Audio position"></progress>
+      <div class="flex justify-between text-xs opacity-50">
+        <span>13:39</span><span>120:00</span>
+      </div>
+      <div class="flex justify-between">
+        @for (control of audioControls; track control.label) {
+          <button
+            dsyButton
+            size="sm"
+            shape="square"
+            variant="outline"
+            [attr.aria-label]="control.label"
+            (click)="message.set(control.label + ' selected.')"
+          >
+            <svg [lucideIcon]="control.icon" aria-hidden="true"></svg>
+          </button>
+        }
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <ul class="menu p-0 w-full">
+        <li class="menu-title">Admin panel</li>
+        @for (
+          item of ['Databases', 'Products', 'Messages', 'Access tokens', 'Users', 'Settings'];
+          track item
+        ) {
+          <li>
+            <button (click)="message.set(item + ' selected.')">
+              {{ item }}
+              @if (item === 'Databases') {
+                <span dsyBadge size="xs">7</span>
+              }
+              @if (item === 'Messages') {
+                <span dsyBadge size="xs" color="primary">29</span>
+              }
+            </button>
+          </li>
+        }
+      </ul>
+    </article>
+    <div class="mockup-code text-xs">
+      <pre data-prefix="$"><code>yarn add daisyui</code></pre>
+      <pre data-prefix=">"><code>installing...</code></pre>
+      <pre data-prefix=">"><code>Done!</code></pre>
+    </div>
+    <div class="theme-preview-alerts">
+      <dsy-alert color="info" announcement="off"
+        ><svg lucideMessageSquare aria-hidden="true"></svg
+        ><span>There are 9 new messages</span></dsy-alert
+      ><dsy-alert color="success" announcement="off"
+        ><svg lucideCheck aria-hidden="true"></svg
+        ><span>Verification process completed</span></dsy-alert
+      ><dsy-alert color="warning" announcement="off"
+        ><svg lucideMail aria-hidden="true"></svg><span>Click to verify your email</span></dsy-alert
+      ><dsy-alert color="error" announcement="off"
+        ><svg lucideShieldAlert aria-hidden="true"></svg><span>Access denied</span
+        ><button dsyButton size="xs" (click)="message.set('Support preview opened.')">
+          Support
+        </button></dsy-alert
+      >
+    </div>
+    <article class="theme-preview-card">
+      <ul class="theme-preview-books">
+        @for (book of books; track book) {
+          <li>
+            <span class="theme-preview-book" aria-hidden="true">✦</span>{{ book
+            }}<span class="opacity-40 ml-auto">⋮</span>
+          </li>
+        }
+      </ul>
+    </article>
+    <article class="theme-preview-card">
+      <div class="join justify-center">
+        <button
+          dsyButton
+          class="join-item"
+          size="xs"
+          [active]="!yearly()"
+          (click)="yearly.set(false)"
+        >
+          Monthly</button
+        ><button
+          dsyButton
+          class="join-item"
+          size="xs"
+          [active]="yearly()"
+          (click)="yearly.set(true)"
+        >
+          Yearly
+        </button>
+      </div>
+      <span dsyBadge size="sm" color="secondary">SALE</span>
+      <h3>Starter Plan</h3>
+      <p>
+        <strong class="text-3xl">${{ yearly() ? '2,000' : '200' }}</strong
+        ><span class="opacity-60 text-xs">/{{ yearly() ? 'year' : 'month' }}</span>
+      </p>
+      <ul class="text-sm space-y-2">
+        <li>✓ 20 Tokens per day</li>
+        <li>✓ 10 Projects</li>
+        <li>✓ API Access</li>
+        <li>✓ Priority Support</li>
+      </ul>
+      <button
+        dsyButton
+        color="primary"
+        size="sm"
+        (click)="message.set('Starter Plan selected for preview.')"
+      >
+        Buy Now
+      </button>
+    </article>
+  </div>
+} @else if (view() === 'variants') {
+  <div class="theme-preview-variants">
+    @for (variant of variants; track variant) {
+      <article class="theme-preview-card">
+        <h3>{{ variant }} buttons</h3>
+        <div class="flex flex-wrap gap-2">
+          @for (color of semantics; track color) {
+            <button dsyButton [variant]="variant" [color]="color" size="sm">{{ color }}</button>
+          }
+        </div>
+      </article>
+    }
+    <article class="theme-preview-card">
+      <h3>Sizes</h3>
+      <div class="flex flex-wrap items-center gap-2">
+        @for (size of sizes; track size) {
+          <button dsyButton [size]="size" color="primary">{{ size }}</button>
+        }
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <h3>Badges</h3>
+      <div class="flex flex-wrap gap-2">
+        @for (color of semantics; track color) {
+          <span dsyBadge [color]="color">{{ color }}</span>
+        }
+      </div>
+    </article>
+    <article class="theme-preview-card">
+      <h3>Form controls</h3>
+      @for (color of semantics; track color) {
+        <div class="flex items-center gap-3">
+          <input
+            dsyCheckbox
+            type="checkbox"
+            [color]="color"
+            checked
+            [attr.aria-label]="color + ' checkbox'"
+          /><input
+            dsyToggle
+            type="checkbox"
+            [color]="color"
+            checked
+            [attr.aria-label]="color + ' toggle'"
+          /><input
+            dsyRange
+            type="range"
+            size="xs"
+            [color]="color"
+            value="60"
+            [attr.aria-label]="color + ' range'"
+          />
+        </div>
+      }
+    </article>
+  </div>
+} @else {
+  <div class="theme-preview-palette">
+    @for (color of palette; track color) {
+      <article class="rounded-box overflow-hidden border border-base-content/10">
+        <div
+          class="p-5 min-h-24 flex items-end justify-between"
+          [style.background]="this.color(color)"
+          [style.color]="
+            color === 'base-content'
+              ? theme().tokens['--color-base-100']
+              : this.color(color + '-content') || theme().tokens['--color-base-content']
+          "
+        >
+          <strong>{{ color }}</strong
+          ><span>Aa</span>
+        </div>
+        <div class="p-3 bg-base-100 text-xs">
+          <code>{{ this.color(color) }}</code>
+        </div>
+      </article>
+    }
+  </div>
+}
+<p class="theme-preview-message" role="status">{{ message() }}</p>
