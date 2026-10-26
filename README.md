@@ -102,3 +102,22 @@ All 19 daisyUI Data Display families are implemented with dedicated showcase pag
 All 68 daisyUI 5.7.50 families now have entry points and dedicated showcase pages, plus Icon and Form Field helpers (70 routes). See the [catalog](docs/catalog.md) and [navigation, feedback, layout and mockup guide](docs/remaining-components.md). Existing issues are reserved for the follow-up refinement pass.
 
 Component documentation is available on all 70 showcase routes, alongside the live playgrounds. Pages cover UI composition, Angular integration, styling, inputs and accessibility, with highlighted code and shared section navigation. Run `yarn test:docs` to compile the standalone documentation examples against the built library.
+
+## Offline showcase (PWA)
+
+The production showcase is installable and caches all local application bundles, documentation,
+playgrounds and images, including lazy component routes, for offline use. Open it online once
+and allow the initial cache download to finish before disconnecting. Theme preferences and saved
+custom themes remain in local browser storage. External links require a connection; the external
+Theme Builder demo image is cached after it has been viewed online.
+
+Run `yarn build` and serve `dist/showcase/browser` using a static server with SPA fallback.
+Deploy over HTTPS (localhost is supported for local testing). Serve `ngsw.json`, `ngsw-worker.js`
+and `index.html` without long-lived HTTP caching. Keep prior hashed assets available during
+rolling deployments. The service worker installs new versions in the background; reopening the
+app uses the latest downloaded version. Normal `yarn start` development builds do not register it.
+
+To check offline behavior, open the production app, wait for service worker installation, then
+select Offline in browser developer tools. Reload a deep route and open another component page.
+Both should render with their documentation and playground. Installation is available through
+the browser's install action where supported.

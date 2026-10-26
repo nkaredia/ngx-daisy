@@ -1,0 +1,27 @@
+{
+  "$schema": "../../node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "showcase",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/**", "!/**/*.map"]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "external-demo-images",
+      "urls": ["https://img.daisyui.com/**"],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 20,
+        "maxAge": "30d",
+        "cacheOpaqueResponses": true
+      }
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
