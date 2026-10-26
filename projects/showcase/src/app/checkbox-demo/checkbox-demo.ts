@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './checkbox-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -10,7 +14,15 @@ import { DsyCheckbox } from '@ngx-daisy/cdk/checkbox';
   providers: providePlayground(playground),
   selector: 'demo-checkbox-demo',
   standalone: true,
-  imports: [Playground, FormField, ReactiveFormsModule, DsyButton, DsyCheckbox],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    FormField,
+    ReactiveFormsModule,
+    DsyButton,
+    DsyCheckbox,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './checkbox-demo.html',
@@ -18,6 +30,8 @@ import { DsyCheckbox } from '@ngx-daisy/cdk/checkbox';
 })
 export class CheckboxDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal({ value: false });
   readonly fields = form(this.model);
   readonly reactive = new FormControl(false, { nonNullable: true });

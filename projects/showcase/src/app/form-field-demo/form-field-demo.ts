@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './form-field-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -13,6 +17,8 @@ import { DsyValidator } from '@ngx-daisy/cdk/validator';
   selector: 'demo-form-field-demo',
   standalone: true,
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     FormField,
     FormRoot,
@@ -33,6 +39,8 @@ import { DsyValidator } from '@ngx-daisy/cdk/validator';
 })
 export class FormFieldDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly submitted = signal(false);
   readonly model = signal({ email: '' });
   readonly fields = form(

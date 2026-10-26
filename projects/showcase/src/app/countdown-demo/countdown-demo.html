@@ -1,33 +1,45 @@
-<section class="action-demo display-demo">
-  <h2>Countdown</h2>
-  <p>
-    Animated numeric displays. Your application owns the clock, duration and completion behavior.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Countdown documentation sections"
+>
+  <div id="countdown-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Countdown</h2>
+      <p>
+        Animated numeric displays. Your application owns the clock, duration and completion
+        behavior.
+      </p>
+      <h3 id="countdown-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Time remaining</h3>
-    <div class="demo-row">
-      <div>
-        <dsy-countdown [value]="hours()" class="text-5xl" />
-        <p>hours</p>
-      </div>
-      <span aria-hidden="true">:</span>
-      <div>
-        <dsy-countdown [value]="minutes()" class="text-5xl" />
-        <p>minutes</p>
-      </div>
-      <span aria-hidden="true">:</span>
-      <div>
-        <dsy-countdown [value]="seconds()" class="text-5xl" />
-        <p>seconds</p>
-      </div>
-    </div>
-    <div class="demo-row mt-4">
-      <button type="button" class="display-button" (click)="tick()">Advance one second</button
-      ><button type="button" class="display-button" (click)="remaining.set(3665)">Reset</button>
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Time remaining</h3>
+        <div class="demo-row">
+          <div>
+            <dsy-countdown [value]="hours()" class="text-5xl" />
+            <p>hours</p>
+          </div>
+          <span aria-hidden="true">:</span>
+          <div>
+            <dsy-countdown [value]="minutes()" class="text-5xl" />
+            <p>minutes</p>
+          </div>
+          <span aria-hidden="true">:</span>
+          <div>
+            <dsy-countdown [value]="seconds()" class="text-5xl" />
+            <p>seconds</p>
+          </div>
+        </div>
+        <div class="demo-row mt-4">
+          <button type="button" class="display-button" (click)="tick()">Advance one second</button
+          ><button type="button" class="display-button" (click)="remaining.set(3665)">Reset</button>
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

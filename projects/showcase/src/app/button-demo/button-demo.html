@@ -1,4 +1,4 @@
-<div class="button-documentation-layout">
+<demo-documentation-page [sections]="sections" navigationLabel="Button documentation sections">
   <section class="action-demo" aria-labelledby="buttons">
     <h2 id="buttons" class="text-xl font-semibold">Buttons</h2>
     <p class="button-page-description">
@@ -35,15 +35,4 @@
     </div>
     <demo-button-documentation />
   </section>
-
-  <aside class="button-page-sidebar" aria-label="On this page">
-    <p>On this page</p>
-    <nav class="button-page-sections" aria-label="Button documentation sections">
-      @for (section of sections; track section.id) {
-        <a [href]="sectionHref(section.id)" (click)="scrollToSection($event, section.id)">{{
-          section.label
-        }}</a>
-      }
-    </nav>
-  </aside>
-</div>
+</demo-documentation-page>

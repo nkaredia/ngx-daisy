@@ -1,25 +1,36 @@
-<section class="action-demo catalog-demo">
-  <h2>Pagination</h2>
-  <p>Windowed page buttons, boundary controls and a two-way page index.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Pagination documentation sections"
+>
+  <div id="pagination-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Pagination</h2>
+      <p>Windowed page buttons, boundary controls and a two-way page index.</p>
+      <h3 id="pagination-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Result pages</h3>
-    <dsy-pagination
-      [length]="250"
-      [pageSize]="10"
-      [(pageIndex)]="page"
-      size="sm"
-      (pageChange)="changes.update(increment)"
-    />
-    <p class="demo-status" aria-live="polite">
-      Page {{ page() + 1 }} of 25 · Navigation events: {{ changes() }}
-    </p>
-  </section>
-  <section class="demo-card">
-    <h3>Single-page result</h3>
-    <dsy-pagination [length]="7" label="Small result pagination" />
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Result pages</h3>
+        <dsy-pagination
+          [length]="250"
+          [pageSize]="10"
+          [(pageIndex)]="page"
+          size="sm"
+          (pageChange)="changes.update(increment)"
+        />
+        <p class="demo-status" aria-live="polite">
+          Page {{ page() + 1 }} of 25 · Navigation events: {{ changes() }}
+        </p>
+      </section>
+      <section class="demo-card">
+        <h3>Single-page result</h3>
+        <dsy-pagination [length]="7" label="Small result pagination" />
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

@@ -1,116 +1,129 @@
-<section class="drawer-demo" aria-labelledby="drawers">
-  <header>
-    <h2 id="drawers" class="text-xl font-semibold">Drawers</h2>
-    <p class="mt-2 text-base-content/70">
-      Keep navigation alongside your work, or bring it forward when you need it.
-    </p>
-  </header>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Drawers documentation sections"
+>
+  <div id="drawer-overview" class="component-documentation-demo">
+    <section class="drawer-demo" aria-labelledby="drawers">
+      <header>
+        <h2 id="drawers" class="text-xl font-semibold">Drawers</h2>
+        <p class="mt-2 text-base-content/70">
+          Keep navigation alongside your work, or bring it forward when you need it.
+        </p>
+      </header>
+      <h3 id="drawer-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <dsy-drawer-container class="drawer-demo-example">
-    <dsy-drawer-content>
-      <div class="drawer-demo-content">
-        <div class="drawer-demo-controls">
-          <label>
-            Mode
-            <select
-              #modeSelect
-              class="select select-bordered select-sm"
-              (change)="setMode(modeSelect.value)"
-            >
-              @for (option of modes; track option) {
-                <option [value]="option" [selected]="option === mode()">{{ option }}</option>
-              }
-            </select>
-          </label>
-          <label>
-            Position
-            <select
-              #positionSelect
-              class="select select-bordered select-sm"
-              (change)="setPosition(positionSelect.value)"
-            >
-              @for (option of positions; track option) {
-                <option [value]="option" [selected]="option === position()">{{ option }}</option>
-              }
-            </select>
-          </label>
-          <button
-            dsyButton
-            type="button"
-            variant="outline"
-            size="sm"
-            aria-controls="demo-navigation-drawer"
-            [attr.aria-expanded]="opened()"
-            (click)="drawer.toggle()"
-          >
-            {{ opened() ? 'Close navigation' : 'Open navigation' }}
-          </button>
-        </div>
-        <div class="drawer-demo-workspace">
-          <span class="badge badge-outline">Demo workspace</span>
-          <h3 class="mt-4 text-2xl font-semibold">{{ currentSection() }}</h3>
-          <p class="mt-3 text-sm text-base-content/70">
-            @if (mode() === 'side') {
-              The side panel shares this space with your content. You can keep working while it
-              stays open.
-            } @else {
-              Open navigation to try a modal drawer over the viewport. Close it with its button, the
-              backdrop, or Escape.
-            }
-          </p>
-          <div class="drawer-demo-cards" aria-hidden="true">
-            <div><span>Projects</span><strong>12</strong></div>
-            <div><span>Updates</span><strong>28</strong></div>
+      <dsy-drawer-container class="drawer-demo-example">
+        <dsy-drawer-content>
+          <div class="drawer-demo-content">
+            <div class="drawer-demo-controls">
+              <label>
+                Mode
+                <select
+                  #modeSelect
+                  class="select select-bordered select-sm"
+                  (change)="setMode(modeSelect.value)"
+                >
+                  @for (option of modes; track option) {
+                    <option [value]="option" [selected]="option === mode()">{{ option }}</option>
+                  }
+                </select>
+              </label>
+              <label>
+                Position
+                <select
+                  #positionSelect
+                  class="select select-bordered select-sm"
+                  (change)="setPosition(positionSelect.value)"
+                >
+                  @for (option of positions; track option) {
+                    <option [value]="option" [selected]="option === position()">
+                      {{ option }}
+                    </option>
+                  }
+                </select>
+              </label>
+              <button
+                dsyButton
+                type="button"
+                variant="outline"
+                size="sm"
+                aria-controls="demo-navigation-drawer"
+                [attr.aria-expanded]="opened()"
+                (click)="drawer.toggle()"
+              >
+                {{ opened() ? 'Close navigation' : 'Open navigation' }}
+              </button>
+            </div>
+            <div class="drawer-demo-workspace">
+              <span class="badge badge-outline">Demo workspace</span>
+              <h3 class="mt-4 text-2xl font-semibold">{{ currentSection() }}</h3>
+              <p class="mt-3 text-sm text-base-content/70">
+                @if (mode() === 'side') {
+                  The side panel shares this space with your content. You can keep working while it
+                  stays open.
+                } @else {
+                  Open navigation to try a modal drawer over the viewport. Close it with its button,
+                  the backdrop, or Escape.
+                }
+              </p>
+              <div class="drawer-demo-cards" aria-hidden="true">
+                <div><span>Projects</span><strong>12</strong></div>
+                <div><span>Updates</span><strong>28</strong></div>
+              </div>
+            </div>
+            <p class="drawer-demo-hint">
+              Start and end follow the text direction. Changing mode or position closes the panel so
+              you can reopen it in the new layout.
+            </p>
           </div>
-        </div>
-        <p class="drawer-demo-hint">
-          Start and end follow the text direction. Changing mode or position closes the panel so you
-          can reopen it in the new layout.
-        </p>
-      </div>
-    </dsy-drawer-content>
+        </dsy-drawer-content>
 
-    <dsy-drawer
-      #drawer
-      id="demo-navigation-drawer"
-      [(opened)]="opened"
-      [mode]="mode()"
-      [position]="position()"
-      width="min(16rem, 55vw)"
-      aria-label="Demo navigation"
-    >
-      <div class="drawer-demo-sidebar">
-        <div class="drawer-demo-sidebar-heading">
-          <span class="font-semibold">Workspace</span>
-          <button dsyButton type="button" variant="ghost" size="sm" (click)="drawer.close()">
-            Close
-          </button>
-        </div>
-        <nav aria-label="Demo sections" class="drawer-demo-navigation">
-          @for (section of sections; track section) {
-            <button
-              dsyButton
-              type="button"
-              variant="ghost"
-              [attr.aria-pressed]="section === currentSection()"
-              (click)="selectSection(section)"
-            >
-              {{ section }}
-            </button>
-          }
-        </nav>
-        <p class="mt-auto text-xs text-base-content/60">
-          Your navigation, in the space that suits it.
-        </p>
-      </div>
-    </dsy-drawer>
-  </dsy-drawer-container>
+        <dsy-drawer
+          #drawer
+          id="demo-navigation-drawer"
+          [(opened)]="opened"
+          [mode]="mode()"
+          [position]="position()"
+          width="min(16rem, 55vw)"
+          aria-label="Demo navigation"
+        >
+          <div class="drawer-demo-sidebar">
+            <div class="drawer-demo-sidebar-heading">
+              <span class="font-semibold">Workspace</span>
+              <button dsyButton type="button" variant="ghost" size="sm" (click)="drawer.close()">
+                Close
+              </button>
+            </div>
+            <nav aria-label="Demo sections" class="drawer-demo-navigation">
+              @for (section of sections; track section) {
+                <button
+                  dsyButton
+                  type="button"
+                  variant="ghost"
+                  [attr.aria-pressed]="section === currentSection()"
+                  (click)="selectSection(section)"
+                >
+                  {{ section }}
+                </button>
+              }
+            </nav>
+            <p class="mt-auto text-xs text-base-content/60">
+              Your navigation, in the space that suits it.
+            </p>
+          </div>
+        </dsy-drawer>
+      </dsy-drawer-container>
 
-  <p class="text-sm text-base-content/60">
-    Over mode is a modal panel with a viewport backdrop. Side mode stays inside this example and
-    keeps the content interactive.
-  </p>
-</section>
+      <p class="text-sm text-base-content/60">
+        Over mode is a modal panel with a viewport backdrop. Side mode stays inside this example and
+        keeps the content interactive.
+      </p>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

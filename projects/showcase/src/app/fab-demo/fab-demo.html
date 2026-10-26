@@ -1,98 +1,110 @@
-<section class="action-demo">
-  <h2>FAB / Speed Dial</h2>
-  <p>
-    Floating action buttons support a single action, a vertical speed dial or a flower layout. Use
-    click, Escape, arrow keys and typeahead to move between actions.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="FAB / Speed Dial documentation sections"
+>
+  <div id="fab-overview" class="component-documentation-demo">
+    <section class="action-demo">
+      <h2>FAB / Speed Dial</h2>
+      <p>
+        Floating action buttons support a single action, a vertical speed dial or a flower layout.
+        Use click, Escape, arrow keys and typeahead to move between actions.
+      </p>
+      <h3 id="fab-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Vertical with close button</h3>
-      <div class="demo-stage">
-        <span>Actions stay inside this preview.</span
-        ><dsy-fab position="absolute" aria-label="Create content"
-          ><button
-            dsyButton
-            dsyFabTrigger
-            shape="circle"
-            color="primary"
-            aria-label="Create content"
-          >
-            ＋</button
-          ><button dsyButton dsyFabClose shape="circle" aria-label="Close actions">×</button
-          ><button dsyButton dsyFabAction (triggered)="action.set('New document')">Document</button
-          ><button dsyButton dsyFabAction (triggered)="action.set('New folder')">Folder</button
-          ><button dsyButton dsyFabAction disabled>Unavailable</button></dsy-fab
-        >
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Vertical with close button</h3>
+          <div class="demo-stage">
+            <span>Actions stay inside this preview.</span
+            ><dsy-fab position="absolute" aria-label="Create content"
+              ><button
+                dsyButton
+                dsyFabTrigger
+                shape="circle"
+                color="primary"
+                aria-label="Create content"
+              >
+                ＋</button
+              ><button dsyButton dsyFabClose shape="circle" aria-label="Close actions">×</button
+              ><button dsyButton dsyFabAction (triggered)="action.set('New document')">
+                Document</button
+              ><button dsyButton dsyFabAction (triggered)="action.set('New folder')">Folder</button
+              ><button dsyButton dsyFabAction disabled>Unavailable</button></dsy-fab
+            >
+          </div>
+        </div>
+        <div class="demo-card">
+          <h3>Flower with main action</h3>
+          <div class="demo-stage">
+            <dsy-fab layout="flower" position="absolute" aria-label="Share content"
+              ><button
+                dsyButton
+                dsyFabTrigger
+                shape="circle"
+                color="secondary"
+                aria-label="Share content"
+              >
+                ↗</button
+              ><button
+                dsyButton
+                dsyFabMainAction
+                shape="circle"
+                color="secondary"
+                aria-label="Share now"
+                (triggered)="action.set('Shared')"
+              >
+                ✓</button
+              ><button
+                dsyButton
+                dsyFabAction
+                shape="circle"
+                aria-label="Email"
+                (triggered)="action.set('Email')"
+              >
+                ＠</button
+              ><button
+                dsyButton
+                dsyFabAction
+                shape="circle"
+                aria-label="Copy link"
+                (triggered)="action.set('Link copied')"
+              >
+                ⧉</button
+              ><button
+                dsyButton
+                dsyFabAction
+                shape="circle"
+                aria-label="Save"
+                (triggered)="action.set('Saved')"
+              >
+                ↓
+              </button></dsy-fab
+            >
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="demo-card">
-      <h3>Flower with main action</h3>
-      <div class="demo-stage">
-        <dsy-fab layout="flower" position="absolute" aria-label="Share content"
+      <div class="demo-card">
+        <h3>Single inline action</h3>
+        <dsy-fab position="inline"
           ><button
             dsyButton
             dsyFabTrigger
+            color="accent"
             shape="circle"
-            color="secondary"
-            aria-label="Share content"
+            aria-label="Add item"
+            (click)="action.set('Item added')"
           >
-            ↗</button
-          ><button
-            dsyButton
-            dsyFabMainAction
-            shape="circle"
-            color="secondary"
-            aria-label="Share now"
-            (triggered)="action.set('Shared')"
-          >
-            ✓</button
-          ><button
-            dsyButton
-            dsyFabAction
-            shape="circle"
-            aria-label="Email"
-            (triggered)="action.set('Email')"
-          >
-            ＠</button
-          ><button
-            dsyButton
-            dsyFabAction
-            shape="circle"
-            aria-label="Copy link"
-            (triggered)="action.set('Link copied')"
-          >
-            ⧉</button
-          ><button
-            dsyButton
-            dsyFabAction
-            shape="circle"
-            aria-label="Save"
-            (triggered)="action.set('Saved')"
-          >
-            ↓
+            ＋
           </button></dsy-fab
         >
+        <p class="demo-status" aria-live="polite">{{ action() }}</p>
       </div>
-    </div>
+    </section>
   </div>
-  <div class="demo-card">
-    <h3>Single inline action</h3>
-    <dsy-fab position="inline"
-      ><button
-        dsyButton
-        dsyFabTrigger
-        color="accent"
-        shape="circle"
-        aria-label="Add item"
-        (click)="action.set('Item added')"
-      >
-        ＋
-      </button></dsy-fab
-    >
-    <p class="demo-status" aria-live="polite">{{ action() }}</p>
-  </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

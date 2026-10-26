@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './chat-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -19,7 +23,16 @@ import {
 @Component({
   selector: 'demo-chat-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyChat, DsyChatHeader, DsyChatBubble, DsyChatFooter, DsyChatImage],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyChat,
+    DsyChatHeader,
+    DsyChatBubble,
+    DsyChatFooter,
+    DsyChatImage,
+  ],
   templateUrl: './chat-demo.html',
   styleUrl: './chat-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,4 +40,6 @@ import {
 })
 export class ChatDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
 }

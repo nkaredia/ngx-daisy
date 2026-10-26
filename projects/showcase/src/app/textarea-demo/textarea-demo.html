@@ -1,42 +1,53 @@
-<section class="action-demo input-demo">
-  <h2>Textareas</h2>
-  <p>Multiline text with native editing, reactive values and Angular CDK autosizing.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Textareas documentation sections"
+>
+  <div id="textarea-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Textareas</h2>
+      <p>Multiline text with native editing, reactive values and Angular CDK autosizing.</p>
+      <h3 id="textarea-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-form-field label="Project notes">
-        <textarea
-          dsyTextarea
-          [formField]="fields.value"
-          autosize
-          minRows="3"
-          maxRows="8"
-          placeholder="Write your notes"
-        ></textarea
-        ><dsy-hint>CDK autosizing grows up to eight rows.</dsy-hint></dsy-form-field
-      >
-      <p class="demo-status">Value: {{ model().value }}</p>
-      <button dsyButton variant="outline" (click)="fields().reset({ value: '' })">
-        Reset signal form
-      </button>
-    </div>
-    <div class="demo-card">
-      <h3>Typed Reactive Forms</h3>
-      <dsy-form-field label="Reactive notes">
-        <textarea dsyTextarea [formControl]="reactive" rows="3"></textarea>
-      </dsy-form-field>
-      <p class="demo-status">Value: {{ reactive.value }}</p>
-      <button
-        dsyButton
-        variant="outline"
-        (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
-      >
-        Toggle disabled
-      </button>
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-form-field label="Project notes">
+            <textarea
+              dsyTextarea
+              [formField]="fields.value"
+              autosize
+              minRows="3"
+              maxRows="8"
+              placeholder="Write your notes"
+            ></textarea
+            ><dsy-hint>CDK autosizing grows up to eight rows.</dsy-hint></dsy-form-field
+          >
+          <p class="demo-status">Value: {{ model().value }}</p>
+          <button dsyButton variant="outline" (click)="fields().reset({ value: '' })">
+            Reset signal form
+          </button>
+        </div>
+        <div class="demo-card">
+          <h3>Typed Reactive Forms</h3>
+          <dsy-form-field label="Reactive notes">
+            <textarea dsyTextarea [formControl]="reactive" rows="3"></textarea>
+          </dsy-form-field>
+          <p class="demo-status">Value: {{ reactive.value }}</p>
+          <button
+            dsyButton
+            variant="outline"
+            (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
+          >
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

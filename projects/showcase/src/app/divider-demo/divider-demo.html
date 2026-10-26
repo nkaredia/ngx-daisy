@@ -1,21 +1,32 @@
-<section class="action-demo catalog-demo">
-  <h2>Dividers</h2>
-  <p>Horizontal and vertical separators with labels, alignment and semantic colors.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Dividers documentation sections"
+>
+  <div id="divider-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Dividers</h2>
+      <p>Horizontal and vertical separators with labels, alignment and semantic colors.</p>
+      <h3 id="divider-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Content sections</h3>
-    <p>First section</p>
-    <dsy-divider color="primary">Continue</dsy-divider>
-    <p>Second section</p>
-    <dsy-divider align="start">Start</dsy-divider><dsy-divider align="end">End</dsy-divider>
-  </section>
-  <section class="demo-card">
-    <h3>Side-by-side content</h3>
-    <div class="demo-row">
-      <span>Previous</span><dsy-divider orientation="vertical" class="h-12" /><span>Next</span>
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Content sections</h3>
+        <p>First section</p>
+        <dsy-divider color="primary">Continue</dsy-divider>
+        <p>Second section</p>
+        <dsy-divider align="start">Start</dsy-divider><dsy-divider align="end">End</dsy-divider>
+      </section>
+      <section class="demo-card">
+        <h3>Side-by-side content</h3>
+        <div class="demo-row">
+          <span>Previous</span><dsy-divider orientation="vertical" class="h-12" /><span>Next</span>
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './hover-gallery-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -13,7 +17,7 @@ import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
 @Component({
   selector: 'demo-hover-gallery-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyHoverGallery],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyHoverGallery],
   templateUrl: './hover-gallery-demo.html',
   styleUrl: './hover-gallery-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +25,8 @@ import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
 })
 export class HoverGalleryDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly selected = signal(0);
   readonly images = [
     { src: '/display/mountain.svg', alt: 'Alpine landscape' },

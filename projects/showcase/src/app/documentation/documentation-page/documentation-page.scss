@@ -1,0 +1,39 @@
+demo-documentation-page {
+  display: block;
+  min-inline-size: 0;
+}
+.showcase-shell .showcase-content:has(demo-documentation-page) {
+  max-inline-size: 80rem;
+}
+.documentation-page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 10rem;
+  align-items: start;
+  gap: 2rem;
+  &:not(:has(> demo-documentation-navigation)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  > demo-documentation-navigation {
+    position: sticky;
+    inset-block-start: 2rem;
+  }
+}
+.documentation-page-content {
+  min-inline-size: 0;
+  :where([id]) {
+    scroll-margin-block-start: 6rem;
+  }
+  [tabindex='-1']:focus {
+    outline: none;
+  }
+}
+@media (max-width: 1199px) {
+  .documentation-page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    > demo-documentation-navigation {
+      position: static;
+      grid-row: 1;
+    }
+  }
+}

@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './label-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -11,6 +15,8 @@ import { DsyFloatingLabel, DsyLabel, DsyNativeLabel } from '@ngx-daisy/cdk/label
   selector: 'demo-label-demo',
   standalone: true,
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     FormField,
     DsyFormField,
@@ -27,6 +33,8 @@ import { DsyFloatingLabel, DsyLabel, DsyNativeLabel } from '@ngx-daisy/cdk/label
 })
 export class LabelDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal({ name: '', floating: '' });
   readonly fields = form(this.model);
 }

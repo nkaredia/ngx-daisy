@@ -8,10 +8,11 @@
     "build:showcase": "ng build showcase",
     "build": "yarn build:lib && yarn build:showcase",
     "watch:lib": "ng build ngx-daisy --watch --configuration development",
-    "test": "ng test ngx-daisy --watch=false && ng test showcase --watch=false && yarn test:styles && yarn test:builder",
+    "test": "ng test ngx-daisy --watch=false && ng test showcase --watch=false && yarn test:styles && yarn test:builder && yarn test:docs",
     "test:styles": "node scripts/check-daisyui-config.mjs",
     "test:builder": "node --test tools/showcase-builder/*.test.cjs",
-    "postinstall": "node tools/showcase-builder/sync-schemas.cjs"
+    "postinstall": "node tools/showcase-builder/sync-schemas.cjs",
+    "test:docs": "node tools/showcase-builder/check-documentation-examples.mjs"
   },
   "private": true,
   "packageManager": "yarn@4.18.1",

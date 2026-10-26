@@ -1,29 +1,42 @@
-<section class="action-demo catalog-demo">
-  <h2>Heroes</h2>
-  <p>Compose a prominent introduction with optional background overlays.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Heroes documentation sections"
+>
+  <div id="hero-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Heroes</h2>
+      <p>Compose a prominent introduction with optional background overlays.</p>
+      <h3 id="hero-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Welcome section</h3>
-    <dsy-hero class="bg-base-200 rounded-box min-h-80"
-      ><dsy-hero-content class="text-center"
-        ><div>
-          <h3 class="text-3xl">Build your next idea</h3>
-          <p class="py-4">Reusable components, familiar behavior and application-owned themes.</p>
-          <a href="/buttons" class="catalog-button">Explore components</a>
-        </div></dsy-hero-content
-      ></dsy-hero
-    >
-  </section>
-  <section class="demo-card">
-    <h3>With an overlay</h3>
-    <dsy-hero class="catalog-hero-art rounded-box min-h-64"
-      ><div dsyHeroOverlay></div>
-      <dsy-hero-content class="text-white"
-        ><h3>Room for a fresh perspective.</h3></dsy-hero-content
-      ></dsy-hero
-    >
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Welcome section</h3>
+        <dsy-hero class="bg-base-200 rounded-box min-h-80"
+          ><dsy-hero-content class="text-center"
+            ><div>
+              <h3 class="text-3xl">Build your next idea</h3>
+              <p class="py-4">
+                Reusable components, familiar behavior and application-owned themes.
+              </p>
+              <a href="/buttons" class="catalog-button">Explore components</a>
+            </div></dsy-hero-content
+          ></dsy-hero
+        >
+      </section>
+      <section class="demo-card">
+        <h3>With an overlay</h3>
+        <dsy-hero class="catalog-hero-art rounded-box min-h-64"
+          ><div dsyHeroOverlay></div>
+          <dsy-hero-content class="text-white"
+            ><h3>Room for a fresh perspective.</h3></dsy-hero-content
+          ></dsy-hero
+        >
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

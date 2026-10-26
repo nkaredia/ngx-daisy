@@ -1,32 +1,45 @@
-<section class="action-demo display-demo">
-  <h2>Badges</h2>
-  <p>Labels with semantic colors, sizes and border styles.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Badges documentation sections"
+>
+  <div id="badge-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Badges</h2>
+      <p>Labels with semantic colors, sizes and border styles.</p>
+      <h3 id="badge-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Semantic colors</h3>
-    <div class="demo-row">
-      <dsy-badge color="neutral">Neutral</dsy-badge><dsy-badge color="primary">Primary</dsy-badge
-      ><dsy-badge color="secondary">Secondary</dsy-badge><dsy-badge color="accent">Accent</dsy-badge
-      ><dsy-badge color="info">Info</dsy-badge><dsy-badge color="success">Success</dsy-badge
-      ><dsy-badge color="warning">Warning</dsy-badge><dsy-badge color="error">Error</dsy-badge>
-    </div>
-  </section>
-  <section class="demo-card">
-    <h3>Styles and scale</h3>
-    <div class="demo-row">
-      <dsy-badge variant="solid" color="primary">Solid</dsy-badge
-      ><dsy-badge variant="outline" color="primary">Outline</dsy-badge
-      ><dsy-badge variant="dash" color="primary">Dash</dsy-badge
-      ><dsy-badge variant="soft" color="primary">Soft</dsy-badge
-      ><dsy-badge variant="ghost" color="primary">Ghost</dsy-badge>
-    </div>
-    <div class="demo-row mt-4">
-      <dsy-badge size="xs">XS</dsy-badge><dsy-badge size="sm">SM</dsy-badge
-      ><dsy-badge size="md">MD</dsy-badge><dsy-badge size="lg">LG</dsy-badge
-      ><dsy-badge size="xl">XL</dsy-badge>
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Semantic colors</h3>
+        <div class="demo-row">
+          <dsy-badge color="neutral">Neutral</dsy-badge
+          ><dsy-badge color="primary">Primary</dsy-badge
+          ><dsy-badge color="secondary">Secondary</dsy-badge
+          ><dsy-badge color="accent">Accent</dsy-badge><dsy-badge color="info">Info</dsy-badge
+          ><dsy-badge color="success">Success</dsy-badge
+          ><dsy-badge color="warning">Warning</dsy-badge><dsy-badge color="error">Error</dsy-badge>
+        </div>
+      </section>
+      <section class="demo-card">
+        <h3>Styles and scale</h3>
+        <div class="demo-row">
+          <dsy-badge variant="solid" color="primary">Solid</dsy-badge
+          ><dsy-badge variant="outline" color="primary">Outline</dsy-badge
+          ><dsy-badge variant="dash" color="primary">Dash</dsy-badge
+          ><dsy-badge variant="soft" color="primary">Soft</dsy-badge
+          ><dsy-badge variant="ghost" color="primary">Ghost</dsy-badge>
+        </div>
+        <div class="demo-row mt-4">
+          <dsy-badge size="xs">XS</dsy-badge><dsy-badge size="sm">SM</dsy-badge
+          ><dsy-badge size="md">MD</dsy-badge><dsy-badge size="lg">LG</dsy-badge
+          ><dsy-badge size="xl">XL</dsy-badge>
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

@@ -1,34 +1,47 @@
-<section class="action-demo display-demo">
-  <h2>Accordions</h2>
-  <p>CDK coordinates exclusive expansion. Enable multi to allow several open panels.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Accordions documentation sections"
+>
+  <div id="accordion-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Accordions</h2>
+      <p>CDK coordinates exclusive expansion. Enable multi to allow several open panels.</p>
+      <h3 id="accordion-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Frequently asked questions</h3>
-    <dsy-accordion
-      ><dsy-collapse title="How does expansion work?" [opened]="true" class="bg-base-200"
-        ><p>Opening another item closes the previous item in this group.</p></dsy-collapse
-      ><dsy-collapse title="Does it work with a keyboard?" class="bg-base-200 mt-4"
-        ><p>Tab to a heading and press Enter or Space.</p></dsy-collapse
-      ><dsy-collapse title="Can the appearance change?" class="bg-base-200 mt-4"
-        ><p>Use theme tokens and application utility classes.</p></dsy-collapse
-      ></dsy-accordion
-    >
-  </section>
-  <section class="demo-card">
-    <h3>Multiple open panels</h3>
-    <dsy-accordion multi #group
-      ><dsy-collapse title="First detail" indicator="plus"
-        >A panel in a multi-open group.</dsy-collapse
-      ><dsy-collapse title="Second detail" indicator="plus"
-        >Another independently open panel.</dsy-collapse
-      ></dsy-accordion
-    >
-    <div class="demo-row">
-      <button type="button" class="display-button" (click)="group.openAll()">Open all</button
-      ><button type="button" class="display-button" (click)="group.closeAll()">Close all</button>
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Frequently asked questions</h3>
+        <dsy-accordion
+          ><dsy-collapse title="How does expansion work?" [opened]="true" class="bg-base-200"
+            ><p>Opening another item closes the previous item in this group.</p></dsy-collapse
+          ><dsy-collapse title="Does it work with a keyboard?" class="bg-base-200 mt-4"
+            ><p>Tab to a heading and press Enter or Space.</p></dsy-collapse
+          ><dsy-collapse title="Can the appearance change?" class="bg-base-200 mt-4"
+            ><p>Use theme tokens and application utility classes.</p></dsy-collapse
+          ></dsy-accordion
+        >
+      </section>
+      <section class="demo-card">
+        <h3>Multiple open panels</h3>
+        <dsy-accordion multi #group
+          ><dsy-collapse title="First detail" indicator="plus"
+            >A panel in a multi-open group.</dsy-collapse
+          ><dsy-collapse title="Second detail" indicator="plus"
+            >Another independently open panel.</dsy-collapse
+          ></dsy-accordion
+        >
+        <div class="demo-row">
+          <button type="button" class="display-button" (click)="group.openAll()">Open all</button
+          ><button type="button" class="display-button" (click)="group.closeAll()">
+            Close all
+          </button>
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

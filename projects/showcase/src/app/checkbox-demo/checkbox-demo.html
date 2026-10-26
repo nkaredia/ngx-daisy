@@ -1,47 +1,58 @@
-<section class="action-demo input-demo">
-  <h2>Checkboxes</h2>
-  <p>Accept project updates</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
-
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <label class="demo-row"
-        ><input type="checkbox" dsyCheckbox color="primary" [formField]="fields.value" /> Accept
-        project updates</label
-      >
-      <p class="demo-status">Value: {{ model().value }}</p>
-      <button dsyButton variant="outline" (click)="fields().reset({ value: false })">
-        Reset signal form
-      </button>
-    </div>
-    <div class="demo-card">
-      <h3>Typed Reactive Forms</h3>
-      <label class="demo-row"
-        ><input type="checkbox" dsyCheckbox color="secondary" [formControl]="reactive" /> Reactive
-        control</label
-      >
-      <p class="demo-status">Value: {{ reactive.value }}</p>
-      <button
-        dsyButton
-        variant="outline"
-        (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
-      >
-        Toggle disabled
-      </button>
-    </div>
-  </div>
-  <div class="demo-card">
-    <h3>Colors, sizes and mixed state</h3>
-    <div class="demo-row">
-      @for (color of colors; track color) {
-        <label><input type="checkbox" dsyCheckbox [color]="color" checked /> {{ color }}</label>
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Checkboxes documentation sections"
+>
+  <div id="checkbox-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Checkboxes</h2>
+      <p>Accept project updates</p>
+      <h3 id="checkbox-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
       }
-    </div>
-    <label class="mt-4"
-      ><input type="checkbox" dsyCheckbox [indeterminate]="true" /> Partially selected</label
-    >
+
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <label class="demo-row"
+            ><input type="checkbox" dsyCheckbox color="primary" [formField]="fields.value" /> Accept
+            project updates</label
+          >
+          <p class="demo-status">Value: {{ model().value }}</p>
+          <button dsyButton variant="outline" (click)="fields().reset({ value: false })">
+            Reset signal form
+          </button>
+        </div>
+        <div class="demo-card">
+          <h3>Typed Reactive Forms</h3>
+          <label class="demo-row"
+            ><input type="checkbox" dsyCheckbox color="secondary" [formControl]="reactive" />
+            Reactive control</label
+          >
+          <p class="demo-status">Value: {{ reactive.value }}</p>
+          <button
+            dsyButton
+            variant="outline"
+            (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
+          >
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+      <div class="demo-card">
+        <h3>Colors, sizes and mixed state</h3>
+        <div class="demo-row">
+          @for (color of colors; track color) {
+            <label><input type="checkbox" dsyCheckbox [color]="color" checked /> {{ color }}</label>
+          }
+        </div>
+        <label class="mt-4"
+          ><input type="checkbox" dsyCheckbox [indeterminate]="true" /> Partially selected</label
+        >
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

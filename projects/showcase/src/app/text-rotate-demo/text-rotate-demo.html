@@ -1,33 +1,44 @@
-<section class="action-demo display-demo">
-  <h2>Text Rotate</h2>
-  <p>
-    Rotate short decorative phrases with a stable accessible label. Reduced motion shows the first
-    phrase.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Text Rotate documentation sections"
+>
+  <div id="text-rotate-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Text Rotate</h2>
+      <p>
+        Rotate short decorative phrases with a stable accessible label. Reduced motion shows the
+        first phrase.
+      </p>
+      <h3 id="text-rotate-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>One collection, many possibilities</h3>
-    <p class="text-3xl font-bold">
-      Build
-      <dsy-text-rotate
-        class="text-primary"
-        [items]="words"
-        [duration]="6000"
-        [running]="playing()"
-        label="Build accessible, flexible, beautiful interfaces"
-      />
-      interfaces.
-    </p>
-    <button
-      type="button"
-      class="display-button mt-4"
-      [attr.aria-pressed]="!playing()"
-      (click)="playing.update(toggle)"
-    >
-      {{ playing() ? 'Pause animation' : 'Resume animation' }}
-    </button>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>One collection, many possibilities</h3>
+        <p class="text-3xl font-bold">
+          Build
+          <dsy-text-rotate
+            class="text-primary"
+            [items]="words"
+            [duration]="6000"
+            [running]="playing()"
+            label="Build accessible, flexible, beautiful interfaces"
+          />
+          interfaces.
+        </p>
+        <button
+          type="button"
+          class="display-button mt-4"
+          [attr.aria-pressed]="!playing()"
+          (click)="playing.update(toggle)"
+        >
+          {{ playing() ? 'Pause animation' : 'Resume animation' }}
+        </button>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

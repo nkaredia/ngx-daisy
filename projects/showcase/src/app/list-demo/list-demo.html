@@ -1,37 +1,48 @@
-<section class="action-demo display-demo">
-  <h2>Lists</h2>
-  <p>Native lists with growing columns and wrapping descriptions.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Lists documentation sections"
+>
+  <div id="list-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Lists</h2>
+      <p>Native lists with growing columns and wrapping descriptions.</p>
+      <h3 id="list-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Recent updates</h3>
-    <ul dsyList>
-      <li dsyListRow>
-        <span class="display-number">01</span>
-        <div dsyListGrow>
-          <strong>Design review</strong>
-          <p dsyListWrap>Component tokens and theme decisions</p>
-        </div>
-        <time>10:30</time>
-      </li>
-      <li dsyListRow>
-        <span class="display-number">02</span>
-        <div dsyListGrow>
-          <strong>Accessibility pass</strong>
-          <p dsyListWrap>Keyboard controls and meaningful labels</p>
-        </div>
-        <time>11:15</time>
-      </li>
-      <li dsyListRow>
-        <span class="display-number">03</span>
-        <div dsyListGrow>
-          <strong>Release notes</strong>
-          <p dsyListWrap>Everything new in the collection</p>
-        </div>
-        <time>12:00</time>
-      </li>
-    </ul>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Recent updates</h3>
+        <ul dsyList>
+          <li dsyListRow>
+            <span class="display-number">01</span>
+            <div dsyListGrow>
+              <strong>Design review</strong>
+              <p dsyListWrap>Component tokens and theme decisions</p>
+            </div>
+            <time>10:30</time>
+          </li>
+          <li dsyListRow>
+            <span class="display-number">02</span>
+            <div dsyListGrow>
+              <strong>Accessibility pass</strong>
+              <p dsyListWrap>Keyboard controls and meaningful labels</p>
+            </div>
+            <time>11:15</time>
+          </li>
+          <li dsyListRow>
+            <span class="display-number">03</span>
+            <div dsyListGrow>
+              <strong>Release notes</strong>
+              <p dsyListWrap>Everything new in the collection</p>
+            </div>
+            <time>12:00</time>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

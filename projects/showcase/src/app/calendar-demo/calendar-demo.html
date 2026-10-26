@@ -1,36 +1,47 @@
-<section class="action-demo input-demo">
-  <h2>Calendars</h2>
-  <p>
-    An Angular calendar with date-only values, localized labels, range limits and Material-style
-    date keyboard navigation. Theme tokens provide daisyUI appearance.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Calendars documentation sections"
+>
+  <div id="calendar-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Calendars</h2>
+      <p>
+        An Angular calendar with date-only values, localized labels, range limits and Material-style
+        date keyboard navigation. Theme tokens provide daisyUI appearance.
+      </p>
+      <h3 id="calendar-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-calendar [formField]="fields.value" aria-label="Project date" />
-      <p class="demo-status">Selected date: {{ model().value }}</p>
-      <dsy-form-field label="Same value, native date input"
-        ><input type="date" dsyInput [formField]="fields.value"
-      /></dsy-form-field>
-    </div>
-    <div class="demo-card">
-      <h3>Restricted Reactive Forms calendar</h3>
-      <dsy-calendar
-        [formControl]="reactive"
-        min="2026-10-01"
-        max="2026-12-31"
-        [dateFilter]="weekdaysOnly"
-        [firstDayOfWeek]="1"
-        aria-label="Weekday appointment"
-      />
-      <p class="demo-status">Weekday: {{ reactive.value }}</p>
-      <button dsyButton (click)="reactive.disabled ? reactive.enable() : reactive.disable()">
-        Toggle disabled
-      </button>
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-calendar [formField]="fields.value" aria-label="Project date" />
+          <p class="demo-status">Selected date: {{ model().value }}</p>
+          <dsy-form-field label="Same value, native date input"
+            ><input type="date" dsyInput [formField]="fields.value"
+          /></dsy-form-field>
+        </div>
+        <div class="demo-card">
+          <h3>Restricted Reactive Forms calendar</h3>
+          <dsy-calendar
+            [formControl]="reactive"
+            min="2026-10-01"
+            max="2026-12-31"
+            [dateFilter]="weekdaysOnly"
+            [firstDayOfWeek]="1"
+            aria-label="Weekday appointment"
+          />
+          <p class="demo-status">Weekday: {{ reactive.value }}</p>
+          <button dsyButton (click)="reactive.disabled ? reactive.enable() : reactive.disable()">
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

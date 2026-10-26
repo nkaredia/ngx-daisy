@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './aura-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -13,7 +17,7 @@ import { DsyAura } from '@ngx-daisy/cdk/aura';
 @Component({
   selector: 'demo-aura-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyAura],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyAura],
   templateUrl: './aura-demo.html',
   styleUrl: './aura-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,4 +25,6 @@ import { DsyAura } from '@ngx-daisy/cdk/aura';
 })
 export class AuraDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
 }

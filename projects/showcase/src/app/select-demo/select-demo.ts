@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './select-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -12,6 +16,8 @@ import { DsySelect, DsySelectWrapper } from '@ngx-daisy/cdk/select';
   selector: 'demo-select-demo',
   standalone: true,
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     FormField,
     ReactiveFormsModule,
@@ -28,6 +34,8 @@ import { DsySelect, DsySelectWrapper } from '@ngx-daisy/cdk/select';
 })
 export class SelectDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal({ value: 'angular' });
   readonly fields = form(this.model);
   readonly reactive = new FormControl('angular', { nonNullable: true });

@@ -106,14 +106,14 @@ describe('Showcase routes', () => {
     try {
       media.mockReturnValue({ matches: false } as MediaQueryList);
       root
-        .querySelector<HTMLAnchorElement>('.button-page-sections a[href$="#button-api"]')!
+        .querySelector<HTMLAnchorElement>('.documentation-section-links a[href$="#button-api"]')!
         .click();
       await fixture.whenStable();
       expect(scroll).toHaveBeenLastCalledWith({ behavior: 'smooth', block: 'start' });
       expect(document.activeElement).toBe(target);
       media.mockReturnValue({ matches: true } as MediaQueryList);
       root
-        .querySelector<HTMLAnchorElement>('.button-page-sections a[href$="#button-api"]')!
+        .querySelector<HTMLAnchorElement>('.documentation-section-links a[href$="#button-api"]')!
         .click();
       await fixture.whenStable();
       expect(scroll).toHaveBeenLastCalledWith({ behavior: 'instant', block: 'start' });
@@ -245,6 +245,24 @@ describe('Showcase routes', () => {
       expect(main?.querySelectorAll('h2')).toHaveLength(1);
       expect(main?.querySelector('h2')?.textContent?.trim()).toBe(label);
       expect(main?.querySelector(selector)).not.toBeNull();
+      expect(main?.querySelector('demo-documentation-page')).not.toBeNull();
+      const sectionLinks = main!.querySelectorAll<HTMLAnchorElement>(
+        'demo-documentation-navigation a',
+      );
+      expect(sectionLinks).toHaveLength(6);
+      for (const link of sectionLinks) {
+        const id = new URL(link.href).hash.slice(1);
+        expect(
+          Array.from(main!.querySelectorAll('[id]')).some((element) => element.id === id),
+        ).toBe(true);
+      }
+      if (path !== '/buttons') {
+        expect(main?.querySelector('demo-component-documentation')).not.toBeNull();
+        expect(main?.querySelector('demo-component-documentation pre code')?.textContent).toContain(
+          '@ngx-daisy/cdk/',
+        );
+      }
+
       expect(main?.querySelectorAll('demo-playground').length).toBeGreaterThan(0);
       expect(
         main?.querySelector('demo-playground .playground-example')?.children.length,

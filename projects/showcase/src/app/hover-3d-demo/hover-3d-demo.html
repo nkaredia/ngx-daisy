@@ -1,26 +1,37 @@
-<section class="action-demo display-demo">
-  <h2>Hover 3D Cards</h2>
-  <p>
-    A subtle pointer tilt that preserves links and buttons. Reduced-motion preferences disable the
-    effect.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Hover 3D Cards documentation sections"
+>
+  <div id="hover-3d-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Hover 3D Cards</h2>
+      <p>
+        A subtle pointer tilt that preserves links and buttons. Reduced-motion preferences disable
+        the effect.
+      </p>
+      <h3 id="hover-3d-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Interactive content</h3>
-    <dsy-hover-3d class="display-tilt-card"
-      ><div class="display-slide art-mountain">
-        <span>Featured collection</span>
-        <h3>Take a different angle</h3>
-        <button type="button" class="display-button" (click)="saved.update(toggle)">
-          {{ saved() ? 'Saved' : 'Save collection' }}
-        </button>
-      </div></dsy-hover-3d
-    >
-    <p class="demo-status" aria-live="polite">
-      {{ saved() ? 'Collection saved' : 'Ready to explore' }}
-    </p>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Interactive content</h3>
+        <dsy-hover-3d class="display-tilt-card"
+          ><div class="display-slide art-mountain">
+            <span>Featured collection</span>
+            <h3>Take a different angle</h3>
+            <button type="button" class="display-button" (click)="saved.update(toggle)">
+              {{ saved() ? 'Saved' : 'Save collection' }}
+            </button>
+          </div></dsy-hover-3d
+        >
+        <p class="demo-status" aria-live="polite">
+          {{ saved() ? 'Collection saved' : 'Ready to explore' }}
+        </p>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

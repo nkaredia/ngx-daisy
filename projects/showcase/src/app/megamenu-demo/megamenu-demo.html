@@ -1,46 +1,58 @@
-<section class="action-demo catalog-demo">
-  <h2>Megamenus</h2>
-  <p>
-    Responsive navigation panels with CDK positioning, keyboard access and focus-aware dismissal.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Megamenus documentation sections"
+>
+  <div id="megamenu-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Megamenus</h2>
+      <p>
+        Responsive navigation panels with CDK positioning, keyboard access and focus-aware
+        dismissal.
+      </p>
+      <h3 id="megamenu-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Component collections</h3>
-    <dsy-megamenu
-      label="Component collections"
-      [vertical]="vertical()"
-      width="wide"
-      panelClass="catalog-mega-panel"
-      ><ng-template dsyMegamenuItem="Build"
-        ><div class="demo-grid">
-          <div>
-            <h3>Get started</h3>
-            <a href="/buttons">Buttons and actions</a>
-            <p>Common controls for every interface.</p>
-          </div>
-          <div>
-            <h3>Collect input</h3>
-            <a href="/inputs">Form controls</a>
-            <p>Signal-based state and native semantics.</p>
-          </div>
-        </div></ng-template
-      ><ng-template dsyMegamenuItem="Explore"
-        ><div class="demo-grid">
-          <div>
-            <h3>Present information</h3>
-            <a href="/cards">Cards</a>
-          </div>
-          <div>
-            <h3>Work with data</h3>
-            <a href="/tables">Tables</a>
-          </div>
-        </div></ng-template
-      ><ng-template dsyMegamenuItem="Coming soon" disabled
-        >Unavailable content.</ng-template
-      ></dsy-megamenu
-    >
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Component collections</h3>
+        <dsy-megamenu
+          label="Component collections"
+          [vertical]="vertical()"
+          width="wide"
+          panelClass="catalog-mega-panel"
+          ><ng-template dsyMegamenuItem="Build"
+            ><div class="demo-grid">
+              <div>
+                <h3>Get started</h3>
+                <a href="/buttons">Buttons and actions</a>
+                <p>Common controls for every interface.</p>
+              </div>
+              <div>
+                <h3>Collect input</h3>
+                <a href="/inputs">Form controls</a>
+                <p>Signal-based state and native semantics.</p>
+              </div>
+            </div></ng-template
+          ><ng-template dsyMegamenuItem="Explore"
+            ><div class="demo-grid">
+              <div>
+                <h3>Present information</h3>
+                <a href="/cards">Cards</a>
+              </div>
+              <div>
+                <h3>Work with data</h3>
+                <a href="/tables">Tables</a>
+              </div>
+            </div></ng-template
+          ><ng-template dsyMegamenuItem="Coming soon" disabled
+            >Unavailable content.</ng-template
+          ></dsy-megamenu
+        >
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

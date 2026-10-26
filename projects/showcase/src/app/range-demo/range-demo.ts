@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './range-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -11,7 +15,17 @@ import { DsyRange } from '@ngx-daisy/cdk/range';
   providers: providePlayground(playground),
   selector: 'demo-range-demo',
   standalone: true,
-  imports: [Playground, FormField, ReactiveFormsModule, DsyFormField, DsyHint, DsyButton, DsyRange],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    FormField,
+    ReactiveFormsModule,
+    DsyFormField,
+    DsyHint,
+    DsyButton,
+    DsyRange,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './range-demo.html',
@@ -19,6 +33,8 @@ import { DsyRange } from '@ngx-daisy/cdk/range';
 })
 export class RangeDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal({ value: 35 });
   readonly fields = form(this.model, (s) => {
     min(s.value, 0);

@@ -1,34 +1,45 @@
-<section class="action-demo catalog-demo">
-  <h2>Radial Progress</h2>
-  <p>Determinate circular progress with configurable size and thickness.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Radial Progress documentation sections"
+>
+  <div id="radial-progress-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Radial Progress</h2>
+      <p>Determinate circular progress with configurable size and thickness.</p>
+      <h3 id="radial-progress-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Project completion</h3>
-    <div class="demo-row">
-      <dsy-radial-progress
-        [value]="value()"
-        color="primary"
-        label="Project completion"
-      /><dsy-radial-progress
-        [value]="value()"
-        color="success"
-        size="7rem"
-        thickness=".75rem"
-        label="Large completion example"
-        ><span>{{ value() }} / 100</span></dsy-radial-progress
-      >
-    </div>
-    <label class="mt-4"
-      >Completion
-      <input
-        type="range"
-        min="0"
-        max="100"
-        [value]="value()"
-        (input)="value.set(+$any($event.target).value)"
-    /></label>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Project completion</h3>
+        <div class="demo-row">
+          <dsy-radial-progress
+            [value]="value()"
+            color="primary"
+            label="Project completion"
+          /><dsy-radial-progress
+            [value]="value()"
+            color="success"
+            size="7rem"
+            thickness=".75rem"
+            label="Large completion example"
+            ><span>{{ value() }} / 100</span></dsy-radial-progress
+          >
+        </div>
+        <label class="mt-4"
+          >Completion
+          <input
+            type="range"
+            min="0"
+            max="100"
+            [value]="value()"
+            (input)="value.set(+$any($event.target).value)"
+        /></label>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

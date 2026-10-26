@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './drawer-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -9,7 +13,15 @@ import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/
   selector: 'demo-drawer-demo',
   standalone: true,
   providers: providePlayground(playground),
-  imports: [Playground, DsyButton, DsyDrawerContainer, DsyDrawerContent, DsyDrawer],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyButton,
+    DsyDrawerContainer,
+    DsyDrawerContent,
+    DsyDrawer,
+  ],
   templateUrl: './drawer-demo.html',
   styleUrl: './drawer-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,6 +29,8 @@ import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/
 })
 export class DrawerDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly mode = signal<'over' | 'side'>('side');
   readonly position = signal<'start' | 'end'>('start');
   readonly opened = signal(true);

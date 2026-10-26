@@ -1,41 +1,52 @@
-<section class="action-demo input-demo">
-  <h2>Radio Groups</h2>
-  <p>
-    Radio groups share one form value, with CDK arrow-key navigation, disabled-option skipping and
-    projected labels.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Radio Groups documentation sections"
+>
+  <div id="radio-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Radio Groups</h2>
+      <p>
+        Radio groups share one form value, with CDK arrow-key navigation, disabled-option skipping
+        and projected labels.
+      </p>
+      <h3 id="radio-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-form-field label="Contact method"
-        ><dsy-radio-group [formField]="fields.value" color="primary" aria-label="Contact method"
-          ><dsy-radio-button value="email">Email</dsy-radio-button
-          ><dsy-radio-button value="sms">Text message</dsy-radio-button
-          ><dsy-radio-button value="phone" disabled
-            >Phone (unavailable)</dsy-radio-button
-          ></dsy-radio-group
-        ><dsy-hint>Use arrow keys to move and select.</dsy-hint></dsy-form-field
-      >
-      <p class="demo-status">Selected: {{ model().value }}</p>
-    </div>
-    <div class="demo-card">
-      <h3>Typed Reactive Forms</h3>
-      <dsy-radio-group
-        [formControl]="reactive"
-        color="secondary"
-        labelPosition="before"
-        aria-label="Reactive contact method"
-        ><dsy-radio-button value="email">Email</dsy-radio-button
-        ><dsy-radio-button value="sms">Text message</dsy-radio-button></dsy-radio-group
-      >
-      <p class="demo-status">Selected: {{ reactive.value }}</p>
-      <button dsyButton (click)="reactive.disabled ? reactive.enable() : reactive.disable()">
-        Toggle disabled
-      </button>
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-form-field label="Contact method"
+            ><dsy-radio-group [formField]="fields.value" color="primary" aria-label="Contact method"
+              ><dsy-radio-button value="email">Email</dsy-radio-button
+              ><dsy-radio-button value="sms">Text message</dsy-radio-button
+              ><dsy-radio-button value="phone" disabled
+                >Phone (unavailable)</dsy-radio-button
+              ></dsy-radio-group
+            ><dsy-hint>Use arrow keys to move and select.</dsy-hint></dsy-form-field
+          >
+          <p class="demo-status">Selected: {{ model().value }}</p>
+        </div>
+        <div class="demo-card">
+          <h3>Typed Reactive Forms</h3>
+          <dsy-radio-group
+            [formControl]="reactive"
+            color="secondary"
+            labelPosition="before"
+            aria-label="Reactive contact method"
+            ><dsy-radio-button value="email">Email</dsy-radio-button
+            ><dsy-radio-button value="sms">Text message</dsy-radio-button></dsy-radio-group
+          >
+          <p class="demo-status">Selected: {{ reactive.value }}</p>
+          <button dsyButton (click)="reactive.disabled ? reactive.enable() : reactive.disable()">
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

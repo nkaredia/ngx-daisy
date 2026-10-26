@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './textarea-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -12,6 +16,8 @@ import { DsyTextarea } from '@ngx-daisy/cdk/textarea';
   selector: 'demo-textarea-demo',
   standalone: true,
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     FormField,
     ReactiveFormsModule,
@@ -27,6 +33,8 @@ import { DsyTextarea } from '@ngx-daisy/cdk/textarea';
 })
 export class TextareaDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal({ value: '' });
   readonly fields = form(this.model);
   readonly reactive = new FormControl('', { nonNullable: true });

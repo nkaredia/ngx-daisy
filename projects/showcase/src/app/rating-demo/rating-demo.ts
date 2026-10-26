@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './rating-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -9,7 +13,14 @@ import { DsyRating } from '@ngx-daisy/cdk/rating';
   providers: providePlayground(playground),
   selector: 'demo-rating-demo',
   standalone: true,
-  imports: [Playground, FormField, ReactiveFormsModule, DsyRating],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    FormField,
+    ReactiveFormsModule,
+    DsyRating,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './rating-demo.html',
@@ -17,6 +28,8 @@ import { DsyRating } from '@ngx-daisy/cdk/rating';
 })
 export class RatingDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal<{ value: number | null }>({ value: 3 });
   readonly fields = form(this.model);
   readonly reactive = new FormControl<number | null>(3.5);

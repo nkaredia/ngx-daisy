@@ -1,52 +1,63 @@
-<section class="action-demo input-demo">
-  <h2>Text Inputs</h2>
-  <p>
-    Native text, number and date inputs with Material-style field composition and app-owned
-    validation.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Text Inputs documentation sections"
+>
+  <div id="input-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Text Inputs</h2>
+      <p>
+        Native text, number and date inputs with Material-style field composition and app-owned
+        validation.
+      </p>
+      <h3 id="input-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-form-field label="Project name"
-        ><span dsyPrefix aria-hidden="true">✎</span
-        ><input
-          dsyInput
-          [formField]="fields.value"
-          placeholder="New project"
-          autocomplete="off"
-        /><dsy-hint>Native input and Signal Forms stay in sync.</dsy-hint></dsy-form-field
-      >
-      <p class="demo-status">Value: {{ model().value }}</p>
-      <button dsyButton variant="outline" (click)="fields().reset({ value: '' })">
-        Reset signal form
-      </button>
-    </div>
-    <div class="demo-card">
-      <h3>Typed Reactive Forms</h3>
-      <dsy-form-field label="Reactive project name"
-        ><input dsyInput [formControl]="reactive" placeholder="Typed FormControl"
-      /></dsy-form-field>
-      <p class="demo-status">Value: {{ reactive.value }}</p>
-      <button
-        dsyButton
-        variant="outline"
-        (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
-      >
-        Toggle disabled
-      </button>
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-form-field label="Project name"
+            ><span dsyPrefix aria-hidden="true">✎</span
+            ><input
+              dsyInput
+              [formField]="fields.value"
+              placeholder="New project"
+              autocomplete="off"
+            /><dsy-hint>Native input and Signal Forms stay in sync.</dsy-hint></dsy-form-field
+          >
+          <p class="demo-status">Value: {{ model().value }}</p>
+          <button dsyButton variant="outline" (click)="fields().reset({ value: '' })">
+            Reset signal form
+          </button>
+        </div>
+        <div class="demo-card">
+          <h3>Typed Reactive Forms</h3>
+          <dsy-form-field label="Reactive project name"
+            ><input dsyInput [formControl]="reactive" placeholder="Typed FormControl"
+          /></dsy-form-field>
+          <p class="demo-status">Value: {{ reactive.value }}</p>
+          <button
+            dsyButton
+            variant="outline"
+            (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
+          >
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+      <section class="demo-card">
+        <h3>Native input wrapper</h3>
+        <label dsyInputWrapper color="primary"
+          ><span>Search</span
+          ><input dsyInput aria-label="Search projects" placeholder="Project name" /><kbd
+            >⌘ K</kbd
+          ></label
+        >
+      </section>
+    </section>
   </div>
-  <section class="demo-card">
-    <h3>Native input wrapper</h3>
-    <label dsyInputWrapper color="primary"
-      ><span>Search</span
-      ><input dsyInput aria-label="Search projects" placeholder="Project name" /><kbd
-        >⌘ K</kbd
-      ></label
-    >
-  </section>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

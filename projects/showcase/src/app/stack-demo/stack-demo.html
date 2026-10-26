@@ -1,30 +1,41 @@
-<section class="action-demo catalog-demo">
-  <h2>Stacks</h2>
-  <p>Decorative stacks inherit their appearance from projected content.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Stacks documentation sections"
+>
+  <div id="stack-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Stacks</h2>
+      <p>Decorative stacks inherit their appearance from projected content.</p>
+      <h3 id="stack-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Stack directions</h3>
-    <div class="demo-grid">
-      <dsy-stack position="top" class="catalog-stack"
-        ><div class="catalog-stack-front">Top stack</div>
-        <div class="catalog-stack-middle">Second layer</div>
-        <div class="catalog-stack-back">Third layer</div></dsy-stack
-      ><dsy-stack position="bottom" class="catalog-stack"
-        ><div class="catalog-stack-front">Bottom stack</div>
-        <div class="catalog-stack-middle">Second layer</div>
-        <div class="catalog-stack-back">Third layer</div></dsy-stack
-      ><dsy-stack position="start" class="catalog-stack"
-        ><div class="catalog-stack-front">Start stack</div>
-        <div class="catalog-stack-middle">Second layer</div>
-        <div class="catalog-stack-back">Third layer</div></dsy-stack
-      ><dsy-stack position="end" class="catalog-stack"
-        ><div class="catalog-stack-front">End stack</div>
-        <div class="catalog-stack-middle">Second layer</div>
-        <div class="catalog-stack-back">Third layer</div></dsy-stack
-      >
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Stack directions</h3>
+        <div class="demo-grid">
+          <dsy-stack position="top" class="catalog-stack"
+            ><div class="catalog-stack-front">Top stack</div>
+            <div class="catalog-stack-middle">Second layer</div>
+            <div class="catalog-stack-back">Third layer</div></dsy-stack
+          ><dsy-stack position="bottom" class="catalog-stack"
+            ><div class="catalog-stack-front">Bottom stack</div>
+            <div class="catalog-stack-middle">Second layer</div>
+            <div class="catalog-stack-back">Third layer</div></dsy-stack
+          ><dsy-stack position="start" class="catalog-stack"
+            ><div class="catalog-stack-front">Start stack</div>
+            <div class="catalog-stack-middle">Second layer</div>
+            <div class="catalog-stack-back">Third layer</div></dsy-stack
+          ><dsy-stack position="end" class="catalog-stack"
+            ><div class="catalog-stack-front">End stack</div>
+            <div class="catalog-stack-middle">Second layer</div>
+            <div class="catalog-stack-back">Third layer</div></dsy-stack
+          >
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './stack-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -14,7 +18,7 @@ import { DsyStack } from '@ngx-daisy/cdk/stack';
 @Component({
   selector: 'demo-stack-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyStack],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyStack],
   templateUrl: './stack-demo.html',
   styleUrl: './stack-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,4 +26,6 @@ import { DsyStack } from '@ngx-daisy/cdk/stack';
 })
 export class StackDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
 }

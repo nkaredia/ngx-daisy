@@ -1,61 +1,72 @@
-<section class="action-demo catalog-demo">
-  <h2>Tooltips</h2>
-  <p>Focus or hover a button to see supporting text. Escape dismisses the tooltip.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Tooltips documentation sections"
+>
+  <div id="tooltip-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Tooltips</h2>
+      <p>Focus or hover a button to see supporting text. Escape dismisses the tooltip.</p>
+      <h3 id="tooltip-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Placement and color</h3>
-    <div class="demo-row">
-      <button
-        type="button"
-        class="catalog-button"
-        dsyTooltip="Save your current project"
-        position="top"
-        color="primary"
-      >
-        Top tooltip</button
-      ><button
-        type="button"
-        class="catalog-button"
-        dsyTooltip="All changes are up to date"
-        position="bottom"
-        color="success"
-      >
-        Bottom tooltip</button
-      ><button
-        type="button"
-        class="catalog-button"
-        dsyTooltip="Review this setting carefully"
-        position="left"
-        color="warning"
-      >
-        Left tooltip</button
-      ><button
-        type="button"
-        class="catalog-button"
-        dsyTooltip="Additional project information"
-        position="right"
-        color="info"
-      >
-        Right tooltip
-      </button>
-    </div>
-  </section>
-  <section class="demo-card">
-    <h3>Programmatic control</h3>
-    <button
-      type="button"
-      class="catalog-button"
-      dsyTooltip="Opened from a separate control"
-      #tip="dsyTooltip"
-    >
-      Hint target
-    </button>
-    <div class="demo-row mt-4">
-      <button type="button" class="catalog-button" (click)="tip.show()">Show hint</button
-      ><button type="button" class="catalog-button" (click)="tip.hide()">Hide hint</button>
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Placement and color</h3>
+        <div class="demo-row">
+          <button
+            type="button"
+            class="catalog-button"
+            dsyTooltip="Save your current project"
+            position="top"
+            color="primary"
+          >
+            Top tooltip</button
+          ><button
+            type="button"
+            class="catalog-button"
+            dsyTooltip="All changes are up to date"
+            position="bottom"
+            color="success"
+          >
+            Bottom tooltip</button
+          ><button
+            type="button"
+            class="catalog-button"
+            dsyTooltip="Review this setting carefully"
+            position="left"
+            color="warning"
+          >
+            Left tooltip</button
+          ><button
+            type="button"
+            class="catalog-button"
+            dsyTooltip="Additional project information"
+            position="right"
+            color="info"
+          >
+            Right tooltip
+          </button>
+        </div>
+      </section>
+      <section class="demo-card">
+        <h3>Programmatic control</h3>
+        <button
+          type="button"
+          class="catalog-button"
+          dsyTooltip="Opened from a separate control"
+          #tip="dsyTooltip"
+        >
+          Hint target
+        </button>
+        <div class="demo-row mt-4">
+          <button type="button" class="catalog-button" (click)="tip.show()">Show hint</button
+          ><button type="button" class="catalog-button" (click)="tip.hide()">Hide hint</button>
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

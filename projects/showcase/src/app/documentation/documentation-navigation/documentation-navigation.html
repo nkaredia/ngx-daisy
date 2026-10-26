@@ -1,0 +1,10 @@
+<aside class="documentation-sidebar" aria-label="On this page">
+  <p>On this page</p>
+  <nav class="documentation-section-links" [attr.aria-label]="label()">
+    @for (section of sections(); track section.id) {
+      <a [href]="sectionHref(section.id)" (click)="scrollToSection($event, section.id)">{{
+        section.label
+      }}</a>
+    }
+  </nav>
+</aside>

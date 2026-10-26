@@ -1,173 +1,184 @@
-<section class="action-demo catalog-demo">
-  <h2>Masks</h2>
-  <p>Shape clipping for images and decorative content. Keep meaningful image alternatives.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Masks documentation sections"
+>
+  <div id="mask-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Masks</h2>
+      <p>Shape clipping for images and decorative content. Keep meaningful image alternatives.</p>
+      <h3 id="mask-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Shapes</h3>
-    <div class="catalog-mask-grid">
-      <figure>
-        <img
-          dsyMask
-          shape="squircle"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with squircle crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>squircle</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="heart"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with heart crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>heart</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="hexagon"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with hexagon crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>hexagon</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="hexagon-2"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with hexagon-2 crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>hexagon-2</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="decagon"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with decagon crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>decagon</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="pentagon"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with pentagon crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>pentagon</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="diamond"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with diamond crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>diamond</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="circle"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with circle crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>circle</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="star"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with star crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>star</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="star-2"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with star-2 crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>star-2</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="triangle"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with triangle crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>triangle</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="triangle-2"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with triangle-2 crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>triangle-2</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="triangle-3"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with triangle-3 crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>triangle-3</figcaption>
-      </figure>
-      <figure>
-        <img
-          dsyMask
-          shape="triangle-4"
-          src="/display/mountain.svg"
-          alt="Alpine landscape with triangle-4 crop"
-          class="w-24 h-24 object-cover"
-        />
-        <figcaption>triangle-4</figcaption>
-      </figure>
-    </div>
-  </section>
-  <section class="demo-card">
-    <h3>Half masks</h3>
-    <div class="demo-row">
-      <img
-        dsyMask
-        shape="circle"
-        half="first"
-        src="/display/coast.svg"
-        alt="Coastal landscape, first half"
-        class="w-24 h-24 object-cover"
-      /><img
-        dsyMask
-        shape="circle"
-        half="second"
-        src="/display/coast.svg"
-        alt="Coastal landscape, second half"
-        class="w-24 h-24 object-cover"
-      />
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Shapes</h3>
+        <div class="catalog-mask-grid">
+          <figure>
+            <img
+              dsyMask
+              shape="squircle"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with squircle crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>squircle</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="heart"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with heart crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>heart</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="hexagon"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with hexagon crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>hexagon</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="hexagon-2"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with hexagon-2 crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>hexagon-2</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="decagon"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with decagon crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>decagon</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="pentagon"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with pentagon crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>pentagon</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="diamond"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with diamond crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>diamond</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="circle"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with circle crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>circle</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="star"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with star crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>star</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="star-2"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with star-2 crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>star-2</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="triangle"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with triangle crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>triangle</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="triangle-2"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with triangle-2 crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>triangle-2</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="triangle-3"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with triangle-3 crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>triangle-3</figcaption>
+          </figure>
+          <figure>
+            <img
+              dsyMask
+              shape="triangle-4"
+              src="/display/mountain.svg"
+              alt="Alpine landscape with triangle-4 crop"
+              class="w-24 h-24 object-cover"
+            />
+            <figcaption>triangle-4</figcaption>
+          </figure>
+        </div>
+      </section>
+      <section class="demo-card">
+        <h3>Half masks</h3>
+        <div class="demo-row">
+          <img
+            dsyMask
+            shape="circle"
+            half="first"
+            src="/display/coast.svg"
+            alt="Coastal landscape, first half"
+            class="w-24 h-24 object-cover"
+          /><img
+            dsyMask
+            shape="circle"
+            half="second"
+            src="/display/coast.svg"
+            alt="Coastal landscape, second half"
+            class="w-24 h-24 object-cover"
+          />
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

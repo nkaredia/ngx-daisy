@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './link-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -14,7 +18,7 @@ import { DsyLink } from '@ngx-daisy/cdk/link';
 @Component({
   selector: 'demo-link-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyLink],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyLink],
   templateUrl: './link-demo.html',
   styleUrl: './link-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,4 +26,6 @@ import { DsyLink } from '@ngx-daisy/cdk/link';
 })
 export class LinkDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
 }

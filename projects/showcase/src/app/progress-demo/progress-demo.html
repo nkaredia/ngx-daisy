@@ -1,87 +1,104 @@
-<section class="action-demo catalog-demo">
-  <h2>Progress</h2>
-  <p>Native progress bars support determinate and indeterminate tasks.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Progress documentation sections"
+>
+  <div id="progress-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Progress</h2>
+      <p>Native progress bars support determinate and indeterminate tasks.</p>
+      <h3 id="progress-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Upload progress</h3>
-    <progress
-      dsyProgress
-      color="primary"
-      [value]="value()"
-      label="Upload progress"
-      class="w-full"
-    ></progress
-    ><label class="mt-4"
-      >Progress
-      <input
-        type="range"
-        min="0"
-        max="100"
-        [value]="value()"
-        (input)="value.set(+$any($event.target).value)"
-    /></label>
-    <p class="demo-status">{{ value() }}% complete</p>
-  </section>
-  <section class="demo-card">
-    <h3>Semantic colors</h3>
-    <div class="catalog-column">
-      <progress
-        dsyProgress
-        color="neutral"
-        value="65"
-        label="Neutral example"
-        class="w-full"
-      ></progress
-      ><progress
-        dsyProgress
-        color="primary"
-        value="65"
-        label="Primary example"
-        class="w-full"
-      ></progress
-      ><progress
-        dsyProgress
-        color="secondary"
-        value="65"
-        label="Secondary example"
-        class="w-full"
-      ></progress
-      ><progress
-        dsyProgress
-        color="accent"
-        value="65"
-        label="Accent example"
-        class="w-full"
-      ></progress
-      ><progress dsyProgress color="info" value="65" label="Info example" class="w-full"></progress
-      ><progress
-        dsyProgress
-        color="success"
-        value="65"
-        label="Success example"
-        class="w-full"
-      ></progress
-      ><progress
-        dsyProgress
-        color="warning"
-        value="65"
-        label="Warning example"
-        class="w-full"
-      ></progress
-      ><progress
-        dsyProgress
-        color="error"
-        value="65"
-        label="Error example"
-        class="w-full"
-      ></progress>
-    </div>
-  </section>
-  <section class="demo-card">
-    <h3>Indeterminate</h3>
-    <progress dsyProgress color="secondary" label="Connecting" class="w-full"></progress>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Upload progress</h3>
+        <progress
+          dsyProgress
+          color="primary"
+          [value]="value()"
+          label="Upload progress"
+          class="w-full"
+        ></progress
+        ><label class="mt-4"
+          >Progress
+          <input
+            type="range"
+            min="0"
+            max="100"
+            [value]="value()"
+            (input)="value.set(+$any($event.target).value)"
+        /></label>
+        <p class="demo-status">{{ value() }}% complete</p>
+      </section>
+      <section class="demo-card">
+        <h3>Semantic colors</h3>
+        <div class="catalog-column">
+          <progress
+            dsyProgress
+            color="neutral"
+            value="65"
+            label="Neutral example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="primary"
+            value="65"
+            label="Primary example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="secondary"
+            value="65"
+            label="Secondary example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="accent"
+            value="65"
+            label="Accent example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="info"
+            value="65"
+            label="Info example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="success"
+            value="65"
+            label="Success example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="warning"
+            value="65"
+            label="Warning example"
+            class="w-full"
+          ></progress
+          ><progress
+            dsyProgress
+            color="error"
+            value="65"
+            label="Error example"
+            class="w-full"
+          ></progress>
+        </div>
+      </section>
+      <section class="demo-card">
+        <h3>Indeterminate</h3>
+        <progress dsyProgress color="secondary" label="Connecting" class="w-full"></progress>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

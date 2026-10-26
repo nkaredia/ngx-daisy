@@ -1,40 +1,51 @@
-<section class="action-demo display-demo">
-  <h2>Avatars</h2>
-  <p>Images and initials, presence indicators and grouped profiles.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Avatars documentation sections"
+>
+  <div id="avatar-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Avatars</h2>
+      <p>Images and initials, presence indicators and grouped profiles.</p>
+      <h3 id="avatar-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Presence and placeholders</h3>
-    <div class="demo-row">
-      <dsy-avatar status="online" [placeholder]="true"
-        ><div class="display-avatar bg-primary text-primary-content rounded-full">
-          <span aria-label="Alex Morgan">AM</span>
-        </div></dsy-avatar
-      ><dsy-avatar status="offline" [placeholder]="true"
-        ><div class="display-avatar bg-neutral text-neutral-content rounded-xl">
-          <span aria-label="Taylor Kim">TK</span>
-        </div></dsy-avatar
-      >
-    </div>
-  </section>
-  <section class="demo-card">
-    <h3>Project team</h3>
-    <dsy-avatar-group
-      ><dsy-avatar [placeholder]="true"
-        ><div class="display-avatar rounded-full bg-base-300">
-          <span aria-label="Alex Morgan">AM</span>
-        </div></dsy-avatar
-      ><dsy-avatar [placeholder]="true"
-        ><div class="display-avatar rounded-full bg-base-300">
-          <span aria-label="Taylor Kim">TK</span>
-        </div></dsy-avatar
-      ><dsy-avatar [placeholder]="true"
-        ><div class="display-avatar rounded-full bg-base-300">
-          <span aria-label="Sam Lee">SL</span>
-        </div></dsy-avatar
-      ></dsy-avatar-group
-    >
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Presence and placeholders</h3>
+        <div class="demo-row">
+          <dsy-avatar status="online" [placeholder]="true"
+            ><div class="display-avatar bg-primary text-primary-content rounded-full">
+              <span aria-label="Alex Morgan">AM</span>
+            </div></dsy-avatar
+          ><dsy-avatar status="offline" [placeholder]="true"
+            ><div class="display-avatar bg-neutral text-neutral-content rounded-xl">
+              <span aria-label="Taylor Kim">TK</span>
+            </div></dsy-avatar
+          >
+        </div>
+      </section>
+      <section class="demo-card">
+        <h3>Project team</h3>
+        <dsy-avatar-group
+          ><dsy-avatar [placeholder]="true"
+            ><div class="display-avatar rounded-full bg-base-300">
+              <span aria-label="Alex Morgan">AM</span>
+            </div></dsy-avatar
+          ><dsy-avatar [placeholder]="true"
+            ><div class="display-avatar rounded-full bg-base-300">
+              <span aria-label="Taylor Kim">TK</span>
+            </div></dsy-avatar
+          ><dsy-avatar [placeholder]="true"
+            ><div class="display-avatar rounded-full bg-base-300">
+              <span aria-label="Sam Lee">SL</span>
+            </div></dsy-avatar
+          ></dsy-avatar-group
+        >
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

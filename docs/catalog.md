@@ -4,6 +4,8 @@ Coverage of all 68 families in the [daisyUI 5.7.50 catalog](https://daisyui.com/
 
 All **70 showcase routes** include a full playground with live examples and authored TS/HTML/SCSS source tabs. Controls are extracted from the library during builds. Lists, Heroes, Browser Mockups and Window Mockups have no declared configurable inputs, so their properties panel explains that rather than inventing controls. Complex values use authored sample data and retain the unsupported-editor explanation. See the [playground guide](../projects/showcase/src/app/playground/README.md).
 
+Every component page includes description and composition guidance, Angular integration, highlighted standalone examples, styling notes, an API reference and accessibility guidance. A shared right-hand section navigator provides smooth scrolling and a narrow-screen fallback. API input tables on the 69 pages beyond Button read build-time property metadata; events and methods have authored notes. Angular template checking verifies the copyable TypeScript documentation snippets. See the [documentation authoring guide](../projects/showcase/src/app/documentation/README.md).
+
 | Family             | Import                            | Showcase route       |
 | ------------------ | --------------------------------- | -------------------- |
 | Buttons            | `@ngx-daisy/cdk/button`           | `/buttons`           |

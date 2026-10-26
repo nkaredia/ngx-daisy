@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './skeleton-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -14,7 +18,7 @@ import { DsySkeleton } from '@ngx-daisy/cdk/skeleton';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-skeleton-demo',
-  imports: [Playground, DsySkeleton],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsySkeleton],
   templateUrl: './skeleton-demo.html',
   styleUrl: './skeleton-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +26,8 @@ import { DsySkeleton } from '@ngx-daisy/cdk/skeleton';
 })
 export class SkeletonDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly loading = signal(true);
   readonly toggle = (v: boolean) => !v;
 }

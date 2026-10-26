@@ -1,0 +1,110 @@
+<section class="component-documentation-section" [id]="content().id + '-angular'">
+  <span class="component-documentation-eyebrow">Angular</span>
+  <h3>Usage and integration</h3>
+  <p>{{ content().summary }}</p>
+  <p>
+    Import the standalone declarations from <code>{{ content().entryPoint }}</code> and include them
+    in your component’s imports. Your app supplies the Tailwind and daisyUI stylesheet.
+  </p>
+  @for (paragraph of content().angular; track $index) {
+    <p>{{ paragraph }}</p>
+  }
+  <demo-example-code [files]="content().files" [expanded]="true" [showToggle]="false" />
+  <h4>Choosing and composing the UI</h4>
+  @for (paragraph of content().usage; track $index) {
+    <p>{{ paragraph }}</p>
+  }
+</section>
+<section class="component-documentation-section" [id]="content().id + '-styling'">
+  <span class="component-documentation-eyebrow">Appearance</span>
+  <h3>Styling and customization</h3>
+  @for (paragraph of content().styling; track $index) {
+    <p>{{ paragraph }}</p>
+  }
+</section>
+<section class="component-documentation-section" [id]="content().id + '-api'">
+  <span class="component-documentation-eyebrow">Reference</span>
+  <h3>API reference</h3>
+  <p>
+    Inputs, two-way models and defaults for the declarations used by this component. Native HTML
+    attributes and Angular forms bindings remain available where the control supports them.
+  </p>
+  @for (component of playground().components; track component.class) {
+    <h4>{{ component.name ?? component.class.name }}</h4>
+    @if (component.props?.length) {
+      <div
+        class="component-documentation-table"
+        tabindex="0"
+        role="region"
+        [attr.aria-label]="(component.name ?? component.class.name) + ' inputs'"
+      >
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Input / model</th>
+              <th scope="col">Type</th>
+              <th scope="col">Default</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (property of component.props; track property.property) {
+              <tr>
+                <th scope="row">
+                  <code>{{ property.name }}</code>
+                  @if (property.kind === 'model') {
+                    <small>Two-way model</small>
+                  }
+                  @if (property.required) {
+                    <small>Required</small>
+                  }
+                  @if (property.description) {
+                    <p>{{ property.description }}</p>
+                  }
+                </th>
+                <td>
+                  <code>{{ property.type }}</code>
+                  @if (property.values?.length) {
+                    <p>{{ property.values?.join(' · ') }}</p>
+                  }
+                </td>
+                <td>
+                  <code>{{ defaultValue(property) }}</code>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    } @else {
+      <p>
+        {{
+          component.props
+            ? 'This declaration has no configurable inputs. Compose its projected content with native markup and application classes.'
+            : 'API metadata is unavailable in this preview. Use the integration example for this declaration.'
+        }}
+      </p>
+    }
+  }
+  @if (content().apiNotes.length) {
+    <h4>Events, methods and composition</h4>
+    <dl class="component-documentation-api-notes">
+      @for (note of content().apiNotes; track note.name) {
+        <div>
+          <dt>
+            <code>{{ note.name }}</code>
+          </dt>
+          <dd>{{ note.description }}</dd>
+        </div>
+      }
+    </dl>
+  }
+</section>
+<section class="component-documentation-section" [id]="content().id + '-accessibility'">
+  <span class="component-documentation-eyebrow">Accessibility</span>
+  <h3>Interaction and accessible content</h3>
+  <ul>
+    @for (item of content().accessibility; track $index) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+</section>

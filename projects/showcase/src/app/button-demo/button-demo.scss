@@ -28,56 +28,7 @@
     opacity: 0.55;
   }
 }
-.showcase-shell .showcase-content:has(demo-button-demo) {
-  max-inline-size: 80rem;
-}
-.button-documentation-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 10rem;
-  align-items: start;
-  gap: 2rem;
-  > .action-demo {
-    min-inline-size: 0;
-  }
-}
-.button-page-sidebar {
-  position: sticky;
-  inset-block-start: 2rem;
-  padding-block: 0.25rem;
-  > p {
-    margin-block-end: 0.75rem;
-    font-size: 0.75rem;
-    font-weight: 650;
-  }
-}
-.button-page-sections {
-  display: flex;
-  flex-direction: column;
-  border-inline-start: 1px solid var(--color-base-300);
-  a {
-    padding: 0.5rem 0.875rem;
-    font-size: 0.8125rem;
-    color: color-mix(in oklab, var(--color-base-content) 65%, transparent);
-    text-decoration: none;
-    &:hover,
-    &:focus-visible {
-      color: var(--color-primary);
-      background: var(--color-base-200);
-    }
-  }
-}
-@media (max-width: 1199px) {
-  .button-documentation-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-  }
-  .button-page-sidebar {
-    position: static;
-    grid-row: 1;
-  }
-}
 .button-page-section-heading {
-  scroll-margin-block-start: 6rem;
   h3 {
     font-size: 1.25rem;
     font-weight: 650;
@@ -87,9 +38,4 @@
     font-size: 0.875rem;
     opacity: 0.65;
   }
-}
-
-.button-page-section-heading:focus,
-.button-doc-section:focus {
-  outline: none;
 }

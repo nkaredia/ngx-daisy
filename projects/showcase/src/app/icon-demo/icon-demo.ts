@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './icon-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -11,13 +15,23 @@ import { DsyIcon, type DsyIconColor } from '@ngx-daisy/cdk/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: providePlayground(playground),
-  imports: [Playground, DsyButton, DsyIcon, LucideHouse, LucideCheck],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyButton,
+    DsyIcon,
+    LucideHouse,
+    LucideCheck,
+  ],
   selector: 'demo-icon-demo',
   styleUrl: './icon-demo.scss',
   templateUrl: './icon-demo.html',
 })
 export class IconDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly iconColor = signal<DsyIconColor>('primary');
   readonly iconColors: readonly DsyIconColor[] = [
     'inherit',

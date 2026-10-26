@@ -1,38 +1,50 @@
-<section class="action-demo input-demo">
-  <h2>Ratings</h2>
-  <p>
-    Native radio behavior supports whole and half ratings, clearing, readonly and disabled states.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Ratings documentation sections"
+>
+  <div id="rating-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Ratings</h2>
+      <p>
+        Native radio behavior supports whole and half ratings, clearing, readonly and disabled
+        states.
+      </p>
+      <h3 id="rating-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-rating [formField]="fields.value" allowClear aria-label="Project rating" />
-      <p class="demo-status">Rating: {{ model().value }}</p>
-    </div>
-    <div class="demo-card">
-      <h3>Half ratings with Reactive Forms</h3>
-      <dsy-rating
-        [formControl]="reactive"
-        half
-        shape="star-2"
-        size="lg"
-        aria-label="Half-star rating"
-      />
-      <p class="demo-status">Rating: {{ reactive.value }}</p>
-    </div>
-    <div class="demo-card">
-      <h3>Readonly hearts</h3>
-      <dsy-rating
-        [value]="4"
-        readonly
-        shape="heart"
-        color="var(--color-error)"
-        aria-label="Four of five hearts"
-      />
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-rating [formField]="fields.value" allowClear aria-label="Project rating" />
+          <p class="demo-status">Rating: {{ model().value }}</p>
+        </div>
+        <div class="demo-card">
+          <h3>Half ratings with Reactive Forms</h3>
+          <dsy-rating
+            [formControl]="reactive"
+            half
+            shape="star-2"
+            size="lg"
+            aria-label="Half-star rating"
+          />
+          <p class="demo-status">Rating: {{ reactive.value }}</p>
+        </div>
+        <div class="demo-card">
+          <h3>Readonly hearts</h3>
+          <dsy-rating
+            [value]="4"
+            readonly
+            shape="heart"
+            color="var(--color-error)"
+            aria-label="Four of five hearts"
+          />
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

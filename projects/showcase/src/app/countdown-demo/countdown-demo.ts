@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './countdown-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -14,7 +18,7 @@ import { computed } from '@angular/core';
 @Component({
   selector: 'demo-countdown-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyCountdown],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyCountdown],
   templateUrl: './countdown-demo.html',
   styleUrl: './countdown-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +26,8 @@ import { computed } from '@angular/core';
 })
 export class CountdownDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly remaining = signal(3665);
   readonly hours = computed(() => Math.floor(this.remaining() / 3600));
   readonly minutes = computed(() => Math.floor(this.remaining() / 60) % 60);

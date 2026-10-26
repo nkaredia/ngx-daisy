@@ -1,43 +1,54 @@
-<section class="action-demo display-demo">
-  <h2>Stats</h2>
-  <p>Group figures horizontally or vertically while inheriting the current theme.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Stats documentation sections"
+>
+  <div id="stat-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Stats</h2>
+      <p>Group figures horizontally or vertically while inheriting the current theme.</p>
+      <h3 id="stat-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Project overview</h3>
-    <dsy-stats class="w-full shadow"
-      ><dsy-stat
-        ><div dsyStatFigure aria-hidden="true">↗</div>
-        <div dsyStatTitle>Total visits</div>
-        <div dsyStatValue class="text-primary">31.2K</div>
-        <div dsyStatDesc>↗ 12% this month</div></dsy-stat
-      ><dsy-stat
-        ><div dsyStatTitle>Downloads</div>
-        <div dsyStatValue class="text-primary">4,820</div>
-        <div dsyStatDesc>Across all components</div></dsy-stat
-      ><dsy-stat
-        ><div dsyStatTitle>Satisfaction</div>
-        <div dsyStatValue class="text-primary">98%</div>
-        <div dsyStatDesc>From the latest survey</div></dsy-stat
-      ></dsy-stats
-    >
-  </section>
-  <section class="demo-card">
-    <h3>Vertical layout</h3>
-    <dsy-stats orientation="vertical"
-      ><dsy-stat
-        ><div dsyStatTitle>Open issues</div>
-        <div dsyStatValue>12</div>
-        <div dsyStatDesc>4 ready for review</div>
-        <div dsyStatActions>
-          <a href="https://daisyui.com/components/stat/">Read about stats</a>
-        </div></dsy-stat
-      ><dsy-stat
-        ><div dsyStatTitle>Closed this week</div>
-        <div dsyStatValue>28</div></dsy-stat
-      ></dsy-stats
-    >
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Project overview</h3>
+        <dsy-stats class="w-full shadow"
+          ><dsy-stat
+            ><div dsyStatFigure aria-hidden="true">↗</div>
+            <div dsyStatTitle>Total visits</div>
+            <div dsyStatValue class="text-primary">31.2K</div>
+            <div dsyStatDesc>↗ 12% this month</div></dsy-stat
+          ><dsy-stat
+            ><div dsyStatTitle>Downloads</div>
+            <div dsyStatValue class="text-primary">4,820</div>
+            <div dsyStatDesc>Across all components</div></dsy-stat
+          ><dsy-stat
+            ><div dsyStatTitle>Satisfaction</div>
+            <div dsyStatValue class="text-primary">98%</div>
+            <div dsyStatDesc>From the latest survey</div></dsy-stat
+          ></dsy-stats
+        >
+      </section>
+      <section class="demo-card">
+        <h3>Vertical layout</h3>
+        <dsy-stats orientation="vertical"
+          ><dsy-stat
+            ><div dsyStatTitle>Open issues</div>
+            <div dsyStatValue>12</div>
+            <div dsyStatDesc>4 ready for review</div>
+            <div dsyStatActions>
+              <a href="https://daisyui.com/components/stat/">Read about stats</a>
+            </div></dsy-stat
+          ><dsy-stat
+            ><div dsyStatTitle>Closed this week</div>
+            <div dsyStatValue>28</div></dsy-stat
+          ></dsy-stats
+        >
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

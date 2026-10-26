@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './otp-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -11,7 +15,17 @@ import { DsyOtp } from '@ngx-daisy/cdk/otp';
   providers: providePlayground(playground),
   selector: 'demo-otp-demo',
   standalone: true,
-  imports: [Playground, FormField, ReactiveFormsModule, DsyFormField, DsyHint, DsyButton, DsyOtp],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    FormField,
+    ReactiveFormsModule,
+    DsyFormField,
+    DsyHint,
+    DsyButton,
+    DsyOtp,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './otp-demo.html',
@@ -19,6 +33,8 @@ import { DsyOtp } from '@ngx-daisy/cdk/otp';
 })
 export class OtpDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal<{ value: string | null }>({ value: '' });
   readonly fields = form(this.model);
   readonly reactive = new FormControl<string | null>('');

@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './fab-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -15,6 +19,8 @@ import {
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     DsyButton,
     DsyFab,
@@ -30,5 +36,7 @@ import {
 })
 export class FabDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly action = signal('Choose an action');
 }

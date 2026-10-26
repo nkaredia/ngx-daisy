@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './table-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -31,6 +35,8 @@ import {
   selector: 'demo-table-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     DsyTable,
     DsyTableRow,
@@ -55,6 +61,8 @@ import {
 })
 export class TableDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly columns = ['name', 'role', 'tasks'];
   readonly source = new DsyTableDataSource([
     { name: 'Alex Morgan', role: 'Designer', tasks: 14 },

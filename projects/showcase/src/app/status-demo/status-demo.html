@@ -1,27 +1,38 @@
-<section class="action-demo display-demo">
-  <h2>Status Indicators</h2>
-  <p>Decorative status dots paired with text, so meaning does not rely on color.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Status Indicators documentation sections"
+>
+  <div id="status-overview" class="component-documentation-demo">
+    <section class="action-demo display-demo">
+      <h2>Status Indicators</h2>
+      <p>Decorative status dots paired with text, so meaning does not rely on color.</p>
+      <h3 id="status-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Service health</h3>
-    <div class="demo-row">
-      <span><dsy-status color="success" aria-hidden="true" /> Operational</span
-      ><span><dsy-status color="warning" aria-hidden="true" /> Degraded</span
-      ><span><dsy-status color="error" aria-hidden="true" /> Unavailable</span
-      ><span><dsy-status color="info" aria-hidden="true" /> Maintenance</span>
-    </div>
-  </section>
-  <section class="demo-card">
-    <h3>Sizes</h3>
-    <div class="demo-row">
-      <span><dsy-status size="xs" color="primary" aria-hidden="true" /> XS</span
-      ><span><dsy-status size="sm" color="primary" aria-hidden="true" /> SM</span
-      ><span><dsy-status size="md" color="primary" aria-hidden="true" /> MD</span
-      ><span><dsy-status size="lg" color="primary" aria-hidden="true" /> LG</span
-      ><span><dsy-status size="xl" color="primary" aria-hidden="true" /> XL</span>
-    </div>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Service health</h3>
+        <div class="demo-row">
+          <span><dsy-status color="success" aria-hidden="true" /> Operational</span
+          ><span><dsy-status color="warning" aria-hidden="true" /> Degraded</span
+          ><span><dsy-status color="error" aria-hidden="true" /> Unavailable</span
+          ><span><dsy-status color="info" aria-hidden="true" /> Maintenance</span>
+        </div>
+      </section>
+      <section class="demo-card">
+        <h3>Sizes</h3>
+        <div class="demo-row">
+          <span><dsy-status size="xs" color="primary" aria-hidden="true" /> XS</span
+          ><span><dsy-status size="sm" color="primary" aria-hidden="true" /> SM</span
+          ><span><dsy-status size="md" color="primary" aria-hidden="true" /> MD</span
+          ><span><dsy-status size="lg" color="primary" aria-hidden="true" /> LG</span
+          ><span><dsy-status size="xl" color="primary" aria-hidden="true" /> XL</span>
+        </div>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

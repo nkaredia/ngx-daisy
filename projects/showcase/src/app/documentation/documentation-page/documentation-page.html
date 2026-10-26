@@ -1,0 +1,10 @@
+<div class="documentation-page-layout">
+  <div #content class="documentation-page-content"><ng-content /></div>
+  @if (sections().length) {
+    <demo-documentation-navigation
+      [sections]="sections()"
+      [contentRoot]="content"
+      [label]="navigationLabel()"
+    />
+  }
+</div>

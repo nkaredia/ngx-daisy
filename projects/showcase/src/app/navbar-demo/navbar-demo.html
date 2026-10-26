@@ -1,23 +1,34 @@
-<section class="action-demo catalog-demo">
-  <h2>Navbars</h2>
-  <p>Compose the start, center and end slots with application navigation and actions.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Navbars documentation sections"
+>
+  <div id="navbar-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Navbars</h2>
+      <p>Compose the start, center and end slots with application navigation and actions.</p>
+      <h3 id="navbar-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Application header</h3>
-    <dsy-navbar label="Example app" class="bg-base-200 rounded-box"
-      ><dsy-navbar-start><strong>Studio</strong></dsy-navbar-start
-      ><dsy-navbar-center><a href="/cards">Discover</a></dsy-navbar-center
-      ><dsy-navbar-end
-        ><button type="button" class="catalog-button" (click)="signedIn.update(toggle)">
-          {{ signedIn() ? 'Sign out' : 'Sign in' }}
-        </button></dsy-navbar-end
-      ></dsy-navbar
-    >
-    <p class="demo-status" aria-live="polite">
-      {{ signedIn() ? 'Welcome back' : 'Browsing as guest' }}
-    </p>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Application header</h3>
+        <dsy-navbar label="Example app" class="bg-base-200 rounded-box"
+          ><dsy-navbar-start><strong>Studio</strong></dsy-navbar-start
+          ><dsy-navbar-center><a href="/cards">Discover</a></dsy-navbar-center
+          ><dsy-navbar-end
+            ><button type="button" class="catalog-button" (click)="signedIn.update(toggle)">
+              {{ signedIn() ? 'Sign out' : 'Sign in' }}
+            </button></dsy-navbar-end
+          ></dsy-navbar
+        >
+        <p class="demo-status" aria-live="polite">
+          {{ signedIn() ? 'Welcome back' : 'Browsing as guest' }}
+        </p>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

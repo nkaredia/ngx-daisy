@@ -100,3 +100,5 @@ All 19 daisyUI Data Display families are implemented with dedicated showcase pag
 ## Complete daisyUI family catalog
 
 All 68 daisyUI 5.7.50 families now have entry points and dedicated showcase pages, plus Icon and Form Field helpers (70 routes). See the [catalog](docs/catalog.md) and [navigation, feedback, layout and mockup guide](docs/remaining-components.md). Existing issues are reserved for the follow-up refinement pass.
+
+Component documentation is available on all 70 showcase routes, alongside the live playgrounds. Pages cover UI composition, Angular integration, styling, inputs and accessibility, with highlighted code and shared section navigation. Run `yarn test:docs` to compile the standalone documentation examples against the built library.

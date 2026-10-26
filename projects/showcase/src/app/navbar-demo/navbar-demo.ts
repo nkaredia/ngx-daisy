@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './navbar-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -14,7 +18,15 @@ import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from '@ngx-d
 @Component({
   selector: 'demo-navbar-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyNavbar,
+    DsyNavbarStart,
+    DsyNavbarCenter,
+    DsyNavbarEnd,
+  ],
   templateUrl: './navbar-demo.html',
   styleUrl: './navbar-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +34,8 @@ import { DsyNavbar, DsyNavbarStart, DsyNavbarCenter, DsyNavbarEnd } from '@ngx-d
 })
 export class NavbarDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly signedIn = signal(false);
   readonly toggle = (v: boolean) => !v;
 }

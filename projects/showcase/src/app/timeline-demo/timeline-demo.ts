@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './timeline-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -20,6 +24,8 @@ import {
   selector: 'demo-timeline-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     DsyTimeline,
     DsyTimelineStart,
@@ -34,4 +40,6 @@ import {
 })
 export class TimelineDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
 }

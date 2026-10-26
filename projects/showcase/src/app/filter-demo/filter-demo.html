@@ -1,25 +1,36 @@
-<section class="action-demo input-demo">
-  <h2>Filters</h2>
-  <p>Choose a single filter and clear it without resetting the surrounding form.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Filters documentation sections"
+>
+  <div id="filter-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Filters</h2>
+      <p>Choose a single filter and clear it without resetting the surrounding form.</p>
+      <h3 id="filter-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-filter
-        [options]="options"
-        [formField]="fields.value"
-        color="primary"
-        aria-label="Project status"
-      />
-      <p class="demo-status">Filter: {{ model().value || 'None' }}</p>
-    </div>
-    <div class="demo-card">
-      <h3>Typed Reactive Forms</h3>
-      <dsy-filter [options]="options" [formControl]="reactive" aria-label="Reactive status" />
-      <p class="demo-status">Filter: {{ reactive.value || 'None' }}</p>
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-filter
+            [options]="options"
+            [formField]="fields.value"
+            color="primary"
+            aria-label="Project status"
+          />
+          <p class="demo-status">Filter: {{ model().value || 'None' }}</p>
+        </div>
+        <div class="demo-card">
+          <h3>Typed Reactive Forms</h3>
+          <dsy-filter [options]="options" [formControl]="reactive" aria-label="Reactive status" />
+          <p class="demo-status">Filter: {{ reactive.value || 'None' }}</p>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

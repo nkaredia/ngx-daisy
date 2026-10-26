@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './toast-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -14,7 +18,7 @@ import { DsyToast, DsyToastOutlet, DsyToastService } from '@ngx-daisy/cdk/toast'
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-toast-demo',
-  imports: [Playground, DsyToast, DsyToastOutlet],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyToast, DsyToastOutlet],
   templateUrl: './toast-demo.html',
   styleUrl: './toast-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,6 +26,8 @@ import { DsyToast, DsyToastOutlet, DsyToastService } from '@ngx-daisy/cdk/toast'
 })
 export class ToastDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly service = inject(DsyToastService);
   constructor() {
     inject(DestroyRef).onDestroy(() => this.service.clear());

@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './loader-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -22,7 +26,7 @@ import {
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-loader-demo',
-  imports: [Playground, DsyButton, DsyLoader],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyButton, DsyLoader],
   templateUrl: './loader-demo.html',
   styleUrl: './loader-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -30,6 +34,8 @@ import {
 })
 export class LoaderDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly variant = signal<DsyLoaderVariant>('spinner');
   readonly animation = signal<DsyLoaderAnimation>('auto');
   readonly speed = signal<DsyLoaderSpeed>('normal');

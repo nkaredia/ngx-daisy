@@ -1,55 +1,66 @@
-<section class="action-demo input-demo">
-  <h2>Range Sliders</h2>
-  <p>Native slider keyboard and pointer behavior with numeric form values.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Range Sliders documentation sections"
+>
+  <div id="range-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>Range Sliders</h2>
+      <p>Native slider keyboard and pointer behavior with numeric form values.</p>
+      <h3 id="range-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Signal Forms</h3>
-      <dsy-form-field label="Volume"
-        ><input
-          type="range"
-          dsyRange
-          step="5"
-          color="primary"
-          [formField]="fields.value"
-        /><dsy-hint>Adjust in steps of five.</dsy-hint></dsy-form-field
-      >
-      <p class="demo-status">Value: {{ model().value }}</p>
-      <button dsyButton variant="outline" (click)="fields().reset({ value: 35 })">
-        Reset signal form
-      </button>
-    </div>
-    <div class="demo-card">
-      <h3>Typed Reactive Forms</h3>
-      <dsy-form-field label="Reactive volume"
-        ><input type="range" dsyRange min="0" max="100" [formControl]="reactive"
-      /></dsy-form-field>
-      <p class="demo-status">Value: {{ reactive.value }}</p>
-      <button
-        dsyButton
-        variant="outline"
-        (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
-      >
-        Toggle disabled
-      </button>
-    </div>
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Signal Forms</h3>
+          <dsy-form-field label="Volume"
+            ><input
+              type="range"
+              dsyRange
+              step="5"
+              color="primary"
+              [formField]="fields.value"
+            /><dsy-hint>Adjust in steps of five.</dsy-hint></dsy-form-field
+          >
+          <p class="demo-status">Value: {{ model().value }}</p>
+          <button dsyButton variant="outline" (click)="fields().reset({ value: 35 })">
+            Reset signal form
+          </button>
+        </div>
+        <div class="demo-card">
+          <h3>Typed Reactive Forms</h3>
+          <dsy-form-field label="Reactive volume"
+            ><input type="range" dsyRange min="0" max="100" [formControl]="reactive"
+          /></dsy-form-field>
+          <p class="demo-status">Value: {{ reactive.value }}</p>
+          <button
+            dsyButton
+            variant="outline"
+            (click)="reactive.disabled ? reactive.enable() : reactive.disable()"
+          >
+            Toggle disabled
+          </button>
+        </div>
+      </div>
+      <div class="demo-card">
+        <h3>Vertical slider</h3>
+        <label
+          >Level
+          <input
+            type="range"
+            dsyRange
+            vertical
+            min="0"
+            max="10"
+            value="7"
+            color="secondary"
+            aria-label="Level"
+        /></label>
+      </div>
+    </section>
   </div>
-  <div class="demo-card">
-    <h3>Vertical slider</h3>
-    <label
-      >Level
-      <input
-        type="range"
-        dsyRange
-        vertical
-        min="0"
-        max="10"
-        value="7"
-        color="secondary"
-        aria-label="Level"
-    /></label>
-  </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

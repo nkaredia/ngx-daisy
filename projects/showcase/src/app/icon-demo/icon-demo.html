@@ -1,52 +1,63 @@
-<section class="space-y-4" aria-labelledby="icons">
-  <h2 id="icons" class="text-xl font-semibold">Icons</h2>
-  <p class="text-base-content/70">
-    Apps render icons with their preferred library. The wrapper shares size and theme color with the
-    projected icon.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Icons documentation sections"
+>
+  <div id="icon-overview" class="component-documentation-demo">
+    <section class="space-y-4" aria-labelledby="icons">
+      <h2 id="icons" class="text-xl font-semibold">Icons</h2>
+      <p class="text-base-content/70">
+        Apps render icons with their preferred library. The wrapper shares size and theme color with
+        the projected icon.
+      </p>
+      <h3 id="icon-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <div class="flex flex-wrap items-center gap-4">
-    <label class="flex items-center gap-2">
-      Theme color
-      <select
-        #colorSelect
-        class="select select-bordered"
-        (change)="setIconColor(colorSelect.value)"
-      >
-        @for (color of iconColors; track color) {
-          <option [value]="color" [selected]="color === iconColor()">{{ color }}</option>
-        }
-      </select>
-    </label>
-    <dsy-icon [color]="iconColor()" size="32px" aria-label="Home">
-      <svg lucideHouse aria-hidden="true"></svg>
-    </dsy-icon>
-    <dsy-icon [color]="iconColor()" size="32px" aria-label="Completed">
-      <svg lucideCheck aria-hidden="true"></svg>
-    </dsy-icon>
+      <div class="flex flex-wrap items-center gap-4">
+        <label class="flex items-center gap-2">
+          Theme color
+          <select
+            #colorSelect
+            class="select select-bordered"
+            (change)="setIconColor(colorSelect.value)"
+          >
+            @for (color of iconColors; track color) {
+              <option [value]="color" [selected]="color === iconColor()">{{ color }}</option>
+            }
+          </select>
+        </label>
+        <dsy-icon [color]="iconColor()" size="32px" aria-label="Home">
+          <svg lucideHouse aria-hidden="true"></svg>
+        </dsy-icon>
+        <dsy-icon [color]="iconColor()" size="32px" aria-label="Completed">
+          <svg lucideCheck aria-hidden="true"></svg>
+        </dsy-icon>
+      </div>
+      <div class="flex flex-wrap items-center gap-4">
+        <button dsyButton color="primary" type="button">
+          <dsy-icon><svg lucideCheck aria-hidden="true"></svg></dsy-icon>
+          Projected Lucide
+        </button>
+        <button dsyButton variant="outline" type="button" aria-label="Go home">
+          <dsy-icon><svg lucideHouse aria-hidden="true"></svg></dsy-icon>
+        </button>
+        <dsy-icon size="28px" [color]="iconColor()" aria-label="Custom circle">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        </dsy-icon>
+      </div>
+    </section>
   </div>
-  <div class="flex flex-wrap items-center gap-4">
-    <button dsyButton color="primary" type="button">
-      <dsy-icon><svg lucideCheck aria-hidden="true"></svg></dsy-icon>
-      Projected Lucide
-    </button>
-    <button dsyButton variant="outline" type="button" aria-label="Go home">
-      <dsy-icon><svg lucideHouse aria-hidden="true"></svg></dsy-icon>
-    </button>
-    <dsy-icon size="28px" [color]="iconColor()" aria-label="Custom circle">
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <circle cx="12" cy="12" r="9" />
-      </svg>
-    </dsy-icon>
-  </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

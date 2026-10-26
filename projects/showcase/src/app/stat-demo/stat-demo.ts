@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './stat-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -22,6 +26,8 @@ import {
   selector: 'demo-stat-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     DsyStats,
     DsyStat,
@@ -38,4 +44,6 @@ import {
 })
 export class StatDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
 }

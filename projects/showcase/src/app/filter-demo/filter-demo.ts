@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './filter-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -9,7 +13,14 @@ import { DsyFilter } from '@ngx-daisy/cdk/filter';
   providers: providePlayground(playground),
   selector: 'demo-filter-demo',
   standalone: true,
-  imports: [Playground, FormField, ReactiveFormsModule, DsyFilter],
+  imports: [
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    FormField,
+    ReactiveFormsModule,
+    DsyFilter,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './filter-demo.html',
@@ -17,6 +28,8 @@ import { DsyFilter } from '@ngx-daisy/cdk/filter';
 })
 export class FilterDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal<{ value: string | null }>({ value: null });
   readonly fields = form(this.model);
   readonly reactive = new FormControl<string | null>(null);

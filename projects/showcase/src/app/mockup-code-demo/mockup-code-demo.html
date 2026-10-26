@@ -1,17 +1,28 @@
-<section class="action-demo catalog-demo">
-  <h2>Code Mockups</h2>
-  <p>Native pre/code markup with line prefixes and application-owned syntax highlighting.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Code Mockups documentation sections"
+>
+  <div id="mockup-code-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Code Mockups</h2>
+      <p>Native pre/code markup with line prefixes and application-owned syntax highlighting.</p>
+      <h3 id="mockup-code-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Getting started</h3>
-    <dsy-mockup-code>
-      <pre dsyCodeLine="$"><code>yarn install</code></pre>
-      <pre dsyCodeLine="$"><code>yarn build</code></pre>
-      <pre dsyCodeLine="$"><code>yarn start</code></pre>
-      <pre dsyCodeLine="✓" class="text-success"><code>Ready to explore.</code></pre>
-    </dsy-mockup-code>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Getting started</h3>
+        <dsy-mockup-code>
+          <pre dsyCodeLine="$"><code>yarn install</code></pre>
+          <pre dsyCodeLine="$"><code>yarn build</code></pre>
+          <pre dsyCodeLine="$"><code>yarn start</code></pre>
+          <pre dsyCodeLine="✓" class="text-success"><code>Ready to explore.</code></pre>
+        </dsy-mockup-code>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

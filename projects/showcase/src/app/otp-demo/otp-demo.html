@@ -1,40 +1,51 @@
-<section class="action-demo input-demo">
-  <h2>OTP</h2>
-  <p>
-    One native input preserves paste, selection, autofill and keyboard editing across the visual
-    character boxes.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
-
-  <div class="demo-grid">
-    <div class="demo-card">
-      <h3>Six-digit Signal Forms code</h3>
-      <dsy-form-field label="Verification code"
-        ><dsy-otp
-          [formField]="fields.value"
-          [length]="6"
-          color="primary"
-          (completed)="complete.set(true)"
-        /><dsy-hint>Paste or type six digits.</dsy-hint></dsy-form-field
-      >
-      <p class="demo-status" aria-live="polite">
-        {{ complete() ? 'Code complete' : 'Waiting for code' }}
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="OTP documentation sections"
+>
+  <div id="otp-overview" class="component-documentation-demo">
+    <section class="action-demo input-demo">
+      <h2>OTP</h2>
+      <p>
+        One native input preserves paste, selection, autofill and keyboard editing across the visual
+        character boxes.
       </p>
-    </div>
-    <div class="demo-card">
-      <h3>Joined alphanumeric code</h3>
-      <dsy-otp
-        [formControl]="reactive"
-        [length]="4"
-        [numeric]="false"
-        joined
-        size="sm"
-        aria-label="Four-character code"
-      />
-      <p class="demo-status">Value: {{ reactive.value }}</p>
-      <button dsyButton (click)="reactive.reset('')">Reset code</button>
-    </div>
+      <h3 id="otp-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
+
+      <div class="demo-grid">
+        <div class="demo-card">
+          <h3>Six-digit Signal Forms code</h3>
+          <dsy-form-field label="Verification code"
+            ><dsy-otp
+              [formField]="fields.value"
+              [length]="6"
+              color="primary"
+              (completed)="complete.set(true)"
+            /><dsy-hint>Paste or type six digits.</dsy-hint></dsy-form-field
+          >
+          <p class="demo-status" aria-live="polite">
+            {{ complete() ? 'Code complete' : 'Waiting for code' }}
+          </p>
+        </div>
+        <div class="demo-card">
+          <h3>Joined alphanumeric code</h3>
+          <dsy-otp
+            [formControl]="reactive"
+            [length]="4"
+            [numeric]="false"
+            joined
+            size="sm"
+            aria-label="Four-character code"
+          />
+          <p class="demo-status">Value: {{ reactive.value }}</p>
+          <button dsyButton (click)="reactive.reset('')">Reset code</button>
+        </div>
+      </div>
+    </section>
   </div>
-</section>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

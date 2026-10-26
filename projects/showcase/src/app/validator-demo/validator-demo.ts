@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './validator-documentation.code';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
@@ -13,6 +17,8 @@ import { DsyValidator } from '@ngx-daisy/cdk/validator';
   selector: 'demo-validator-demo',
   standalone: true,
   imports: [
+    DocumentationPage,
+    ComponentDocumentation,
     Playground,
     FormField,
     ReactiveFormsModule,
@@ -32,6 +38,8 @@ import { DsyValidator } from '@ngx-daisy/cdk/validator';
 })
 export class ValidatorDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly model = signal({ email: '' });
   readonly fields = form(this.model, (s) => {
     required(s.email, { message: 'Email is required' });

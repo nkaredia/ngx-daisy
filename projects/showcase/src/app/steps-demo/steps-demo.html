@@ -1,40 +1,51 @@
-<section class="action-demo catalog-demo">
-  <h2>Steps</h2>
-  <p>Show workflow progress without imposing form or navigation behavior.</p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Steps documentation sections"
+>
+  <div id="steps-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Steps</h2>
+      <p>Show workflow progress without imposing form or navigation behavior.</p>
+      <h3 id="steps-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Setup progress</h3>
-    <ol dsySteps class="w-full">
-      <li dsyStep [color]="step() >= 0 ? 'primary' : 'inherit'" [current]="step() === 0">
-        <span dsyStepIcon aria-hidden="true">1</span>Account
-      </li>
-      <li dsyStep [color]="step() >= 1 ? 'primary' : 'inherit'" [current]="step() === 1">
-        <span dsyStepIcon aria-hidden="true">2</span>Workspace
-      </li>
-      <li dsyStep [color]="step() >= 2 ? 'primary' : 'inherit'" [current]="step() === 2">
-        <span dsyStepIcon aria-hidden="true">3</span>Review
-      </li>
-    </ol>
-    <div class="demo-row mt-4">
-      <button
-        type="button"
-        class="catalog-button"
-        [disabled]="step() === 0"
-        (click)="step.update(previous)"
-      >
-        Previous step</button
-      ><button
-        type="button"
-        class="catalog-button"
-        [disabled]="step() === 2"
-        (click)="step.update(next)"
-      >
-        Next step
-      </button>
-    </div>
-    <p class="demo-status" aria-live="polite">Current step: {{ step() + 1 }}</p>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Setup progress</h3>
+        <ol dsySteps class="w-full">
+          <li dsyStep [color]="step() >= 0 ? 'primary' : 'inherit'" [current]="step() === 0">
+            <span dsyStepIcon aria-hidden="true">1</span>Account
+          </li>
+          <li dsyStep [color]="step() >= 1 ? 'primary' : 'inherit'" [current]="step() === 1">
+            <span dsyStepIcon aria-hidden="true">2</span>Workspace
+          </li>
+          <li dsyStep [color]="step() >= 2 ? 'primary' : 'inherit'" [current]="step() === 2">
+            <span dsyStepIcon aria-hidden="true">3</span>Review
+          </li>
+        </ol>
+        <div class="demo-row mt-4">
+          <button
+            type="button"
+            class="catalog-button"
+            [disabled]="step() === 0"
+            (click)="step.update(previous)"
+          >
+            Previous step</button
+          ><button
+            type="button"
+            class="catalog-button"
+            [disabled]="step() === 2"
+            (click)="step.update(next)"
+          >
+            Next step
+          </button>
+        </div>
+        <p class="demo-status" aria-live="polite">Current step: {{ step() + 1 }}</p>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

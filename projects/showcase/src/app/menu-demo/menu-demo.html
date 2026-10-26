@@ -1,36 +1,48 @@
-<section class="action-demo catalog-demo">
-  <h2>Menus</h2>
-  <p>
-    Native navigation lists retain normal Tab navigation and details/summary disclosure behavior.
-  </p>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Menus documentation sections"
+>
+  <div id="menu-overview" class="component-documentation-demo">
+    <section class="action-demo catalog-demo">
+      <h2>Menus</h2>
+      <p>
+        Native navigation lists retain normal Tab navigation and details/summary disclosure
+        behavior.
+      </p>
+      <h3 id="menu-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
 
-  <section class="demo-card">
-    <h3>Project navigation</h3>
-    <ul dsyMenu class="catalog-menu bg-base-200 rounded-box">
-      <li dsyMenuTitle>Workspace</li>
-      <li><a dsyMenuItem active href="/menus">Overview</a></li>
-      <li>
-        <details dsyMenuSubmenu [(opened)]="expanded">
-          <summary>Components</summary>
-          <ul>
-            <li><a dsyMenuItem href="/buttons">Buttons</a></li>
-            <li><a dsyMenuItem href="/cards">Cards</a></li>
-            <li><a dsyMenuItem href="/tables">Tables</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a dsyMenuItem disabled href="/menus">Administration</a></li>
-    </ul>
-    <p class="demo-status">Submenu: {{ expanded() ? 'open' : 'closed' }}</p>
-  </section>
-  <section class="demo-card">
-    <h3>Horizontal menu</h3>
-    <ul dsyMenu orientation="horizontal">
-      <li><a dsyMenuItem href="/inputs">Inputs</a></li>
-      <li><a dsyMenuItem href="/carousels">Carousels</a></li>
-    </ul>
-  </section>
-</section>
+      <section class="demo-card">
+        <h3>Project navigation</h3>
+        <ul dsyMenu class="catalog-menu bg-base-200 rounded-box">
+          <li dsyMenuTitle>Workspace</li>
+          <li><a dsyMenuItem active href="/menus">Overview</a></li>
+          <li>
+            <details dsyMenuSubmenu [(opened)]="expanded">
+              <summary>Components</summary>
+              <ul>
+                <li><a dsyMenuItem href="/buttons">Buttons</a></li>
+                <li><a dsyMenuItem href="/cards">Cards</a></li>
+                <li><a dsyMenuItem href="/tables">Tables</a></li>
+              </ul>
+            </details>
+          </li>
+          <li><a dsyMenuItem disabled href="/menus">Administration</a></li>
+        </ul>
+        <p class="demo-status">Submenu: {{ expanded() ? 'open' : 'closed' }}</p>
+      </section>
+      <section class="demo-card">
+        <h3>Horizontal menu</h3>
+        <ul dsyMenu orientation="horizontal">
+          <li><a dsyMenuItem href="/inputs">Inputs</a></li>
+          <li><a dsyMenuItem href="/carousels">Carousels</a></li>
+        </ul>
+      </section>
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

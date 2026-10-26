@@ -1,198 +1,230 @@
-<section class="loader-demo" aria-labelledby="loaders">
-  <header class="loader-demo-heading">
-    <div>
-      <h2 id="loaders" class="text-xl font-semibold">Loaders</h2>
-      <p class="mt-2 text-base-content/70">
-        A little feedback for every wait. Choose a style, tune its motion, or show real progress.
-      </p>
-    </div>
-    <span class="badge badge-outline">Respects reduced motion</span>
-  </header>
-  @for (preview of playground.previews; track preview) {
-    <demo-playground [component]="preview" />
-  }
-
-  <div class="loader-demo-playground">
-    <div class="loader-demo-controls">
-      <h3 class="loader-demo-eyebrow">Make it yours</h3>
-      <label>
-        Style
-        <select
-          #variantSelect
-          class="select select-bordered"
-          (change)="setVariant(variantSelect.value)"
-        >
-          @for (option of variants; track option) {
-            <option [value]="option" [selected]="option === variant()">{{ option }}</option>
-          }
-        </select>
-      </label>
-      <label>
-        Animation
-        <select
-          #animationSelect
-          class="select select-bordered"
-          (change)="setAnimation(animationSelect.value)"
-        >
-          @for (option of animations; track option) {
-            <option [value]="option" [selected]="option === animation()">{{ option }}</option>
-          }
-        </select>
-      </label>
-      <label>
-        Speed
-        <select #speedSelect class="select select-bordered" (change)="setSpeed(speedSelect.value)">
-          @for (option of speeds; track option) {
-            <option [value]="option" [selected]="option === speed()">{{ option }}</option>
-          }
-        </select>
-      </label>
-      <label>
-        Size
-        <select #sizeSelect class="select select-bordered" (change)="setSize(sizeSelect.value)">
-          @for (option of sizes; track option) {
-            <option [value]="option" [selected]="option === size()">{{ option }}</option>
-          }
-        </select>
-      </label>
-      <label>
-        Theme color
-        <select #colorSelect class="select select-bordered" (change)="setColor(colorSelect.value)">
-          @for (option of colors; track option) {
-            <option [value]="option" [selected]="option === color()">{{ option }}</option>
-          }
-        </select>
-      </label>
-    </div>
-    <div class="loader-demo-preview">
-      <span class="loader-demo-eyebrow">Live preview</span>
-      <div class="loader-demo-preview-stage">
-        <dsy-loader
-          [variant]="variant()"
-          [animation]="animation()"
-          [speed]="speed()"
-          [size]="size()"
-          [color]="color()"
-          aria-label="Loading preview"
-          showLabel
-        />
-      </div>
-      <p class="text-sm text-base-content/60">
-        {{ variant() }} · {{ animation() }} · {{ speed() }}
-      </p>
-    </div>
-  </div>
-
-  <div class="loader-demo-gallery" aria-label="Loader styles">
-    @for (style of compactVariants; track style) {
-      <div class="loader-demo-style">
-        <div class="loader-demo-style-visual" aria-hidden="true">
-          <dsy-loader [variant]="style" size="lg" [color]="color()" [speed]="speed()" />
-        </div>
-        <span>{{ style }}</span>
-      </div>
-    }
-  </div>
-  <div class="loader-demo-bar-sample">
-    <div>
-      <h3 class="font-semibold">A longer wait</h3>
-      <p class="mt-1 text-sm text-base-content/60">A horizontal bar for open-ended work.</p>
-    </div>
-    <dsy-loader variant="bar" [color]="color()" [speed]="speed()" aria-label="Preparing content" />
-  </div>
-
-  <div class="loader-demo-progress">
-    <div class="loader-demo-progress-heading">
-      <div>
-        <h3 class="font-semibold">When you know the progress</h3>
-        <p class="mt-1 text-sm text-base-content/60">
-          Rings and bars can show a measured percentage.
-        </p>
-      </div>
-      <output for="loader-progress" class="loader-demo-percentage">{{ progress() }}%</output>
-    </div>
-    <div class="loader-demo-progress-visuals">
-      <dsy-loader
-        variant="ring"
-        [value]="progress()"
-        size="xl"
-        [color]="color()"
-        aria-label="Ring progress"
-      />
-      <dsy-loader variant="bar" [value]="progress()" [color]="color()" aria-label="Bar progress" />
-    </div>
-    <label for="loader-progress" class="text-sm font-medium">Progress for both examples</label>
-    <input
-      #progressInput
-      id="loader-progress"
-      type="range"
-      class="range range-primary range-sm"
-      min="0"
-      max="100"
-      [value]="progress()"
-      (input)="setProgress(progressInput.valueAsNumber)"
-    />
-  </div>
-
-  <div class="loader-demo-placements">
-    <div class="loader-demo-placement">
-      <div class="loader-demo-placement-heading">
+<demo-documentation-page
+  [sections]="documentationSections"
+  navigationLabel="Loaders documentation sections"
+>
+  <div id="loader-overview" class="component-documentation-demo">
+    <section class="loader-demo" aria-labelledby="loaders">
+      <header class="loader-demo-heading">
         <div>
-          <h3 class="font-semibold">Keep the wait in context</h3>
-          <p class="mt-1 text-sm text-base-content/60">Cover just the section that is updating.</p>
+          <h2 id="loaders" class="text-xl font-semibold">Loaders</h2>
+          <p class="mt-2 text-base-content/70">
+            A little feedback for every wait. Choose a style, tune its motion, or show real
+            progress.
+          </p>
         </div>
-        <button
-          dsyButton
-          type="button"
-          variant="outline"
-          size="sm"
-          [attr.aria-pressed]="overlayActive()"
-          (click)="overlayActive.set(!overlayActive())"
-        >
-          {{ overlayActive() ? 'Hide overlay' : 'Show overlay' }}
-        </button>
+        <span class="badge badge-outline">Respects reduced motion</span>
+      </header>
+      <h3 id="loader-examples" class="component-documentation-examples-heading">
+        Playground and UI examples
+      </h3>
+      @for (preview of playground.previews; track preview) {
+        <demo-playground [component]="preview" />
+      }
+
+      <div class="loader-demo-playground">
+        <div class="loader-demo-controls">
+          <h3 class="loader-demo-eyebrow">Make it yours</h3>
+          <label>
+            Style
+            <select
+              #variantSelect
+              class="select select-bordered"
+              (change)="setVariant(variantSelect.value)"
+            >
+              @for (option of variants; track option) {
+                <option [value]="option" [selected]="option === variant()">{{ option }}</option>
+              }
+            </select>
+          </label>
+          <label>
+            Animation
+            <select
+              #animationSelect
+              class="select select-bordered"
+              (change)="setAnimation(animationSelect.value)"
+            >
+              @for (option of animations; track option) {
+                <option [value]="option" [selected]="option === animation()">{{ option }}</option>
+              }
+            </select>
+          </label>
+          <label>
+            Speed
+            <select
+              #speedSelect
+              class="select select-bordered"
+              (change)="setSpeed(speedSelect.value)"
+            >
+              @for (option of speeds; track option) {
+                <option [value]="option" [selected]="option === speed()">{{ option }}</option>
+              }
+            </select>
+          </label>
+          <label>
+            Size
+            <select #sizeSelect class="select select-bordered" (change)="setSize(sizeSelect.value)">
+              @for (option of sizes; track option) {
+                <option [value]="option" [selected]="option === size()">{{ option }}</option>
+              }
+            </select>
+          </label>
+          <label>
+            Theme color
+            <select
+              #colorSelect
+              class="select select-bordered"
+              (change)="setColor(colorSelect.value)"
+            >
+              @for (option of colors; track option) {
+                <option [value]="option" [selected]="option === color()">{{ option }}</option>
+              }
+            </select>
+          </label>
+        </div>
+        <div class="loader-demo-preview">
+          <span class="loader-demo-eyebrow">Live preview</span>
+          <div class="loader-demo-preview-stage">
+            <dsy-loader
+              [variant]="variant()"
+              [animation]="animation()"
+              [speed]="speed()"
+              [size]="size()"
+              [color]="color()"
+              aria-label="Loading preview"
+              showLabel
+            />
+          </div>
+          <p class="text-sm text-base-content/60">
+            {{ variant() }} · {{ animation() }} · {{ speed() }}
+          </p>
+        </div>
       </div>
-      <div class="loader-demo-overlay-panel">
-        <section [attr.aria-busy]="overlayActive()" aria-label="Recent activity">
-          <h4 class="text-sm font-semibold">Recent activity</h4>
-          <div class="loader-demo-activity">
-            <span class="bg-success"></span>Workspace is up to date
+
+      <div class="loader-demo-gallery" aria-label="Loader styles">
+        @for (style of compactVariants; track style) {
+          <div class="loader-demo-style">
+            <div class="loader-demo-style-visual" aria-hidden="true">
+              <dsy-loader [variant]="style" size="lg" [color]="color()" [speed]="speed()" />
+            </div>
+            <span>{{ style }}</span>
           </div>
-          <div class="loader-demo-activity">
-            <span class="bg-primary"></span>12 updates this week
-          </div>
-          <div class="loader-demo-activity">
-            <span class="bg-secondary"></span>All systems connected
-          </div>
-        </section>
+        }
+      </div>
+      <div class="loader-demo-bar-sample">
+        <div>
+          <h3 class="font-semibold">A longer wait</h3>
+          <p class="mt-1 text-sm text-base-content/60">A horizontal bar for open-ended work.</p>
+        </div>
         <dsy-loader
-          placement="overlay"
-          variant="dots"
-          [active]="overlayActive()"
+          variant="bar"
           [color]="color()"
-          aria-label="Updating recent activity"
-          showLabel
+          [speed]="speed()"
+          aria-label="Preparing content"
         />
       </div>
-    </div>
-    <div class="loader-demo-placement loader-demo-page-card">
-      <span class="loader-demo-eyebrow">Full page</span>
-      <h3 class="text-lg font-semibold">Give a bigger task some room</h3>
-      <p class="text-sm text-base-content/60">
-        A page backdrop for a short wait. This preview closes automatically after two seconds.
-      </p>
-      <button dsyButton type="button" variant="outline" (click)="previewPage()">
-        Preview page loader
-      </button>
-    </div>
-  </div>
 
-  <dsy-loader
-    placement="page"
-    [active]="pageActive()"
-    [color]="color()"
-    size="lg"
-    aria-label="Loading page preview"
-    showLabel
-  />
-</section>
+      <div class="loader-demo-progress">
+        <div class="loader-demo-progress-heading">
+          <div>
+            <h3 class="font-semibold">When you know the progress</h3>
+            <p class="mt-1 text-sm text-base-content/60">
+              Rings and bars can show a measured percentage.
+            </p>
+          </div>
+          <output for="loader-progress" class="loader-demo-percentage">{{ progress() }}%</output>
+        </div>
+        <div class="loader-demo-progress-visuals">
+          <dsy-loader
+            variant="ring"
+            [value]="progress()"
+            size="xl"
+            [color]="color()"
+            aria-label="Ring progress"
+          />
+          <dsy-loader
+            variant="bar"
+            [value]="progress()"
+            [color]="color()"
+            aria-label="Bar progress"
+          />
+        </div>
+        <label for="loader-progress" class="text-sm font-medium">Progress for both examples</label>
+        <input
+          #progressInput
+          id="loader-progress"
+          type="range"
+          class="range range-primary range-sm"
+          min="0"
+          max="100"
+          [value]="progress()"
+          (input)="setProgress(progressInput.valueAsNumber)"
+        />
+      </div>
+
+      <div class="loader-demo-placements">
+        <div class="loader-demo-placement">
+          <div class="loader-demo-placement-heading">
+            <div>
+              <h3 class="font-semibold">Keep the wait in context</h3>
+              <p class="mt-1 text-sm text-base-content/60">
+                Cover just the section that is updating.
+              </p>
+            </div>
+            <button
+              dsyButton
+              type="button"
+              variant="outline"
+              size="sm"
+              [attr.aria-pressed]="overlayActive()"
+              (click)="overlayActive.set(!overlayActive())"
+            >
+              {{ overlayActive() ? 'Hide overlay' : 'Show overlay' }}
+            </button>
+          </div>
+          <div class="loader-demo-overlay-panel">
+            <section [attr.aria-busy]="overlayActive()" aria-label="Recent activity">
+              <h4 class="text-sm font-semibold">Recent activity</h4>
+              <div class="loader-demo-activity">
+                <span class="bg-success"></span>Workspace is up to date
+              </div>
+              <div class="loader-demo-activity">
+                <span class="bg-primary"></span>12 updates this week
+              </div>
+              <div class="loader-demo-activity">
+                <span class="bg-secondary"></span>All systems connected
+              </div>
+            </section>
+            <dsy-loader
+              placement="overlay"
+              variant="dots"
+              [active]="overlayActive()"
+              [color]="color()"
+              aria-label="Updating recent activity"
+              showLabel
+            />
+          </div>
+        </div>
+        <div class="loader-demo-placement loader-demo-page-card">
+          <span class="loader-demo-eyebrow">Full page</span>
+          <h3 class="text-lg font-semibold">Give a bigger task some room</h3>
+          <p class="text-sm text-base-content/60">
+            A page backdrop for a short wait. This preview closes automatically after two seconds.
+          </p>
+          <button dsyButton type="button" variant="outline" (click)="previewPage()">
+            Preview page loader
+          </button>
+        </div>
+      </div>
+
+      <dsy-loader
+        placement="page"
+        [active]="pageActive()"
+        [color]="color()"
+        size="lg"
+        aria-label="Loading page preview"
+        showLabel
+      />
+    </section>
+  </div>
+  <demo-component-documentation [content]="documentation" [playground]="playground" />
+</demo-documentation-page>

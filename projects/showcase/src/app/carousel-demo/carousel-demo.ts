@@ -1,3 +1,7 @@
+import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
+import { ComponentDocumentation } from '../documentation/component-documentation';
+import { componentDocumentationSections } from '../documentation/component-documentation.types';
+import { documentation } from './carousel-documentation.code';
 import { Playground } from '../playground/playground.component';
 import { providePlayground } from '../playground/provide-playground';
 import { playground } from './playground';
@@ -13,7 +17,7 @@ import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
 @Component({
   selector: 'demo-carousel-demo',
   providers: providePlayground(playground),
-  imports: [Playground, DsyCarousel, DsyCarouselItem],
+  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyCarousel, DsyCarouselItem],
   templateUrl: './carousel-demo.html',
   styleUrl: './carousel-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +25,8 @@ import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
 })
 export class CarouselDemo {
   readonly playground = playground;
+  readonly documentation = documentation;
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly slide = signal(0);
   readonly loop = signal(false);
 }
