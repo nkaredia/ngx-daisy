@@ -1,16 +1,25 @@
 // A single build-side instance; no Shiki runtime or grammars enter the browser bundle.
 let highlighter;
+/**
+ *
+ * @param {*} content
+ * @param {string} language
+ * @returns
+ */
 async function highlightSource(content, language) {
   highlighter ??= import('shiki').then(({ createHighlighter }) =>
     createHighlighter({
-      themes: ['one-light', 'one-dark-pro'],
+      themes: ['github-light', 'light-plus', 'github-dark', 'dark-plus'],
       langs: ['typescript', 'html', 'scss', 'css'],
     }),
   );
   const engine = await highlighter;
   const { tokens } = engine.codeToTokens(content, {
     lang: language,
-    themes: { light: 'one-light', dark: 'one-dark-pro' },
+    themes: {
+      light: language.match(/html|scss|css$/) ? 'github-light' : 'light-plus',
+      dark: language.match(/html|scss|css$/) ? 'github-dark' : 'dark-plus',
+    },
     defaultColor: 'light-dark()',
   });
   const result = [];

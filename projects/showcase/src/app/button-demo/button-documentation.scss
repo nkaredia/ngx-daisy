@@ -1,0 +1,138 @@
+demo-button-documentation {
+  display: grid;
+  gap: 3rem;
+  min-inline-size: 0;
+}
+.button-doc-section {
+  display: grid;
+  gap: 1rem;
+  min-inline-size: 0;
+  scroll-margin-block-start: 6rem;
+  padding-block-start: 2rem;
+  border-block-start: 1px solid var(--color-base-300);
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 650;
+    letter-spacing: -0.025em;
+  }
+  h4 {
+    font-size: 1rem;
+    font-weight: 650;
+    margin-block-start: 1rem;
+  }
+  > p,
+  li {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: color-mix(in oklab, var(--color-base-content) 78%, transparent);
+  }
+  code {
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
+  }
+  p > code,
+  li code {
+    background: var(--color-base-200);
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+}
+.button-doc-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.button-doc-callout {
+  border-inline-start: 3px solid var(--color-primary);
+  background: color-mix(in oklab, var(--color-primary) 5%, var(--color-base-100));
+  padding: 1rem 1.25rem;
+  border-radius: 0 var(--radius-box) var(--radius-box) 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  p {
+    opacity: 0.75;
+    margin-block-start: 0.25rem;
+  }
+}
+.button-doc-guidelines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+  article {
+    padding: 1.25rem;
+    background: var(--color-base-200);
+    border-radius: var(--radius-box);
+    h4 {
+      margin: 0 0 0.5rem;
+      font-size: 0.875rem;
+    }
+    p {
+      font-size: 0.8125rem;
+      opacity: 0.75;
+      line-height: 1.7;
+    }
+  }
+}
+.button-doc-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+  > code {
+    padding: 0.5rem;
+    background: var(--color-base-200);
+    border-radius: var(--radius-field);
+  }
+  span {
+    align-self: center;
+    opacity: 0.6;
+  }
+}
+.button-doc-table-scroll {
+  max-inline-size: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--color-base-300);
+  border-radius: var(--radius-box);
+  table {
+    min-inline-size: 38rem;
+  }
+  thead {
+    background: var(--color-base-200);
+  }
+  th,
+  td {
+    vertical-align: top;
+    padding: 1rem;
+  }
+  tbody th {
+    inline-size: 45%;
+    font-weight: 400;
+    > code {
+      color: var(--color-primary);
+      font-weight: 650;
+    }
+  }
+  p {
+    font-size: 0.75rem;
+    opacity: 0.65;
+    margin-block-start: 0.5rem;
+    white-space: normal;
+    line-height: 1.65;
+  }
+}
+.button-doc-checklist {
+  display: grid;
+  gap: 1rem;
+  padding-inline-start: 1.25rem;
+  list-style: disc;
+  strong {
+    color: var(--color-base-content);
+  }
+}

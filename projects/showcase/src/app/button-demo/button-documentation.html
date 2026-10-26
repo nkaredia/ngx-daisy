@@ -1,0 +1,163 @@
+<section class="button-doc-section" id="button-angular" aria-labelledby="button-angular-heading">
+  <div class="button-doc-eyebrow">Angular</div>
+  <h3 id="button-angular-heading">Import once. Use a native button.</h3>
+  <p>
+    Import <code>DsyButton</code> from <code>&#64;ngx-daisy/cdk/button</code> in your standalone
+    component, then add <code>dsyButton</code> to a <code>&lt;button&gt;</code> or
+    <code>&lt;a&gt;</code>. Your app must already compile Tailwind and daisyUI and scan the library
+    for its styles.
+  </p>
+  <p>
+    Bind inputs to signals or ordinary component properties. Handle actions with Angular’s native
+    <code>(click)</code> binding. The component does not make requests or own your loading state.
+  </p>
+  <demo-example-code [files]="setup" [expanded]="true" [showToggle]="false" />
+  <div class="button-doc-callout">
+    <strong>Loading also prevents activation.</strong>
+    <p>
+      The spinner is decorative. Keep the action’s text visible, and announce completion or errors
+      with a separate status message.
+    </p>
+  </div>
+  <h4>Navigation and router links</h4>
+  <p>
+    Use a button for an action and an anchor for a destination. <code>RouterLink</code>,
+    <code>href</code>, <code>target</code>, and <code>rel</code> remain native Angular or HTML
+    concerns. Import <code>RouterLink</code> alongside <code>DsyButton</code> when using the Angular
+    router.
+  </p>
+  <demo-example-code [files]="navigation" [expanded]="true" [showToggle]="false" />
+  <h4>Forms and submit actions</h4>
+  <p>
+    The default button type is <code>button</code>, so it does not submit a surrounding form. Set
+    <code>type="submit"</code> deliberately and keep validation and submission in your form. Use
+    <code>(ngSubmit)</code> with Angular forms; avoid submitting the same request from both
+    <code>(click)</code> and <code>(ngSubmit)</code>.
+  </p>
+  <p>
+    Buttons are actions, so they do not take <code>formControl</code>, <code>formControlName</code>,
+    or a Signal Forms field binding. Bind <code>disabled</code> and <code>loading</code> from your
+    form and request state. This works with Reactive Forms, template-driven forms, and Signal Forms.
+  </p>
+  <demo-example-code [files]="form" [expanded]="true" [showToggle]="false" />
+</section>
+<section class="button-doc-section" id="button-styling" aria-labelledby="button-styling-heading">
+  <div class="button-doc-eyebrow">Appearance</div>
+  <h3 id="button-styling-heading">Theme, size, and composition</h3>
+  <p>
+    Colors come from the active daisyUI theme. Use semantic choices such as <code>primary</code> for
+    a main action, <code>error</code> for a destructive action, and <code>ghost</code> or
+    <code>outline</code> treatments for lower emphasis. Color should support the label, rather than
+    carry the meaning alone.
+  </p>
+  <div class="button-doc-guidelines">
+    <article>
+      <h4>Visual hierarchy</h4>
+      <p>
+        Use one prominent action per group. Pair a solid primary action with a quieter secondary
+        action.
+      </p>
+    </article>
+    <article>
+      <h4>Layout and shape</h4>
+      <p>
+        Use <code>block</code> for full-width actions and <code>square</code> or
+        <code>circle</code> for icon-only buttons. Keep related actions consistent in size.
+      </p>
+    </article>
+    <article>
+      <h4>Projected content</h4>
+      <p>
+        Put text or your icon component inside the button. <code>DsyIcon</code> can wrap your chosen
+        provider. Avoid nesting links, inputs, or other buttons.
+      </p>
+    </article>
+  </div>
+  <demo-example-code [files]="styling" [expanded]="true" [showToggle]="false" />
+  <p>
+    Application classes are merged with the generated daisyUI classes. Use Tailwind utilities for
+    spacing and layout, and theme tokens for a consistent surface. When configuring daisyUI or
+    Tailwind prefixes, configure the library’s matching prefix provider too.
+    <a routerLink="/themes">Theme Builder</a> previews how these tokens affect every component.
+  </p>
+</section>
+<section class="button-doc-section" id="button-api" aria-labelledby="button-api-heading">
+  <div class="button-doc-eyebrow">Reference</div>
+  <h3 id="button-api-heading">Button API</h3>
+  <div class="button-doc-selector">
+    <code>button[dsyButton]</code><code>a[dsyButton]</code
+    ><span>Export: <code>DsyButton</code></span>
+  </div>
+  <div
+    class="button-doc-table-scroll"
+    tabindex="0"
+    role="region"
+    aria-label="Button input reference"
+  >
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Input</th>
+          <th scope="col">Type and accepted values</th>
+          <th scope="col">Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (input of inputs; track input.name) {
+          <tr>
+            <th scope="row">
+              <code>{{ input.name }}</code>
+              <p>{{ input.description }}</p>
+            </th>
+            <td>
+              <code>{{ input.type }}</code>
+              <p>{{ input.values }}</p>
+            </td>
+            <td>
+              <code>{{ input.default }}</code>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  <h4>Events and state</h4>
+  <p>
+    Use native <code>(click)</code>, <code>(focus)</code>, and <code>(blur)</code> events. There are
+    no custom outputs or two-way models. The read-only <code>isDisabled()</code> computed state is
+    true when either <code>disabled</code> or <code>loading</code> is true. Boolean inputs accept
+    bare attributes, such as <code>&lt;button dsyButton disabled&gt;</code>, and property bindings.
+  </p>
+</section>
+<section
+  class="button-doc-section"
+  id="button-accessibility"
+  aria-labelledby="button-accessibility-heading"
+>
+  <div class="button-doc-eyebrow">Accessibility</div>
+  <h3 id="button-accessibility-heading">Keep native interaction clear</h3>
+  <ul class="button-doc-checklist">
+    <li>
+      <strong>Give every action a name.</strong> Visible text supplies it by default. Set
+      <code>aria-label</code> on icon-only buttons and keep their icons decorative. Tooltips provide
+      supporting context.
+    </li>
+    <li>
+      <strong>Preserve native keyboard behavior.</strong> Buttons activate with Enter or Space;
+      links activate with Enter. Keep focus styles visible and prefer the natural tab order.
+    </li>
+    <li>
+      <strong>Expose toggle state explicitly.</strong> For an on/off action, bind
+      <code>aria-pressed</code> along with the visual <code>active</code> input. A button’s active
+      appearance alone does not announce selection.
+    </li>
+    <li>
+      <strong>Explain unavailable actions.</strong> Disabled buttons cannot receive focus. Put
+      useful explanations in nearby text instead of relying on hover.
+    </li>
+    <li>
+      <strong>Check the chosen theme.</strong> Verify text contrast, recognizable focus, and touch
+      target size, especially with custom colors and compact sizes.
+    </li>
+  </ul>
+</section>

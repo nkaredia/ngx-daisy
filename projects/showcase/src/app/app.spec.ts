@@ -96,6 +96,32 @@ describe('Showcase routes', () => {
     expect(root.querySelector('.showcase-floating-navigation')).toBeNull();
   });
 
+  it('smoothly navigates documentation sections and honors reduced motion', async () => {
+    const { fixture, root } = await renderShowcase('/buttons');
+    const target = root.querySelector<HTMLElement>('#button-api')!;
+    const scroll = vi.fn();
+    target.scrollIntoView = scroll;
+    const media = vi.fn();
+    vi.stubGlobal('matchMedia', media);
+    try {
+      media.mockReturnValue({ matches: false } as MediaQueryList);
+      root
+        .querySelector<HTMLAnchorElement>('.button-page-sections a[href$="#button-api"]')!
+        .click();
+      await fixture.whenStable();
+      expect(scroll).toHaveBeenLastCalledWith({ behavior: 'smooth', block: 'start' });
+      expect(document.activeElement).toBe(target);
+      media.mockReturnValue({ matches: true } as MediaQueryList);
+      root
+        .querySelector<HTMLAnchorElement>('.button-page-sections a[href$="#button-api"]')!
+        .click();
+      await fixture.whenStable();
+      expect(scroll).toHaveBeenLastCalledWith({ behavior: 'instant', block: 'start' });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('redirects the root and unknown paths to the buttons page', async () => {
     const { fixture, router, root } = await renderShowcase('/');
     expect(router.url).toBe('/buttons');

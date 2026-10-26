@@ -1,15 +1,49 @@
-<section class="action-demo" aria-labelledby="buttons">
-  <h2 id="buttons" class="text-xl font-semibold">Buttons</h2>
-  @for (preview of playground.previews; track $index) {
-    <demo-playground [component]="preview" />
-  }
-  <div class="button-inline-previews">
-    @for (preview of playground.inlinePreviews ?? []; track $index) {
-      <demo-inline-preview-shell
-        [component]="preview.component"
-        [title]="preview.title"
-        [showTypescript]="preview.showTypescript ?? false"
-      />
+<div class="button-documentation-layout">
+  <section class="action-demo" aria-labelledby="buttons">
+    <h2 id="buttons" class="text-xl font-semibold">Buttons</h2>
+    <p class="button-page-description">
+      Trigger actions and navigate with native buttons and links, styled by daisyUI and ready for
+      Angular signals, forms, and routing.
+    </p>
+    <div class="button-page-import"><code>&#64;ngx-daisy/cdk/button</code><span>Actions</span></div>
+
+    <div id="button-playground" class="button-page-section-heading">
+      <h3>Try it out</h3>
+      <p>
+        Change the inputs to explore appearance and state. Open the code panel for a complete
+        Angular example.
+      </p>
+    </div>
+    @for (preview of playground.previews; track $index) {
+      <demo-playground [component]="preview" />
     }
-  </div>
-</section>
+    <div id="button-examples" class="button-page-section-heading">
+      <h3>UI examples</h3>
+      <p>
+        Compare colors, sizes, variants, and states. Each example includes the HTML you can copy
+        into your app.
+      </p>
+    </div>
+    <div class="button-inline-previews">
+      @for (preview of playground.inlinePreviews ?? []; track $index) {
+        <demo-inline-preview-shell
+          [component]="preview.component"
+          [title]="preview.title"
+          [showTypescript]="preview.showTypescript ?? false"
+        />
+      }
+    </div>
+    <demo-button-documentation />
+  </section>
+
+  <aside class="button-page-sidebar" aria-label="On this page">
+    <p>On this page</p>
+    <nav class="button-page-sections" aria-label="Button documentation sections">
+      @for (section of sections; track section.id) {
+        <a [href]="sectionHref(section.id)" (click)="scrollToSection($event, section.id)">{{
+          section.label
+        }}</a>
+      }
+    </nav>
+  </aside>
+</div>
