@@ -34,4 +34,4 @@ Strict templates, both platform bundles, selected-icon checks, all 35 preset con
 
 The Data Input expansion adds account details with validation, a live bio editor and notification preferences. See [native Data Input](native-data-inputs.md) for APIs and verification.
 
-Select, Form Field and Fieldset add native selection sheets and schema-driven presentation. See [native form composition](native-form-composition.md) for usage and verification.
+Select, Form Field and Fieldset add anchored native selection menus and schema-driven presentation. See [native form composition](native-form-composition.md) for usage and verification.

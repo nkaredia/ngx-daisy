@@ -104,4 +104,4 @@ Native Data Input expansion: Input, Textarea and Toggle use native TextField/Tex
 
 Native selection controls: Checkbox supports mixed selection; a Radio Group owns a single string value across native button options; Range uses a native Slider with schema bounds and step snapping. Preserve native semantics, guarded form interactions, theme tokens and independent showcase pages.
 
-Native form composition: Select uses a confirmation-based native selection sheet with a string Signal Forms model. Form Field derives reactive labels, errors and native focus from one projected binding; Fieldset groups projected controls without a parallel form-state owner. Completed work is committed and pushed before beginning the next major task.
+Native form composition: Select uses an anchored native menu with immediate selection and a string Signal Forms model. Dropdown uses the same OS menu foundation; Modal is a compact centered dialog. Form Field derives reactive labels, errors and native focus from one projected binding; Fieldset groups projected controls without a parallel form-state owner. Completed work is committed and pushed before beginning the next major task.

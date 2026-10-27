@@ -1,12 +1,12 @@
 # Native form composition
 
-Select, Form Field and Fieldset extend the native Data Input catalog. They use the existing native Button, Modal, Radio and theme infrastructure, without an additional plugin or browser dependency.
+Select, Form Field and Fieldset extend the native Data Input catalog. They use the existing native Button, anchored Menu and theme infrastructure, without an additional plugin or browser dependency.
 
-| Family     | Entry point                    | Host                        | Responsibility                                                   |
-| ---------- | ------------------------------ | --------------------------- | ---------------------------------------------------------------- |
-| Select     | `@ngx-daisy/native/select`     | `GridLayout[dsySelect]`     | String-valued Signal Forms control with a native selection sheet |
-| Form Field | `@ngx-daisy/native/form-field` | `StackLayout[dsyFormField]` | Label, required marker, helper/error text and native focus       |
-| Fieldset   | `@ngx-daisy/native/fieldset`   | `StackLayout[dsyFieldset]`  | Themed visual grouping with a legend and description             |
+| Family     | Entry point                    | Host                        | Responsibility                                                            |
+| ---------- | ------------------------------ | --------------------------- | ------------------------------------------------------------------------- |
+| Select     | `@ngx-daisy/native/select`     | `GridLayout[dsySelect]`     | String-valued Signal Forms control with an anchored native selection menu |
+| Form Field | `@ngx-daisy/native/form-field` | `StackLayout[dsyFormField]` | Label, required marker, helper/error text and native focus                |
+| Fieldset   | `@ngx-daisy/native/fieldset`   | `StackLayout[dsyFieldset]`  | Themed visual grouping with a legend and description                      |
 
 ## Select
 
@@ -39,9 +39,11 @@ readonly regions: readonly DsySelectOption[] = [
 
 Select implements `FormValueControl<string>` with a `value` model; direct `[(value)]` also works. Options require unique string values and labels; descriptions and disabled state are optional. An unmatched value keeps the Angular model intact and displays the placeholder. No enabled options disables the trigger. This first native Select is single-selection and intended for short option lists; multi-select, search and virtualized lists are not implemented.
 
-The trigger opens the shared native Modal presenter. Radio options update a draft, and Confirm commits an enabled option to the form. Cancel, native dismissal and the close button retain the current value. The complete option row is tappable. Select emits `touch` when its opened sheet closes. Disabled, read-only or hidden state closes an open sheet and guards further edits. Cancellation before presentation also clears the pending state without requiring a native close event. Native modal lifecycle owns back handling, presentation and dismissal; detached sheets inherit the declaring theme scope.
+The trigger opens an OS menu anchored to its native Button: UIMenu on iOS and PopupMenu on Android. The selected option has a checkmark. Choosing an enabled option updates the form immediately; tapping outside retains the current value. Select emits `touch` when its menu closes. Disabled, read-only or hidden state closes an open menu and guards stale callbacks. Replacing the options also closes an open snapshot. Native lifecycle owns dismissal and anchor cleanup.
 
-`label` and `description` override inherited Form Field metadata. `confirmText`, `cancelText` and `placeholder` are localizable. `dsyColor` and `size` configure the trigger; the radio choices use the semantic color. `triggerClass`, `optionClass` and `panelClass` expose internal visual surfaces. Scope styles through `.dsy-native-select` when overriding trigger borders/alignment. The native Button owns its text layout, so long selected labels may truncate; use concise labels and supporting descriptions in the sheet. `focus()` forwards to the native trigger when enabled.
+`label` and `description` override inherited Form Field metadata. `placeholder` is localizable. `dsyColor`, `size` and `triggerClass` configure the trigger. Scope styles through `.dsy-native-select` when overriding trigger borders/alignment. The operating system owns menu appearance; iOS uses the declaring theme’s light/dark scheme and supports option subtitles, while Android uses its native context and plain option labels. The native Button owns text layout, so use concise option labels. `focus()` forwards to the actual native trigger when enabled.
+
+The previous draft/confirmation sheet API has been removed: delete `confirmText`, `cancelText`, `optionClass` and `panelClass` bindings. Use a Modal with explicit controls for workflows that require confirmation.
 
 ## Form Field
 
@@ -57,10 +59,10 @@ For controls used without Angular `FormField`, the wrapper can display `label`, 
 
 Fieldset renders `legend`, optional `description`, and projected content inside a themed surface. It inherits base colors, border width and box radius. `legendClass` and `bodyClass` expose internal visual slots; the host accepts app utilities and native style overrides. `hidden` collapses the group. It does not disable or validate child controls: put group state in the Angular schema so controls and form state agree.
 
-The showcase has separate Select, Form Field and Fieldset pages. Examples demonstrate delivery destinations with a disabled option, confirmation/cancellation, required selection errors, profile validation and label focus, and grouped address/contact preferences. All data stays in the local demo.
+The showcase has separate Select, Form Field and Fieldset pages. Examples demonstrate delivery destinations with a disabled option, immediate selection and outside dismissal, required selection errors, profile validation and label focus, and grouped address/contact preferences. All data stays in the local demo.
 
 ## Verification
 
-Native unit tests cover inherited labels/hints, touched validation and recovery, explicit label overrides, hidden fields, focus forwarding, select draft confirmation/cancellation, unavailable options, external model preservation, disabled/read-only/hidden guards and early cancellation. Existing native input and switch-animation regression tests remain included.
+Native unit tests cover inherited labels/hints, touched validation and recovery, explicit label overrides, hidden fields, focus forwarding, immediate select updates and outside dismissal, unavailable options, external model preservation, disabled/read-only/hidden guards and early cancellation. Existing native input and switch-animation regression tests remain included.
 
-On iPhone 17 / iOS 26.5, verified the native selection sheet, option-row taps, Cancel preserving United States after choosing Canada, confirmation changing the bound region to Canada, and clearing selection showing the schema error in both the helper Label and native accessibility hint. Verified required name validation, label tap focusing the input, typing to clear the error, and rendering grouped fields. These are simulator interactions and accessibility-tree inspection, not a screen-reader audit. Android rendering, native back behavior, large text and software-keyboard avoidance remain separate device checks.
+On iPhone 17 / iOS 26.5, verified the anchored native menu with the current selection checked, disabled destinations, option descriptions and immediate selection updating the bound region from United States to Canada. Existing form validation/focus coverage remains in the unit suite. These are simulator interactions and accessibility-tree inspection, not a screen-reader audit. Android rendering, native back behavior, large text and software-keyboard avoidance remain separate device checks.
