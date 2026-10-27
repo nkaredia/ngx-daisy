@@ -58,8 +58,11 @@ export function resolveNativeTheme(
     tokens[`--dsy-color-${name}-soft`] = `rgba(${channels.join(', ')}, ${mixed.alpha})`;
   }
   const fieldSize = Number(tokens['--size-field']);
-  for (const [size, multiplier] of Object.entries({ xs: 6, sm: 8, md: 12, lg: 14, xl: 16 }))
-    tokens[`--dsy-button-size-${size}`] = String(Math.max(44, fieldSize * multiplier));
+  for (const [size, multiplier] of Object.entries({ xs: 6, sm: 8, md: 12, lg: 14, xl: 16 })) {
+    const length = String(Math.max(44, fieldSize * multiplier));
+    tokens[`--dsy-button-size-${size}`] = length;
+    tokens[`--dsy-field-size-${size}`] = length;
+  }
   return Object.freeze({
     name: definition.name,
     colorScheme: definition.colorScheme,

@@ -1,0 +1,13 @@
+// UIKit owns the iOS thumb, off track and animation; do not clip or repaint them.
+.dsy-native-toggle-android {
+  color: var(--color-base-100);
+  background-color: var(--color-base-300);
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-toggle-android.dsy-native-toggle-#{$color}.dsy-native-toggle-checked {
+    background-color: var(--color-#{$color});
+  }
+}
+.dsy-native-toggle-disabled {
+  opacity: 0.5;
+}

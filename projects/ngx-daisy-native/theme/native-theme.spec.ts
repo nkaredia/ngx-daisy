@@ -48,6 +48,11 @@ describe('Native theme adaptation', () => {
     expect(native.tokens['--dsy-color-primary-soft']).not.toBe(native.tokens['--color-primary']);
     expect(native.tokens['--dsy-button-size-xs']).toBe('44');
     expect(native.tokens['--dsy-button-size-md']).toBe('48');
+    expect(native.tokens['--dsy-field-size-xs']).toBe('44');
+    expect(native.tokens['--dsy-field-size-md']).toBe('48');
+    expect(
+      resolveNativeTheme(withToken('--size-field', '0.5rem')).tokens['--dsy-field-size-md'],
+    ).toBe('96');
     expect(
       resolveNativeTheme(withToken('--size-field', '0.5rem')).tokens['--dsy-button-size-md'],
     ).toBe('96');
