@@ -50,9 +50,7 @@
                 "input": "projects/showcase/public"
               }
             ],
-            "styles": [
-              "projects/showcase/src/styles.scss"
-            ],
+            "styles": ["projects/showcase/src/styles.scss"],
             "inlineStyleLanguage": "scss"
           },
           "configurations": {
@@ -114,6 +112,32 @@
             }
           },
           "defaultConfiguration": "production"
+        }
+      }
+    },
+    "ngx-daisy-native": {
+      "projectType": "library",
+      "root": "projects/ngx-daisy-native",
+      "sourceRoot": "projects/ngx-daisy-native",
+      "prefix": "dsy",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-daisy-native/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-daisy-native/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ngx-daisy-native/tsconfig.spec.json"
+          }
         }
       }
     }
