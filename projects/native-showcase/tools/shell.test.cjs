@@ -65,6 +65,9 @@ test('native navigation lists each supported component once under the web catego
       'checkboxes',
       'radios',
       'ranges',
+      'selects',
+      'form-fields',
+      'fieldsets',
       'toggles',
     ],
   );

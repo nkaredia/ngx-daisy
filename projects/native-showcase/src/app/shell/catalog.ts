@@ -12,6 +12,9 @@ export const nativePages = [
   { id: 'checkboxes', label: 'Checkbox', category: 'data-input' },
   { id: 'radios', label: 'Radio', category: 'data-input' },
   { id: 'ranges', label: 'Range', category: 'data-input' },
+  { id: 'selects', label: 'Select', category: 'data-input' },
+  { id: 'form-fields', label: 'Form Field', category: 'data-input' },
+  { id: 'fieldsets', label: 'Fieldset', category: 'data-input' },
   { id: 'toggles', label: 'Toggle', category: 'data-input' },
   { id: 'icons', label: 'Icons', category: 'data-display' },
 ] as const;

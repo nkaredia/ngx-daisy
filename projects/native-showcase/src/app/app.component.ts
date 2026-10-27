@@ -1,3 +1,4 @@
+import { NativeFormCompositionExample } from './form-composition-example/form-composition-example';
 import { NativeSelectionExample } from './selection-example/selection-example';
 import { NativeDataInputExample } from './data-input-example/data-input-example';
 import { NativeIconButton } from './shell/icon-button';
@@ -81,6 +82,7 @@ function storedTheme(): DsyThemeDefinition {
     NativeThemeEditor,
     NativeDataInputExample,
     NativeSelectionExample,
+    NativeFormCompositionExample,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './app.component.html',

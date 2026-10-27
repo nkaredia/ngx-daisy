@@ -1,0 +1,160 @@
+<StackLayout>
+  @switch (family()) {
+    @case ('selects') {
+      <StackLayout
+        dsyFieldset
+        legend="Where should we send it?"
+        description="Choose a destination for your Weekend essentials order."
+        class="mb-5"
+      >
+        <StackLayout
+          dsyFormField
+          label="Delivery region"
+          hint="Open the list to compare delivery estimates."
+        >
+          <GridLayout
+            dsySelect
+            [formField]="fields.region"
+            [options]="regions"
+            placeholder="Choose your region"
+          ></GridLayout>
+        </StackLayout>
+        <Label
+          text="Your choice is applied after confirmation. Cancel keeps the current destination."
+          class="text-sm opacity-60 mb-4"
+          textWrap="true"
+        ></Label>
+        <Button
+          dsyButton
+          text="Clear selection"
+          variant="ghost"
+          dsyLayout="block"
+          (pressed)="clearRegion()"
+        ></Button>
+      </StackLayout>
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5"
+        ><Label
+          text="Delivery preferences"
+          class="text-xl font-semibold mb-2"
+          accessibilityRole="header"
+        ></Label
+        ><Label
+          [text]="
+            profile().region
+              ? 'Selected region: ' + profile().region.toUpperCase()
+              : 'A destination is still needed.'
+          "
+          class="text-primary font-semibold"
+          textWrap="true"
+        ></Label
+        ><Label
+          text="This preview does not place an order."
+          class="text-sm opacity-60 mt-3"
+          textWrap="true"
+        ></Label
+      ></StackLayout>
+    }
+    @case ('form-fields') {
+      <StackLayout
+        dsyFieldset
+        legend="Make your profile feel like you"
+        description="Labels, help and validation all stay connected to the Angular field."
+        class="mb-5"
+      >
+        <StackLayout dsyFormField label="Display name" hint="Use the name your team knows you by.">
+          <TextField
+            dsyInput
+            [formField]="fields.name"
+            hint="Your name"
+            autocapitalizationType="words"
+            returnKeyType="next"
+          ></TextField>
+        </StackLayout>
+        <StackLayout
+          dsyFormField
+          label="Email address"
+          hint="Used for account updates and invitations."
+        >
+          <TextField
+            dsyInput
+            [formField]="fields.email"
+            hint="you@example.com"
+            keyboardType="email"
+            autocapitalizationType="none"
+            autocorrect="false"
+            returnKeyType="done"
+          ></TextField>
+        </StackLayout>
+        <Button
+          dsyButton
+          text="Save profile"
+          dsyColor="primary"
+          dsyLayout="block"
+          (pressed)="save()"
+        ></Button>
+      </StackLayout>
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5"
+        ><Label
+          text="Try the validation"
+          class="text-xl font-semibold mb-2"
+          accessibilityRole="header"
+        ></Label
+        ><Label
+          text="Leave the name blank and save. Enter a name to see the error return to helpful guidance. Tap a field label to focus its control."
+          class="opacity-75"
+          textWrap="true"
+        ></Label
+      ></StackLayout>
+    }
+    @case ('fieldsets') {
+      <StackLayout
+        dsyFieldset
+        legend="Delivery details"
+        description="Everything we need to get your next adventure started."
+        class="mb-5"
+      >
+        <StackLayout dsyFormField label="City" hint="The city on your delivery address."
+          ><TextField dsyInput [formField]="fields.city" autocapitalizationType="words"></TextField
+        ></StackLayout>
+        <StackLayout dsyFormField label="Region" hint="Delivery times vary by destination."
+          ><GridLayout dsySelect [formField]="fields.region" [options]="regions"></GridLayout
+        ></StackLayout>
+      </StackLayout>
+      <StackLayout
+        dsyFieldset
+        legend="Keep in touch"
+        description="A separate group for your communication preferences."
+        class="mb-5"
+      >
+        <StackLayout dsyFormField label="Contact email" hint="We will send your tracking link here."
+          ><TextField
+            dsyInput
+            [formField]="fields.email"
+            keyboardType="email"
+            autocapitalizationType="none"
+            autocorrect="false"
+          ></TextField
+        ></StackLayout>
+        <StackLayout
+          dsyFormField
+          label="Project and delivery updates"
+          hint="You can change this preference at any time."
+          ><Switch dsyToggle [formField]="fields.updates" horizontalAlignment="left"></Switch
+        ></StackLayout>
+        <Button
+          dsyButton
+          text="Save preferences"
+          dsyColor="primary"
+          dsyLayout="block"
+          (pressed)="save()"
+        ></Button>
+      </StackLayout>
+    }
+  }
+  <Label
+    [text]="message()"
+    class="text-center opacity-60 mb-5"
+    textWrap="true"
+    accessibilityLiveRegion="polite"
+  ></Label>
+</StackLayout>
