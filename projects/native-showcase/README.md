@@ -52,3 +52,5 @@ The showcase has a shared responsive navigation shell with an independent page f
 See [native icon packs](../../docs/native-icons.md) for the native SVG setup, per-icon imports, styling and bundle checks.
 
 See [native showcase shell](../../docs/native-showcase.md) for navigation, responsive layout, preset themes and the native theme editor.
+
+Data Input has dedicated Input, Textarea and Toggle pages with Signal Forms validation, live text previews and native notification switches. See the [native Data Input guide](../../docs/native-data-inputs.md).

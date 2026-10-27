@@ -4,7 +4,7 @@ The native showcase follows the web showcase's shell: grouped navigation, ngx-da
 
 ## Navigation and layout
 
-`projects/native-showcase/src/app/shell/catalog.ts` drives labels, categories and page selection. The implemented native catalog has seven pages: Buttons, Dropdowns, FAB / Speed Dial, Modals, Swaps, Theme Controllers and Icons. Actions precedes Data Display, matching the web category order. Unimplemented native families do not have dead navigation entries.
+`projects/native-showcase/src/app/shell/catalog.ts` drives labels, categories and page selection. The implemented native catalog has ten pages: Buttons, Dropdowns, FAB / Speed Dial, Modals, Swaps, Theme Controllers, Icons, Input, Textarea and Toggle. Categories follow the web order: Actions, Data Display, then Data Input. Unimplemented native families do not have dead navigation entries.
 
 Below 1024 DIP, a titlebar shows the navigation button and brand/version. The drawer shows Components and a close button, avoiding duplicate branding. The drawer overlays its backdrop, disables and hides the underlying page from accessibility, and closes when selecting a page or tapping the backdrop/close control. On Android, Back closes the drawer first and returns other component pages to Buttons before the normal root behavior.
 
@@ -28,6 +28,8 @@ Screen-reader interaction, Android native rendering/back behavior, tablet layout
 
 ### iPhone verification
 
-Verified on iPhone 17 / iOS 26.5: mobile branding/version; Lucide menu, close, category and footer icons; dimmed backdrop dismissal; background removal from the accessibility tree while navigation is open; component selection closing the drawer; preset swatches and Synthwave selection; independent light/dark switching; native custom color editing; custom theme persistence after restart; and the builder's floating navigation trigger. The app is left open on Icons in the light theme. These are simulator interactions and accessibility-tree inspection, not a screen-reader audit.
+Verified on iPhone 17 / iOS 26.5: mobile branding/version; Lucide menu, close, category and footer icons; dimmed backdrop dismissal; background removal from the accessibility tree while navigation is open; component selection closing the drawer; preset swatches and Synthwave selection; independent light/dark switching; native custom color editing; custom theme persistence after restart; and the builder's floating navigation trigger. These are simulator interactions and accessibility-tree inspection, not a screen-reader audit.
 
 Strict templates, both platform bundles, selected-icon checks, all 35 preset conversions, the catalog checks, three artwork tests and 23 native unit tests passed. Tablet rendering and Android device behavior remain unverified.
+
+The Data Input expansion adds account details with validation, a live bio editor and notification preferences. See [native Data Input](native-data-inputs.md) for APIs and verification.

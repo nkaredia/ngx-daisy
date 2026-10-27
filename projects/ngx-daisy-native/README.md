@@ -82,3 +82,7 @@ See [native showcase](../native-showcase/README.md) for local toolchain requirem
 Import Dropdown, FAB, Modal, Swap, Theme Controller and Icon from their respective `/dropdown`, `/fab`, `/modal`, `/swap`, `/theme-controller` and `/icon` entry points. See the [native Actions guide](../../docs/native-actions.md) for composition, Signal Forms integration, native presentation and API differences.
 
 Lucide and Font Awesome examples use app-owned SVG rendering and individual icon imports. The library remains provider-independent; see [native icon packs](../../docs/native-icons.md).
+
+## Native Data Input
+
+Input, Textarea and Toggle are available from `/input`, `/textarea` and `/toggle`. They bind real NativeScript text editors/switches to Angular Signal Forms, with native disabled/read-only/hidden behavior and inherited themes. See the [native Data Input guide](../../docs/native-data-inputs.md) for usage, styling, accessibility and platform differences.
