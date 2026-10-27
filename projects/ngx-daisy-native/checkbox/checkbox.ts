@@ -1,0 +1,77 @@
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  NO_ERRORS_SCHEMA,
+  ViewEncapsulation,
+  booleanAttribute,
+  computed,
+  inject,
+  input,
+  model,
+  output,
+} from '@angular/core';
+import type { FormCheckboxControl } from '@angular/forms/signals';
+import type { DsyButtonColor, DsyButtonSize } from '@ngx-daisy/core/button';
+import type { Button } from '@nativescript/core';
+/** Native button-backed checkbox: one accessible control with a 44-unit minimum target. */
+@Component({
+  selector: 'Button[dsyCheckbox]',
+  standalone: true,
+  schemas: [NO_ERRORS_SCHEMA],
+  template: '',
+  styleUrl: './checkbox.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
+  host: {
+    '[text]': 'indeterminate() ? "−" : checked() ? "✓" : ""',
+    '[class]': 'classes()',
+    '[isEnabled]': '!disabled() && !readonly() && !hidden()',
+    '[visibility]': 'hidden() ? "collapsed" : "visible"',
+    '[accessibilityLabel]': 'label()',
+    '[accessibilityHint]': 'description()',
+    accessible: 'true',
+    accessibilityRole: 'checkbox',
+    '[accessibilityValue]': 'indeterminate() ? "Mixed" : checked() ? "Checked" : "Unchecked"',
+    '[accessibilityState]':
+      'disabled() || readonly() ? "disabled" : checked() ? "checked" : "unchecked"',
+    '(tap)': 'toggle()',
+  },
+})
+export class DsyCheckbox implements FormCheckboxControl {
+  readonly checked = model(false);
+  readonly indeterminate = model(false);
+  readonly disabled = input(false, { transform: booleanAttribute });
+  readonly readonly = input(false, { transform: booleanAttribute });
+  readonly hidden = input(false, { transform: booleanAttribute });
+  readonly invalid = input(false, { transform: booleanAttribute });
+  readonly touched = input(false, { transform: booleanAttribute });
+  readonly label = input('Checkbox');
+  readonly description = input('');
+  readonly color = input<DsyButtonColor>('primary', { alias: 'dsyColor' });
+  readonly size = input<DsyButtonSize>('md');
+  readonly touch = output<void>();
+  private readonly element = inject<ElementRef<Button>>(ElementRef);
+  protected readonly classes = computed(() =>
+    [
+      'dsy-native-choice',
+      `dsy-native-choice-${this.size()}`,
+      `dsy-native-choice-${this.color() ?? 'primary'}`,
+      this.checked() || this.indeterminate() ? 'dsy-native-choice-selected' : '',
+      this.invalid() && this.touched() ? 'dsy-native-choice-invalid' : '',
+      this.disabled() ? 'dsy-native-choice-disabled' : '',
+    ]
+      .filter(Boolean)
+      .join(' '),
+  );
+  toggle(): void {
+    if (this.disabled() || this.readonly() || this.hidden()) return;
+    const next = this.indeterminate() || !this.checked();
+    this.indeterminate.set(false);
+    this.checked.set(next);
+    this.touch.emit();
+  }
+  focus(): void {
+    if (!this.disabled() && !this.hidden()) this.element.nativeElement.focus();
+  }
+}

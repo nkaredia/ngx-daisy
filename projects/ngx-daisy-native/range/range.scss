@@ -1,0 +1,11 @@
+.dsy-native-range {
+  min-height: 44;
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-range-#{$color} {
+    background-color: var(--color-#{$color});
+  }
+}
+.dsy-native-range-disabled {
+  opacity: 0.5;
+}
