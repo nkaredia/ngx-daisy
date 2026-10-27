@@ -1,12 +1,18 @@
 # Native Data Input
 
-The first native Data Input batch provides Input, Textarea and Toggle. Each family has a secondary entry point and its own showcase page. These components use NativeScript views, not browser elements or CDK DOM behavior.
+The native Data Input catalog provides Input, Textarea, Toggle, Checkbox, Radio and Range. Each family has a secondary entry point and its own showcase page. These components use NativeScript views, not browser elements or CDK DOM behavior.
 
 | Family   | Import                       | Native host             | Signal Forms contract      |
 | -------- | ---------------------------- | ----------------------- | -------------------------- |
 | Input    | `@ngx-daisy/native/input`    | `TextField[dsyInput]`   | `FormValueControl<string>` |
 | Textarea | `@ngx-daisy/native/textarea` | `TextView[dsyTextarea]` | `FormValueControl<string>` |
 | Toggle   | `@ngx-daisy/native/toggle`   | `Switch[dsyToggle]`     | `FormCheckboxControl`      |
+
+| Family   | Import                       | Native host                                          | Signal Forms contract             |
+| -------- | ---------------------------- | ---------------------------------------------------- | --------------------------------- |
+| Checkbox | `@ngx-daisy/native/checkbox` | `Button[dsyCheckbox]`                                | `FormCheckboxControl`             |
+| Radio    | `@ngx-daisy/native/radio`    | `StackLayout[dsyRadioGroup]` with `Button[dsyRadio]` | Group: `FormValueControl<string>` |
+| Range    | `@ngx-daisy/native/range`    | `Slider[dsyRange]`                                   | `FormValueControl<number>`        |
 
 ## Forms and validation
 
@@ -71,3 +77,34 @@ The native unit suite includes a regression check that changing checked state do
 ### iOS switch animation
 
 On iOS, Toggle applies the semantic active color directly to `UISwitch.onTintColor` when the view loads or its theme/color changes. UIKit retains its own thumb, inactive track and slide animation. Do not use checked-state background/foreground repainting for the iOS switch: NativeScript 9.1’s generic background setter enables clipping, which can cut off the iOS 26 glass thumb during a slide. Android retains its native themed CSS path. Explicit consumer `backgroundColor` styling still opts into NativeScript’s generic background behavior.
+
+## Checkbox, Radio and Range
+
+```html
+<button dsyCheckbox [formField]="fields.gift" label="Gift wrapping"></button>
+<StackLayout dsyRadioGroup [formField]="fields.delivery" label="Delivery method">
+  <button dsyRadio optionValue="standard" label="Standard delivery"></button>
+  <button dsyRadio optionValue="express" label="Express delivery"></button>
+</StackLayout>
+<Slider dsyRange [formField]="fields.budget" step="5" label="Monthly savings"></Slider>
+```
+
+Import `DsyCheckbox`, `DsyRadioGroup`/`DsyRadio` and `DsyRange` along with `FormField`. Checkbox and Radio use real native Buttons with native accessibility roles/state and visual marks, since NativeScript core has no cross-platform Checkbox or Radio view. Apps place descriptive Labels alongside these controls in a GridLayout. Their native text is reserved for the selection mark; provide the full accessible name through `label`, and helper context through `description`. They expose `dsyColor` and `size` (xs/sm/md/lg/xl) and inherit selector radius, field sizing, border and theme colors. Touch targets are at least 44 units. Radio is circular. Utility classes and native style properties can customize their surfaces.
+
+Checkbox supports `checked` and `indeterminate` models. Activating mixed state selects it and clears mixed state. A parent can derive mixed state from a collection, as the showcase's “all extras” example does. A checkbox activation emits `touch`. Validation state uses Signal Forms `invalid` and `touched` inputs for the error border; validation rules remain in the schema.
+
+Radio Group owns one string value. Options require distinct `optionValue` and `label` inputs; put every option inside a group, and bind `formField` to the group only. Group-level disabled/read-only/hidden state applies to all options; each option can also be individually disabled or hidden. Selection does not toggle off when activating the current option. An empty/unmatched value leaves all options unselected and can be validated with `required` in the schema. A selection emits group `touch`. Group `focus()` selects no value; it forwards native focus to the selected available option or first available option. These native Buttons use platform navigation and do not add browser CDK roving-tabindex behavior.
+
+Range retains the native OS slider geometry and interaction. `min` and `max` receive schema constraints from Signal Forms, with 0 and 100 as defaults when no constraint is supplied. Configure these in Angular schemas; direct model usage can bind numeric inputs. `step` defaults to 1 and must be positive/finite (invalid steps safely fall back to 1). Values snap relative to the minimum, stay within bounds and avoid common decimal-step floating-point artifacts. `accessibilityStep` tracks the step. Native user value changes emit `touch`; matching property echoes do not. `dsyColor` tints the active track without replacing the native thumb.
+
+External out-of-range values remain in the Angular model for validation, while the native presentation is bounded/snapped. Disabled/read-only/hidden sliders reject stale native changes and restore their presented value. Changing bounds or the model must not mark a form touched. Rendering a safe fallback for a non-finite value does not make the Angular model valid. Use a visible value label and bounds alongside the slider; the showcase also includes increase/decrease buttons. OS accessibility adjustment and external-keyboard behavior still require device testing.
+
+The three showcase pages contain optional order extras with a mixed “select all” control, coordinated delivery choices, and an adjustable savings goal. Examples are local and do not purchase or connect to an account. They share the existing Tailwind/token setup and add no plugins or icon packages.
+
+Native slider behavior follows the official [Slider API](https://docs.nativescript.org/ui/slider).
+
+### Selection-control verification
+
+On iPhone 17 / iOS 26.5, inspected the Checkbox, Radio and Range examples in the dark theme. Verified mixed “select all” becoming checked, an individual change restoring mixed state, radio selection updating the delivery summary, the slider retaining its $75 starting value after native bounds initialization, and increase-button changes updating both native slider position and the savings summary. Native slider bounds/value writes are guarded as a single transaction so initialization and bound coercion cannot change or touch the Angular form. The 44-test native suite includes that synchronous coercion sequence.
+
+The simulator automation could not perform a slider drag (`noWindowsAvailable` from its coordinate-input service). Continuous drag feel, VoiceOver/TalkBack, Android rendering and large-text behavior remain device/manual checks. Bundle and unit validation do not establish those results.

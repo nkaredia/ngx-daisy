@@ -85,4 +85,4 @@ Lucide and Font Awesome examples use app-owned SVG rendering and individual icon
 
 ## Native Data Input
 
-Input, Textarea and Toggle are available from `/input`, `/textarea` and `/toggle`. They bind real NativeScript text editors/switches to Angular Signal Forms, with native disabled/read-only/hidden behavior and inherited themes. See the [native Data Input guide](../../docs/native-data-inputs.md) for usage, styling, accessibility and platform differences.
+Input, Textarea, Toggle, Checkbox, Radio and Range are available from `/input`, `/textarea`, `/toggle`, `/checkbox`, `/radio` and `/range`. They bind NativeScript text editors, switches, selection buttons and sliders to Angular Signal Forms, with native disabled/read-only/hidden behavior and inherited themes. See the [native Data Input guide](../../docs/native-data-inputs.md) for usage, styling, accessibility and platform differences.

@@ -2,7 +2,7 @@
 
 Read docs/requirements.md for the recovered product requirements and outstanding scope.
 
-Create a new branch before starting any feature, fix or hotfix. Use descriptive codex/feature/_, codex/fix/_ or codex/hotfix/* branch names. Split substantial changes into focused commits. Never mention agents or AI in commit messages.
+Create a new branch before starting any feature, fix or hotfix. Use descriptive `feature/*`, `fix/*` or `hotfix/*` branch names without a `codex/` prefix. Split substantial changes into focused commits. Commit and push completed work before starting the next major task. Never mention agents or AI in commit messages.
 
 Use Yarn 4 with the node-modules linker. Keep yarn.lock committed; do not generate an npm lockfile.
 
@@ -57,3 +57,5 @@ Native mobile components live in projects/ngx-daisy-native with secondary entry 
 Native Button semantic attributes are dsyColor and dsyLayout, avoiding NativeScript native color parsing and View.layout() collisions. Preserve those aliases and use NativeScript properties for explicit native style overrides. Bundle-only platform checks must write to dist/native-check, never create incomplete projects under platforms. The iOS launcher handles Homebrew CocoaPods gems within its own process environment.
 
 Native Data Input now includes Input, Textarea and Toggle. Text controls share DsyTextControl through @ngx-daisy/native/input; use string value models, native textChange/blur, and FormValueControl. Toggle uses checked and FormCheckboxControl. Ignore property echoes, reject stale edits when disabled/read-only/hidden, and keep validation constraints in Angular schemas. See docs/native-data-inputs.md for native aliases, accessibility and unsupported browser features.
+
+Native Checkbox uses a checked/mixed button-backed FormCheckboxControl; Radio uses a string-valued FormValueControl on the group and native button options; Range uses a native Slider with numeric FormValueControl, schema bounds and step snapping. Keep native property echoes from touching forms and preserve out-of-range Angular values for validation. See docs/native-data-inputs.md.

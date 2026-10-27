@@ -101,3 +101,5 @@ Carry the ngx-daisy design system and component concepts into NativeScript Angul
 Native Actions expansion: all six Actions families and Icon have native entry points and showcase examples. Share native dialog lifecycle between Dropdown and Modal, portable palette contracts through core, and Tailwind/daisyUI theme tokens where compatible. Keep provider-owned icons, native accessibility, Signal Forms and explicit platform differences; see [native Actions](native-actions.md).
 
 Native Data Input expansion: Input, Textarea and Toggle use native TextField/TextView/Switch hosts and Signal Forms contracts. Share text editing behavior, preserve native keyboard properties, keep constraints in Angular schemas, and provide dedicated themed showcase examples. See [native Data Input](native-data-inputs.md).
+
+Native selection controls: Checkbox supports mixed selection; a Radio Group owns a single string value across native button options; Range uses a native Slider with schema bounds and step snapping. Preserve native semantics, guarded form interactions, theme tokens and independent showcase pages.

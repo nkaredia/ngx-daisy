@@ -27,7 +27,7 @@ The native Button adapts compact sizing to a minimum 44-unit touch target. Loadi
 
 ## Next component families
 
-Input, Textarea and Toggle now provide the first native Data Input batch with Signal Forms contracts and independent showcase pages; see [native Data Input](native-data-inputs.md). Continue with remaining form controls and Loader. Validate keyboard/focus behavior, accessibility and OS lifecycle on iOS and Android as the catalog expands. Navigation, drawers and overlays need native implementations and native back/dismissal behavior; browser CDK overlays and focus traps do not belong in the native package.
+Input, Textarea, Toggle, Checkbox, Radio and Range now provide native Data Input controls with Signal Forms contracts and independent showcase pages; see [native Data Input](native-data-inputs.md). Continue with remaining form controls and Loader. Validate keyboard/focus behavior, accessibility and OS lifecycle on iOS and Android as the catalog expands. Navigation, drawers and overlays need native implementations and native back/dismissal behavior; browser CDK overlays and focus traps do not belong in the native package.
 
 Do not import web components, DOM globals or browser CSS into core/native. Share portable behavior only when both implementations actually need it. Keep platform-specific rendering and interaction within the corresponding package.
 
