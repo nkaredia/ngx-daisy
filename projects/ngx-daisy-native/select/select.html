@@ -1,0 +1,82 @@
+<Button
+  #trigger
+  dsyButton
+  [text]="selectedLabel() + '  ▾'"
+  variant="outline"
+  dsyLayout="block"
+  [dsyColor]="color()"
+  [size]="size()"
+  [disabled]="isDisabled()"
+  [accessibilityLabel]="accessibleLabel() + ', ' + selectedLabel()"
+  [accessibilityHint]="accessibleDescription()"
+  class="dsy-native-select-trigger"
+  [class]="triggerClass()"
+  (pressed)="open()"
+></Button>
+<ng-template dsyModal [label]="accessibleLabel()" [panelClass]="panelClass()" (closed)="onClosed()">
+  @if (accessibleDescription()) {
+    <Label
+      [text]="accessibleDescription()"
+      class="dsy-native-select-description"
+      textWrap="true"
+    ></Label>
+  }
+  <StackLayout
+    dsyRadioGroup
+    [value]="draft()"
+    (valueChange)="draft.set($event)"
+    [label]="accessibleLabel()"
+    [dsyColor]="color() ?? 'primary'"
+    size="sm"
+  >
+    @for (option of options(); track option.value) {
+      <GridLayout
+        columns="auto, *"
+        class="dsy-native-select-option"
+        [class]="optionClass()"
+        (tap)="choose(option)"
+      >
+        <Button
+          dsyRadio
+          [optionValue]="option.value"
+          [label]="option.label"
+          [description]="option.description ?? ''"
+          [disabled]="!!option.disabled"
+          verticalAlignment="middle"
+        ></Button>
+        <StackLayout
+          col="1"
+          marginLeft="16"
+          verticalAlignment="middle"
+          [opacity]="option.disabled ? 0.5 : 1"
+        >
+          <Label [text]="option.label" textWrap="true" fontWeight="600"></Label>
+          @if (option.description) {
+            <Label
+              [text]="option.description"
+              textWrap="true"
+              class="dsy-native-select-option-description"
+            ></Label>
+          }
+        </StackLayout>
+      </GridLayout>
+    }
+  </StackLayout>
+  <Button
+    dsyButton
+    [text]="confirmText()"
+    dsyColor="primary"
+    dsyLayout="block"
+    [disabled]="!canConfirm()"
+    marginTop="16"
+    (pressed)="confirm()"
+  ></Button>
+  <Button
+    dsyButton
+    [text]="cancelText()"
+    variant="ghost"
+    dsyLayout="block"
+    marginTop="8"
+    (pressed)="close()"
+  ></Button>
+</ng-template>

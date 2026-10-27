@@ -1,3 +1,4 @@
+import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -30,8 +31,8 @@ import type { PropertyChangeData, Slider } from '@nativescript/core';
     '[isEnabled]': '!disabled() && !readonly() && !hidden()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
     '[class]': 'classes()',
-    '[accessibilityLabel]': 'label()',
-    '[accessibilityHint]': 'description()',
+    '[accessibilityLabel]': 'accessibleLabel()',
+    '[accessibilityHint]': 'accessibleDescription()',
     '(loaded)': 'onLoaded()',
     '(unloaded)': 'loaded = false',
     '(valueChange)': 'onValueChange($event)',
@@ -45,8 +46,13 @@ export class DsyRange implements FormValueControl<number> {
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly readonly = input(false, { transform: booleanAttribute });
   readonly hidden = input(false, { transform: booleanAttribute });
-  readonly label = input('Range');
+  readonly label = input('');
   readonly description = input('');
+  private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
+  readonly accessibleLabel = computed(() => this.label() || this.context?.label() || 'Range');
+  readonly accessibleDescription = computed(
+    () => this.description() || this.context?.description() || '',
+  );
   readonly color = input<DsyButtonColor>('primary', { alias: 'dsyColor' });
   readonly touch = output<void>();
   protected loaded = false;

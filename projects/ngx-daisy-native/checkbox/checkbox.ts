@@ -1,3 +1,4 @@
+import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -28,8 +29,8 @@ import type { Button } from '@nativescript/core';
     '[class]': 'classes()',
     '[isEnabled]': '!disabled() && !readonly() && !hidden()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
-    '[accessibilityLabel]': 'label()',
-    '[accessibilityHint]': 'description()',
+    '[accessibilityLabel]': 'accessibleLabel()',
+    '[accessibilityHint]': 'accessibleDescription()',
     accessible: 'true',
     accessibilityRole: 'checkbox',
     '[accessibilityValue]': 'indeterminate() ? "Mixed" : checked() ? "Checked" : "Unchecked"',
@@ -46,8 +47,13 @@ export class DsyCheckbox implements FormCheckboxControl {
   readonly hidden = input(false, { transform: booleanAttribute });
   readonly invalid = input(false, { transform: booleanAttribute });
   readonly touched = input(false, { transform: booleanAttribute });
-  readonly label = input('Checkbox');
+  readonly label = input('');
   readonly description = input('');
+  private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
+  readonly accessibleLabel = computed(() => this.label() || this.context?.label() || 'Checkbox');
+  readonly accessibleDescription = computed(
+    () => this.description() || this.context?.description() || '',
+  );
   readonly color = input<DsyButtonColor>('primary', { alias: 'dsyColor' });
   readonly size = input<DsyButtonSize>('md');
   readonly touch = output<void>();

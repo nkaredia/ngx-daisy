@@ -1,3 +1,4 @@
+import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -23,7 +24,10 @@ import type { Button } from '@nativescript/core';
   template: '<ng-content />',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  host: { '[visibility]': 'hidden() ? "collapsed" : "visible"', '[accessibilityLabel]': 'label()' },
+  host: {
+    '[visibility]': 'hidden() ? "collapsed" : "visible"',
+    '[accessibilityLabel]': 'accessibleLabel()',
+  },
 })
 export class DsyRadioGroup implements FormValueControl<string> {
   readonly value = model('');
@@ -32,7 +36,12 @@ export class DsyRadioGroup implements FormValueControl<string> {
   readonly hidden = input(false, { transform: booleanAttribute });
   readonly invalid = input(false, { transform: booleanAttribute });
   readonly touched = input(false, { transform: booleanAttribute });
-  readonly label = input('Choose an option');
+  readonly label = input('');
+  private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
+  readonly accessibleLabel = computed(
+    () => this.label() || this.context?.label() || 'Choose an option',
+  );
+  readonly accessibleDescription = computed(() => this.context?.description() || '');
   readonly color = input<DsyButtonColor>('primary', { alias: 'dsyColor' });
   readonly size = input<DsyButtonSize>('md');
   readonly touch = output<void>();
@@ -63,7 +72,7 @@ export class DsyRadioGroup implements FormValueControl<string> {
     '[isEnabled]': '!isDisabled()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
     '[accessibilityLabel]': 'label()',
-    '[accessibilityHint]': 'description()',
+    '[accessibilityHint]': 'description() || group.accessibleDescription()',
     accessible: 'true',
     accessibilityRole: 'radioButton',
     '[accessibilityValue]': 'selected() ? "Selected" : "Not selected"',
