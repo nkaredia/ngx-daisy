@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve showcase",
-    "build:lib": "ng build ngx-daisy",
+    "build:lib": "yarn build:core && ng build ngx-daisy",
     "build:showcase": "ng build showcase",
     "build": "yarn build:lib && yarn build:showcase",
     "watch:lib": "ng build ngx-daisy --watch --configuration development",
@@ -12,7 +12,8 @@
     "test:styles": "node scripts/check-daisyui-config.mjs",
     "test:builder": "node --test tools/showcase-builder/*.test.cjs",
     "postinstall": "node tools/showcase-builder/sync-schemas.cjs",
-    "test:docs": "node tools/showcase-builder/check-documentation-examples.mjs"
+    "test:docs": "node tools/showcase-builder/check-documentation-examples.mjs",
+    "build:core": "ng build ngx-daisy-core"
   },
   "private": true,
   "packageManager": "yarn@4.18.1",

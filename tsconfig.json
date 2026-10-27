@@ -6,8 +6,18 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@ngx-daisy/cdk": ["./dist/ngx-daisy"],
-      "@ngx-daisy/cdk/*": ["./dist/ngx-daisy/*"]
+      "@ngx-daisy/cdk": [
+        "./dist/ngx-daisy"
+      ],
+      "@ngx-daisy/cdk/*": [
+        "./dist/ngx-daisy/*"
+      ],
+      "@ngx-daisy/core": [
+        "./dist/ngx-daisy-core"
+      ],
+      "@ngx-daisy/core/*": [
+        "./dist/ngx-daisy-core/*"
+      ]
     },
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -35,6 +45,9 @@
     },
     {
       "path": "./projects/showcase/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-daisy-core/tsconfig.lib.json"
     }
   ]
 }

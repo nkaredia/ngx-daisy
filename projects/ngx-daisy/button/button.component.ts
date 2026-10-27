@@ -12,6 +12,13 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import type {
+  DsyButtonColor,
+  DsyButtonSize,
+  DsyButtonVariant,
+  DsyButtonShape,
+  DsyButtonLayout,
+} from '@ngx-daisy/core/button';
 
 // Complete literals preserve Tailwind source detection for the default unprefixed setup.
 const colors = {
@@ -34,12 +41,13 @@ const variants = {
   dash: 'btn-dash',
 };
 
-export type DsyButtonColor =
-  'neutral' | 'primary' | 'secondary' | 'accent' | 'info' | 'success' | 'warning' | 'error';
-export type DsyButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type DsyButtonVariant = 'solid' | 'outline' | 'soft' | 'ghost' | 'link' | 'dash';
-export type DsyButtonShape = 'normal' | 'square' | 'circle';
-export type DsyButtonLayout = 'auto' | 'wide' | 'block';
+export type {
+  DsyButtonColor,
+  DsyButtonSize,
+  DsyButtonVariant,
+  DsyButtonShape,
+  DsyButtonLayout,
+} from '@ngx-daisy/core/button';
 
 const shapes = { normal: '', square: 'btn-square', circle: 'btn-circle' };
 const layouts = { auto: '', wide: 'btn-wide', block: 'btn-block' };

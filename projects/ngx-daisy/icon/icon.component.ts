@@ -6,16 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 
-export type DsyIconColor =
-  | 'inherit'
-  | 'neutral'
-  | 'primary'
-  | 'secondary'
-  | 'accent'
-  | 'info'
-  | 'success'
-  | 'warning'
-  | 'error';
+import type { DsyIconColor } from '@ngx-daisy/core/icon';
+export type { DsyIconColor } from '@ngx-daisy/core/icon';
 
 @Component({
   selector: 'dsy-icon',

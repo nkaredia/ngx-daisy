@@ -7,7 +7,8 @@
     "@angular/cdk": "^22.2.3",
     "tailwindcss": "^4.3.3",
     "daisyui": "^5.7.50",
-    "@angular/forms": "^22.2.0"
+    "@angular/forms": "^22.2.0",
+    "@ngx-daisy/core": "^0.0.1"
   },
   "dependencies": {
     "tslib": "^2.3.0"
