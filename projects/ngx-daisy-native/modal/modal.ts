@@ -1,3 +1,4 @@
+import { isAndroid } from '@nativescript/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   ChangeDetectionStrategy,
@@ -55,47 +56,86 @@ interface SurfaceData {
   template: `<GridLayout
     [dsyTheme]="theme()"
     class="dsy-native-modal-root"
-    width="100%"
-    height="100%"
+    [class.dsy-native-modal-android]="android"
+    [width]="android ? width() : '100%'"
+    [height]="android ? 'auto' : '100%'"
+    (layoutChanged)="onLayout($event)"
   >
-    <ScrollView
-      ><StackLayout
-        class="dsy-native-modal"
-        [class]="data.config.panelClass ?? ''"
-        [width]="data.config.width ?? 320"
-        horizontalAlignment="center"
-      >
-        <GridLayout columns="*, auto" marginBottom="16">
-          <Label
-            [text]="data.config.label ?? 'Dialog'"
-            fontSize="18"
-            fontWeight="600"
-            verticalAlignment="middle"
-            textWrap="true"
-            accessibilityRole="header"
-          ></Label>
-          <Button
-            col="1"
-            dsyButton
-            text="×"
-            shape="circle"
-            size="sm"
-            variant="ghost"
-            accessibilityLabel="Close dialog"
-            (pressed)="close()"
-          ></Button>
-        </GridLayout>
-        <ng-container
-          [ngTemplateOutlet]="data.template"
-          [ngTemplateOutletContext]="context"
-        /> </StackLayout
-    ></ScrollView>
+    @if (!android) {
+      <Button
+        text=""
+        backgroundColor="transparent"
+        borderWidth="0"
+        width="100%"
+        height="100%"
+        accessible="false"
+        [isEnabled]="!data.config.disableClose"
+        (tap)="dismissOutside()"
+      ></Button>
+    }
+    <GridLayout
+      verticalAlignment="middle"
+      horizontalAlignment="center"
+      [width]="width()"
+      [maxHeight]="maxHeight()"
+      class="dsy-native-modal-surface"
+      [class]="data.config.panelClass ?? ''"
+    >
+      <ScrollView>
+        <StackLayout class="dsy-native-modal">
+          <GridLayout columns="*, auto" marginBottom="16">
+            <Label
+              [text]="data.config.label ?? 'Dialog'"
+              fontSize="18"
+              fontWeight="600"
+              verticalAlignment="middle"
+              textWrap="true"
+              accessibilityRole="header"
+            ></Label>
+            <Button
+              col="1"
+              dsyButton
+              text="×"
+              shape="circle"
+              size="sm"
+              variant="ghost"
+              accessibilityLabel="Close dialog"
+              (pressed)="close()"
+            ></Button>
+          </GridLayout>
+          <ng-container [ngTemplateOutlet]="data.template" [ngTemplateOutletContext]="context" />
+        </StackLayout>
+      </ScrollView>
+    </GridLayout>
   </GridLayout>`,
   styleUrl: './modal.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class DsyNativeModalSurface {
+  readonly android = isAndroid;
+  private readonly viewport = signal({ width: 360, height: 720 });
+  readonly width = computed(() =>
+    Math.max(1, Math.min(this.data.config.width ?? 320, this.viewport().width - 32)),
+  );
+  readonly maxHeight = computed(() => Math.max(1, Math.min(560, this.viewport().height - 96)));
+  onLayout(raw: unknown): void {
+    if (this.android) return;
+    const size = (
+      raw as { object?: { getActualSize?(): { width: number; height: number } } }
+    ).object?.getActualSize?.();
+    if (
+      size &&
+      size.width > 0 &&
+      size.height > 0 &&
+      (size.width !== this.viewport().width || size.height !== this.viewport().height)
+    )
+      this.viewport.set(size);
+  }
+  dismissOutside(): void {
+    if (!this.data.config.disableClose) this.close();
+  }
+
   readonly data = inject<SurfaceData>(NATIVE_DIALOG_DATA);
   readonly ref = inject<NativeDialogRef<unknown>>(NativeDialogRef);
   readonly context: DsyModalContext = {
@@ -111,7 +151,7 @@ export class DsyNativeModalSurface {
     return typeof theme === 'function' ? theme() : (theme ?? DSY_LIGHT_THEME);
   });
 }
-/** Shared themed native presentation, also used by Dropdown. */
+/** Shared compact native dialog presentation. Menus use their own anchored presenter. */
 @Injectable({ providedIn: 'root' })
 export class DsyModalService {
   private readonly dialogs = inject(NativeDialog);
@@ -125,7 +165,13 @@ export class DsyModalService {
       // Template anchors are comment nodes, not native presentation hosts.
       renderIn: 'root',
       disableClose: config.disableClose ?? false,
-      nativeOptions: { animated: false, ...config.nativeOptions },
+      nativeOptions: {
+        animated: false,
+        fullscreen: false,
+        stretched: false,
+        ...config.nativeOptions,
+        ios: { presentationStyle: 5, ...config.nativeOptions?.ios },
+      },
     });
   }
 }

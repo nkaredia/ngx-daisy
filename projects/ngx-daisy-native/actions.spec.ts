@@ -3,7 +3,9 @@ import { FormField, form, disabled } from '@angular/forms/signals';
 import { Component, NO_ERRORS_SCHEMA, viewChild, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { Subject } from 'rxjs';
+import { Subject, ReplaySubject } from 'rxjs';
+import { DsyNativeMenuService } from '@ngx-daisy/native/menu';
+vi.mock('@nativescript/core', () => ({ isAndroid: false }));
 
 // Unit tests exercise renderer bindings and state; native presentation is checked on device.
 vi.mock('@nativescript/angular', () => ({
@@ -11,13 +13,18 @@ vi.mock('@nativescript/angular', () => ({
   NativeDialogRef: class NativeDialogRef {},
   NATIVE_DIALOG_DATA: 'native-dialog-data',
 }));
-import { NativeDialog } from '@nativescript/angular';
-import { DsyModal, DsyModalService } from './modal/modal';
+import { NativeDialog, NativeDialogRef, NATIVE_DIALOG_DATA } from '@nativescript/angular';
+import { DsyModal, DsyModalService, DsyNativeModalSurface } from './modal/modal';
 import { DsyFab, DsyFabAction, DsyFabTrigger } from './fab/fab';
 import { DsySwap } from './swap/swap';
 import { DsyThemeController } from './theme-controller/theme-controller';
 import { DsyIcon } from './icon/icon';
-import { DsyDropdown, DsyDropdownContent, DsyDropdownTrigger } from './dropdown/dropdown';
+import {
+  DsyDropdown,
+  DsyDropdownContent,
+  DsyDropdownTrigger,
+  DsyDropdownItem,
+} from './dropdown/dropdown';
 import { DSY_DARK_THEME } from '@ngx-daisy/core/theme';
 
 @Component({
@@ -38,10 +45,10 @@ class ModalHost {
   readonly modal = viewChild.required(DsyModal);
 }
 @Component({
-  imports: [DsyDropdown, DsyDropdownTrigger, DsyDropdownContent],
+  imports: [DsyDropdown, DsyDropdownTrigger, DsyDropdownContent, DsyDropdownItem, DsyButton],
   schemas: [NO_ERRORS_SCHEMA],
   template:
-    '<StackLayout dsyDropdown><Button dsyDropdownTrigger></Button><ng-template dsyDropdownContent><span>Actions</span></ng-template></StackLayout>',
+    '<StackLayout dsyDropdown><Button dsyDropdownTrigger></Button><ng-template dsyDropdownContent><Button dsyButton dsyDropdownItem text="Duplicate"></Button></ng-template></StackLayout>',
 })
 class DropdownHost {}
 
@@ -70,6 +77,24 @@ function nativeDialog() {
 }
 
 describe('Native Actions', () => {
+  it('contains dialogs on narrow screens and protects implicit dismissal', () => {
+    const config = { width: 500, disableClose: true };
+    const close = vi.fn();
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: NATIVE_DIALOG_DATA, useValue: { config } },
+        { provide: NativeDialogRef, useValue: { getState: () => 0, close } },
+      ],
+    });
+    const surface = TestBed.runInInjectionContext(() => new DsyNativeModalSurface());
+    surface.onLayout({ object: { getActualSize: () => ({ width: 280, height: 360 }) } });
+    expect(surface.width()).toBe(248);
+    expect(surface.maxHeight()).toBe(264);
+    surface.dismissOutside();
+    expect(close).not.toHaveBeenCalled();
+    surface.close('explicit');
+    expect(close).toHaveBeenCalledExactlyOnceWith('explicit');
+  });
   it('uses the shared native dialog service and returns results exactly once', () => {
     const dialog = nativeDialog();
     const fixture = TestBed.createComponent(ModalHost);
@@ -111,12 +136,28 @@ describe('Native Actions', () => {
     expect(dialog.open.mock.calls[0]?.[1]).toMatchObject({
       disableClose: true,
       renderIn: 'root',
-      nativeOptions: { animated: false, fullscreen: true },
+      nativeOptions: {
+        animated: false,
+        fullscreen: true,
+        stretched: false,
+        ios: { presentationStyle: 5 },
+      },
       data: { config: { theme: DSY_DARK_THEME } },
     });
   });
-  it('opens dropdown content through the same native presentation and closes on disable', () => {
-    const dialog = nativeDialog();
+  it('opens dropdown actions through an anchored menu and closes on request', () => {
+    const closed = new ReplaySubject<void>(1);
+    const ref = {
+      closed,
+      close: vi.fn(() => {
+        closed.next();
+        closed.complete();
+      }),
+    };
+    const open = vi.fn((_anchor: unknown, _items: unknown) => ref);
+    TestBed.configureTestingModule({
+      providers: [{ provide: DsyNativeMenuService, useValue: { open } }],
+    });
     const fixture = TestBed.createComponent(DropdownHost);
     fixture.detectChanges();
     const element = fixture.debugElement.query(By.directive(DsyDropdown));
@@ -125,11 +166,11 @@ describe('Native Actions', () => {
     trigger.triggerEventHandler('tap', {});
     fixture.detectChanges();
     expect(dropdown.opened()).toBe(true);
-    expect(dialog.open).toHaveBeenCalledTimes(1);
+    expect(open).toHaveBeenCalledTimes(1);
+    expect(open.mock.calls[0]?.[1]).toBeDefined();
     dropdown.close();
     fixture.detectChanges();
-    expect(dialog.ref.close).toHaveBeenCalled();
-    dialog.closed.next(undefined);
+    expect(ref.close).toHaveBeenCalled();
     fixture.detectChanges();
     expect(dropdown.opened()).toBe(false);
   });

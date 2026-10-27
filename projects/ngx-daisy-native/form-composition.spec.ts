@@ -2,13 +2,8 @@ import { Component, NO_ERRORS_SCHEMA, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormField, disabled, form, hidden, readonly, required } from '@angular/forms/signals';
-import { Subject } from 'rxjs';
-vi.mock('@nativescript/angular', () => ({
-  NativeDialog: class {},
-  NativeDialogRef: class {},
-  NATIVE_DIALOG_DATA: 'native-dialog-data',
-}));
-import { DsyModalService } from '@ngx-daisy/native/modal';
+import { ReplaySubject } from 'rxjs';
+import { DsyNativeMenuService, type DsyNativeMenuItem } from '@ngx-daisy/native/menu';
 import { DsyFormField } from '@ngx-daisy/native/form-field';
 import { DsyInput } from '@ngx-daisy/native/input';
 import { DsyFieldset } from './fieldset/fieldset';
@@ -18,32 +13,34 @@ const options: readonly DsySelectOption[] = [
   { value: 'ca', label: 'Canada' },
   { value: 'other', label: 'Unavailable', disabled: true },
 ];
-function modalStub() {
-  const refs: {
-    close: (result?: unknown) => void;
-    getState: () => number;
-    afterClosed: () => Subject<unknown>;
+function menuStub() {
+  const requests: {
+    selected(id: string): void;
+    closed: ReplaySubject<void>;
+    close: () => void;
+    items: readonly DsyNativeMenuItem[];
   }[] = [];
   const service = {
-    open: vi.fn(() => {
-      const closed = new Subject<unknown>();
-      let state = 0;
-      const ref = {
-        close: vi.fn((result?: unknown) => {
-          if (state !== 0) return;
-          state = 2;
-          closed.next(result);
+    open: vi.fn(
+      (
+        _anchor: unknown,
+        items: readonly DsyNativeMenuItem[],
+        options: { selected(id: string): void },
+      ) => {
+        const closed = new ReplaySubject<void>(1);
+        const close = vi.fn(() => {
+          closed.next();
           closed.complete();
-        }),
-        getState: () => state,
-        afterClosed: () => closed,
-      };
-      refs.push(ref);
-      return ref;
-    }),
+        });
+        requests.push({ ...options, items, closed, close });
+        return { closed, close };
+      },
+    ),
   };
-  TestBed.configureTestingModule({ providers: [{ provide: DsyModalService, useValue: service }] });
-  return { service, refs };
+  TestBed.configureTestingModule({
+    providers: [{ provide: DsyNativeMenuService, useValue: service }],
+  });
+  return { service, requests };
 }
 @Component({
   imports: [DsyFormField, DsyInput, FormField],
@@ -157,35 +154,31 @@ describe('Native form composition', () => {
     expect(fixture.componentInstance.values().name).toBe('Alex');
   });
 
-  it('commits only a confirmed enabled select draft and touches the field on dismissal', () => {
-    const { refs } = modalStub();
+  it('selects directly from an anchored menu and preserves the value on outside dismissal', () => {
+    const { requests } = menuStub();
     const fixture = TestBed.createComponent(SelectHost);
     fixture.detectChanges();
     const select = fixture.debugElement.query(By.directive(DsySelect))
       .componentInstance as DsySelect;
-    expect(select.accessibleLabel()).toBe('Delivery region');
     select.open();
     fixture.detectChanges();
-    expect(select.draft()).toBe('us');
-    expect(refs).toHaveLength(1);
-    select.choose(options[1]);
-    fixture.detectChanges();
-    expect(fixture.componentInstance.values().region).toBe('us');
-    select.confirm();
+    expect(select.accessibleLabel()).toBe('Delivery region');
+    expect(requests[0].items.map((item) => item.checked)).toEqual([true, false, false]);
+    requests[0].selected('ca');
     fixture.detectChanges();
     expect(fixture.componentInstance.values().region).toBe('ca');
-    expect(fixture.componentInstance.fields.region().touched()).toBe(true);
+    requests[0].close();
+    fixture.detectChanges();
     expect(select.opened()).toBe(false);
+    expect(fixture.componentInstance.fields.region().touched()).toBe(true);
     select.open();
     fixture.detectChanges();
-    select.choose(options[0]);
-    select.close();
+    requests[1].close();
     fixture.detectChanges();
     expect(fixture.componentInstance.values().region).toBe('ca');
   });
-
-  it('does not accept disabled options or unmatched values and preserves external form state', () => {
-    const { refs } = modalStub();
+  it('guards disabled/unmatched native selections and retains an external unmatched value', () => {
+    const { requests } = menuStub();
     const fixture = TestBed.createComponent(SelectHost);
     fixture.detectChanges();
     const select = fixture.debugElement.query(By.directive(DsySelect))
@@ -195,42 +188,32 @@ describe('Native form composition', () => {
     expect(select.selectedLabel()).toBe('Choose an option');
     select.open();
     fixture.detectChanges();
-    select.choose(options[2]);
-    expect(select.draft()).toBe('unknown');
-    expect(select.canConfirm()).toBe(false);
-    select.confirm();
+    requests[0].selected('other');
+    requests[0].selected('missing');
     fixture.detectChanges();
-    expect(refs[0].close).not.toHaveBeenCalled();
     expect(fixture.componentInstance.values().region).toBe('unknown');
-    refs[0].close();
+    requests[0].close();
     fixture.detectChanges();
     expect(select.opened()).toBe(false);
   });
-
-  it('handles cancellation before presentation and blocks an empty option list', () => {
-    const { service } = modalStub();
+  it('blocks empty menus and forwards focus to the actual native trigger', () => {
+    const { service } = menuStub();
     const fixture = TestBed.createComponent(DsySelect);
     fixture.componentRef.setInput('options', options);
     fixture.detectChanges();
-    const touched = vi.fn();
-    fixture.componentInstance.touch.subscribe(touched);
-    fixture.componentInstance.open();
-    fixture.componentInstance.close();
-    fixture.detectChanges();
-    expect(fixture.componentInstance.opened()).toBe(false);
-    expect(touched).toHaveBeenCalledTimes(1);
-    expect(service.open).not.toHaveBeenCalled();
+    const trigger = fixture.nativeElement.querySelector('button');
+    const focus = vi.spyOn(trigger, 'focus');
+    fixture.componentInstance.focus();
+    expect(focus).toHaveBeenCalledTimes(1);
     fixture.componentRef.setInput('options', []);
     fixture.detectChanges();
     fixture.componentInstance.open();
     fixture.detectChanges();
-    expect(fixture.componentInstance.isDisabled()).toBe(true);
     expect(service.open).not.toHaveBeenCalled();
   });
-
   for (const state of ['locked', 'viewing', 'concealed'] as const) {
-    it(`closes a select and blocks edits while ${state}`, () => {
-      const { refs, service } = modalStub();
+    it(`closes an anchored select and blocks edits while ${state}`, () => {
+      const { requests, service } = menuStub();
       const fixture = TestBed.createComponent(SelectHost);
       fixture.detectChanges();
       const select = fixture.debugElement.query(By.directive(DsySelect))
@@ -239,11 +222,10 @@ describe('Native form composition', () => {
       fixture.detectChanges();
       fixture.componentInstance[state].set(true);
       fixture.detectChanges();
-      expect(refs[0].close).toHaveBeenCalledTimes(1);
+      expect(requests[0].close).toHaveBeenCalledTimes(1);
       expect(select.opened()).toBe(false);
       select.open();
-      select.choose(options[1]);
-      select.confirm();
+      requests[0].selected('ca');
       fixture.detectChanges();
       expect(service.open).toHaveBeenCalledTimes(1);
       expect(fixture.componentInstance.values().region).toBe('us');

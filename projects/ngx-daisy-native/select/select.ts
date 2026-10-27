@@ -13,12 +13,14 @@ import {
   output,
   signal,
   viewChild,
+  DestroyRef,
 } from '@angular/core';
 import type { FormValueControl } from '@angular/forms/signals';
 import type { Button } from '@nativescript/core';
 import { DsyButton } from '@ngx-daisy/native/button';
-import { DsyModal } from '@ngx-daisy/native/modal';
-import { DsyRadio, DsyRadioGroup } from '@ngx-daisy/native/radio';
+import { DsyNativeMenuService, type DsyNativeMenuRef } from '@ngx-daisy/native/menu';
+import { DsyTheme } from '@ngx-daisy/native/theme';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import type { DsyButtonColor, DsyButtonSize } from '@ngx-daisy/core/button';
 export interface DsySelectOption {
@@ -27,11 +29,11 @@ export interface DsySelectOption {
   readonly description?: string;
   readonly disabled?: boolean;
 }
-/** Native selection sheet composed from Modal and Radio; only Confirm commits its draft. */
+/** A string-valued form control presented as an anchored native selection menu. */
 @Component({
   selector: 'GridLayout[dsySelect]',
   standalone: true,
-  imports: [DsyButton, DsyModal, DsyRadio, DsyRadioGroup],
+  imports: [DsyButton],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './select.html',
   styleUrl: './select.scss',
@@ -49,8 +51,6 @@ export class DsySelect implements FormValueControl<string> {
   readonly placeholder = input('Choose an option');
   readonly label = input('');
   readonly description = input('');
-  readonly confirmText = input('Confirm selection');
-  readonly cancelText = input('Cancel');
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly readonly = input(false, { transform: booleanAttribute });
   readonly hidden = input(false, { transform: booleanAttribute });
@@ -59,8 +59,6 @@ export class DsySelect implements FormValueControl<string> {
   readonly color = input<DsyButtonColor>(undefined, { alias: 'dsyColor' });
   readonly size = input<DsyButtonSize>('md');
   readonly triggerClass = input('');
-  readonly panelClass = input('');
-  readonly optionClass = input('');
   readonly touch = output<void>();
   private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
   readonly accessibleLabel = computed(
@@ -80,18 +78,24 @@ export class DsySelect implements FormValueControl<string> {
       this.hidden() ||
       !this.options().some((option) => !option.disabled),
   );
-  readonly draft = signal('');
   readonly opened = signal(false);
-  readonly canConfirm = computed(
-    () =>
-      !this.isDisabled() &&
-      this.options().some((option) => option.value === this.draft() && !option.disabled),
-  );
-  private readonly modal = viewChild(DsyModal);
-  private readonly trigger = viewChild<ElementRef<Button>>('trigger');
+  private readonly trigger = viewChild<unknown, ElementRef<Button>>('trigger', {
+    read: ElementRef,
+  });
+  private readonly menus = inject(DsyNativeMenuService);
+  private readonly theme = inject(DsyTheme, { optional: true });
+  private readonly destroyRef = inject(DestroyRef);
+  private ref?: DsyNativeMenuRef;
+  private destroyed = false;
+  private presentedOptions?: readonly DsySelectOption[];
   constructor() {
+    this.destroyRef.onDestroy(() => {
+      this.destroyed = true;
+      this.cleanup();
+    });
     effect(() => {
-      if (this.isDisabled() && this.opened()) this.close();
+      if (this.opened() && (this.isDisabled() || this.options() !== this.presentedOptions))
+        this.close();
     });
     effect(() => {
       const values = this.options().map((option) => option.value);
@@ -99,31 +103,54 @@ export class DsySelect implements FormValueControl<string> {
         throw new Error('dsySelect option values must be unique.');
     });
   }
+  private cleanup(): void {
+    this.ref?.close();
+  }
   open(): void {
     if (this.isDisabled() || this.opened()) return;
-    this.draft.set(this.value());
+    const anchor = this.trigger()?.nativeElement;
+    if (!anchor) return;
     this.opened.set(true);
-    this.modal()?.open();
-  }
-  choose(option: DsySelectOption): void {
-    if (this.opened() && !this.isDisabled() && !option.disabled) this.draft.set(option.value);
-  }
-  confirm(): void {
-    if (!this.opened() || !this.canConfirm()) return;
-    this.value.set(this.draft());
-    this.finish('selected');
+    this.presentedOptions = this.options();
+    try {
+      this.ref = this.menus.open(
+        anchor,
+        this.options().map((option) => ({
+          id: option.value,
+          label: option.label,
+          description: option.description,
+          disabled: option.disabled,
+          checked: option.value === this.value(),
+        })),
+        {
+          label: this.accessibleLabel(),
+          singleSelection: true,
+          appearance: this.theme?.resolved().colorScheme,
+          selected: (id) => {
+            if (
+              !this.destroyed &&
+              !this.isDisabled() &&
+              this.options().some((option) => option.value === id && !option.disabled)
+            )
+              this.value.set(id);
+          },
+        },
+      );
+      this.ref.closed.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
+        this.ref = undefined;
+        this.onClosed();
+      });
+    } catch (error) {
+      this.opened.set(false);
+      throw error;
+    }
   }
   close(): void {
-    this.finish();
+    if (this.ref) this.ref.close();
+    else this.onClosed();
   }
-  private finish(result?: string): void {
-    const modal = this.modal();
-    modal?.close(result);
-    // A close before modal presentation has no native afterClosed event.
-    if (!modal?.opened()) this.onClosed();
-  }
-  onClosed(): void {
-    if (!this.opened()) return;
+  private onClosed(): void {
+    if (!this.opened() || this.destroyed) return;
     this.opened.set(false);
     this.touch.emit();
   }

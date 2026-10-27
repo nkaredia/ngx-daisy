@@ -42,24 +42,11 @@
           dsyLayout="block"
         ></Button>
         <ng-template dsyDropdownContent>
-          <StackLayout class="bg-base-200 rounded-box p-4 mb-5">
-            <Label text="Summer collection" class="text-xl font-bold" textWrap="true"></Label>
-            <Label
-              text="Private project · 3 collaborators"
-              class="opacity-60 mt-2"
-              textWrap="true"
-            ></Label>
-            <Label
-              text="Everything your team needs for the next launch, in one place."
-              class="opacity-75 mt-3"
-              textWrap="true"
-            ></Label>
-          </StackLayout>
-          <Label text="COLLABORATE" class="text-xs font-semibold opacity-60 mb-2"></Label>
           <Button
             dsyButton
             dsyDropdownItem
             text="Invite teammates"
+            section="Collaborate"
             variant="soft"
             dsyColor="primary"
             dsyLayout="block"
@@ -70,16 +57,17 @@
             dsyButton
             dsyDropdownItem
             text="Copy project link"
+            section="Collaborate"
             variant="ghost"
             dsyLayout="block"
             margin="4"
             (triggered)="select('Demo: project link selected.')"
           ></Button>
-          <Label text="ORGANIZE" class="text-xs font-semibold opacity-60 mt-5 mb-2"></Label>
           <Button
             dsyButton
             dsyDropdownItem
             text="Duplicate project"
+            section="Organize"
             variant="ghost"
             dsyLayout="block"
             margin="4"
@@ -89,6 +77,7 @@
             dsyButton
             dsyDropdownItem
             text="Add to favorites"
+            section="Organize"
             variant="ghost"
             dsyLayout="block"
             margin="4"
@@ -98,16 +87,13 @@
             dsyButton
             dsyDropdownItem
             text="Archive project"
+            section="Organize"
+            destructive
             disabled
             variant="ghost"
             dsyLayout="block"
             margin="4"
           ></Button>
-          <Label
-            text="Only the project owner can archive this workspace."
-            class="opacity-60 text-sm mt-3"
-            textWrap="true"
-          ></Label>
         </ng-template>
       </StackLayout>
     </StackLayout>

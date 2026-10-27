@@ -7,18 +7,3 @@
 .dsy-native-select-invalid .dsy-native-select-trigger {
   border-color: var(--color-error);
 }
-.dsy-native-select-description {
-  opacity: 0.75;
-  margin-bottom: 16;
-}
-.dsy-native-select-option {
-  background-color: var(--color-base-200);
-  border-radius: var(--radius-field);
-  padding: 12;
-  margin-bottom: 12;
-}
-.dsy-native-select-option-description {
-  font-size: 13;
-  opacity: 0.75;
-  margin-top: 4;
-}

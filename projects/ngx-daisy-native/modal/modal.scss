@@ -1,10 +1,15 @@
 .dsy-native-modal-root {
-  background-color: var(--color-base-100);
+  background-color: rgba(0, 0, 0, 0.35);
   color: var(--color-base-content);
 }
-.dsy-native-modal {
+.dsy-native-modal-android {
+  background-color: transparent;
+}
+.dsy-native-modal-surface {
   background-color: var(--color-base-100);
-  color: var(--color-base-content);
   border-radius: var(--radius-box);
+}
+.dsy-native-modal {
+  color: var(--color-base-content);
   padding: 24;
 }
