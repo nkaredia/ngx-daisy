@@ -121,3 +121,7 @@ To check offline behavior, open the production app, wait for service worker inst
 select Offline in browser developer tools. Reload a deep route and open another component page.
 Both should render with their documentation and playground. Installation is available through
 the browser's install action where supported.
+
+## Native mobile
+
+The NativeScript implementation starts with native theme scopes and Button, sharing design contracts with the web library through `@ngx-daisy/core`. Run `yarn check:native` for package/template/platform JavaScript checks, or `yarn native:ios` / `yarn native:android` with a configured native toolchain. See the [native architecture](docs/native.md) and [native showcase setup](projects/native-showcase/README.md).
