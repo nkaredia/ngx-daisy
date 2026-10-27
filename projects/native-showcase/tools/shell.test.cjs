@@ -62,6 +62,9 @@ test('native navigation lists each supported component once under the web catego
       'icons',
       'inputs',
       'textareas',
+      'checkboxes',
+      'radios',
+      'ranges',
       'toggles',
     ],
   );

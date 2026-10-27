@@ -9,6 +9,9 @@ export const nativePages = [
   { id: 'theme-controllers', label: 'Theme Controllers', category: 'actions' },
   { id: 'inputs', label: 'Input', category: 'data-input' },
   { id: 'textareas', label: 'Textarea', category: 'data-input' },
+  { id: 'checkboxes', label: 'Checkbox', category: 'data-input' },
+  { id: 'radios', label: 'Radio', category: 'data-input' },
+  { id: 'ranges', label: 'Range', category: 'data-input' },
   { id: 'toggles', label: 'Toggle', category: 'data-input' },
   { id: 'icons', label: 'Icons', category: 'data-display' },
 ] as const;
