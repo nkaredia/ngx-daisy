@@ -1,0 +1,16 @@
+import { Zap, ChartNoAxesColumn } from 'lucide';
+import { lucideArtwork } from '../icons/svg-artwork';
+export const nativePages = [
+  { id: 'buttons', label: 'Buttons', category: 'actions' },
+  { id: 'dropdowns', label: 'Dropdowns', category: 'actions' },
+  { id: 'fabs', label: 'FAB / Speed Dial', category: 'actions' },
+  { id: 'modals', label: 'Modals', category: 'actions' },
+  { id: 'swaps', label: 'Swaps', category: 'actions' },
+  { id: 'theme-controllers', label: 'Theme Controllers', category: 'actions' },
+  { id: 'icons', label: 'Icons', category: 'data-display' },
+] as const;
+export type NativePageId = (typeof nativePages)[number]['id'] | 'themes';
+export const nativeGroups = [
+  { id: 'actions', label: 'Actions', icon: lucideArtwork(Zap) },
+  { id: 'data-display', label: 'Data Display', icon: lucideArtwork(ChartNoAxesColumn) },
+].map((group) => ({ ...group, pages: nativePages.filter((page) => page.category === group.id) }));

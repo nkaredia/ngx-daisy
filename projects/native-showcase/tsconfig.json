@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "strict": true,
+    "module": "esnext",
+    "target": "ES2022",
+    "moduleResolution": "bundler",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmitOnError": true,
+    "outDir": "../../out-tsc/native-showcase",
+    "lib": ["ES2022", "dom"],
+    "types": ["@nativescript/types"],
+    "resolveJsonModule": true
+  },
+  "files": ["src/main.ts", "src/polyfills.ts", "nativescript.config.ts"],
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "platforms"]
+}

@@ -44,3 +44,9 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# NativeScript generated builds and runtime files
+projects/native-showcase/platforms/
+projects/native-showcase/hooks/
+projects/native-showcase/.nsbuildinfo
+projects/native-showcase/node_modules/

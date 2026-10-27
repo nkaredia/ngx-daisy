@@ -1,0 +1,18 @@
+.native-titlebar {
+  border-bottom-width: 1;
+  border-bottom-color: var(--color-base-200);
+}
+.native-theme-footer {
+  border-top-width: 1;
+  border-top-color: var(--color-base-300);
+}
+.native-navigation-item.dsy-button {
+  text-align: left;
+  font-size: 15;
+  padding-left: 16;
+  margin-bottom: 4;
+}
+.native-navigation-item.native-navigation-active {
+  background-color: var(--color-base-300);
+  border-color: transparent;
+}
