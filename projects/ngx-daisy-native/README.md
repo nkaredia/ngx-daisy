@@ -86,3 +86,5 @@ Lucide and Font Awesome examples use app-owned SVG rendering and individual icon
 ## Native Data Input
 
 Input, Textarea, Toggle, Checkbox, Radio and Range are available from `/input`, `/textarea`, `/toggle`, `/checkbox`, `/radio` and `/range`. They bind NativeScript text editors, switches, selection buttons and sliders to Angular Signal Forms, with native disabled/read-only/hidden behavior and inherited themes. See the [native Data Input guide](../../docs/native-data-inputs.md) for usage, styling, accessibility and platform differences.
+
+Select, Form Field and Fieldset are available from `/select`, `/form-field` and `/fieldset`. Select reuses native Modal and Radio, while Form Field derives labels, errors and focus from one Angular binding. See [native form composition](../../docs/native-form-composition.md).

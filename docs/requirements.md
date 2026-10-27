@@ -103,3 +103,5 @@ Native Actions expansion: all six Actions families and Icon have native entry po
 Native Data Input expansion: Input, Textarea and Toggle use native TextField/TextView/Switch hosts and Signal Forms contracts. Share text editing behavior, preserve native keyboard properties, keep constraints in Angular schemas, and provide dedicated themed showcase examples. See [native Data Input](native-data-inputs.md).
 
 Native selection controls: Checkbox supports mixed selection; a Radio Group owns a single string value across native button options; Range uses a native Slider with schema bounds and step snapping. Preserve native semantics, guarded form interactions, theme tokens and independent showcase pages.
+
+Native form composition: Select uses a confirmation-based native selection sheet with a string Signal Forms model. Form Field derives reactive labels, errors and native focus from one projected binding; Fieldset groups projected controls without a parallel form-state owner. Completed work is committed and pushed before beginning the next major task.

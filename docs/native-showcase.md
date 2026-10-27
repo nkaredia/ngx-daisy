@@ -4,7 +4,7 @@ The native showcase follows the web showcase's shell: grouped navigation, ngx-da
 
 ## Navigation and layout
 
-`projects/native-showcase/src/app/shell/catalog.ts` drives labels, categories and page selection. The implemented native catalog has thirteen pages: Buttons, Dropdowns, FAB / Speed Dial, Modals, Swaps, Theme Controllers, Icons, Input, Textarea, Checkbox, Radio, Range and Toggle. Categories follow the web order: Actions, Data Display, then Data Input. Unimplemented native families do not have dead navigation entries.
+`projects/native-showcase/src/app/shell/catalog.ts` drives labels, categories and page selection. The implemented native catalog has sixteen pages: Buttons, Dropdowns, FAB / Speed Dial, Modals, Swaps, Theme Controllers, Icons, Input, Textarea, Checkbox, Radio, Range, Select, Form Field, Fieldset and Toggle. Categories follow the web order: Actions, Data Display, then Data Input. Unimplemented native families do not have dead navigation entries.
 
 Below 1024 DIP, a titlebar shows the navigation button and brand/version. The drawer shows Components and a close button, avoiding duplicate branding. The drawer overlays its backdrop, disables and hides the underlying page from accessibility, and closes when selecting a page or tapping the backdrop/close control. On Android, Back closes the drawer first and returns other component pages to Buttons before the normal root behavior.
 
@@ -33,3 +33,5 @@ Verified on iPhone 17 / iOS 26.5: mobile branding/version; Lucide menu, close, c
 Strict templates, both platform bundles, selected-icon checks, all 35 preset conversions, the catalog checks, three artwork tests and 23 native unit tests passed. Tablet rendering and Android device behavior remain unverified.
 
 The Data Input expansion adds account details with validation, a live bio editor and notification preferences. See [native Data Input](native-data-inputs.md) for APIs and verification.
+
+Select, Form Field and Fieldset add native selection sheets and schema-driven presentation. See [native form composition](native-form-composition.md) for usage and verification.

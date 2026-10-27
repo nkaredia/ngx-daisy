@@ -108,3 +108,5 @@ Native slider behavior follows the official [Slider API](https://docs.nativescri
 On iPhone 17 / iOS 26.5, inspected the Checkbox, Radio and Range examples in the dark theme. Verified mixed “select all” becoming checked, an individual change restoring mixed state, radio selection updating the delivery summary, the slider retaining its $75 starting value after native bounds initialization, and increase-button changes updating both native slider position and the savings summary. Native slider bounds/value writes are guarded as a single transaction so initialization and bound coercion cannot change or touch the Angular form. The 44-test native suite includes that synchronous coercion sequence.
 
 The simulator automation could not perform a slider drag (`noWindowsAvailable` from its coordinate-input service). Continuous drag feel, VoiceOver/TalkBack, Android rendering and large-text behavior remain device/manual checks. Bundle and unit validation do not establish those results.
+
+For Select and the shared Form Field/Fieldset wrappers, see [native form composition](native-form-composition.md).
