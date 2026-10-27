@@ -1,0 +1,250 @@
+<StackLayout>
+  @switch (family()) {
+    @case ('inputs') {
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+        <Label
+          text="Make it yours"
+          class="text-[24px] font-bold mb-2"
+          accessibilityRole="header"
+        ></Label>
+        <Label
+          text="Update the details your teammates see on your profile."
+          class="opacity-75 mb-5"
+          textWrap="true"
+        ></Label>
+        <Label text="Display name" class="font-semibold mb-2"></Label>
+        <TextField
+          dsyInput
+          [formField]="fields.name"
+          label="Display name"
+          hint="Your name"
+          autocapitalizationType="words"
+          returnKeyType="next"
+          [description]="
+            fields.name().touched() && fields.name().invalid()
+              ? 'Enter your display name.'
+              : 'Use the name your team knows you by.'
+          "
+        ></TextField>
+        @if (fields.name().touched() && fields.name().invalid()) {
+          <Label
+            text="Enter your display name."
+            class="text-error text-sm mt-2"
+            textWrap="true"
+            accessibilityLiveRegion="polite"
+          ></Label>
+        }
+        <Label text="Email address" class="font-semibold mt-5 mb-2"></Label>
+        <TextField
+          dsyInput
+          [formField]="fields.email"
+          label="Email address"
+          hint="you@example.com"
+          keyboardType="email"
+          autocapitalizationType="none"
+          autocorrect="false"
+          returnKeyType="done"
+          [description]="
+            fields.email().touched() && fields.email().invalid()
+              ? 'Enter a valid email address.'
+              : 'Used for account updates.'
+          "
+        ></TextField>
+        @if (fields.email().touched() && fields.email().invalid()) {
+          <Label
+            text="Enter a valid email address."
+            class="text-error text-sm mt-2"
+            textWrap="true"
+            accessibilityLiveRegion="polite"
+          ></Label>
+        }
+        <Button
+          dsyButton
+          text="Save profile"
+          dsyColor="primary"
+          dsyLayout="block"
+          marginTop="20"
+          (pressed)="save()"
+        ></Button>
+      </StackLayout>
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+        <Label
+          text="Account details"
+          class="text-xl font-semibold mb-3"
+          accessibilityRole="header"
+        ></Label>
+        <Label text="Workspace ID · Read only" class="opacity-75 mb-2"></Label>
+        <TextField
+          dsyInput
+          value="weekend-studio"
+          readonly
+          label="Workspace ID, read only"
+        ></TextField>
+        <Label
+          text="Managed by your administrator"
+          class="opacity-75 mt-4 mb-2"
+          textWrap="true"
+        ></Label>
+        <TextField
+          dsyInput
+          value="Enterprise account"
+          disabled
+          label="Account type, unavailable"
+        ></TextField>
+      </StackLayout>
+    }
+    @case ('textareas') {
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+        <Label
+          text="A little about you"
+          class="text-[24px] font-bold mb-2"
+          accessibilityRole="header"
+        ></Label>
+        <Label
+          text="Share what you do, what you love, or what you are working on next."
+          class="opacity-75 mb-5"
+          textWrap="true"
+        ></Label>
+        <Label text="Your bio" class="font-semibold mb-2"></Label>
+        <TextView
+          dsyTextarea
+          [formField]="fields.bio"
+          label="Your bio"
+          hint="Tell your story…"
+          autocapitalizationType="sentences"
+          [description]="
+            fields.bio().touched() && fields.bio().invalid()
+              ? 'Use at least 12 characters.'
+              : 'Visible to your teammates.'
+          "
+          height="160"
+        ></TextView>
+        <Label
+          [text]="profile().bio.length + ' characters · Minimum 12'"
+          class="opacity-60 text-sm mt-2"
+          textWrap="true"
+        ></Label>
+        @if (fields.bio().touched() && fields.bio().invalid()) {
+          <Label
+            text="Tell us a little more (at least 12 characters)."
+            class="text-error text-sm mt-2"
+            textWrap="true"
+            accessibilityLiveRegion="polite"
+          ></Label>
+        }
+        <Button
+          dsyButton
+          text="Save bio"
+          dsyColor="primary"
+          dsyLayout="block"
+          marginTop="20"
+          (pressed)="save()"
+        ></Button>
+      </StackLayout>
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+        <Label
+          text="Profile preview"
+          class="text-xl font-semibold mb-3"
+          accessibilityRole="header"
+        ></Label>
+        <Label [text]="profile().name" class="font-semibold mb-2"></Label>
+        <Label
+          [text]="profile().bio || 'Your story will appear here.'"
+          class="opacity-75"
+          textWrap="true"
+        ></Label>
+      </StackLayout>
+    }
+    @case ('toggles') {
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+        <Label
+          text="Stay in the loop"
+          class="text-[24px] font-bold mb-2"
+          accessibilityRole="header"
+        ></Label>
+        <Label
+          text="Choose which updates make it into your day."
+          class="opacity-75 mb-5"
+          textWrap="true"
+        ></Label>
+        <GridLayout columns="*, auto" class="mb-5">
+          <StackLayout col="0" marginRight="12">
+            <Label text="Project updates" class="font-semibold"></Label>
+            <Label
+              text="New comments and team milestones."
+              class="opacity-75 text-sm mt-1"
+              textWrap="true"
+            ></Label>
+          </StackLayout>
+          <Switch
+            col="1"
+            dsyToggle
+            [formField]="fields.updates"
+            label="Project updates"
+            description="New comments and team milestones."
+            verticalAlignment="middle"
+          ></Switch>
+        </GridLayout>
+        <GridLayout columns="*, auto" class="mb-5">
+          <StackLayout col="0" marginRight="12">
+            <Label text="Gentle reminders" class="font-semibold"></Label>
+            <Label
+              text="A heads-up before your tasks are due."
+              class="opacity-75 text-sm mt-1"
+              textWrap="true"
+            ></Label>
+          </StackLayout>
+          <Switch
+            col="1"
+            dsyToggle
+            [formField]="fields.reminders"
+            dsyColor="secondary"
+            label="Gentle reminders"
+            verticalAlignment="middle"
+          ></Switch>
+        </GridLayout>
+        <GridLayout columns="*, auto">
+          <StackLayout col="0" marginRight="12">
+            <Label text="Security alerts" class="font-semibold"></Label>
+            <Label
+              text="Always on for your account."
+              class="opacity-75 text-sm mt-1"
+              textWrap="true"
+            ></Label>
+          </StackLayout>
+          <Switch
+            col="1"
+            dsyToggle
+            [checked]="true"
+            disabled
+            label="Security alerts, always on"
+            verticalAlignment="middle"
+          ></Switch>
+        </GridLayout>
+      </StackLayout>
+      <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+        <Label
+          text="Your preferences"
+          class="text-xl font-semibold mb-3"
+          accessibilityRole="header"
+        ></Label>
+        <Label
+          [text]="profile().updates ? 'Project updates are on.' : 'Project updates are off.'"
+          class="opacity-75 mb-2"
+          textWrap="true"
+        ></Label>
+        <Label
+          [text]="profile().reminders ? 'Reminders are on.' : 'Reminders are off.'"
+          class="opacity-75"
+          textWrap="true"
+        ></Label>
+      </StackLayout>
+    }
+  }
+  <Label
+    [text]="message()"
+    class="opacity-60 text-center mb-5"
+    textWrap="true"
+    accessibilityLiveRegion="polite"
+  ></Label>
+</StackLayout>

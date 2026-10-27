@@ -1,3 +1,4 @@
+import { NativeDataInputExample } from './data-input-example/data-input-example';
 import { NativeIconButton } from './shell/icon-button';
 import { DsyModal } from '@ngx-daisy/native/modal';
 import {
@@ -77,6 +78,7 @@ function storedTheme(): DsyThemeDefinition {
     NativeIconExample,
     NativeButtonExample,
     NativeThemeEditor,
+    NativeDataInputExample,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './app.component.html',

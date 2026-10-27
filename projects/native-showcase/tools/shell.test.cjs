@@ -48,11 +48,22 @@ test('native navigation lists each supported component once under the web catego
   const pages = nativeGroups.flatMap((group) => group.pages);
   assert.deepEqual(
     nativeGroups.map((group) => group.id),
-    ['actions', 'data-display'],
+    ['actions', 'data-display', 'data-input'],
   );
   assert.deepEqual(
     pages.map((page) => page.id),
-    ['buttons', 'dropdowns', 'fabs', 'modals', 'swaps', 'theme-controllers', 'icons'],
+    [
+      'buttons',
+      'dropdowns',
+      'fabs',
+      'modals',
+      'swaps',
+      'theme-controllers',
+      'icons',
+      'inputs',
+      'textareas',
+      'toggles',
+    ],
   );
   assert.equal(new Set(pages.map((page) => page.id)).size, nativePages.length);
 });

@@ -15,6 +15,7 @@ for (const output of outputs) {
     'circle-check',
     'heart',
     'house',
+    'keyboard',
     'menu',
     'moon',
     'paintbrush',

@@ -66,6 +66,15 @@
             @case ('icons') {
               <dsy-native-icon-example />
             }
+            @case ('inputs') {
+              <dsy-native-data-input-example family="inputs" />
+            }
+            @case ('textareas') {
+              <dsy-native-data-input-example family="textareas" />
+            }
+            @case ('toggles') {
+              <dsy-native-data-input-example family="toggles" />
+            }
             @case ('themes') {
               <dsy-native-theme-editor [theme]="theme()" (applied)="selectTheme($event)" />
             }

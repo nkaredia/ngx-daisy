@@ -1,4 +1,4 @@
-import { Zap, ChartNoAxesColumn } from 'lucide';
+import { Zap, ChartNoAxesColumn, Keyboard } from 'lucide';
 import { lucideArtwork } from '../icons/svg-artwork';
 export const nativePages = [
   { id: 'buttons', label: 'Buttons', category: 'actions' },
@@ -7,10 +7,14 @@ export const nativePages = [
   { id: 'modals', label: 'Modals', category: 'actions' },
   { id: 'swaps', label: 'Swaps', category: 'actions' },
   { id: 'theme-controllers', label: 'Theme Controllers', category: 'actions' },
+  { id: 'inputs', label: 'Input', category: 'data-input' },
+  { id: 'textareas', label: 'Textarea', category: 'data-input' },
+  { id: 'toggles', label: 'Toggle', category: 'data-input' },
   { id: 'icons', label: 'Icons', category: 'data-display' },
 ] as const;
 export type NativePageId = (typeof nativePages)[number]['id'] | 'themes';
 export const nativeGroups = [
   { id: 'actions', label: 'Actions', icon: lucideArtwork(Zap) },
   { id: 'data-display', label: 'Data Display', icon: lucideArtwork(ChartNoAxesColumn) },
+  { id: 'data-input', label: 'Data Input', icon: lucideArtwork(Keyboard) },
 ].map((group) => ({ ...group, pages: nativePages.filter((page) => page.category === group.id) }));
