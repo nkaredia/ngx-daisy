@@ -7,7 +7,11 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@ngx-daisy/cdk": ["./dist/ngx-daisy"],
-      "@ngx-daisy/cdk/*": ["./dist/ngx-daisy/*"]
+      "@ngx-daisy/cdk/*": ["./dist/ngx-daisy/*"],
+      "@ngx-daisy/core": ["./dist/ngx-daisy-core"],
+      "@ngx-daisy/core/*": ["./dist/ngx-daisy-core/*"],
+      "@ngx-daisy/native": ["./dist/ngx-daisy-native"],
+      "@ngx-daisy/native/*": ["./dist/ngx-daisy-native/*"]
     },
     "skipLibCheck": true,
     "isolatedModules": true,
@@ -35,6 +39,15 @@
     },
     {
       "path": "./projects/showcase/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-daisy-core/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-daisy-native/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-daisy-native/tsconfig.spec.json"
     }
   ]
 }

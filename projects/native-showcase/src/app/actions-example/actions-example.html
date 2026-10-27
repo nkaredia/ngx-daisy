@@ -1,0 +1,337 @@
+<StackLayout>
+  <Label
+    text="Your workspace, in motion"
+    class="text-[26px] font-bold mb-2"
+    textWrap="true"
+  ></Label>
+  <Label
+    text="Native actions with the same design language. Open a menu, create a project, or tune your preferences."
+    class="opacity-75 mb-5"
+    textWrap="true"
+  ></Label>
+  @if (family() === 'dropdowns') {
+    <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+      <Label
+        text="Weekend essentials"
+        class="text-xl font-semibold mb-3"
+        accessibilityRole="header"
+      ></Label>
+      <Label
+        text="A little planning. A great escape."
+        class="opacity-75 mb-4"
+        textWrap="true"
+      ></Label>
+      <GridLayout columns="*, auto" class="bg-base-100 rounded-box p-4 mb-4">
+        <StackLayout>
+          <Label text="Summer collection" class="font-semibold"></Label>
+          <Label text="8 of 12 tasks complete" class="opacity-60 mt-1"></Label>
+        </StackLayout>
+        <Label col="1" text="Active" class="text-success" verticalAlignment="middle"></Label>
+      </GridLayout>
+      <Label
+        text="Maya, Alex and you · Updated today"
+        class="opacity-60 mb-4"
+        textWrap="true"
+      ></Label>
+      <StackLayout dsyDropdown label="Weekend project actions">
+        <Button
+          dsyButton
+          dsyDropdownTrigger
+          text="Manage project"
+          dsyColor="primary"
+          dsyLayout="block"
+        ></Button>
+        <ng-template dsyDropdownContent>
+          <StackLayout class="bg-base-200 rounded-box p-4 mb-5">
+            <Label text="Summer collection" class="text-xl font-bold" textWrap="true"></Label>
+            <Label
+              text="Private project · 3 collaborators"
+              class="opacity-60 mt-2"
+              textWrap="true"
+            ></Label>
+            <Label
+              text="Everything your team needs for the next launch, in one place."
+              class="opacity-75 mt-3"
+              textWrap="true"
+            ></Label>
+          </StackLayout>
+          <Label text="COLLABORATE" class="text-xs font-semibold opacity-60 mb-2"></Label>
+          <Button
+            dsyButton
+            dsyDropdownItem
+            text="Invite teammates"
+            variant="soft"
+            dsyColor="primary"
+            dsyLayout="block"
+            margin="4"
+            (triggered)="select('An invitation link is ready to share.')"
+          ></Button>
+          <Button
+            dsyButton
+            dsyDropdownItem
+            text="Copy project link"
+            variant="ghost"
+            dsyLayout="block"
+            margin="4"
+            (triggered)="select('Demo: project link selected.')"
+          ></Button>
+          <Label text="ORGANIZE" class="text-xs font-semibold opacity-60 mt-5 mb-2"></Label>
+          <Button
+            dsyButton
+            dsyDropdownItem
+            text="Duplicate project"
+            variant="ghost"
+            dsyLayout="block"
+            margin="4"
+            (triggered)="select('Project duplicated.')"
+          ></Button>
+          <Button
+            dsyButton
+            dsyDropdownItem
+            text="Add to favorites"
+            variant="ghost"
+            dsyLayout="block"
+            margin="4"
+            (triggered)="select('Project added to favorites.')"
+          ></Button>
+          <Button
+            dsyButton
+            dsyDropdownItem
+            text="Archive project"
+            disabled
+            variant="ghost"
+            dsyLayout="block"
+            margin="4"
+          ></Button>
+          <Label
+            text="Only the project owner can archive this workspace."
+            class="opacity-60 text-sm mt-3"
+            textWrap="true"
+          ></Label>
+        </ng-template>
+      </StackLayout>
+    </StackLayout>
+  }
+  @if (family() === 'modals') {
+    <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+      <Label
+        text="Create something great"
+        class="text-xl font-semibold mb-3"
+        textWrap="true"
+        accessibilityRole="header"
+      ></Label>
+      <Label
+        text="Give your next idea a home. Start with a ready-to-use workspace for your team."
+        class="opacity-75 mb-4"
+        textWrap="true"
+      ></Label>
+      <StackLayout class="bg-base-100 rounded-box p-4 mb-4">
+        <Label text="Your workspace includes" class="font-semibold mb-2"></Label>
+        <Label
+          text="Project board · Shared notes · Team updates"
+          class="opacity-75"
+          textWrap="true"
+        ></Label>
+      </StackLayout>
+      <Button
+        dsyButton
+        text="Create project"
+        dsyColor="secondary"
+        dsyLayout="block"
+        (pressed)="createProject.open()"
+      ></Button>
+      <ng-template
+        dsyModal
+        #createProject="dsyModal"
+        label="Create a new project"
+        [disableClose]="locked()"
+        (closed)="
+          select(
+            $event === 'created' ? 'Created ' + projectName().trim() + '.' : 'Creation cancelled.'
+          )
+        "
+        let-dialog
+      >
+        <Label
+          text="Bring your next idea to life"
+          class="text-[24px] font-bold mb-3"
+          textWrap="true"
+          accessibilityRole="header"
+        ></Label>
+        <Label
+          text="Set up a shared space for plans, notes and all the little things that move a project forward."
+          class="opacity-75 mb-5"
+          textWrap="true"
+        ></Label>
+        <Label text="PROJECT NAME" class="text-xs font-semibold opacity-60 mb-2"></Label>
+        <TextField
+          [text]="projectName()"
+          (textChange)="projectName.set($any($event).value)"
+          hint="e.g. Summer collection"
+          accessibilityLabel="Project name"
+          class="bg-base-200 rounded-box p-3 mb-5"
+        ></TextField>
+        <Label
+          text="START WITH THE ESSENTIALS"
+          class="text-xs font-semibold opacity-60 mb-3"
+        ></Label>
+        <StackLayout class="bg-base-200 rounded-box p-4 mb-5">
+          <Label text="Team workspace" class="font-semibold mb-2"></Label>
+          <Label
+            text="A project board, shared notes and a place to celebrate progress."
+            class="opacity-75"
+            textWrap="true"
+          ></Label>
+          <GridLayout columns="*, auto" marginTop="16">
+            <Label text="Private project" verticalAlignment="middle"></Label>
+            <Switch
+              col="1"
+              [checked]="privateProject()"
+              (checkedChange)="privateProject.set($any($event).value)"
+              accessibilityLabel="Private project"
+            ></Switch>
+          </GridLayout>
+          <Label
+            [text]="
+              privateProject()
+                ? 'Only invited teammates can see this project.'
+                : 'Everyone in your workspace can discover this project.'
+            "
+            class="opacity-60 text-sm mt-2"
+            textWrap="true"
+          ></Label>
+        </StackLayout>
+        <GridLayout columns="*, auto" class="mb-3">
+          <Label text="Starter plan" class="font-semibold"></Label>
+          <Label col="1" text="Free" class="text-success font-semibold"></Label>
+        </GridLayout>
+        <Label
+          text="Invite your team after setup. You can change these settings anytime."
+          class="opacity-60 text-sm mb-4"
+          textWrap="true"
+        ></Label>
+        <Button
+          dsyButton
+          text="Create workspace"
+          [disabled]="!projectName().trim()"
+          dsyColor="primary"
+          dsyLayout="block"
+          margin="4"
+          (pressed)="dialog.close('created')"
+        ></Button>
+        <Button
+          dsyButton
+          text="Maybe later"
+          variant="ghost"
+          dsyLayout="block"
+          margin="4"
+          (pressed)="dialog.close('cancel')"
+        ></Button>
+      </ng-template>
+    </StackLayout>
+  }
+  @if (family() === 'fabs') {
+    <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+      <Label
+        text="Quick create"
+        class="text-xl font-semibold mb-3"
+        accessibilityRole="header"
+      ></Label>
+      <Label
+        text="A speed dial inside a native layout. Place it over your screen using GridLayout in your app."
+        class="opacity-75 mb-3"
+        textWrap="true"
+      ></Label>
+      <StackLayout dsyFab horizontalAlignment="right">
+        <Button
+          dsyButton
+          dsyFabAction
+          text="New note"
+          variant="soft"
+          dsyColor="primary"
+          (triggered)="select('New note started.')"
+        ></Button>
+        <Button
+          dsyButton
+          dsyFabAction
+          text="New folder"
+          variant="soft"
+          dsyColor="primary"
+          (triggered)="select('New folder created.')"
+        ></Button>
+        <Button dsyButton dsyFabClose text="Cancel" variant="ghost"></Button>
+        <Button
+          dsyButton
+          dsyFabTrigger
+          text="+"
+          shape="circle"
+          dsyColor="primary"
+          accessibilityLabel="Toggle quick create"
+        ></Button>
+      </StackLayout>
+    </StackLayout>
+  }
+  @if (family() === 'swaps') {
+    <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+      <Label
+        text="Stay in the loop"
+        class="text-xl font-semibold mb-3"
+        accessibilityRole="header"
+      ></Label>
+      <Label text="Signal Forms owns this preference." class="opacity-75 mb-3"></Label>
+      <Button
+        dsySwap
+        [formField]="preferenceForm.sound"
+        label="Notification sounds"
+        onText="Sound on"
+        offText="Sound off"
+        dsyColor="primary"
+      ></Button>
+      <Label
+        [text]="preferences().sound ? 'You will hear updates.' : 'Quiet mode is enabled.'"
+        class="mt-3 opacity-75"
+        textWrap="true"
+      ></Label>
+    </StackLayout>
+  }
+  @if (family() === 'theme-controllers') {
+    <StackLayout
+      [dsyTheme]="localTheme()"
+      class="bg-base-200 text-base-content rounded-box p-5 mb-5"
+    >
+      <Label
+        text="Make yourself at home"
+        class="text-xl font-semibold mb-3"
+        accessibilityRole="header"
+      ></Label>
+      <GridLayout columns="*, auto">
+        <Label text="Dark appearance" verticalAlignment="middle"></Label>
+        <Switch
+          col="1"
+          [dsyThemeController]="darkTheme"
+          [checked]="localDark()"
+          label="Dark appearance in this card"
+          (changed)="setTheme($event)"
+        ></Switch>
+      </GridLayout>
+      <Label
+        text="This theme controller changes only this card. Your app owns scope and persistence."
+        class="mt-3 opacity-75"
+        textWrap="true"
+      ></Label>
+      <Button
+        dsyButton
+        text="Looks good"
+        dsyColor="accent"
+        marginTop="12"
+        (pressed)="select('Appearance preference updated.')"
+      ></Button>
+    </StackLayout>
+  }
+  <Label
+    [text]="message()"
+    class="text-center opacity-75 mb-5"
+    textWrap="true"
+    accessibilityLiveRegion="polite"
+  ></Label>
+</StackLayout>

@@ -1,0 +1,35 @@
+.dsy-native-field {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  placeholder-color: var(--color-base-content);
+  border-color: var(--color-base-300);
+  border-width: var(--border);
+  border-radius: var(--radius-field);
+  padding: 12 16;
+  margin: 0;
+  min-height: var(--dsy-field-size-md);
+  font-size: 16;
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-field-#{$color} {
+    border-color: var(--color-#{$color});
+  }
+}
+@each $size in xs, sm, md, lg, xl {
+  .dsy-native-field-#{$size} {
+    min-height: var(--dsy-field-size-#{$size});
+  }
+}
+.dsy-native-field-ghost {
+  border-color: transparent;
+  background-color: transparent;
+}
+.dsy-native-field:focus {
+  border-color: var(--color-primary);
+}
+.dsy-native-field.dsy-native-field-invalid {
+  border-color: var(--color-error);
+}
+.dsy-native-field-disabled {
+  opacity: 0.5;
+}

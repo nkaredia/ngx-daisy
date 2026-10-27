@@ -1,0 +1,13 @@
+.dsy-native-icon Label {
+  font-size: var(--dsy-native-icon-size);
+  text-align: center;
+  vertical-align: middle;
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-icon-#{$color} {
+    color: var(--color-#{$color});
+  }
+  .dsy-native-icon-#{$color} Image {
+    tint-color: var(--color-#{$color});
+  }
+}

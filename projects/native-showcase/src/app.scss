@@ -1,0 +1,5 @@
+// Omit browser preflight: NativeScript owns native control defaults.
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@plugin '../../../dist/ngx-daisy-native/tailwind.cjs';
+@source './app';

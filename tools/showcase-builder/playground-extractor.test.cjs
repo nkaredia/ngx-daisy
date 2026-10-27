@@ -88,6 +88,9 @@ test('resolves multiple source classes and transforms metadata without changing 
     assert.equal(await readFile(playgroundPath, 'utf8'), original);
     const [button, control] = readProps(first);
     assert.equal(button.length, 10);
+    assert.ok(
+      initial.watchFiles.includes(resolve(root, 'projects/ngx-daisy-core/button/button.types.ts')),
+    );
     assert.deepEqual(button.find((prop) => prop.name === 'variant').values, [
       'solid',
       'outline',
