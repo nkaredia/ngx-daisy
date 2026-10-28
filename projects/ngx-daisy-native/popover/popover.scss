@@ -1,0 +1,25 @@
+.dsy-native-popover-backdrop {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  background-color: transparent;
+  android-elevation: 0;
+}
+DsyPopoverPanel {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+  border-color: var(--color-base-300);
+  border-width: var(--border);
+  border-radius: var(--radius-box);
+}
+.dsy-native-popover-content {
+  padding: 8;
+}
+.dsy-native-popover-heading {
+  margin-bottom: 4;
+}
+.dsy-native-popover-title {
+  font-size: 13;
+  font-weight: 600;
+  padding-left: 8;
+}
