@@ -1,6 +1,6 @@
 .native-titlebar {
   border-bottom-width: 1;
-  border-bottom-color: var(--color-base-200);
+  border-bottom-color: var(--color-base-300);
 }
 .native-navigation-overlay-panel {
   box-shadow: var(--dsy-native-overlay-shadow);
@@ -11,11 +11,32 @@
 }
 .native-navigation-item.dsy-button {
   text-align: left;
-  font-size: 15;
-  padding-left: 16;
-  margin-bottom: 4;
+  font-size: 14;
+  padding-left: 12;
+  margin-bottom: 2;
+}
+
+.native-brand {
+  font-size: 24;
+  font-weight: 700;
+  letter-spacing: -0.025;
+}
+.native-version {
+  font-size: 11;
+  font-weight: 600;
+  padding: 3 7;
+}
+.native-navigation-panel {
+  border-right-width: 1;
+  border-right-color: var(--color-base-300);
+}
+.native-navigation-header {
+  border-bottom-width: 1;
+  border-bottom-color: var(--color-base-300);
 }
 .native-navigation-item.native-navigation-active {
-  background-color: var(--color-base-300);
+  background-color: var(--dsy-color-primary-soft);
   border-color: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
 }

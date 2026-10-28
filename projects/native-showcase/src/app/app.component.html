@@ -26,19 +26,19 @@
               [artwork]="menu"
               (pressed)="navigationOpened.set(true)"
             ></GridLayout>
-            <Label
-              col="1"
-              text="ngx-daisy"
-              class="text-xl font-bold ml-3"
-              verticalAlignment="middle"
-              accessibilityRole="header"
-            ></Label>
-            <Label
-              col="2"
-              [text]="'v' + version"
-              class="text-[12px] opacity-60"
-              verticalAlignment="middle"
-            ></Label>
+            <StackLayout col="1" orientation="horizontal" verticalAlignment="middle" class="ml-3">
+              <Label
+                text="ngx-daisy"
+                class="native-brand"
+                verticalAlignment="middle"
+                accessibilityRole="header"
+              ></Label>
+              <Label
+                [text]="'v' + version"
+                class="native-version bg-base-200 rounded-selector ml-2"
+                verticalAlignment="middle"
+              ></Label>
+            </StackLayout>
           </GridLayout>
         }
         <ScrollView
@@ -48,7 +48,11 @@
           [isEnabled]="!overlayOpen()"
           [accessibilityHidden]="overlayOpen()"
         >
-          <StackLayout class="p-6">
+          <StackLayout
+            class="native-showcase-content py-6"
+            [width]="contentWidth()"
+            horizontalAlignment="center"
+          >
             <Label
               [text]="title()"
               class="text-[32px] font-bold mb-2"
@@ -56,8 +60,8 @@
               accessibilityRole="header"
             ></Label>
             <Label
-              text="Native components. The same design language."
-              class="opacity-65 mb-6"
+              [text]="description()"
+              class="text-[16px] opacity-65 mb-6"
               textWrap="true"
             ></Label>
             @switch (page()) {
@@ -111,13 +115,13 @@
             [artwork]="menu"
             (pressed)="navigationOpened.set(true)"
             horizontalAlignment="right"
-            verticalAlignment="top"
-            margin="16"
+            verticalAlignment="bottom"
+            margin="20"
             class="bg-base-200 rounded-full"
           ></GridLayout>
         }
         @if (persistentNavigation()) {
-          <GridLayout col="0" rowSpan="2" class="bg-base-200"
+          <GridLayout col="0" rowSpan="2" class="bg-base-100 native-navigation-panel"
             ><ng-container [ngTemplateOutlet]="navigation"
           /></GridLayout>
         } @else {
@@ -146,7 +150,7 @@
             ></Button>
             <GridLayout
               col="0"
-              class="bg-base-200 native-navigation-overlay-panel"
+              class="bg-base-100 native-navigation-panel native-navigation-overlay-panel"
               [dsyMotionVisible]="navigationOpened()"
               [motionFromX]="-288"
               [motionFade]="false"
@@ -155,21 +159,21 @@
           </GridLayout>
         }
         <ng-template #navigation>
-          <GridLayout rows="auto, *, auto" class="bg-base-200 text-base-content">
-            <GridLayout row="0" columns="*, auto" class="px-5 py-4">
+          <GridLayout rows="auto, *, auto" class="bg-base-100 text-base-content">
+            <GridLayout row="0" columns="*, auto" class="native-navigation-header px-5 py-5">
               @if (persistentNavigation()) {
                 <StackLayout orientation="horizontal" verticalAlignment="middle"
-                  ><Label text="ngx-daisy" class="text-[23px] font-bold"></Label
+                  ><Label text="ngx-daisy" class="native-brand"></Label
                   ><Label
                     [text]="'v' + version"
-                    class="text-[11px] opacity-60 ml-2"
+                    class="native-version bg-base-200 rounded-selector ml-2"
                     verticalAlignment="middle"
                   ></Label
                 ></StackLayout>
               } @else {
                 <Label
                   text="Components"
-                  class="text-lg font-semibold"
+                  class="text-[16px] font-bold"
                   verticalAlignment="middle"
                   accessibilityRole="header"
                 ></Label>
@@ -183,16 +187,16 @@
               }
             </GridLayout>
             <ScrollView row="1">
-              <StackLayout class="px-4 py-2">
+              <StackLayout class="px-3 py-4">
                 @for (group of groups; track group.id) {
-                  <GridLayout columns="auto, *" class="mt-4 mb-2 px-2">
+                  <GridLayout columns="auto, *" class="mt-4 mb-2 px-3">
                     <GridLayout dsyIcon [size]="18"
                       ><AppSvgIcon [artwork]="group.icon" accessible="false"></AppSvgIcon
                     ></GridLayout>
                     <Label
                       col="1"
                       [text]="group.label"
-                      class="text-[16px] font-semibold ml-3"
+                      class="text-[16px] font-bold opacity-80 ml-3"
                       verticalAlignment="middle"
                       accessibilityRole="header"
                     ></Label>
@@ -220,106 +224,24 @@
                 <Switch
                   [checked]="theme().name === 'dark'"
                   (checkedChange)="colorMode($event)"
-                  accessibilityLabel="Use dark theme"
+                  [accessibilityLabel]="
+                    theme().name === 'dark' ? 'Use light theme' : 'Use dark theme'
+                  "
                   margin="0 6"
                 ></Switch>
                 <GridLayout dsyIcon [size]="16" verticalAlignment="middle"
                   ><AppSvgIcon [artwork]="moon" accessible="false"></AppSvgIcon
                 ></GridLayout>
               </StackLayout>
-              <GridLayout
+              <StackLayout
                 col="1"
-                appIconButton
-                label="Choose a theme"
+                appThemePicker
+                [presets]="themes()"
+                [selected]="theme().name"
+                (selectedTheme)="selectTheme($event)"
                 horizontalAlignment="center"
-                (pressed)="themePicker.open()"
-              >
-                <GridLayout
-                  rows="auto, auto"
-                  columns="auto, auto"
-                  class="bg-base-100 rounded-field p-1"
-                >
-                  <Label
-                    width="6"
-                    height="6"
-                    margin="1"
-                    class="bg-base-content rounded-full"
-                  ></Label
-                  ><Label
-                    col="1"
-                    width="6"
-                    height="6"
-                    margin="1"
-                    class="bg-primary rounded-full"
-                  ></Label
-                  ><Label
-                    row="1"
-                    width="6"
-                    height="6"
-                    margin="1"
-                    class="bg-secondary rounded-full"
-                  ></Label
-                  ><Label
-                    row="1"
-                    col="1"
-                    width="6"
-                    height="6"
-                    margin="1"
-                    class="bg-accent rounded-full"
-                  ></Label>
-                </GridLayout>
-              </GridLayout>
-              <ng-template dsyModal #themePicker="dsyModal" label="Choose a theme">
-                @for (preset of themes(); track preset.name) {
-                  <GridLayout columns="auto, *" marginBottom="4">
-                    <GridLayout
-                      [dsyTheme]="preset"
-                      rows="auto, auto"
-                      columns="auto, auto"
-                      class="bg-base-100 rounded-field p-1"
-                      verticalAlignment="middle"
-                    >
-                      <Label
-                        width="7"
-                        height="7"
-                        margin="1"
-                        class="bg-base-content rounded-full"
-                      ></Label>
-                      <Label
-                        col="1"
-                        width="7"
-                        height="7"
-                        margin="1"
-                        class="bg-primary rounded-full"
-                      ></Label>
-                      <Label
-                        row="1"
-                        width="7"
-                        height="7"
-                        margin="1"
-                        class="bg-secondary rounded-full"
-                      ></Label>
-                      <Label
-                        row="1"
-                        col="1"
-                        width="7"
-                        height="7"
-                        margin="1"
-                        class="bg-accent rounded-full"
-                      ></Label>
-                    </GridLayout>
-                    <Button
-                      col="1"
-                      dsyButton
-                      [text]="preset.name"
-                      variant="ghost"
-                      dsyLayout="block"
-                      [active]="theme().name === preset.name"
-                      (pressed)="selectTheme(preset); themePicker.close()"
-                    ></Button>
-                  </GridLayout>
-                }
-              </ng-template>
+                verticalAlignment="middle"
+              ></StackLayout>
               <GridLayout
                 col="2"
                 appIconButton

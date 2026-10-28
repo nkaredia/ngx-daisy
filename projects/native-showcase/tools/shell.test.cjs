@@ -72,4 +72,6 @@ test('native navigation lists each supported component once under the web catego
     ],
   );
   assert.equal(new Set(pages.map((page) => page.id)).size, nativePages.length);
+  assert.equal(new Set(nativePages.map((page) => page.description)).size, nativePages.length);
+  assert.ok(nativePages.every((page) => page.description.length > 30));
 });

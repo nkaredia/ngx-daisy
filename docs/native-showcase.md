@@ -47,3 +47,29 @@ The device pass exposed native Button backdrop elevation intercepting panel taps
 The Android button-icon renderer now uses a centered foreground drawable instead of native text spans; regression tests cover density, clearing and native text independence. Final visual confirmation of this update and the remaining control/modal interactions is pending direct phone checks. TalkBack, font scaling, fold/rotation behavior and a complete Android visual audit remain separate follow-up verification.
 
 A subsequent direct phone check confirmed that the modal opens, and the device screenshot showed the close icon rendering correctly. It also exposed Android's opaque native dialog background behind the rounded panel. The modal presenter now clears that window background; the updated package is deployed, with final visual confirmation awaiting the direct phone check.
+
+## Web-aligned shell
+
+The native shell mirrors the web sidebar's base-100 surface, category headings, compact
+navigation links and primary-tinted current page. Brand and version sit together in the
+mobile titlebar; the version uses the same compact token-based badge on desktop. Only
+category navigation scrolls, leaving the header and theme toolbar visible.
+
+Page content is centered and limited to 1056 design units, with 16-unit mobile gutters and
+24-unit wide-screen gutters. Each supported catalog entry owns its descriptive subtitle.
+The 1024-unit sidebar breakpoint and theme persistence remain shared across page changes.
+Theme Builder hides persistent navigation and puts its floating opener at the bottom right.
+
+The preset selector now uses the native anchored Dropdown rather than a modal. Its trigger
+and rows share a four-token theme swatch, and the current theme has an individual Lucide
+checkmark. Light/dark retains its separate switch; all other presets and a saved custom theme
+remain in the dropdown. The editor stays an icon button alongside those controls. Native
+playgrounds and property editors are intentionally a separate step from this shell pass.
+
+For this shell update, strict templates, both platform JavaScript bundles, CSS checks,
+preset/catalog checks and all 88 native unit tests pass. Android emulator inspection
+confirmed the inline brand/version badge, descriptive page headers, narrower page gutters,
+base-100 drawer and primary-tinted active route, plus component navigation closing the drawer.
+The new anchored theme menu still needs manual interaction confirmation because automated
+mirror input was inconsistent. Wide-screen/tablet layout and iOS rendering of this shell
+revision have not been visually verified.

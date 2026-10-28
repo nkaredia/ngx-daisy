@@ -4,7 +4,7 @@ import { NativeSelectionExample } from './selection-example/selection-example';
 import { NativeDataInputExample } from './data-input-example/data-input-example';
 import { NativeIconButton } from './shell/icon-button';
 import { DsyPopoverService } from '@ngx-daisy/native/popover';
-import { DsyModal } from '@ngx-daisy/native/modal';
+import { NativeThemePicker } from './shell/theme-picker';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -75,7 +75,7 @@ function storedTheme(): DsyThemeDefinition {
     DsyMotionPresence,
     NativeScriptCommonModule,
     NativeIconButton,
-    DsyModal,
+    NativeThemePicker,
     DsyButton,
     DsyIcon,
     DsyTheme,
@@ -104,7 +104,23 @@ export class NativeShowcase {
     ...(this.savedCustom() ? [this.savedCustom()!] : []),
   ]);
   readonly dark = computed(() => this.theme().colorScheme === 'dark');
+  readonly viewportWidth = signal(390);
   readonly desktop = signal(false);
+  readonly contentWidth = computed(() =>
+    Math.max(
+      1,
+      Math.min(
+        1056,
+        this.viewportWidth() - (this.persistentNavigation() ? 288 : 0) - (this.desktop() ? 48 : 32),
+      ),
+    ),
+  );
+  readonly currentPage = computed(() => nativePages.find((page) => page.id === this.page()));
+  readonly description = computed(() =>
+    this.page() === 'themes'
+      ? 'Create a theme that brings your interface to life. Preview, customize and save your colors.'
+      : (this.currentPage()?.description ?? ''),
+  );
   readonly persistentNavigation = computed(() => this.desktop() && this.page() !== 'themes');
   readonly navigationOpened = signal(false);
   readonly overlayOpen = computed(() => this.navigationOpened() && !this.persistentNavigation());
@@ -136,7 +152,10 @@ export class NativeShowcase {
     inject(DestroyRef).onDestroy(() => Application.android?.off('activityBackPressed', back));
   }
   onLayout(event: unknown): void {
-    const desktop = ((event as EventData).object as View).getActualSize().width >= 1024;
+    const width = ((event as EventData).object as View).getActualSize().width;
+    if (width <= 0) return;
+    this.viewportWidth.set(width);
+    const desktop = width >= 1024;
     if (desktop !== this.desktop()) {
       this.desktop.set(desktop);
       this.navigationOpened.set(false);
