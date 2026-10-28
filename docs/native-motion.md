@@ -8,7 +8,7 @@ Native components share `@ngx-daisy/native/motion`, using NativeScript's cancell
 | Checkbox, radio and swap                   | Press feedback plus a short settling animation when the model changes                        |
 | Dropdown and select popovers               | Panel fades/scales in over 180 ms, out over 120 ms; backdrop stays clear                     |
 | FAB actions                                | Fade/slide in and out, retaining closing views until the exit finishes                       |
-| Compact dialog                             | Native fade in/out, without scale or translation                                             |
+| Compact dialog                             | Overlay fades; panel fades and grows from 94% to full size, shrinking on exit                |
 | Showcase temporary navigation              | Panel slides at full opacity; separate backdrop fades; persistent sidebar remains stationary |
 | Toggle, theme controller and range         | Existing OS-owned switch/slider interactions                                                 |
 
@@ -49,4 +49,4 @@ Native strict templates, both platform JavaScript bundles and regression tests c
 
 Popover panels start with static zero opacity and become visible only through their entrance animation after initial placement. Layout and content measurements update geometry without rebinding opacity. This avoids displaying the final state before resetting to the animation's initial state.
 
-Native dialogs retain native Back, outside-dismissal and completion handling. The narrow platform bridge configures iOS's controller during `showingModally` and Android's dialog window during `loaded`, before presentation draws. Android's [Animation.Toast resource](https://android.googlesource.com/platform/frameworks/base/+/HEAD/core/res/res/values/styles.xml) references [alpha-only entrance animation](https://android.googlesource.com/platform/frameworks/base/+/HEAD/core/res/res/anim/toast_enter.xml); no toast is presented. The native options still control whether animation is enabled.
+Native dialogs retain native Back, outside-dismissal and completion handling. The dialog panel fades/grows in over 180 ms and fades/shrinks out over 120 ms. A retained native root lets the panel finish its exit before native dismissal fades out the remaining overlay; repeated dismissal requests cannot restart the exit or overwrite its result. The narrow platform bridge configures iOS's controller during `showingModally` and Android's dialog window during `loaded`, before presentation draws. Android's [Animation.Toast resource](https://android.googlesource.com/platform/frameworks/base/+/HEAD/core/res/res/values/styles.xml) references [alpha-only entrance animation](https://android.googlesource.com/platform/frameworks/base/+/HEAD/core/res/res/anim/toast_enter.xml); no toast is presented. The native options still control whether animation is enabled.

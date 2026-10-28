@@ -1,5 +1,9 @@
-import { DSY_MOTION_CONFIG, nativeMotionEnabled } from '@ngx-daisy/native/motion';
-import { isAndroid } from '@nativescript/core';
+import {
+  DSY_MOTION_CONFIG,
+  DsyMotionController,
+  nativeMotionEnabled,
+} from '@ngx-daisy/native/motion';
+import { isAndroid, type View } from '@nativescript/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   ChangeDetectionStrategy,
@@ -58,8 +62,9 @@ interface SurfaceData {
   standalone: true,
   imports: [NgTemplateOutlet, DsyTheme, DsyButton, DsyButtonIcon],
   schemas: [NO_ERRORS_SCHEMA],
-  template: `<RootLayout
+  template: `<DsyModalRoot
     [dsyTheme]="theme()"
+    [dismissMotion]="dismissMotion"
     class="dsy-native-modal-root"
     [class.dsy-native-modal-android]="android"
     [width]="android ? width() + 32 : '100%'"
@@ -81,6 +86,9 @@ interface SurfaceData {
       ></Button>
     }
     <DsyModalPanel
+      opacity="0"
+      (loaded)="onPanelLoaded($event)"
+      (unloaded)="panelMotion?.cancel()"
       verticalAlignment="middle"
       horizontalAlignment="center"
       [width]="width()"
@@ -115,7 +123,7 @@ interface SurfaceData {
         </StackLayout>
       </ScrollView>
     </DsyModalPanel>
-  </RootLayout>`,
+  </DsyModalRoot>`,
   styleUrl: './modal.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
@@ -125,6 +133,22 @@ export class DsyNativeModalSurface {
     ensureModalPanel();
   }
   private readonly motion = inject(DSY_MOTION_CONFIG);
+  panelMotion?: DsyMotionController;
+  onPanelLoaded(raw: unknown): void {
+    const panel = (raw as { object: View }).object;
+    this.panelMotion?.cancel();
+    const enabled = this.data.config.nativeOptions?.animated !== false;
+    this.panelMotion = new DsyMotionController(panel, {
+      ...this.motion,
+      enabled: enabled && this.motion.enabled !== false,
+    });
+    panel.opacity = 0;
+    panel.scaleX = panel.scaleY = 0.94;
+    void this.panelMotion.to({ opacity: 1, scale: { x: 1, y: 1 } }, 180);
+  }
+  readonly dismissMotion = () =>
+    this.panelMotion?.to({ opacity: 0, scale: { x: 0.94, y: 0.94 } }, 120);
+
   onPresenting(raw: unknown): void {
     const host = (raw as { object?: Parameters<typeof configureModalFade>[0] }).object;
     if (host)

@@ -68,4 +68,4 @@ Native floating panels, compact dialogs and temporary navigation drawers share t
 
 Native interaction animations share @ngx-daisy/native/motion. Honor iOS Reduce Motion and Android disabled animator settings, support app-level opt-out, cancel superseded/unloaded animations, and keep form updates independent of completion. Retain exiting overlay/FAB/navigation views until dismissal finishes while immediately disabling interaction/accessibility; stale exits must never hide reopened content. Preserve OS-owned switch/slider motion. See docs/native-motion.md.
 
-Overlay transitions use fade-only native dialogs, slide-only temporary drawer panels and independently fading backdrops. Popover opacity belongs to its motion controller; layout readiness must never reveal the panel before entrance or overwrite an in-progress animation.
+Overlay transitions use fading native modal overlays with an independently fading/growing panel (94% to full size), slide-only temporary drawer panels and independently fading backdrops. Popover opacity belongs to its motion controller; layout readiness must never reveal the panel before entrance or overwrite an in-progress animation.

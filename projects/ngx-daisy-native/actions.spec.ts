@@ -7,6 +7,7 @@ import { Subject, ReplaySubject } from 'rxjs';
 import { DsyPopoverService } from '@ngx-daisy/native/popover';
 vi.mock('@nativescript/core', () => ({
   GridLayout: class GridLayout {},
+  RootLayout: class RootLayout {},
   CSSType: () => () => {},
   AbsoluteLayout: class AbsoluteLayout {},
   isIOS: false,
