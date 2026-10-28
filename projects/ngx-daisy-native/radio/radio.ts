@@ -1,3 +1,4 @@
+import { bindNativeFeedback } from '@ngx-daisy/native/motion';
 import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   ChangeDetectionStrategy,
@@ -84,6 +85,10 @@ export class DsyRadioGroup implements FormValueControl<string> {
 })
 export class DsyRadio {
   constructor() {
+    bindNativeFeedback(
+      () => this.selected(),
+      () => !this.isDisabled(),
+    );
     bindControlButtonIcon(
       () => (this.selected() ? Dot : undefined),
       () => 48,

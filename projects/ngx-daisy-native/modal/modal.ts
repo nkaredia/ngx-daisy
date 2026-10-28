@@ -1,3 +1,4 @@
+import { DSY_MOTION_CONFIG, nativeMotionEnabled } from '@ngx-daisy/native/motion';
 import { isAndroid } from '@nativescript/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -163,6 +164,7 @@ export class DsyNativeModalSurface {
 @Injectable({ providedIn: 'root' })
 export class DsyModalService {
   private readonly dialogs = inject(NativeDialog);
+  private readonly motion = inject(DSY_MOTION_CONFIG);
   open<D = unknown, R = unknown>(
     template: TemplateRef<DsyModalContext<D, R>>,
     config: DsyModalConfig<D> = {},
@@ -174,10 +176,10 @@ export class DsyModalService {
       renderIn: 'root',
       disableClose: config.disableClose ?? false,
       nativeOptions: {
-        animated: false,
         fullscreen: false,
         stretched: false,
         ...config.nativeOptions,
+        animated: nativeMotionEnabled(this.motion) && config.nativeOptions?.animated !== false,
         ios: { presentationStyle: 5, ...config.nativeOptions?.ios },
       },
     });

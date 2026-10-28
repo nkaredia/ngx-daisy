@@ -1,3 +1,4 @@
+import { bindNativeFeedback } from '@ngx-daisy/native/motion';
 import {
   booleanAttribute,
   ChangeDetectionStrategy,
@@ -51,6 +52,9 @@ export type DsyNativeButtonVariant = Exclude<DsyButtonVariant, 'dash'>;
   },
 })
 export class DsyButton {
+  constructor() {
+    bindNativeFeedback(undefined, () => !this.isDisabled());
+  }
   readonly text = input('');
   /** Semantic palette; native `color` remains available for a literal foreground override. */
   readonly color = input<DsyButtonColor>(undefined, { alias: 'dsyColor' });

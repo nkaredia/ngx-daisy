@@ -1,3 +1,4 @@
+import { bindNativeFeedback } from '@ngx-daisy/native/motion';
 import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   ChangeDetectionStrategy,
@@ -43,6 +44,10 @@ import { Check, Minus } from 'lucide';
 })
 export class DsyCheckbox implements FormCheckboxControl {
   constructor() {
+    bindNativeFeedback(
+      () => this.mark(),
+      () => !this.disabled() && !this.readonly() && !this.hidden(),
+    );
     bindControlButtonIcon(() => this.mark());
   }
   readonly checked = model(false);

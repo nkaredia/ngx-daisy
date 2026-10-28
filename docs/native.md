@@ -54,3 +54,7 @@ The native showcase uses the official `@nativescript/tailwind` integration with 
 The native catalog now includes all six Actions families and Icon: Button, Dropdown, FAB/Speed Dial, Modal, Swap and Theme Controller. Each family has its own secondary entry point and a native showcase example. Modal uses a compact centered NativeScript dialog and reactive detached theme scope. Dropdown and Select use custom anchored NativeScript view layers through @ngx-daisy/native/popover, with standard menu rendering under @ngx-daisy/native/menu. See [native popovers](native-popover.md) for setup, custom item templates and lifecycle. Swap and Theme Controller use Angular Signal Forms checkbox contracts. Icon projects app-owned artwork. See [native Actions and Icon](native-actions.md) for APIs and explicit platform differences.
 
 The native showcase now follows the web shell with grouped, responsive navigation, independent component pages and shared theme controls. See [native showcase shell](native-showcase.md) for current behavior and verification boundaries.
+
+## Interaction animations
+
+Native actions and selection controls share cancellable motion with OS reduced-motion preferences and an app-level opt-out. Popovers, FAB actions and temporary navigation retain exit transitions; dialogs use native presentation transitions. Switches and sliders preserve OS-owned animation. See [native motion](native-motion.md) for defaults, configuration and verification limits.

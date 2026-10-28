@@ -46,7 +46,7 @@ function setup() {
   runtime.generated = {
     firstNativeLikeView: layer,
     ref: {
-      instance: { reposition: vi.fn() },
+      instance: { reposition: vi.fn(), panel: () => undefined },
       changeDetectorRef: { detectChanges: vi.fn() },
       destroy,
     },

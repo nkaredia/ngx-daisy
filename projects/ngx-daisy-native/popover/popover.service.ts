@@ -1,3 +1,4 @@
+import { DSY_MOTION_CONFIG, DsyMotionController } from '@ngx-daisy/native/motion';
 import { ComponentRef, ErrorHandler, Injectable, Injector, inject } from '@angular/core';
 import { Application, getRootLayout, type View } from '@nativescript/core';
 import { generateNativeScriptView } from '@nativescript/angular';
@@ -14,6 +15,7 @@ import type {
 export class DsyPopoverService {
   private readonly injector = inject(Injector);
   private readonly errors = inject(ErrorHandler);
+  private readonly motion = inject(DSY_MOTION_CONFIG);
   private active?: { ref: DsyPopoverRef; finished: Promise<void> };
   /** Call before app-level Android Back navigation. */
   closeActive(): boolean {
@@ -37,11 +39,13 @@ export class DsyPopoverService {
     let disposing = false;
     let surface: ComponentRef<DsyNativePopoverSurface> | undefined;
     let layer: View | undefined;
+    let panelMotion: DsyMotionController | undefined;
     const cleanups: (() => void)[] = [];
     const background: { view: View; hidden: boolean }[] = [];
     const finish = () => {
       if (complete) return;
       complete = true;
+      panelMotion?.cancel();
       for (const cleanup of cleanups.splice(0)) cleanup();
       for (const entry of background) entry.view.accessibilityHidden = entry.hidden;
       surface?.destroy();
@@ -62,11 +66,17 @@ export class DsyPopoverService {
       if (disposing || complete || opening) return;
       disposing = true;
       if (mounted && layer?.parent === root) {
-        root.close(layer).then(finish, (error) => {
-          this.errors.handleError(error);
-          if (layer?.parent === root) root.removeChild(layer);
-          finish();
-        });
+        const leaving =
+          panelMotion && reason !== 'owner' && reason !== 'error'
+            ? panelMotion.to({ opacity: 0, scale: { x: 0.96, y: 0.96 } }, 120)
+            : Promise.resolve();
+        void leaving
+          .then(() => root.close(layer!))
+          .then(finish, (error) => {
+            this.errors.handleError(error);
+            if (layer?.parent === root) root.removeChild(layer);
+            finish();
+          });
       } else finish();
     };
     const close = (next: DsyPopoverCloseReason = 'dismiss') => {
@@ -128,6 +138,14 @@ export class DsyPopoverService {
         surface.changeDetectorRef.detectChanges();
         if (layer.ios)
           (layer.ios as { accessibilityViewIsModal: boolean }).accessibilityViewIsModal = true;
+        const panel = surface.instance.panel()?.nativeElement;
+        if (panel) {
+          panelMotion = new DsyMotionController(panel, this.motion);
+          panel.opacity = 0;
+          panel.scaleX = panel.scaleY = 0.96;
+          await panelMotion.to({ opacity: 1, scale: { x: 1, y: 1 } }, 180);
+          if (reason) return;
+        }
         layer.focus();
         config.initialFocus?.()?.focus();
       } catch (error) {

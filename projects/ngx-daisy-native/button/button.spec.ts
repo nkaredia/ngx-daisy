@@ -1,3 +1,4 @@
+vi.mock('@nativescript/core', () => ({ isIOS: false, Utils: {} }));
 import { Component, NO_ERRORS_SCHEMA, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { DsyButton } from './button.component';
