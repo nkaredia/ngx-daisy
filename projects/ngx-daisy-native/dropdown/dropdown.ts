@@ -1,6 +1,5 @@
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
-  ApplicationRef,
   ChangeDetectionStrategy,
   Component,
   DestroyRef,
@@ -17,14 +16,14 @@ import {
   model,
   output,
   signal,
-  type EmbeddedViewRef,
+  Injector,
 } from '@angular/core';
-import type { Button } from '@nativescript/core';
-import { DsyNativeMenuService, type DsyNativeMenuRef } from '@ngx-daisy/native/menu';
+import type { Button, View } from '@nativescript/core';
+import { DsyPopoverService, type DsyPopoverRef } from '@ngx-daisy/native/popover';
 import { DsyTheme } from '@ngx-daisy/native/theme';
 import { DsyButton } from '@ngx-daisy/native/button';
 
-/** Declares native menu actions; arbitrary Angular visual content is not a menu surface. */
+/** Live Angular content rendered in the anchored popover. */
 @Directive({ selector: 'ng-template[dsyDropdownContent]', standalone: true })
 export class DsyDropdownContent {
   readonly template = inject<TemplateRef<unknown>>(TemplateRef);
@@ -34,6 +33,7 @@ export class DsyDropdownContent {
   standalone: true,
   schemas: [NO_ERRORS_SCHEMA],
   template: '<ng-content select="[dsyDropdownTrigger]" />',
+  styleUrl: './dropdown.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   exportAs: 'dsyDropdown',
@@ -42,16 +42,18 @@ export class DsyDropdown {
   readonly opened = model(false);
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly label = input('Actions');
+  readonly panelClass = input('');
+  readonly panelWidth = input<number | 'anchor'>(280);
+  readonly maxHeight = input(360);
   readonly closed = output<void>();
   readonly content = contentChild(DsyDropdownContent);
   private readonly trigger = contentChild(DsyDropdownTrigger);
   private readonly scope = inject(DsyTheme, { optional: true });
-  private readonly app = inject(ApplicationRef);
-  private readonly menus = inject(DsyNativeMenuService);
+  private readonly injector = inject(Injector);
+  private readonly popovers = inject(DsyPopoverService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly items = signal<readonly DsyDropdownItem[]>([]);
-  private source?: EmbeddedViewRef<unknown>;
-  private ref?: DsyNativeMenuRef;
+  private ref?: DsyPopoverRef;
   constructor() {
     effect(() => {
       const opened = this.opened();
@@ -63,8 +65,7 @@ export class DsyDropdown {
       else if ((!opened || disabled) && this.ref) this.ref.close();
     });
     this.destroyRef.onDestroy(() => {
-      this.ref?.close();
-      this.disposeSource();
+      this.ref?.close('owner');
     });
   }
   register(item: DsyDropdownItem): () => void {
@@ -72,51 +73,24 @@ export class DsyDropdown {
     return () => this.items.update((items) => items.filter((entry) => entry !== item));
   }
   private present(content: DsyDropdownContent, trigger: DsyDropdownTrigger): void {
-    const source = content.template.createEmbeddedView({});
-    this.source = source;
-    this.app.attachView(source);
-    source.detectChanges();
-    const items = [...this.items()];
-    if (!items.length) {
-      this.opened.set(false);
-      this.disposeSource();
-      return;
-    }
     try {
-      this.ref = this.menus.open(
-        trigger.element.nativeElement,
-        items.map((item, index) => ({
-          id: String(index),
-          label: item.menuLabel(),
-          disabled: item.isDisabled(),
-          description: item.description(),
-          section: item.section(),
-          destructive: item.destructive(),
-        })),
-        {
-          label: this.label(),
-          appearance: this.scope?.resolved().colorScheme,
-          selected: (id) => items[Number(id)]?.activate(),
-        },
-      );
+      this.ref = this.popovers.open(trigger.element.nativeElement, content.template, {
+        label: this.label(),
+        panelClass: this.panelClass(),
+        width: this.panelWidth(),
+        maxHeight: this.maxHeight(),
+        injector: this.injector,
+        theme: this.scope?.theme,
+        initialFocus: () => this.items().find((item) => !item.isDisabled())?.element.nativeElement,
+      });
       this.ref.closed.pipe(takeUntilDestroyed(this.destroyRef)).subscribe(() => {
         this.ref = undefined;
         this.opened.set(false);
-        this.disposeSource();
         this.closed.emit();
       });
     } catch (error) {
       this.opened.set(false);
-      this.disposeSource();
       throw error;
-    }
-  }
-  private disposeSource(): void {
-    const source = this.source;
-    this.source = undefined;
-    if (source) {
-      this.app.detachView(source);
-      source.destroy();
     }
   }
   open(): void {
@@ -151,9 +125,20 @@ export class DsyDropdownTrigger {
   }
 }
 @Directive({
-  selector: 'Button[dsyDropdownItem]',
+  selector: 'Button[dsyDropdownItem], GridLayout[dsyDropdownItem], StackLayout[dsyDropdownItem]',
   standalone: true,
-  host: { '(tap)': 'activate()', '[attr.isEnabled]': '!isDisabled()' },
+  host: {
+    class: 'dsy-native-dropdown-item',
+    '(tap)': 'activate()',
+    '[attr.isEnabled]': '!isDisabled()',
+    '[attr.accessibilityLabel]': 'menuLabel()',
+    '[attr.accessibilityHint]': 'description()',
+    '[attr.accessibilityState]': 'isDisabled() ? "disabled" : null',
+    accessible: 'true',
+    accessibilityRole: 'button',
+    '[class.dsy-native-dropdown-item-disabled]': 'isDisabled()',
+    '[class.dsy-native-dropdown-item-destructive]': 'destructive()',
+  },
 })
 export class DsyDropdownItem {
   readonly disabled = input(false, { transform: booleanAttribute });
@@ -163,18 +148,22 @@ export class DsyDropdownItem {
   readonly destructive = input(false, { transform: booleanAttribute });
   readonly triggered = output<void>();
   readonly button = inject(DsyButton, { optional: true });
-  private readonly element = inject<ElementRef<Button>>(ElementRef);
+  readonly element = inject<ElementRef<View & { text?: string }>>(ElementRef);
   private readonly dropdown = inject(DsyDropdown);
   private alive = true;
   constructor() {
     const unregister = this.dropdown.register(this);
+    const removeDisabled = this.button?.registerDisabledSource(
+      () => this.disabled() || this.dropdown.disabled(),
+    );
     inject(DestroyRef).onDestroy(() => {
       this.alive = false;
       unregister();
+      removeDisabled?.();
     });
   }
   menuLabel(): string {
-    return this.label() || this.button?.text() || this.element.nativeElement.text || '';
+    return this.label() || this.button?.text() || this.element.nativeElement.text || 'Menu action';
   }
   isDisabled(): boolean {
     return this.disabled() || !!this.button?.isDisabled();

@@ -53,7 +53,7 @@ interface SurfaceData {
   standalone: true,
   imports: [NgTemplateOutlet, DsyTheme, DsyButton],
   schemas: [NO_ERRORS_SCHEMA],
-  template: `<GridLayout
+  template: `<RootLayout
     [dsyTheme]="theme()"
     class="dsy-native-modal-root"
     [class.dsy-native-modal-android]="android"
@@ -107,7 +107,7 @@ interface SurfaceData {
         </StackLayout>
       </ScrollView>
     </GridLayout>
-  </GridLayout>`,
+  </RootLayout>`,
   styleUrl: './modal.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,

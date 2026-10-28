@@ -4,14 +4,24 @@ import { Component, NO_ERRORS_SCHEMA, viewChild, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { Subject, ReplaySubject } from 'rxjs';
-import { DsyNativeMenuService } from '@ngx-daisy/native/menu';
-vi.mock('@nativescript/core', () => ({ isAndroid: false }));
+import { DsyPopoverService } from '@ngx-daisy/native/popover';
+vi.mock('@nativescript/core', () => ({
+  GridLayout: class GridLayout {},
+  CSSType: () => () => {},
+  AbsoluteLayout: class AbsoluteLayout {},
+  isIOS: false,
+  isAndroid: false,
+  getRootLayout: vi.fn(),
+  Application: {},
+}));
 
 // Unit tests exercise renderer bindings and state; native presentation is checked on device.
 vi.mock('@nativescript/angular', () => ({
+  registerElement: vi.fn(),
   NativeDialog: class NativeDialog {},
   NativeDialogRef: class NativeDialogRef {},
   NATIVE_DIALOG_DATA: 'native-dialog-data',
+  generateNativeScriptView: vi.fn(),
 }));
 import { NativeDialog, NativeDialogRef, NATIVE_DIALOG_DATA } from '@nativescript/angular';
 import { DsyModal, DsyModalService, DsyNativeModalSurface } from './modal/modal';
@@ -156,7 +166,7 @@ describe('Native Actions', () => {
     };
     const open = vi.fn((_anchor: unknown, _items: unknown) => ref);
     TestBed.configureTestingModule({
-      providers: [{ provide: DsyNativeMenuService, useValue: { open } }],
+      providers: [{ provide: DsyPopoverService, useValue: { open } }],
     });
     const fixture = TestBed.createComponent(DropdownHost);
     fixture.detectChanges();

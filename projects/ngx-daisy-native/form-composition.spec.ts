@@ -3,6 +3,18 @@ import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { FormField, disabled, form, hidden, readonly, required } from '@angular/forms/signals';
 import { ReplaySubject } from 'rxjs';
+vi.mock('@nativescript/core', () => ({
+  GridLayout: class GridLayout {},
+  CSSType: () => () => {},
+  AbsoluteLayout: class AbsoluteLayout {},
+  isIOS: false,
+  Application: {},
+  getRootLayout: vi.fn(),
+}));
+vi.mock('@nativescript/angular', () => ({
+  registerElement: vi.fn(),
+  generateNativeScriptView: vi.fn(),
+}));
 import { DsyNativeMenuService, type DsyNativeMenuItem } from '@ngx-daisy/native/menu';
 import { DsyFormField } from '@ngx-daisy/native/form-field';
 import { DsyInput } from '@ngx-daisy/native/input';

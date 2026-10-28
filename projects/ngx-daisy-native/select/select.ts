@@ -14,11 +14,19 @@ import {
   signal,
   viewChild,
   DestroyRef,
+  TemplateRef,
+  Directive,
+  contentChild,
 } from '@angular/core';
+import { NgTemplateOutlet } from '@angular/common';
 import type { FormValueControl } from '@angular/forms/signals';
 import type { Button } from '@nativescript/core';
 import { DsyButton } from '@ngx-daisy/native/button';
-import { DsyNativeMenuService, type DsyNativeMenuRef } from '@ngx-daisy/native/menu';
+import {
+  DsyNativeMenuService,
+  type DsyNativeMenuItemContext,
+  type DsyNativeMenuRef,
+} from '@ngx-daisy/native/menu';
 import { DsyTheme } from '@ngx-daisy/native/theme';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
@@ -29,11 +37,25 @@ export interface DsySelectOption {
   readonly description?: string;
   readonly disabled?: boolean;
 }
-/** A string-valued form control presented as an anchored native selection menu. */
+export interface DsySelectOptionContext {
+  readonly $implicit: DsySelectOption;
+  readonly selected: boolean;
+}
+@Directive({ selector: 'ng-template[dsySelectOption]', standalone: true })
+export class DsySelectOptionTemplate {
+  readonly template = inject<TemplateRef<DsySelectOptionContext>>(TemplateRef);
+  static ngTemplateContextGuard(
+    _directive: DsySelectOptionTemplate,
+    context: unknown,
+  ): context is DsySelectOptionContext {
+    return true;
+  }
+}
+/** A string-valued form control with a themed, anchored selection popover. */
 @Component({
   selector: 'GridLayout[dsySelect]',
   standalone: true,
-  imports: [DsyButton],
+  imports: [DsyButton, NgTemplateOutlet],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './select.html',
   styleUrl: './select.scss',
@@ -60,7 +82,15 @@ export class DsySelect implements FormValueControl<string> {
   readonly color = input<DsyButtonColor>(undefined, { alias: 'dsyColor' });
   readonly size = input<DsyButtonSize>('md');
   readonly triggerClass = input('');
-  /** Decorative trailing area; native menu appearance remains owned by the OS. */
+  readonly panelClass = input('');
+  readonly optionClass = input('');
+  readonly maxHeight = input(360);
+  readonly optionTemplate = contentChild(DsySelectOptionTemplate);
+  readonly menuTemplate = viewChild<TemplateRef<DsyNativeMenuItemContext>>('menuOption');
+  optionFor(id: string): DsySelectOption | undefined {
+    return this.options().find((option) => option.value === id);
+  }
+  /** Decorative trailing area; the panel and option slots have separate styling hooks. */
   readonly indicatorClass = input('');
   readonly touch = output<void>();
   private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
@@ -107,7 +137,7 @@ export class DsySelect implements FormValueControl<string> {
     });
   }
   private cleanup(): void {
-    this.ref?.close();
+    this.ref?.close('owner');
   }
   open(): void {
     if (this.isDisabled() || this.opened()) return;
@@ -127,8 +157,12 @@ export class DsySelect implements FormValueControl<string> {
         })),
         {
           label: this.accessibleLabel(),
-          singleSelection: true,
-          appearance: this.theme?.resolved().colorScheme,
+          width: 'anchor',
+          panelClass: this.panelClass(),
+          itemClass: this.optionClass(),
+          maxHeight: this.maxHeight(),
+          theme: this.theme?.theme,
+          itemTemplate: this.optionTemplate() ? this.menuTemplate() : undefined,
           selected: (id) => {
             if (
               !this.destroyed &&

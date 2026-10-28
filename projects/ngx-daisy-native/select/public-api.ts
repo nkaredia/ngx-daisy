@@ -1,1 +1,6 @@
-export { DsySelect, type DsySelectOption } from './select';
+export {
+  DsySelect,
+  DsySelectOptionTemplate,
+  type DsySelectOption,
+  type DsySelectOptionContext,
+} from './select';

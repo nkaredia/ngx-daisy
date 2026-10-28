@@ -1,4 +1,5 @@
-import type { View } from '@nativescript/core';
+import type { TemplateRef } from '@angular/core';
+import type { DsyPopoverConfig } from '@ngx-daisy/native/popover';
 export interface DsyNativeMenuItem {
   readonly id: string;
   readonly label: string;
@@ -8,18 +9,12 @@ export interface DsyNativeMenuItem {
   readonly destructive?: boolean;
   readonly section?: string;
 }
-export interface DsyNativeMenuHandle {
-  close(): void;
+export interface DsyNativeMenuItemContext {
+  readonly $implicit: DsyNativeMenuItem;
+  readonly checked: boolean;
 }
-export interface DsyNativeMenuOptions {
-  readonly label?: string;
-  readonly singleSelection?: boolean;
-  readonly appearance?: 'light' | 'dark';
+export interface DsyNativeMenuOptions extends DsyPopoverConfig {
+  readonly itemClass?: string;
+  readonly itemTemplate?: TemplateRef<DsyNativeMenuItemContext>;
   readonly selected: (id: string) => void;
-  readonly closed: () => void;
 }
-export type DsyNativeMenuPresenter = (
-  anchor: View,
-  items: readonly DsyNativeMenuItem[],
-  options: DsyNativeMenuOptions,
-) => DsyNativeMenuHandle;

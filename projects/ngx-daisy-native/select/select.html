@@ -26,3 +26,12 @@
     <GridLayout class="dsy-native-select-chevron" [accessible]="false"></GridLayout>
   </GridLayout>
 </GridLayout>
+
+<ng-template #menuOption let-item let-checked="checked">
+  @if (optionFor(item.id); as option) {
+    <ng-container
+      [ngTemplateOutlet]="optionTemplate()?.template ?? null"
+      [ngTemplateOutletContext]="{ $implicit: option, selected: checked }"
+    />
+  }
+</ng-template>
