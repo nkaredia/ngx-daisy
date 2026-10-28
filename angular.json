@@ -136,7 +136,8 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "projects/ngx-daisy-native/tsconfig.spec.json"
+            "tsConfig": "projects/ngx-daisy-native/tsconfig.spec.json",
+            "runnerConfig": "projects/ngx-daisy-native/vitest.config.mjs"
           }
         }
       }

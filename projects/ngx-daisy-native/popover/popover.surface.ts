@@ -14,6 +14,8 @@ import {
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import type { View } from '@nativescript/core';
 import { DsyButton } from '@ngx-daisy/native/button';
+import { DsyButtonIcon } from '@ngx-daisy/native/control-icon';
+import { X } from 'lucide';
 import { DsyTheme, DSY_LIGHT_THEME, resolveNativeTheme } from '@ngx-daisy/native/theme';
 import type { DsyPopoverConfig, DsyPopoverContent } from './popover.types';
 import { ensurePopoverLayer } from './popover.layer';
@@ -27,7 +29,7 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
 @Component({
   selector: 'dsy-native-popover-surface',
   standalone: true,
-  imports: [NgTemplateOutlet, NgComponentOutlet, DsyTheme, DsyButton],
+  imports: [NgTemplateOutlet, NgComponentOutlet, DsyTheme, DsyButton, DsyButtonIcon],
   schemas: [NO_ERRORS_SCHEMA],
   template: `<DsyPopoverLayer
     #overlay
@@ -73,7 +75,8 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
             <Button
               col="1"
               dsyButton
-              text="×"
+              text=""
+              [dsyControlIcon]="closeIcon"
               size="xs"
               variant="ghost"
               shape="square"
@@ -97,6 +100,7 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
   encapsulation: ViewEncapsulation.None,
 })
 export class DsyNativePopoverSurface {
+  readonly closeIcon = X;
   constructor() {
     ensurePopoverLayer();
   }

@@ -9,7 +9,8 @@ import {
 import { FormField, form } from '@angular/forms/signals';
 import { NativeScriptCommonModule } from '@nativescript/angular';
 import { DsyIcon } from '@ngx-daisy/native/icon';
-import { UserPlus, Link, Star, Archive } from 'lucide';
+import { UserPlus, Link, Star, Archive, Plus } from 'lucide';
+import { DsyButtonIcon } from '@ngx-daisy/native/control-icon';
 import { lucideArtwork } from '../icons/svg-artwork';
 import { DsyButton } from '@ngx-daisy/native/button';
 import { DsyModal } from '@ngx-daisy/native/modal';
@@ -33,6 +34,7 @@ import { DsyTheme, DSY_DARK_THEME, DSY_LIGHT_THEME } from '@ngx-daisy/native/the
     NativeScriptCommonModule,
     FormField,
     DsyButton,
+    DsyButtonIcon,
     DsyIcon,
     DsyModal,
     DsyDropdown,
@@ -53,6 +55,7 @@ import { DsyTheme, DSY_DARK_THEME, DSY_LIGHT_THEME } from '@ngx-daisy/native/the
   encapsulation: ViewEncapsulation.None,
 })
 export class NativeActionsExample {
+  readonly createIcon = Plus;
   readonly family = input<'dropdowns' | 'fabs' | 'modals' | 'swaps' | 'theme-controllers'>(
     'dropdowns',
   );

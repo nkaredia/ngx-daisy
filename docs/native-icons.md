@@ -1,10 +1,18 @@
 # Native icon packs
 
-`DsyIcon` stays a projection-only wrapper. Lucide and Font Awesome are demonstrated using their official SVG data, rendered by an app-owned native SVG view. No icon pack, registry, discovery code or provider adapter is added to `@ngx-daisy/native`.
+`DsyIcon` stays a projection-only wrapper. Lucide and Font Awesome are demonstrated using their official SVG data, rendered by an app-owned native SVG view. Apps keep ownership of projected artwork and provider imports; no registry, discovery code or provider configuration is required.
+
+## Built-in control icons
+
+Library-owned UI icons use individual Lucide assets: close buttons, Select chevrons, menu selection marks, checkbox checked/mixed marks and radio indicators. Showcase navigation and actions also use Lucide. Font Awesome appears only in explicit provider-compatibility examples.
+
+The internal `@ngx-daisy/native/control-icon` entry point renders decorative control images through `@nativescript-community/ui-svg`, which is a native package peer dependency. Lucide is a library dependency and only imported icons enter the app bundle. Existing Button-backed controls keep their native hosts, accessible labels, state and activation behavior. iOS uses original-color button images; Android uses density-aware image spans. Rendering follows inherited foreground color and alpha, updates on state/theme changes, cancels stale work and removes listeners on destruction. Image decorations stay outside accessibility traversal; native button images use the owning button's semantics.
+
+This implementation does not change `DsyIcon` or install a provider for app content. Consumers still choose their own packages and rendering for projected icons. Web controls similarly use individual `@lucide/angular` directives; that package is a peer of `@ngx-daisy/cdk`.
 
 ## Why native SVG
 
-The browser Angular components from Lucide and Font Awesome render DOM SVG and cannot be projected unchanged into NativeScript. The native showcase uses `@nativescript-community/ui-svg` instead. It renders SVG with native engines, without a WebView or DOM API. Icon imports and the renderer belong to the app.
+The browser Angular components from Lucide and Font Awesome render DOM SVG and cannot be projected unchanged into NativeScript. The native showcase uses `@nativescript-community/ui-svg` instead. It renders SVG with native engines, without a WebView or DOM API. Imports and rendering for projected content belong to the app; internal control icons use the shared library renderer described above.
 
 Official references: [Lucide packages](https://lucide.dev/packages), [NativeScript SVG plugin](https://github.com/nativescript-community/ui-canvas), [Font Awesome individual icon imports](https://docs.fontawesome.com/apis/javascript/tree-shaking).
 
@@ -82,3 +90,5 @@ The native SVG engine itself adds a native dependency; this is separate from the
 ### Simulator verification
 
 On iPhone 17 / iOS 26.5, verified Lucide outlines, Font Awesome free solid/regular/brand icons, 20/32/48-DIP size examples, semantic colors, inherited GitHub icon color, and live light/dark updates. The accessibility tree exposes labeled wrappers as images and omits decorative provider views. Both platform JavaScript bundles, three SVG conversion tests, bundle-content checks, and 23 native unit tests passed. Android native rendering and screen-reader operation remain unverified.
+
+October 28: verified Lucide Select chevrons and selection checks, a theme-colored popover close icon with native dismissal, checkbox checked/mixed/disabled marks and form updates, and radio selection indicators on the same simulator. The full suite passes 73 native tests, including original-color iOS button images, theme changes, stale-work cancellation and Android density-aware image-span checks. Both native bundles pass selected-icon checks. Android image rendering is still covered by mocks and bundles rather than execution on a device.

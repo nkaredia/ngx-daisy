@@ -16,6 +16,8 @@ import {
 import type { FormValueControl } from '@angular/forms/signals';
 import type { DsyButtonColor, DsyButtonSize } from '@ngx-daisy/core/button';
 import type { Button } from '@nativescript/core';
+import { bindControlButtonIcon } from '@ngx-daisy/native/control-icon';
+import { Dot } from 'lucide';
 /** One string-valued form control coordinates all projected native radio options. */
 @Component({
   selector: 'StackLayout[dsyRadioGroup]',
@@ -67,7 +69,7 @@ export class DsyRadioGroup implements FormValueControl<string> {
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[text]': 'selected() ? "●" : ""',
+    text: '',
     '[class]': 'classes()',
     '[isEnabled]': '!isDisabled()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
@@ -81,6 +83,12 @@ export class DsyRadioGroup implements FormValueControl<string> {
   },
 })
 export class DsyRadio {
+  constructor() {
+    bindControlButtonIcon(
+      () => (this.selected() ? Dot : undefined),
+      () => 48,
+    );
+  }
   readonly optionValue = input.required<string>();
   readonly label = input.required<string>();
   readonly description = input('');

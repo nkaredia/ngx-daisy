@@ -15,6 +15,8 @@ import {
 import type { FormCheckboxControl } from '@angular/forms/signals';
 import type { DsyButtonColor, DsyButtonSize } from '@ngx-daisy/core/button';
 import type { Button } from '@nativescript/core';
+import { bindControlButtonIcon } from '@ngx-daisy/native/control-icon';
+import { Check, Minus } from 'lucide';
 /** Native button-backed checkbox: one accessible control with a 44-unit minimum target. */
 @Component({
   selector: 'Button[dsyCheckbox]',
@@ -25,7 +27,7 @@ import type { Button } from '@nativescript/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   host: {
-    '[text]': 'indeterminate() ? "−" : checked() ? "✓" : ""',
+    text: '',
     '[class]': 'classes()',
     '[isEnabled]': '!disabled() && !readonly() && !hidden()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
@@ -40,8 +42,14 @@ import type { Button } from '@nativescript/core';
   },
 })
 export class DsyCheckbox implements FormCheckboxControl {
+  constructor() {
+    bindControlButtonIcon(() => this.mark());
+  }
   readonly checked = model(false);
   readonly indeterminate = model(false);
+  readonly mark = computed(() =>
+    this.indeterminate() ? Minus : this.checked() ? Check : undefined,
+  );
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly readonly = input(false, { transform: booleanAttribute });
   readonly hidden = input(false, { transform: booleanAttribute });

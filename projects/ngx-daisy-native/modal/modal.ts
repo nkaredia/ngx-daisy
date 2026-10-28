@@ -20,6 +20,8 @@ import {
   signal,
 } from '@angular/core';
 import { DsyButton } from '@ngx-daisy/native/button';
+import { DsyButtonIcon } from '@ngx-daisy/native/control-icon';
+import { X } from 'lucide';
 import { NgTemplateOutlet } from '@angular/common';
 import { NATIVE_DIALOG_DATA, NativeDialog, NativeDialogRef } from '@nativescript/angular';
 import type { NativeDialogConfig } from '@nativescript/angular';
@@ -51,7 +53,7 @@ interface SurfaceData {
 @Component({
   selector: 'dsy-native-modal-surface',
   standalone: true,
-  imports: [NgTemplateOutlet, DsyTheme, DsyButton],
+  imports: [NgTemplateOutlet, DsyTheme, DsyButton, DsyButtonIcon],
   schemas: [NO_ERRORS_SCHEMA],
   template: `<RootLayout
     [dsyTheme]="theme()"
@@ -95,7 +97,8 @@ interface SurfaceData {
             <Button
               col="1"
               dsyButton
-              text="×"
+              text=""
+              [dsyControlIcon]="closeIcon"
               shape="circle"
               size="sm"
               variant="ghost"
@@ -113,6 +116,7 @@ interface SurfaceData {
   encapsulation: ViewEncapsulation.None,
 })
 export class DsyNativeModalSurface {
+  readonly closeIcon = X;
   readonly android = isAndroid;
   private readonly viewport = signal({ width: 360, height: 720 });
   readonly width = computed(() =>

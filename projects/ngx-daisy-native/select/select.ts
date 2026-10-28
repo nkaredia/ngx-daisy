@@ -22,6 +22,8 @@ import { NgTemplateOutlet } from '@angular/common';
 import type { FormValueControl } from '@angular/forms/signals';
 import type { Button } from '@nativescript/core';
 import { DsyButton } from '@ngx-daisy/native/button';
+import { DsyControlIcon } from '@ngx-daisy/native/control-icon';
+import { ChevronDown } from 'lucide';
 import {
   DsyNativeMenuService,
   type DsyNativeMenuItemContext,
@@ -55,7 +57,7 @@ export class DsySelectOptionTemplate {
 @Component({
   selector: 'GridLayout[dsySelect]',
   standalone: true,
-  imports: [DsyButton, NgTemplateOutlet],
+  imports: [DsyButton, NgTemplateOutlet, DsyControlIcon],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './select.html',
   styleUrl: './select.scss',
@@ -69,6 +71,7 @@ export class DsySelectOptionTemplate {
   },
 })
 export class DsySelect implements FormValueControl<string> {
+  readonly chevronIcon = ChevronDown;
   readonly value = model('');
   readonly options = input<readonly DsySelectOption[]>([]);
   readonly placeholder = input('Choose an option');

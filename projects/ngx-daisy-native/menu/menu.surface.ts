@@ -8,6 +8,8 @@ import {
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { DsyButton } from '@ngx-daisy/native/button';
+import { DsyControlIcon } from '@ngx-daisy/native/control-icon';
+import { Check } from 'lucide';
 import type { DsyNativeMenuItem, DsyNativeMenuOptions } from './menu.types';
 export const DSY_MENU_DATA = new InjectionToken<{
   items: readonly DsyNativeMenuItem[];
@@ -17,7 +19,7 @@ export const DSY_MENU_DATA = new InjectionToken<{
 @Component({
   selector: 'dsy-native-menu-surface',
   standalone: true,
-  imports: [DsyButton, NgTemplateOutlet],
+  imports: [DsyButton, NgTemplateOutlet, DsyControlIcon],
   schemas: [NO_ERRORS_SCHEMA],
   template: `<StackLayout>
     @for (item of data.items; track item.id; let index = $index) {
@@ -54,12 +56,12 @@ export const DSY_MENU_DATA = new InjectionToken<{
           [accessible]="false"
           [accessibilityHidden]="true"
         >
-          <Label
-            [text]="item.checked ? '✓' : ''"
+          <Image
+            [dsyControlIcon]="item.checked ? checkIcon : undefined"
             class="dsy-native-menu-check"
             verticalAlignment="middle"
             [accessible]="false"
-          ></Label>
+          ></Image>
           <StackLayout col="1" verticalAlignment="middle">
             @if (data.options.itemTemplate) {
               <ng-container
@@ -92,5 +94,6 @@ export const DSY_MENU_DATA = new InjectionToken<{
   encapsulation: ViewEncapsulation.None,
 })
 export class DsyNativeMenuSurface {
+  readonly checkIcon = Check;
   readonly data = inject(DSY_MENU_DATA);
 }

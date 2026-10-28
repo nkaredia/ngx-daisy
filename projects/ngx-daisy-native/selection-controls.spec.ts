@@ -14,6 +14,13 @@ import {
 import { DsyCheckbox } from './checkbox/checkbox';
 import { DsyRadio, DsyRadioGroup } from './radio/radio';
 import { DsyRange } from './range/range';
+import { Check, Minus } from 'lucide';
+vi.mock('@nativescript/core', () => ({
+  Color: class {},
+  ImageSource: class {},
+  Utils: {},
+  isIOS: false,
+}));
 
 @Component({
   imports: [FormField, DsyCheckbox, DsyRadio, DsyRadioGroup, DsyRange],
@@ -74,16 +81,16 @@ describe('Native selection controls', () => {
   it('updates checkbox form value and touch state without losing app classes', () => {
     const { fixture, host, checkbox } = create();
     expect(checkbox.nativeElement.getAttribute('accessibilityRole')).toBe('checkbox');
-    expect(checkbox.nativeElement.text).toBe('');
+    expect(checkbox.componentInstance.mark()).toBeUndefined();
     checkbox.triggerEventHandler('tap', {});
     fixture.detectChanges();
     expect(host.values().gift).toBe(true);
     expect(host.fields.gift().touched()).toBe(true);
-    expect(checkbox.nativeElement.text).toBe('✓');
+    expect(checkbox.componentInstance.mark()).toBe(Check);
     expect(checkbox.nativeElement.classList.contains('app-space')).toBe(true);
     host.values.update((value) => ({ ...value, gift: false }));
     fixture.detectChanges();
-    expect(checkbox.nativeElement.text).toBe('');
+    expect(checkbox.componentInstance.mark()).toBeUndefined();
   });
 
   it('resolves mixed checkbox state to checked on activation', () => {
@@ -91,11 +98,12 @@ describe('Native selection controls', () => {
     host.mixed.set(true);
     fixture.detectChanges();
     expect(checkbox.nativeElement.accessibilityValue).toBe('Mixed');
+    expect(checkbox.componentInstance.mark()).toBe(Minus);
     checkbox.triggerEventHandler('tap', {});
     fixture.detectChanges();
     expect(host.values().gift).toBe(true);
     expect(checkbox.componentInstance.indeterminate()).toBe(false);
-    expect(checkbox.nativeElement.text).toBe('✓');
+    expect(checkbox.componentInstance.mark()).toBe(Check);
   });
 
   it('coordinates exactly one radio selection through one form value', () => {

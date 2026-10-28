@@ -9,11 +9,13 @@
     "@ngx-daisy/core": "^0.0.1",
     "tailwindcss": "^4.0.0",
     "daisyui": "^5.0.0",
-    "@angular/forms": "^22.2.0"
+    "@angular/forms": "^22.2.0",
+    "@nativescript-community/ui-svg": "^0.2.29"
   },
   "dependencies": {
     "tslib": "^2.3.0",
-    "colorjs.io": "^0.6.1"
+    "colorjs.io": "^0.6.1",
+    "lucide": "^1.61.0"
   },
   "sideEffects": false,
   "private": true,
