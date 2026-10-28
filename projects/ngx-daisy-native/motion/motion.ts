@@ -3,6 +3,7 @@ import {
   ElementRef,
   InjectionToken,
   Directive,
+  booleanAttribute,
   input,
   signal,
   untracked,
@@ -172,6 +173,7 @@ export function bindNativePresence(
   visible: () => boolean,
   fromX: () => number = () => 0,
   fromY: () => number = () => 8,
+  fade: () => boolean = () => true,
 ): () => boolean {
   const view = inject<ElementRef<View>>(ElementRef).nativeElement;
   const motion = new DsyMotionController(view, inject(DSY_MOTION_CONFIG));
@@ -194,6 +196,7 @@ export function bindNativePresence(
     const ready = loaded();
     const offset = fromX();
     const verticalOffset = fromY();
+    const hiddenOpacity = fade() ? 0 : 1;
     const current = ++generation;
     motion.cancel();
     if (!ready) {
@@ -206,14 +209,14 @@ export function bindNativePresence(
       retained.set(true);
       view.visibility = 'visible';
       if (!previous && !wasRetained) {
-        view.opacity = 0;
+        view.opacity = hiddenOpacity;
         view.translateX = offset;
         view.translateY = verticalOffset;
       }
       void motion.to({ opacity: 1, translate: { x: 0, y: 0 } }, 180);
     } else if (previous) {
       void motion
-        .to({ opacity: 0, translate: { x: offset, y: verticalOffset } }, 120)
+        .to({ opacity: hiddenOpacity, translate: { x: offset, y: verticalOffset } }, 120)
         .then((finished) => {
           if (finished && generation === current) retained.set(false);
         });
@@ -243,9 +246,11 @@ export class DsyMotionPresence {
   readonly dsyMotionVisible = input.required<boolean>();
   readonly motionFromX = input(0);
   readonly motionFromY = input(0);
+  readonly motionFade = input(true, { transform: booleanAttribute });
   readonly retained = bindNativePresence(
     () => this.dsyMotionVisible(),
     () => this.motionFromX(),
     () => this.motionFromY(),
+    () => this.motionFade(),
   );
 }

@@ -29,6 +29,7 @@ import type { NativeDialogConfig } from '@nativescript/angular';
 import { DSY_LIGHT_THEME, DsyTheme, type DsyThemeDefinition } from '@ngx-daisy/native/theme';
 import { take } from 'rxjs';
 import { ensureModalPanel } from './modal.panel';
+import { configureModalFade } from './modal.fade';
 
 export interface DsyModalHandle<R = unknown> {
   close(result?: R): void;
@@ -64,6 +65,8 @@ interface SurfaceData {
     [width]="android ? width() + 32 : '100%'"
     [height]="android ? 'auto' : '100%'"
     (layoutChanged)="onLayout($event)"
+    (showingModally)="onPresenting($event)"
+    (loaded)="onPresenting($event)"
   >
     @if (!android) {
       <Button
@@ -120,6 +123,15 @@ interface SurfaceData {
 export class DsyNativeModalSurface {
   constructor() {
     ensureModalPanel();
+  }
+  private readonly motion = inject(DSY_MOTION_CONFIG);
+  onPresenting(raw: unknown): void {
+    const host = (raw as { object?: Parameters<typeof configureModalFade>[0] }).object;
+    if (host)
+      configureModalFade(
+        host,
+        nativeMotionEnabled(this.motion) && this.data.config.nativeOptions?.animated !== false,
+      );
   }
   readonly closeIcon = X;
   readonly android = isAndroid;

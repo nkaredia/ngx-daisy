@@ -60,7 +60,7 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
       [top]="position().top"
       [width]="position().width"
       [maxHeight]="position().maxHeight"
-      [opacity]="ready() ? 1 : 0"
+      opacity="0"
     >
       <ScrollView
         ><StackLayout class="dsy-native-popover-content" (layoutChanged)="measureContent($event)">
@@ -118,7 +118,6 @@ export class DsyNativePopoverSurface {
     maxHeight: 360,
     side: 'bottom',
   });
-  readonly ready = signal(false);
   private contentHeight?: number;
   anchor?: View;
   readonly theme = computed(() =>
@@ -146,6 +145,5 @@ export class DsyNativePopoverSurface {
       contentHeight: this.contentHeight,
     });
     if (JSON.stringify(next) !== JSON.stringify(this.position())) this.position.set(next);
-    this.ready.set(true);
   }
 }

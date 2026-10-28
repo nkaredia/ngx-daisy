@@ -1,9 +1,10 @@
-import { ErrorHandler } from '@angular/core';
+import { Component, ErrorHandler } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import type { View } from '@nativescript/core';
 import { lastValueFrom } from 'rxjs';
 import { DsyPopoverService } from './popover/popover.service';
 import { positionPopover } from './popover/position';
+import { DSY_POPOVER_DATA, DsyNativePopoverSurface } from './popover/popover.surface';
 const runtime = vi.hoisted(() => ({
   root: undefined as unknown,
   generated: undefined as unknown,
@@ -140,4 +141,37 @@ it('waits for an opening layer before removing it when cancellation arrives duri
   expect(await lastValueFrom(ref.closed)).toBe('owner');
   expect(fixture.root.close).toHaveBeenCalledTimes(1);
   expect(fixture.destroy).toHaveBeenCalledTimes(1);
+});
+
+@Component({ template: '' })
+class PreviewContent {}
+it('keeps the panel hidden before entrance and lets animation own opacity across layout updates', () => {
+  TestBed.configureTestingModule({
+    providers: [
+      {
+        provide: DSY_POPOVER_DATA,
+        useValue: { content: PreviewContent, config: {}, close: vi.fn() },
+      },
+    ],
+  });
+  const fixture = TestBed.createComponent(DsyNativePopoverSurface);
+  fixture.detectChanges();
+  const panel = fixture.componentInstance.panel()!.nativeElement as View & {
+    getAttribute(name: string): string;
+  };
+  expect(panel.getAttribute('opacity')).toBe('0');
+  const overlay = fixture.componentInstance.overlay()!.nativeElement;
+  overlay.getActualSize = () => ({ width: 360, height: 720 });
+  fixture.componentInstance.anchor = {
+    getLocationRelativeTo: () => ({ x: 20, y: 100 }),
+    getActualSize: () => ({ width: 200, height: 44 }),
+  } as unknown as View;
+  panel.opacity = 0.4;
+  fixture.componentInstance.reposition();
+  fixture.detectChanges();
+  expect(panel.opacity).toBe(0.4);
+  fixture.componentInstance.anchor.getActualSize = () => ({ width: 220, height: 44 });
+  fixture.componentInstance.reposition();
+  fixture.detectChanges();
+  expect(panel.opacity).toBe(0.4);
 });

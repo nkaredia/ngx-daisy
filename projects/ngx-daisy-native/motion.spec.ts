@@ -165,3 +165,41 @@ it('falls back to the final visual state if the native animation engine fails', 
   expect(view.opacity).toBe(1);
   expect(view.scaleX).toBe(1);
 });
+
+it('slides a drawer panel at full opacity while a separate backdrop can fade', async () => {
+  const { view, bindNativePresence } = await setup();
+  const opened = signal(false);
+  TestBed.configureTestingModule({
+    providers: [{ provide: ElementRef, useValue: new ElementRef(view) }],
+  });
+  const retained = TestBed.runInInjectionContext(() =>
+    bindNativePresence(
+      opened,
+      () => -288,
+      () => 0,
+      () => false,
+    ),
+  );
+  TestBed.tick();
+  opened.set(true);
+  TestBed.tick();
+  expect(view.opacity).toBe(1);
+  expect(view.translateX).toBe(-288);
+  expect(runtime.animations.at(-1)!.definition).toMatchObject({
+    opacity: 1,
+    translate: { x: 0, y: 0 },
+  });
+  runtime.animations.at(-1)!.finish();
+  await Promise.resolve();
+  opened.set(false);
+  TestBed.tick();
+  expect(retained()).toBe(true);
+  expect(runtime.animations.at(-1)!.definition).toMatchObject({
+    opacity: 1,
+    translate: { x: -288, y: 0 },
+  });
+  runtime.animations.at(-1)!.finish();
+  await Promise.resolve();
+  await Promise.resolve();
+  expect(retained()).toBe(false);
+});

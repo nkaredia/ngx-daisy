@@ -67,3 +67,5 @@ Native Dropdown and Select share @ngx-daisy/native/popover, a custom RootLayout 
 Native floating panels, compact dialogs and temporary navigation drawers share the theme-derived --dsy-native-overlay-shadow token. Keep default panel styling below app utility classes, preserve rounded material clipping, and allow space for shadows around Android dialogs. Persistent sidebars stay flat.
 
 Native interaction animations share @ngx-daisy/native/motion. Honor iOS Reduce Motion and Android disabled animator settings, support app-level opt-out, cancel superseded/unloaded animations, and keep form updates independent of completion. Retain exiting overlay/FAB/navigation views until dismissal finishes while immediately disabling interaction/accessibility; stale exits must never hide reopened content. Preserve OS-owned switch/slider motion. See docs/native-motion.md.
+
+Overlay transitions use fade-only native dialogs, slide-only temporary drawer panels and independently fading backdrops. Popover opacity belongs to its motion controller; layout readiness must never reveal the panel before entrance or overwrite an in-progress animation.

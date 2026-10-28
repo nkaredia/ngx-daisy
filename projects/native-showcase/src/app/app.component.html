@@ -121,7 +121,12 @@
             ><ng-container [ngTemplateOutlet]="navigation"
           /></GridLayout>
         } @else {
-          <GridLayout rowSpan="2" columns="288, *" [dsyMotionVisible]="navigationOpened()">
+          <GridLayout
+            rowSpan="2"
+            columns="288, *"
+            [dsyMotionVisible]="navigationOpened()"
+            [motionFade]="false"
+          >
             <Button
               colSpan="2"
               text=""
@@ -134,6 +139,7 @@
               accessible="true"
               borderWidth="0"
               accessibilityLabel="Close component navigation"
+              [dsyMotionVisible]="navigationOpened()"
               (tap)="navigationOpened.set(false)"
             ></Button>
             <GridLayout
@@ -141,6 +147,7 @@
               class="bg-base-200 native-navigation-overlay-panel"
               [dsyMotionVisible]="navigationOpened()"
               [motionFromX]="-288"
+              [motionFade]="false"
               ><ng-container [ngTemplateOutlet]="navigation"
             /></GridLayout>
           </GridLayout>
