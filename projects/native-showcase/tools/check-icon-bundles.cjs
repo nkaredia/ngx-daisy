@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const outputs = [
   '../../../dist/native-check/ios/nativeshowcase/app/vendor.mjs',
-  '../../../dist/native-check/android/app/src/main/assets/app/vendor.js',
+  '../../../dist/native-check/android/app/src/main/assets/app/vendor.mjs',
 ];
 for (const output of outputs) {
   const bundle = fs.readFileSync(path.resolve(__dirname, output), 'utf8');

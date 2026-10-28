@@ -4,7 +4,7 @@
   "private": true,
   "main": "src/main.ts",
   "scripts": {
-    "android": "ns run android",
+    "android": "node tools/run-android.cjs",
     "ios": "node tools/run-ios.cjs",
     "bundle:android": "webpack --env android --env aot --env nativescriptLibPath --env buildPath=../../dist/native-check",
     "bundle:ios": "webpack --env ios --env aot --env nativescriptLibPath --env buildPath=../../dist/native-check",
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "22.2.3",
     "@angular/compiler-cli": "^22.2.0",
+    "@nativescript/android": "9.1.1",
     "@nativescript/ios": "9.1.0",
     "@nativescript/tailwind": "^4.1.0",
     "@nativescript/types": "^9.1.4",
