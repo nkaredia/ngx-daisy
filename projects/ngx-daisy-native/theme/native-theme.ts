@@ -61,6 +61,43 @@ export function resolveNativeTheme(
     const channels = mixed.coords.map((channel) => Math.round((channel ?? 0) * 255));
     tokens[`--dsy-color-${name}-soft`] = `rgba(${channels.join(', ')}, ${mixed.alpha})`;
   }
+  // NativeScript does not support color-mix in state selectors.
+  for (const name of [
+    'base-200',
+    'neutral',
+    'primary',
+    'secondary',
+    'accent',
+    'info',
+    'success',
+    'warning',
+    'error',
+  ]) {
+    const content = name === 'base-200' ? 'base-content' : `${name}-content`;
+    const mixed = new Color(tokens[`--color-${name}`])
+      .mix(tokens[`--color-${content}`], 0.12, { space: 'oklab' })
+      .to('srgb')
+      .toGamut({ space: 'srgb' });
+    const channels = mixed.coords.map((channel) => Math.round((channel ?? 0) * 255));
+    tokens[`--dsy-color-${name}-pressed`] = `rgba(${channels.join(', ')}, ${mixed.alpha})`;
+  }
+  for (const name of [
+    'neutral',
+    'primary',
+    'secondary',
+    'accent',
+    'info',
+    'success',
+    'warning',
+    'error',
+  ]) {
+    const mixed = new Color(tokens['--color-base-100'])
+      .mix(tokens[`--color-${name}`], 0.16, { space: 'oklab' })
+      .to('srgb')
+      .toGamut({ space: 'srgb' });
+    const channels = mixed.coords.map((channel) => Math.round((channel ?? 0) * 255));
+    tokens[`--dsy-color-${name}-soft-pressed`] = `rgba(${channels.join(', ')}, ${mixed.alpha})`;
+  }
   const fieldSize = Number(tokens['--size-field']);
   for (const [size, multiplier] of Object.entries({ xs: 6, sm: 8, md: 12, lg: 14, xl: 16 })) {
     const length = String(Math.max(44, fieldSize * multiplier));

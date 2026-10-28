@@ -52,3 +52,10 @@ Popover panels start with static zero opacity and become visible only through th
 Native dialogs retain native Back, outside-dismissal and completion handling. The dialog panel fades/grows in over 180 ms and fades/shrinks out over 120 ms. A retained native root lets the panel finish its exit before native dismissal fades out the remaining overlay; repeated dismissal requests cannot restart the exit or overwrite its result. The narrow platform bridge configures iOS's controller during `showingModally` and Android's dialog window during `loaded`, before presentation draws. Android's [Animation.Toast resource](https://android.googlesource.com/platform/frameworks/base/+/HEAD/core/res/res/values/styles.xml) references [alpha-only entrance animation](https://android.googlesource.com/platform/frameworks/base/+/HEAD/core/res/res/anim/toast_enter.xml); no toast is presented. The native options still control whether animation is enabled.
 
 The Android native dialog window uses a transparent background drawable. The rounded panel supplies its theme surface and shadow; a default opaque window background would leave a square white frame visible around it. This applies with animation enabled or disabled.
+
+Native buttons use theme-derived pressed surfaces instead of whole-control opacity. Solid
+variants mix their semantic surface with its content color; outline, soft, ghost and link
+variants use a stronger semantic tint. Apps can override `--dsy-button-pressed-background`.
+Android buttons set both base elevation and dynamic pressed elevation to zero, avoiding
+platform shadows during touch feedback. Select triggers retain their neutral field surface
+and use base-200 while pressed. Disabled controls retain their native interaction guard.

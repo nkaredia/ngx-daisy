@@ -48,6 +48,7 @@ export type DsyNativeButtonVariant = Exclude<DsyButtonVariant, 'dash'>;
     accessibilityRole: 'button',
     accessible: 'true',
     '[androidElevation]': '0',
+    '[androidDynamicElevationOffset]': '0',
     '(tap)': 'onTap($event)',
   },
 })
