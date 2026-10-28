@@ -81,6 +81,7 @@ const styles = [
 ]
   .map((file) => sass.compile(path.join(root, 'projects/ngx-daisy', file)).css)
   .join('\n');
+const libraryStyles = postcss.parse(styles);
 
 const remainingClasses = [
   'tab',
@@ -765,6 +766,20 @@ for (const config of cases) {
         rulesContaining(ast, selector(tw(name))).length,
         `${config.name}: unprefixed calendar part ${name}`,
       );
+    assert.ok(
+      rulesContaining(libraryStyles, '.dsy-calendar .rdp-chevron').some((rule) => {
+        if (!hasDeclaration(rule, 'fill', 'none')) return false;
+        for (let parent = rule.parent; parent; parent = parent.parent)
+          if (
+            parent.type === 'atrule' &&
+            parent.name === 'layer' &&
+            parent.params === 'ngx-daisy-control-icons'
+          )
+            return true;
+        return false;
+      }),
+      `${config.name}: Lucide calendar chevrons stay unfilled above daisyUI's icon fill layer`,
+    );
   }
 
   if ((!config.include || config.name === 'include-data-display') && !config.exclude) {

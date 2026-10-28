@@ -16,10 +16,12 @@ import { FormValueControl } from '@angular/forms/signals';
 import { DSY_FIELD_CONTROL, DsyValueControl } from '@ngx-daisy/cdk/form-field';
 import { DSY_DAISYUI_CONFIG, injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DsyDateAdapter } from './date-adapter';
+import { LucideChevronLeft, LucideChevronRight } from '@lucide/angular';
 
 @Component({
   selector: 'dsy-calendar',
   standalone: true,
+  imports: [LucideChevronLeft, LucideChevronRight],
   templateUrl: './calendar.component.html',
   styleUrl: './calendar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

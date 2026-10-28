@@ -1,3 +1,4 @@
+import { LucideSearch } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -23,7 +24,7 @@ interface PaginationValues {
 @Component({
   selector: 'demo-pagination-example',
   standalone: true,
-  imports: [DsyPagination],
+  imports: [LucideSearch, DsyPagination],
   templateUrl: './pagination-example.html',
   styleUrl: './pagination-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

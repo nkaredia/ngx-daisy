@@ -21,7 +21,9 @@
     "
   >
     @if (props().shape === 'circle' || props().shape === 'square') {
-      <span aria-hidden="true">+</span>
+      <span aria-hidden="true"
+        ><svg lucidePlus size="1em" class="inline-block" aria-hidden="true"></svg
+      ></span>
     } @else {
       Invite member
     }

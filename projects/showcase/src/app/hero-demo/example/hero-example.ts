@@ -1,3 +1,4 @@
+import { LucideArrowRight } from '@lucide/angular';
 import { ChangeDetectionStrategy, Component, input, ViewEncapsulation } from '@angular/core';
 import { DsyHero, DsyHeroContent, DsyHeroOverlay } from '@ngx-daisy/cdk/hero';
 import { DsyButton } from '@ngx-daisy/cdk/button';
@@ -5,7 +6,7 @@ import { DsyButton } from '@ngx-daisy/cdk/button';
 @Component({
   selector: 'demo-hero-example',
   standalone: true,
-  imports: [DsyHero, DsyHeroContent, DsyHeroOverlay, DsyButton],
+  imports: [LucideArrowRight, DsyHero, DsyHeroContent, DsyHeroOverlay, DsyButton],
   templateUrl: './hero-example.html',
   styleUrl: './hero-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,3 +1,5 @@
+import { LucideSparkles, LucideMinus } from '@lucide/angular';
+import { LucideCircle, LucideCheck } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -22,7 +24,7 @@ interface SwapValues {
 
 @Component({
   selector: 'demo-swap-example',
-  imports: [DsySwap],
+  imports: [LucideSparkles, LucideMinus, LucideCircle, LucideCheck, DsySwap],
   templateUrl: './swap-example.html',
   styleUrl: './swap-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

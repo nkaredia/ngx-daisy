@@ -1,3 +1,5 @@
+import { LucideSparkles } from '@lucide/angular';
+import { LucideX, LucideStar } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -40,6 +42,9 @@ import {
 @Component({
   selector: 'demo-theme-preview',
   imports: [
+    LucideSparkles,
+    LucideX,
+    LucideStar,
     DsyButton,
     DsyBadge,
     DsyInput,

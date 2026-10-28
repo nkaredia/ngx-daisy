@@ -8,7 +8,8 @@
     "tailwindcss": "^4.3.3",
     "daisyui": "^5.7.50",
     "@angular/forms": "^22.2.0",
-    "@ngx-daisy/core": "^0.0.1"
+    "@ngx-daisy/core": "^0.0.1",
+    "@lucide/angular": "^1.61.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

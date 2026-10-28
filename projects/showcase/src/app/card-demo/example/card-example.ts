@@ -1,3 +1,4 @@
+import { LucideStar } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +18,7 @@ export interface CardExampleValues {
 @Component({
   selector: 'demo-card-example',
   standalone: true,
-  imports: [DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions, DsyButton],
+  imports: [LucideStar, DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions, DsyButton],
   templateUrl: './card-example.html',
   styleUrl: './card-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

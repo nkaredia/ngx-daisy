@@ -1,3 +1,4 @@
+import { LucideArrowUpRight, LucideArrowRight } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +18,7 @@ interface ExampleValues {
 @Component({
   selector: 'demo-select-example',
   standalone: true,
-  imports: [DsySelect],
+  imports: [LucideArrowUpRight, LucideArrowRight, DsySelect],
   templateUrl: './select-example.html',
   styleUrl: './select-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,3 +1,4 @@
+import { LucidePlus, LucideX } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -23,7 +24,7 @@ interface FabValues {
 
 @Component({
   selector: 'demo-fab-example',
-  imports: [DsyFab, DsyButton, DsyFabTrigger, DsyFabAction, DsyFabClose],
+  imports: [LucidePlus, LucideX, DsyFab, DsyButton, DsyFabTrigger, DsyFabAction, DsyFabClose],
   templateUrl: './fab-example.html',
   styleUrl: './fab-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

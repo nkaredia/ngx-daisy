@@ -1,3 +1,4 @@
+import { LucideCheck, LucideCircle } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -20,7 +21,15 @@ export interface TimelineExampleValues {
 @Component({
   selector: 'demo-timeline-example',
   standalone: true,
-  imports: [DsyTimeline, DsyTimelineStart, DsyTimelineMiddle, DsyTimelineEnd, DsyTimelineBox],
+  imports: [
+    LucideCheck,
+    LucideCircle,
+    DsyTimeline,
+    DsyTimelineStart,
+    DsyTimelineMiddle,
+    DsyTimelineEnd,
+    DsyTimelineBox,
+  ],
   templateUrl: './timeline-example.html',
   styleUrl: './timeline-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

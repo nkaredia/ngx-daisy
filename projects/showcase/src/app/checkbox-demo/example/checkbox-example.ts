@@ -1,3 +1,4 @@
+import { LucideSparkles } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -18,7 +19,7 @@ interface ExampleValues {
 @Component({
   selector: 'demo-checkbox-example',
   standalone: true,
-  imports: [DsyCheckbox],
+  imports: [LucideSparkles, DsyCheckbox],
   templateUrl: './checkbox-example.html',
   styleUrl: './checkbox-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

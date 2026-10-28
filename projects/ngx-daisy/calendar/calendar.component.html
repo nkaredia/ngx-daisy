@@ -15,9 +15,7 @@
         [disabled]="!canNavigate(-1)"
         (click)="navigate(-1)"
       >
-        <svg [class]="parts('rdp-chevron')" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m14 6-6 6 6 6 2-2-4-4 4-4z" />
-        </svg>
+        <svg lucideChevronLeft [class]="parts('rdp-chevron')" aria-hidden="true"></svg>
       </button>
       <button
         type="button"
@@ -27,9 +25,7 @@
         [disabled]="!canNavigate(1)"
         (click)="navigate(1)"
       >
-        <svg [class]="parts('rdp-chevron')" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m10 6 6 6-6 6-2-2 4-4-4-4z" />
-        </svg>
+        <svg lucideChevronRight [class]="parts('rdp-chevron')" aria-hidden="true"></svg>
       </button>
     </div>
     <div [class]="parts('rdp-month')">

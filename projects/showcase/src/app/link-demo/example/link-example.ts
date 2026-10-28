@@ -1,3 +1,4 @@
+import { LucideArrowRight } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +18,7 @@ interface LinkValues {
 @Component({
   selector: 'demo-link-example',
   standalone: true,
-  imports: [DsyLink],
+  imports: [LucideArrowRight, DsyLink],
   templateUrl: './link-example.html',
   styleUrl: './link-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

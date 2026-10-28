@@ -20,7 +20,13 @@
     />
   </label>
   <div class="validator-example-status" [class.validator-example-valid]="control.validity.valid">
-    <span aria-hidden="true">{{ control.validity.valid ? '✓' : 'i' }}</span>
+    <span aria-hidden="true">
+      @if (control.validity.valid) {
+        <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg>
+      } @else {
+        <svg lucideInfo size="1em" class="inline-block" aria-hidden="true"></svg>
+      }
+    </span>
     <span>{{ control.validity.valid ? 'Email looks good' : 'Enter a valid email address' }}</span>
   </div>
 </section>

@@ -12,6 +12,7 @@ import {
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { DsyAlert } from '@ngx-daisy/cdk/alert';
+import { LucideX } from '@lucide/angular';
 export interface DsyToastOptions {
   color?: 'info' | 'success' | 'warning' | 'error';
   duration?: number;
@@ -105,7 +106,7 @@ export class DsyToast {
 }
 @Component({
   selector: 'dsy-toast-outlet',
-  imports: [DsyToast, DsyAlert],
+  imports: [DsyToast, DsyAlert, LucideX],
   template: `@if (service.messages().length) {
     <dsy-toast [horizontal]="horizontal()" [vertical]="vertical()" [class]="toastClass()">
       @for (message of service.messages(); track message.id) {
@@ -123,9 +124,8 @@ export class DsyToast {
             [attr.aria-label]="dismissLabel() + ' ' + message.text"
             (click)="service.dismiss(message.id)"
           >
-            ×
-          </button></dsy-alert
-        >
+            <svg lucideX size="1em" aria-hidden="true"></svg></button
+        ></dsy-alert>
       }
     </dsy-toast>
   }`,

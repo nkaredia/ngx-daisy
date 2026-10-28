@@ -1,3 +1,4 @@
+import { LucideCheck, LucideInfo } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -19,7 +20,7 @@ interface SecondaryValues {
 @Component({
   selector: 'demo-validator-example',
   standalone: true,
-  imports: [DsyValidator, DsyInput],
+  imports: [LucideCheck, LucideInfo, DsyValidator, DsyInput],
   templateUrl: './validator-example.html',
   styleUrl: './validator-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

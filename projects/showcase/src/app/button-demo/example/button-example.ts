@@ -1,3 +1,4 @@
+import { LucidePlus } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -28,7 +29,7 @@ export interface ButtonExampleValues {
 }
 
 @Component({
-  imports: [DsyButton],
+  imports: [LucidePlus, DsyButton],
   selector: 'demo-button-example',
   templateUrl: './button-example.html',
   styleUrl: './button-example.scss',

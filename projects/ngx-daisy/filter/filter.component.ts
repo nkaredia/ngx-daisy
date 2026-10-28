@@ -9,6 +9,7 @@ import {
 import { FormValueControl } from '@angular/forms/signals';
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DSY_FIELD_CONTROL, DsyValueControl } from '@ngx-daisy/cdk/form-field';
+import { LucideX } from '@lucide/angular';
 
 const colors = {
   neutral: 'btn-neutral',
@@ -30,6 +31,7 @@ export interface DsyFilterOption {
 @Component({
   selector: 'dsy-filter',
   standalone: true,
+  imports: [LucideX],
   templateUrl: './filter.component.html',
   styleUrl: './filter.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

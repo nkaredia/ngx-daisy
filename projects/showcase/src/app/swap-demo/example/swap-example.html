@@ -1,5 +1,7 @@
 <article class="swap-example-setting">
-  <div class="swap-example-icon" aria-hidden="true">✦</div>
+  <div class="swap-example-icon" aria-hidden="true">
+    <svg lucideSparkles size="1em" class="inline-block" aria-hidden="true"></svg>
+  </div>
   <div class="swap-example-copy">
     <h3>Weekly highlights</h3>
     <p>Receive one concise summary every Friday.</p>
@@ -17,8 +19,13 @@
     [variant]="props().variant ?? 'plain'"
     [buttonClass]="props().buttonClass ?? ''"
   >
-    <span dsySwapOff aria-hidden="true">○</span><span dsySwapOn aria-hidden="true">✓</span
-    ><span dsySwapIndeterminate aria-hidden="true">−</span>
+    <span dsySwapOff aria-hidden="true"
+      ><svg lucideCircle size="1em" class="inline-block" aria-hidden="true"></svg></span
+    ><span dsySwapOn aria-hidden="true"
+      ><svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg></span
+    ><span dsySwapIndeterminate aria-hidden="true"
+      ><svg lucideMinus size="1em" class="inline-block" aria-hidden="true"></svg
+    ></span>
   </dsy-swap>
 </article>
 <p class="swap-example-status" role="status">
