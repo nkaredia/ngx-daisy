@@ -34,4 +34,6 @@ Strict templates, both platform bundles, selected-icon checks, all 35 preset con
 
 The Data Input expansion adds account details with validation, a live bio editor and notification preferences. See [native Data Input](native-data-inputs.md) for APIs and verification.
 
-Select, Form Field and Fieldset add anchored native selection menus and schema-driven presentation. See [native form composition](native-form-composition.md) for usage and verification.
+Select, Form Field and Fieldset add custom anchored selection popovers and schema-driven presentation. See [native form composition](native-form-composition.md) for usage and verification.
+
+Dropdown and Select use the shared custom [native popover](native-popover.md), with app-authored rich item/option templates. The showcase RootLayout surrounds its Frame, and its Android Back handler dismisses popovers before changing pages.

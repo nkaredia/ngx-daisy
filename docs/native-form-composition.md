@@ -2,11 +2,11 @@
 
 Select, Form Field and Fieldset extend the native Data Input catalog. They use the existing native Button, anchored Menu and theme infrastructure, without an additional plugin or browser dependency.
 
-| Family     | Entry point                    | Host                        | Responsibility                                                            |
-| ---------- | ------------------------------ | --------------------------- | ------------------------------------------------------------------------- |
-| Select     | `@ngx-daisy/native/select`     | `GridLayout[dsySelect]`     | String-valued Signal Forms control with an anchored native selection menu |
-| Form Field | `@ngx-daisy/native/form-field` | `StackLayout[dsyFormField]` | Label, required marker, helper/error text and native focus                |
-| Fieldset   | `@ngx-daisy/native/fieldset`   | `StackLayout[dsyFieldset]`  | Themed visual grouping with a legend and description                      |
+| Family     | Entry point                    | Host                        | Responsibility                                                               |
+| ---------- | ------------------------------ | --------------------------- | ---------------------------------------------------------------------------- |
+| Select     | `@ngx-daisy/native/select`     | `GridLayout[dsySelect]`     | String-valued Signal Forms control with an custom anchored selection popover |
+| Form Field | `@ngx-daisy/native/form-field` | `StackLayout[dsyFormField]` | Label, required marker, helper/error text and native focus                   |
+| Fieldset   | `@ngx-daisy/native/fieldset`   | `StackLayout[dsyFieldset]`  | Themed visual grouping with a legend and description                         |
 
 ## Select
 
@@ -39,13 +39,13 @@ readonly regions: readonly DsySelectOption[] = [
 
 Select implements `FormValueControl<string>` with a `value` model; direct `[(value)]` also works. Options require unique string values and labels; descriptions and disabled state are optional. An unmatched value keeps the Angular model intact and displays the placeholder. No enabled options disables the trigger. This first native Select is single-selection and intended for short option lists; multi-select, search and virtualized lists are not implemented.
 
-The trigger opens an OS menu anchored to its native Button: UIMenu on iOS and PopupMenu on Android. The selected option has a checkmark. Choosing an enabled option updates the form immediately; tapping outside retains the current value. Select emits `touch` when its menu closes. Disabled, read-only or hidden state closes an open menu and guards stale callbacks. Replacing the options also closes an open snapshot. Native lifecycle owns dismissal and anchor cleanup.
+The trigger opens a custom NativeScript popover anchored to its native Button. The selected option has a checkmark. Choosing an enabled option updates the form immediately; outside dismissal preserves the current value. Select emits `touch` when the panel closes. Disabled, read-only or hidden state and replacement of the options close an open snapshot and guard stale callbacks. See [native popovers](native-popover.md) for RootLayout setup, anchoring and platform dismissal.
 
-`label` and `description` override inherited Form Field metadata. `placeholder` is localizable. The trigger keeps the selected value left-aligned and reserves a separate right-hand area for a decorative chevron. The full field is one native Button and one accessibility control, including taps over the chevron. Long values truncate before the indicator. Dropdown keeps its ordinary button trigger.
+`label` and `description` override inherited Form Field metadata. `placeholder` is localizable. The trigger keeps the selected value left-aligned and reserves a separate right-hand area for a decorative chevron. The field is one native Button/accessibility control. Long values truncate before the indicator. Dropdown keeps its ordinary button trigger.
 
-`dsyColor`, `size` and `triggerClass` configure the trigger; `indicatorClass` styles the separate, noninteractive chevron area. The chevron uses native view borders, so no icon provider is required. Scope styles through `.dsy-native-select` when overriding trigger borders/alignment. The operating system owns menu appearance; iOS uses the declaring theme’s light/dark scheme and supports option subtitles, while Android uses its native context and plain option labels. The native Button owns text layout, so use concise option labels. `focus()` forwards to the actual native trigger when enabled.
+`dsyColor`, `size`, `triggerClass` and `indicatorClass` configure the trigger. `panelClass`, `optionClass` and `maxHeight` style/bound the panel. The detached panel reapplies the declaring theme reactively. Import `DsySelectOptionTemplate` for a custom `ng-template[dsySelectOption]`; it receives the original option as `$implicit` and a `selected` boolean. The native option Button owns all interaction and accessibility, so the template must contain render-only content. `focus()` forwards to the native trigger when enabled.
 
-The previous draft/confirmation sheet API has been removed: delete `confirmText`, `cancelText`, `optionClass` and `panelClass` bindings. Use a Modal with explicit controls for workflows that require confirmation.
+Select no longer uses a draft/confirmation sheet: `confirmText` and `cancelText` remain removed. Use Modal for workflows requiring explicit confirmation. The custom popover restores panel/option styling and permits provider-owned icons, badges and supporting text.
 
 ## Form Field
 
@@ -67,4 +67,6 @@ The showcase has separate Select, Form Field and Fieldset pages. Examples demons
 
 Native unit tests cover inherited labels/hints, touched validation and recovery, explicit label overrides, hidden fields, focus forwarding, immediate select updates and outside dismissal, unavailable options, external model preservation, disabled/read-only/hidden guards and early cancellation. Existing native input and switch-animation regression tests remain included.
 
-On iPhone 17 / iOS 26.5, verified the anchored native menu with the current selection checked, disabled destinations, option descriptions and immediate selection updating the bound region from United States to Canada. Existing form validation/focus coverage remains in the unit suite. These are simulator interactions and accessibility-tree inspection, not a screen-reader audit. Android rendering, native back behavior, large text and software-keyboard avoidance remain separate device checks.
+Earlier system-menu verification (before the custom popover replacement): on iPhone 17 / iOS 26.5, verified the anchored native menu with the current selection checked, disabled destinations, option descriptions and immediate selection updating the bound region from United States to Canada. Existing form validation/focus coverage remains in the unit suite. These are simulator interactions and accessibility-tree inspection, not a screen-reader audit. Android rendering, native back behavior, large text and software-keyboard avoidance remain separate device checks.
+
+Current custom popover behavior and simulator checks are recorded in [native popover verification](native-popover.md#verification).

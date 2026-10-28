@@ -7,7 +7,7 @@ The six Actions families have native entry points under `@ngx-daisy/native`: But
 | Entry point         | Public building blocks                                                       | Native behavior                                                                        |
 | ------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `/button`           | `DsyButton`                                                                  | Real native Button; see the package guide                                              |
-| `/dropdown`         | `DsyDropdown`, `DsyDropdownTrigger`, `DsyDropdownContent`, `DsyDropdownItem` | An anchored iOS UIMenu / Android PopupMenu                                             |
+| `/dropdown`         | `DsyDropdown`, `DsyDropdownTrigger`, `DsyDropdownContent`, `DsyDropdownItem` | A themed custom anchored NativeScript popover                                          |
 | `/fab`              | `DsyFab`, `DsyFabTrigger`, `DsyFabAction`, `DsyFabClose`                     | Expandable projected actions within a native StackLayout; the app positions the layout |
 | `/modal`            | `DsyModal`, `DsyModalService`, `DsyModalConfig`, `DsyModalContext`           | Template-backed, compact centered NativeScript dialog                                  |
 | `/swap`             | `DsySwap`                                                                    | A native Button swaps text/glyph labels and checked state                              |
@@ -29,9 +29,11 @@ Import each used standalone component/directive into the consuming component. Na
 </StackLayout>
 ```
 
-Use exactly one trigger and content template. `opened` is a boolean model. `open()`, `close()` and `toggle()` are also available through `exportAs="dsyDropdown"`. `disabled` prevents opening and closes an open surface. Each item accepts `disabled` and emits `triggered`; use that output for app actions. Selection dismisses the menu. Content is recreated as a detached metadata view on open, so keep persistent state in the app. The template declares menu actions, not arbitrary visual content. Move cards, forms and explanatory layouts to the page or a Modal. Item `label` overrides Button text; `description`, `section` and `destructive` supply native metadata. iOS displays subtitles, inline sections and destructive appearance; the basic Android PopupMenu displays labels, disabled state and selection checkmarks.
+Use exactly one trigger and content template. `opened` is a boolean model; `open()`, `close()` and `toggle()` are also available through `exportAs="dsyDropdown"`. `disabled` prevents opening and closes an active panel. Content is live Angular markup, recreated on each opening and destroyed on closing. It supports native layouts, provider-owned icons, badges, headers and custom action rows.
 
-The menu anchors to the native trigger. The operating system owns placement, visuals, accessibility, keyboard interaction and outside dismissal. iOS uses the inherited theme’s light/dark scheme; Android uses the native context’s appearance. Custom daisyUI colors, dimensions and panel utilities cannot style an OS menu. Dropdown no longer accepts `panelClass`; style the trigger with DsyButton and app utilities. Menu items are snapshots taken on opening, with current disabled/lifetime guards checked again on selection.
+`DsyDropdownItem` accepts Button, GridLayout or StackLayout hosts. It guards disabled/stale activation, closes the panel and emits `triggered`. Give layout items an explicit `label`; `description` supplies accessible help. Section headings and visible secondary text are ordinary authored views. `destructive` provides the theme's error foreground. Keep independent interactive controls outside actionable rows.
+
+`panelClass`, `panelWidth` (280 DIP or `anchor`) and `maxHeight` customize the panel. The trigger remains an ordinary DsyButton. RootLayout setup, positioning, theme inheritance, Escape/Back/outside dismissal and custom Select option templates are documented in [native anchored popovers](native-popover.md).
 
 ## Modal
 
@@ -132,16 +134,8 @@ The native package build, strict showcase templates, iOS/Android AOT JavaScript 
 
 On iPhone 17 / iOS 26.5, verified Dropdown presentation, disabled item appearance, selection/result dismissal; Modal presentation and a returned creation result; speed-dial expansion, selection and collapse; Swap updating its Signal Forms value and visible feedback; Theme Controller switching a scoped card; and Icon sizes, semantic colors and decorative/labeled accessibility-tree entries. This was simulator interaction and accessibility-tree inspection, not a VoiceOver audit. Android device rendering, screen-reader operation, larger font scales and nested modal dismissal remain unverified.
 
-## Anchored menu foundation and migration
+## Custom popover migration
 
-`@ngx-daisy/native/menu` exports `DsyNativeMenuService`, typed items/options and the `DSY_NATIVE_MENU_PRESENTER` injection token. Dropdown and Select share it. Native dismissal completes a replayed `closed` observable, removes anchor unload listeners and releases the temporary iOS menu button after its dismissal animation. Unloading the anchor closes its menu. The presenter token permits isolated tests without requiring a native runtime.
+`@ngx-daisy/native/popover` is the reusable RootLayout-backed presentation foundation. `@ngx-daisy/native/menu` uses it for standard, optionally templated menu rows. The earlier UIMenu/PopupMenu bridge and `DSY_NATIVE_MENU_PRESENTER` token have been removed. Dropdown now renders its authored template directly instead of extracting item metadata. Select permits custom `dsySelectOption` templates.
 
-Applications migrating from the earlier sheet implementation should remove Dropdown `panelClass` and arbitrary visual content from its content template. Select now applies a choice immediately; remove `confirmText`, `cancelText`, `optionClass` and `panelClass`. Trigger styling remains customizable. Use Modal for rich projected content and explicit confirmation.
-
-The interaction follows Apple’s [pull-down button guidance](https://developer.apple.com/design/human-interface-guidelines/pull-down-buttons) and Android’s [native popup menu API](https://developer.android.com/develop/ui/views/components/menus). The operating system determines the actual menu presentation.
-
-### October 27 menu presentation verification
-
-`yarn check:native` passed package builds, strict templates, both platform JavaScript bundles, styling, icon and catalog checks. All 59 native unit tests passed, including native menu lifecycle adapters, anchor cleanup, stale callbacks, immediate selection, focus forwarding, bounded dialog sizing and dismissal safeguards.
-
-On iPhone 17 / iOS 26.5, verified anchored Dropdown presentation with sections and disabled actions, action feedback, outside dismissal and reopening; Select checkmarks, descriptions, disabled options and immediate form updates; and a centered height-bounded Modal with explicit dismissal. NativeScript ScrollView needs a containing GridLayout to enforce the maximum height, so the card owns that bound. Android execution was attempted, but local Android platform/build tools and a JDK are missing. An emulator alone is insufficient; Android rendering and back navigation remain unverified.
+Use app classes/native properties and theme tokens for custom surfaces. Add RootLayout around the app's Frame, give popovers priority in app-owned Android Back handling, and follow the [popover guide](native-popover.md) for focus and cleanup boundaries. The historical October 26 checks above predate this presentation change.
