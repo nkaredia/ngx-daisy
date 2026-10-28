@@ -1,316 +1,323 @@
-<Frame>
-  <Page
-    actionBarHidden="true"
-    [dsyTheme]="theme()"
-    [statusBarStyle]="dark() ? 'light' : 'dark'"
-    class="bg-base-100 text-base-content"
-  >
-    <GridLayout
-      rows="auto, *"
-      [columns]="persistentNavigation() ? '288, *' : '*'"
-      (layoutChanged)="onLayout($event)"
+<RootLayout>
+  <Frame>
+    <Page
+      actionBarHidden="true"
+      [dsyTheme]="theme()"
+      [statusBarStyle]="dark() ? 'light' : 'dark'"
+      class="bg-base-100 text-base-content"
     >
-      @if (!persistentNavigation() && page() !== 'themes') {
-        <GridLayout
-          row="0"
-          columns="auto, *, auto"
-          class="native-titlebar bg-base-100 px-4 py-2"
+      <GridLayout
+        rows="auto, *"
+        [columns]="persistentNavigation() ? '288, *' : '*'"
+        (layoutChanged)="onLayout($event)"
+      >
+        @if (!persistentNavigation() && page() !== 'themes') {
+          <GridLayout
+            row="0"
+            columns="auto, *, auto"
+            class="native-titlebar bg-base-100 px-4 py-2"
+            [isEnabled]="!overlayOpen()"
+            [accessibilityHidden]="overlayOpen()"
+          >
+            <GridLayout
+              col="0"
+              appIconButton
+              label="Open component navigation"
+              [artwork]="menu"
+              (pressed)="navigationOpened.set(true)"
+            ></GridLayout>
+            <Label
+              col="1"
+              text="ngx-daisy"
+              class="text-xl font-bold ml-3"
+              verticalAlignment="middle"
+              accessibilityRole="header"
+            ></Label>
+            <Label
+              col="2"
+              [text]="'v' + version"
+              class="text-[12px] opacity-60"
+              verticalAlignment="middle"
+            ></Label>
+          </GridLayout>
+        }
+        <ScrollView
+          #pageScroll
+          row="1"
+          [col]="persistentNavigation() ? 1 : 0"
           [isEnabled]="!overlayOpen()"
           [accessibilityHidden]="overlayOpen()"
         >
+          <StackLayout class="p-6">
+            <Label
+              [text]="title()"
+              class="text-[32px] font-bold mb-2"
+              textWrap="true"
+              accessibilityRole="header"
+            ></Label>
+            <Label
+              text="Native components. The same design language."
+              class="opacity-65 mb-6"
+              textWrap="true"
+            ></Label>
+            @switch (page()) {
+              @case ('buttons') {
+                <dsy-native-button-example />
+              }
+              @case ('icons') {
+                <dsy-native-icon-example />
+              }
+              @case ('checkboxes') {
+                <dsy-native-selection-example family="checkboxes" />
+              }
+              @case ('radios') {
+                <dsy-native-selection-example family="radios" />
+              }
+              @case ('ranges') {
+                <dsy-native-selection-example family="ranges" />
+              }
+              @case ('selects') {
+                <dsy-native-form-composition-example family="selects" />
+              }
+              @case ('form-fields') {
+                <dsy-native-form-composition-example family="form-fields" />
+              }
+              @case ('fieldsets') {
+                <dsy-native-form-composition-example family="fieldsets" />
+              }
+              @case ('inputs') {
+                <dsy-native-data-input-example family="inputs" />
+              }
+              @case ('textareas') {
+                <dsy-native-data-input-example family="textareas" />
+              }
+              @case ('toggles') {
+                <dsy-native-data-input-example family="toggles" />
+              }
+              @case ('themes') {
+                <dsy-native-theme-editor [theme]="theme()" (applied)="selectTheme($event)" />
+              }
+              @default {
+                <dsy-native-actions-example [family]="$any(page())" />
+              }
+            }
+          </StackLayout>
+        </ScrollView>
+        @if (page() === 'themes' && !overlayOpen()) {
           <GridLayout
-            col="0"
+            row="1"
             appIconButton
             label="Open component navigation"
             [artwork]="menu"
             (pressed)="navigationOpened.set(true)"
+            horizontalAlignment="right"
+            verticalAlignment="top"
+            margin="16"
+            class="bg-base-200 rounded-full"
           ></GridLayout>
-          <Label
-            col="1"
-            text="ngx-daisy"
-            class="text-xl font-bold ml-3"
-            verticalAlignment="middle"
-            accessibilityRole="header"
-          ></Label>
-          <Label
-            col="2"
-            [text]="'v' + version"
-            class="text-[12px] opacity-60"
-            verticalAlignment="middle"
-          ></Label>
-        </GridLayout>
-      }
-      <ScrollView
-        #pageScroll
-        row="1"
-        [col]="persistentNavigation() ? 1 : 0"
-        [isEnabled]="!overlayOpen()"
-        [accessibilityHidden]="overlayOpen()"
-      >
-        <StackLayout class="p-6">
-          <Label
-            [text]="title()"
-            class="text-[32px] font-bold mb-2"
-            textWrap="true"
-            accessibilityRole="header"
-          ></Label>
-          <Label
-            text="Native components. The same design language."
-            class="opacity-65 mb-6"
-            textWrap="true"
-          ></Label>
-          @switch (page()) {
-            @case ('buttons') {
-              <dsy-native-button-example />
-            }
-            @case ('icons') {
-              <dsy-native-icon-example />
-            }
-            @case ('checkboxes') {
-              <dsy-native-selection-example family="checkboxes" />
-            }
-            @case ('radios') {
-              <dsy-native-selection-example family="radios" />
-            }
-            @case ('ranges') {
-              <dsy-native-selection-example family="ranges" />
-            }
-            @case ('selects') {
-              <dsy-native-form-composition-example family="selects" />
-            }
-            @case ('form-fields') {
-              <dsy-native-form-composition-example family="form-fields" />
-            }
-            @case ('fieldsets') {
-              <dsy-native-form-composition-example family="fieldsets" />
-            }
-            @case ('inputs') {
-              <dsy-native-data-input-example family="inputs" />
-            }
-            @case ('textareas') {
-              <dsy-native-data-input-example family="textareas" />
-            }
-            @case ('toggles') {
-              <dsy-native-data-input-example family="toggles" />
-            }
-            @case ('themes') {
-              <dsy-native-theme-editor [theme]="theme()" (applied)="selectTheme($event)" />
-            }
-            @default {
-              <dsy-native-actions-example [family]="$any(page())" />
-            }
-          }
-        </StackLayout>
-      </ScrollView>
-      @if (page() === 'themes' && !overlayOpen()) {
-        <GridLayout
-          row="1"
-          appIconButton
-          label="Open component navigation"
-          [artwork]="menu"
-          (pressed)="navigationOpened.set(true)"
-          horizontalAlignment="right"
-          verticalAlignment="top"
-          margin="16"
-          class="bg-base-200 rounded-full"
-        ></GridLayout>
-      }
-      @if (persistentNavigation()) {
-        <GridLayout col="0" rowSpan="2" class="bg-base-200"
-          ><ng-container [ngTemplateOutlet]="navigation"
-        /></GridLayout>
-      } @else if (navigationOpened()) {
-        <GridLayout rowSpan="2" columns="288, *">
-          <Button
-            colSpan="2"
-            text=""
-            backgroundColor="rgba(0,0,0,0.4)"
-            width="100%"
-            height="100%"
-            horizontalAlignment="stretch"
-            verticalAlignment="stretch"
-            accessibilityRole="button"
-            accessible="true"
-            borderWidth="0"
-            accessibilityLabel="Close component navigation"
-            (tap)="navigationOpened.set(false)"
-          ></Button>
-          <GridLayout col="0" class="bg-base-200"
+        }
+        @if (persistentNavigation()) {
+          <GridLayout col="0" rowSpan="2" class="bg-base-200"
             ><ng-container [ngTemplateOutlet]="navigation"
           /></GridLayout>
-        </GridLayout>
-      }
-      <ng-template #navigation>
-        <GridLayout rows="auto, *, auto" class="bg-base-200 text-base-content">
-          <GridLayout row="0" columns="*, auto" class="px-5 py-4">
-            @if (persistentNavigation()) {
-              <StackLayout orientation="horizontal" verticalAlignment="middle"
-                ><Label text="ngx-daisy" class="text-[23px] font-bold"></Label
-                ><Label
-                  [text]="'v' + version"
-                  class="text-[11px] opacity-60 ml-2"
+        } @else if (navigationOpened()) {
+          <GridLayout rowSpan="2" columns="288, *">
+            <Button
+              colSpan="2"
+              text=""
+              backgroundColor="rgba(0,0,0,0.4)"
+              width="100%"
+              height="100%"
+              horizontalAlignment="stretch"
+              verticalAlignment="stretch"
+              accessibilityRole="button"
+              accessible="true"
+              borderWidth="0"
+              accessibilityLabel="Close component navigation"
+              (tap)="navigationOpened.set(false)"
+            ></Button>
+            <GridLayout col="0" class="bg-base-200"
+              ><ng-container [ngTemplateOutlet]="navigation"
+            /></GridLayout>
+          </GridLayout>
+        }
+        <ng-template #navigation>
+          <GridLayout rows="auto, *, auto" class="bg-base-200 text-base-content">
+            <GridLayout row="0" columns="*, auto" class="px-5 py-4">
+              @if (persistentNavigation()) {
+                <StackLayout orientation="horizontal" verticalAlignment="middle"
+                  ><Label text="ngx-daisy" class="text-[23px] font-bold"></Label
+                  ><Label
+                    [text]="'v' + version"
+                    class="text-[11px] opacity-60 ml-2"
+                    verticalAlignment="middle"
+                  ></Label
+                ></StackLayout>
+              } @else {
+                <Label
+                  text="Components"
+                  class="text-lg font-semibold"
                   verticalAlignment="middle"
-                ></Label
-              ></StackLayout>
-            } @else {
-              <Label
-                text="Components"
-                class="text-lg font-semibold"
-                verticalAlignment="middle"
-                accessibilityRole="header"
-              ></Label>
+                  accessibilityRole="header"
+                ></Label>
+                <GridLayout
+                  col="1"
+                  appIconButton
+                  label="Close component navigation"
+                  [artwork]="closeIcon"
+                  (pressed)="navigationOpened.set(false)"
+                ></GridLayout>
+              }
+            </GridLayout>
+            <ScrollView row="1">
+              <StackLayout class="px-4 py-2">
+                @for (group of groups; track group.id) {
+                  <GridLayout columns="auto, *" class="mt-4 mb-2 px-2">
+                    <GridLayout dsyIcon [size]="18"
+                      ><AppSvgIcon [artwork]="group.icon" accessible="false"></AppSvgIcon
+                    ></GridLayout>
+                    <Label
+                      col="1"
+                      [text]="group.label"
+                      class="text-[16px] font-semibold ml-3"
+                      verticalAlignment="middle"
+                      accessibilityRole="header"
+                    ></Label>
+                  </GridLayout>
+                  @for (entry of group.pages; track entry.id) {
+                    <Button
+                      dsyButton
+                      [text]="entry.label"
+                      variant="ghost"
+                      dsyLayout="block"
+                      [active]="page() === entry.id"
+                      class="native-navigation-item"
+                      [class.native-navigation-active]="page() === entry.id"
+                      (pressed)="selectPage(entry.id)"
+                    ></Button>
+                  }
+                }
+              </StackLayout>
+            </ScrollView>
+            <GridLayout row="2" columns="auto, *, auto" class="native-theme-footer px-4 py-4">
+              <StackLayout col="0" orientation="horizontal" verticalAlignment="middle">
+                <GridLayout dsyIcon [size]="16" verticalAlignment="middle"
+                  ><AppSvgIcon [artwork]="sun" accessible="false"></AppSvgIcon
+                ></GridLayout>
+                <Switch
+                  [checked]="theme().name === 'dark'"
+                  (checkedChange)="colorMode($event)"
+                  accessibilityLabel="Use dark theme"
+                  margin="0 6"
+                ></Switch>
+                <GridLayout dsyIcon [size]="16" verticalAlignment="middle"
+                  ><AppSvgIcon [artwork]="moon" accessible="false"></AppSvgIcon
+                ></GridLayout>
+              </StackLayout>
               <GridLayout
                 col="1"
                 appIconButton
-                label="Close component navigation"
-                [artwork]="closeIcon"
-                (pressed)="navigationOpened.set(false)"
-              ></GridLayout>
-            }
-          </GridLayout>
-          <ScrollView row="1">
-            <StackLayout class="px-4 py-2">
-              @for (group of groups; track group.id) {
-                <GridLayout columns="auto, *" class="mt-4 mb-2 px-2">
-                  <GridLayout dsyIcon [size]="18"
-                    ><AppSvgIcon [artwork]="group.icon" accessible="false"></AppSvgIcon
-                  ></GridLayout>
+                label="Choose a theme"
+                horizontalAlignment="center"
+                (pressed)="themePicker.open()"
+              >
+                <GridLayout
+                  rows="auto, auto"
+                  columns="auto, auto"
+                  class="bg-base-100 rounded-field p-1"
+                >
                   <Label
+                    width="6"
+                    height="6"
+                    margin="1"
+                    class="bg-base-content rounded-full"
+                  ></Label
+                  ><Label
                     col="1"
-                    [text]="group.label"
-                    class="text-[16px] font-semibold ml-3"
-                    verticalAlignment="middle"
-                    accessibilityRole="header"
+                    width="6"
+                    height="6"
+                    margin="1"
+                    class="bg-primary rounded-full"
+                  ></Label
+                  ><Label
+                    row="1"
+                    width="6"
+                    height="6"
+                    margin="1"
+                    class="bg-secondary rounded-full"
+                  ></Label
+                  ><Label
+                    row="1"
+                    col="1"
+                    width="6"
+                    height="6"
+                    margin="1"
+                    class="bg-accent rounded-full"
                   ></Label>
                 </GridLayout>
-                @for (entry of group.pages; track entry.id) {
-                  <Button
-                    dsyButton
-                    [text]="entry.label"
-                    variant="ghost"
-                    dsyLayout="block"
-                    [active]="page() === entry.id"
-                    class="native-navigation-item"
-                    [class.native-navigation-active]="page() === entry.id"
-                    (pressed)="selectPage(entry.id)"
-                  ></Button>
-                }
-              }
-            </StackLayout>
-          </ScrollView>
-          <GridLayout row="2" columns="auto, *, auto" class="native-theme-footer px-4 py-4">
-            <StackLayout col="0" orientation="horizontal" verticalAlignment="middle">
-              <GridLayout dsyIcon [size]="16" verticalAlignment="middle"
-                ><AppSvgIcon [artwork]="sun" accessible="false"></AppSvgIcon
-              ></GridLayout>
-              <Switch
-                [checked]="theme().name === 'dark'"
-                (checkedChange)="colorMode($event)"
-                accessibilityLabel="Use dark theme"
-                margin="0 6"
-              ></Switch>
-              <GridLayout dsyIcon [size]="16" verticalAlignment="middle"
-                ><AppSvgIcon [artwork]="moon" accessible="false"></AppSvgIcon
-              ></GridLayout>
-            </StackLayout>
-            <GridLayout
-              col="1"
-              appIconButton
-              label="Choose a theme"
-              horizontalAlignment="center"
-              (pressed)="themePicker.open()"
-            >
-              <GridLayout
-                rows="auto, auto"
-                columns="auto, auto"
-                class="bg-base-100 rounded-field p-1"
-              >
-                <Label width="6" height="6" margin="1" class="bg-base-content rounded-full"></Label
-                ><Label
-                  col="1"
-                  width="6"
-                  height="6"
-                  margin="1"
-                  class="bg-primary rounded-full"
-                ></Label
-                ><Label
-                  row="1"
-                  width="6"
-                  height="6"
-                  margin="1"
-                  class="bg-secondary rounded-full"
-                ></Label
-                ><Label
-                  row="1"
-                  col="1"
-                  width="6"
-                  height="6"
-                  margin="1"
-                  class="bg-accent rounded-full"
-                ></Label>
               </GridLayout>
-            </GridLayout>
-            <ng-template dsyModal #themePicker="dsyModal" label="Choose a theme">
-              @for (preset of themes(); track preset.name) {
-                <GridLayout columns="auto, *" marginBottom="4">
-                  <GridLayout
-                    [dsyTheme]="preset"
-                    rows="auto, auto"
-                    columns="auto, auto"
-                    class="bg-base-100 rounded-field p-1"
-                    verticalAlignment="middle"
-                  >
-                    <Label
-                      width="7"
-                      height="7"
-                      margin="1"
-                      class="bg-base-content rounded-full"
-                    ></Label>
-                    <Label
+              <ng-template dsyModal #themePicker="dsyModal" label="Choose a theme">
+                @for (preset of themes(); track preset.name) {
+                  <GridLayout columns="auto, *" marginBottom="4">
+                    <GridLayout
+                      [dsyTheme]="preset"
+                      rows="auto, auto"
+                      columns="auto, auto"
+                      class="bg-base-100 rounded-field p-1"
+                      verticalAlignment="middle"
+                    >
+                      <Label
+                        width="7"
+                        height="7"
+                        margin="1"
+                        class="bg-base-content rounded-full"
+                      ></Label>
+                      <Label
+                        col="1"
+                        width="7"
+                        height="7"
+                        margin="1"
+                        class="bg-primary rounded-full"
+                      ></Label>
+                      <Label
+                        row="1"
+                        width="7"
+                        height="7"
+                        margin="1"
+                        class="bg-secondary rounded-full"
+                      ></Label>
+                      <Label
+                        row="1"
+                        col="1"
+                        width="7"
+                        height="7"
+                        margin="1"
+                        class="bg-accent rounded-full"
+                      ></Label>
+                    </GridLayout>
+                    <Button
                       col="1"
-                      width="7"
-                      height="7"
-                      margin="1"
-                      class="bg-primary rounded-full"
-                    ></Label>
-                    <Label
-                      row="1"
-                      width="7"
-                      height="7"
-                      margin="1"
-                      class="bg-secondary rounded-full"
-                    ></Label>
-                    <Label
-                      row="1"
-                      col="1"
-                      width="7"
-                      height="7"
-                      margin="1"
-                      class="bg-accent rounded-full"
-                    ></Label>
+                      dsyButton
+                      [text]="preset.name"
+                      variant="ghost"
+                      dsyLayout="block"
+                      [active]="theme().name === preset.name"
+                      (pressed)="selectTheme(preset); themePicker.close()"
+                    ></Button>
                   </GridLayout>
-                  <Button
-                    col="1"
-                    dsyButton
-                    [text]="preset.name"
-                    variant="ghost"
-                    dsyLayout="block"
-                    [active]="theme().name === preset.name"
-                    (pressed)="selectTheme(preset); themePicker.close()"
-                  ></Button>
-                </GridLayout>
-              }
-            </ng-template>
-            <GridLayout
-              col="2"
-              appIconButton
-              label="Open Theme Builder"
-              [artwork]="paintbrush"
-              (pressed)="selectPage('themes')"
-            ></GridLayout>
+                }
+              </ng-template>
+              <GridLayout
+                col="2"
+                appIconButton
+                label="Open Theme Builder"
+                [artwork]="paintbrush"
+                (pressed)="selectPage('themes')"
+              ></GridLayout>
+            </GridLayout>
           </GridLayout>
-        </GridLayout>
-      </ng-template>
-    </GridLayout>
-  </Page>
-</Frame>
+        </ng-template>
+      </GridLayout>
+    </Page>
+  </Frame>
+</RootLayout>

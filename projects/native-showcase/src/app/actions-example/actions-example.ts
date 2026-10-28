@@ -8,6 +8,9 @@ import {
 } from '@angular/core';
 import { FormField, form } from '@angular/forms/signals';
 import { NativeScriptCommonModule } from '@nativescript/angular';
+import { DsyIcon } from '@ngx-daisy/native/icon';
+import { UserPlus, Link, Star, Archive } from 'lucide';
+import { lucideArtwork } from '../icons/svg-artwork';
 import { DsyButton } from '@ngx-daisy/native/button';
 import { DsyModal } from '@ngx-daisy/native/modal';
 import {
@@ -30,6 +33,7 @@ import { DsyTheme, DSY_DARK_THEME, DSY_LIGHT_THEME } from '@ngx-daisy/native/the
     NativeScriptCommonModule,
     FormField,
     DsyButton,
+    DsyIcon,
     DsyModal,
     DsyDropdown,
     DsyDropdownTrigger,
@@ -52,6 +56,12 @@ export class NativeActionsExample {
   readonly family = input<'dropdowns' | 'fabs' | 'modals' | 'swaps' | 'theme-controllers'>(
     'dropdowns',
   );
+  readonly menuIcons = {
+    invite: lucideArtwork(UserPlus),
+    link: lucideArtwork(Link),
+    favorite: lucideArtwork(Star),
+    archive: lucideArtwork(Archive),
+  };
   readonly message = signal('Your workspace is up to date.');
   readonly preferences = signal({ sound: true });
   readonly preferenceForm = form(this.preferences);

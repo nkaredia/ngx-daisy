@@ -11,16 +11,20 @@ for (const output of outputs) {
     ...bundle.matchAll(/node_modules\/lucide\/dist\/esm\/icons\/([a-z-]+)\.mjs/g),
   ].map((match) => match[1]);
   assert.deepEqual([...new Set(lucideModules)].sort(), [
+    'archive',
     'chart-no-axes-column',
     'circle-check',
     'heart',
     'house',
     'keyboard',
+    'link',
     'menu',
     'moon',
     'paintbrush',
     'settings',
+    'star',
     'sun',
+    'user-plus',
     'x',
     'zap',
   ]);

@@ -33,7 +33,7 @@
         class="opacity-60 mb-4"
         textWrap="true"
       ></Label>
-      <StackLayout dsyDropdown label="Weekend project actions">
+      <StackLayout dsyDropdown label="Project actions" [panelWidth]="320" [maxHeight]="440">
         <Button
           dsyButton
           dsyDropdownTrigger
@@ -42,58 +42,94 @@
           dsyLayout="block"
         ></Button>
         <ng-template dsyDropdownContent>
-          <Button
-            dsyButton
+          <GridLayout columns="*, auto" class="bg-base-200 rounded-box p-3 mb-2">
+            <StackLayout
+              ><Label text="Summer collection" class="font-semibold"></Label
+              ><Label text="Shared workspace" class="text-xs opacity-60 mt-1"></Label
+            ></StackLayout>
+            <Label
+              col="1"
+              text="Team"
+              class="text-xs text-primary"
+              verticalAlignment="middle"
+            ></Label>
+          </GridLayout>
+          <GridLayout
             dsyDropdownItem
-            text="Invite teammates"
-            section="Collaborate"
-            variant="soft"
-            dsyColor="primary"
-            dsyLayout="block"
-            margin="4"
+            columns="28, *"
+            label="Invite teammates"
+            description="Create an invitation for your team"
+            class="mb-1"
             (triggered)="select('An invitation link is ready to share.')"
-          ></Button>
-          <Button
-            dsyButton
+          >
+            <GridLayout dsyIcon [size]="20" dsyColor="primary" verticalAlignment="middle"
+              ><AppSvgIcon [artwork]="menuIcons.invite" accessible="false"></AppSvgIcon
+            ></GridLayout>
+            <StackLayout col="1"
+              ><Label text="Invite teammates" class="font-semibold"></Label
+              ><Label
+                text="Bring your team into the project"
+                class="text-xs opacity-60 mt-1"
+                textWrap="true"
+              ></Label
+            ></StackLayout>
+          </GridLayout>
+          <GridLayout
             dsyDropdownItem
-            text="Copy project link"
-            section="Collaborate"
-            variant="ghost"
-            dsyLayout="block"
-            margin="4"
+            columns="28, *"
+            label="Copy project link"
+            description="Share a direct link to this workspace"
+            class="mb-1"
             (triggered)="select('Demo: project link selected.')"
-          ></Button>
+          >
+            <GridLayout dsyIcon [size]="20" verticalAlignment="middle"
+              ><AppSvgIcon [artwork]="menuIcons.link" accessible="false"></AppSvgIcon
+            ></GridLayout>
+            <StackLayout col="1"
+              ><Label text="Copy project link"></Label
+              ><Label
+                text="Share this workspace in a message"
+                class="text-xs opacity-60 mt-1"
+                textWrap="true"
+              ></Label
+            ></StackLayout>
+          </GridLayout>
           <Button
             dsyButton
             dsyDropdownItem
             text="Duplicate project"
-            section="Organize"
             variant="ghost"
             dsyLayout="block"
-            margin="4"
             (triggered)="select('Project duplicated.')"
           ></Button>
-          <Button
-            dsyButton
+          <GridLayout
             dsyDropdownItem
-            text="Add to favorites"
-            section="Organize"
-            variant="ghost"
-            dsyLayout="block"
-            margin="4"
+            columns="28, *, auto"
+            label="Add to favorites"
             (triggered)="select('Project added to favorites.')"
-          ></Button>
-          <Button
-            dsyButton
-            dsyDropdownItem
-            text="Archive project"
-            section="Organize"
-            destructive
-            disabled
-            variant="ghost"
-            dsyLayout="block"
-            margin="4"
-          ></Button>
+          >
+            <GridLayout dsyIcon [size]="20" verticalAlignment="middle"
+              ><AppSvgIcon [artwork]="menuIcons.favorite" accessible="false"></AppSvgIcon
+            ></GridLayout>
+            <Label col="1" text="Add to favorites" verticalAlignment="middle"></Label>
+            <Label
+              col="2"
+              text="Quick access"
+              class="text-xs text-primary"
+              verticalAlignment="middle"
+            ></Label>
+          </GridLayout>
+          <GridLayout dsyDropdownItem columns="28, *" label="Archive project" disabled destructive>
+            <GridLayout dsyIcon [size]="20" verticalAlignment="middle"
+              ><AppSvgIcon [artwork]="menuIcons.archive" accessible="false"></AppSvgIcon
+            ></GridLayout>
+            <Label col="1" text="Archive project" verticalAlignment="middle"></Label>
+          </GridLayout>
+          <Label
+            text="Changes apply to this workspace only."
+            class="text-xs opacity-50 p-2"
+            textWrap="true"
+          ></Label>
         </ng-template>
       </StackLayout>
     </StackLayout>

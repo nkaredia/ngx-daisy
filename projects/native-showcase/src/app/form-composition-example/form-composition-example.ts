@@ -10,7 +10,7 @@ import { FormField, email, form, required } from '@angular/forms/signals';
 import { NativeScriptCommonModule } from '@nativescript/angular';
 import { DsyFormField } from '@ngx-daisy/native/form-field';
 import { DsyFieldset } from '@ngx-daisy/native/fieldset';
-import { DsySelect, type DsySelectOption } from '@ngx-daisy/native/select';
+import { DsySelect, DsySelectOptionTemplate, type DsySelectOption } from '@ngx-daisy/native/select';
 import { DsyInput } from '@ngx-daisy/native/input';
 import { DsyToggle } from '@ngx-daisy/native/toggle';
 import { DsyButton } from '@ngx-daisy/native/button';
@@ -23,6 +23,7 @@ import { DsyButton } from '@ngx-daisy/native/button';
     DsyFormField,
     DsyFieldset,
     DsySelect,
+    DsySelectOptionTemplate,
     DsyInput,
     DsyToggle,
     DsyButton,

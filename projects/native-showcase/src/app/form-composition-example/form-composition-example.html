@@ -17,10 +17,31 @@
             [formField]="fields.region"
             [options]="regions"
             placeholder="Choose your region"
-          ></GridLayout>
+          >
+            <ng-template dsySelectOption let-destination let-selected="selected">
+              <GridLayout columns="*, auto" class="mb-1">
+                <Label
+                  [text]="destination.label"
+                  [fontWeight]="selected ? '600' : '400'"
+                  textWrap="true"
+                ></Label>
+                <Label
+                  col="1"
+                  [text]="destination.value.toUpperCase()"
+                  class="text-xs text-primary ml-2"
+                  verticalAlignment="middle"
+                ></Label>
+              </GridLayout>
+              <Label
+                [text]="destination.description"
+                class="text-xs opacity-60"
+                textWrap="true"
+              ></Label>
+            </ng-template>
+          </GridLayout>
         </StackLayout>
         <Label
-          text="Choose a destination from the native menu. Tap outside it to keep your current selection."
+          text="Choose a destination from the selection popover. Tap outside it to keep your current selection."
           class="text-sm opacity-60 mb-4"
           textWrap="true"
         ></Label>

@@ -2,6 +2,7 @@ import { NativeFormCompositionExample } from './form-composition-example/form-co
 import { NativeSelectionExample } from './selection-example/selection-example';
 import { NativeDataInputExample } from './data-input-example/data-input-example';
 import { NativeIconButton } from './shell/icon-button';
+import { DsyPopoverService } from '@ngx-daisy/native/popover';
 import { DsyModal } from '@ngx-daisy/native/modal';
 import {
   ChangeDetectionStrategy,
@@ -116,9 +117,12 @@ export class NativeShowcase {
   readonly sun = lucideArtwork(Sun);
   readonly moon = lucideArtwork(Moon);
   private readonly scroll = viewChild<ElementRef<ScrollView>>('pageScroll');
+  private readonly popovers = inject(DsyPopoverService);
   constructor() {
     const back = (event: AndroidActivityBackPressedEventData) => {
-      if (this.overlayOpen()) {
+      if (this.popovers.closeActive()) {
+        event.cancel = true;
+      } else if (this.overlayOpen()) {
         event.cancel = true;
         this.navigationOpened.set(false);
       } else if (this.page() !== 'buttons') {
