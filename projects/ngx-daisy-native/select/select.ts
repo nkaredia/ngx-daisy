@@ -42,6 +42,7 @@ export interface DsySelectOption {
   host: {
     class: 'dsy-native-select',
     '[class.dsy-native-select-invalid]': 'invalid() && touched()',
+    '[class.dsy-native-select-disabled]': 'isDisabled()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
   },
 })
@@ -59,6 +60,8 @@ export class DsySelect implements FormValueControl<string> {
   readonly color = input<DsyButtonColor>(undefined, { alias: 'dsyColor' });
   readonly size = input<DsyButtonSize>('md');
   readonly triggerClass = input('');
+  /** Decorative trailing area; native menu appearance remains owned by the OS. */
+  readonly indicatorClass = input('');
   readonly touch = output<void>();
   private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
   readonly accessibleLabel = computed(

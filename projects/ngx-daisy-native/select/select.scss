@@ -1,8 +1,29 @@
 .dsy-native-select .dsy-native-select-trigger {
   text-align: left;
   font-weight: 400;
+  padding-right: 48;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   background-color: var(--color-base-100);
   border-color: var(--color-base-300);
+}
+.dsy-native-select-indicator {
+  height: 24;
+  vertical-align: middle;
+}
+.dsy-native-select-chevron {
+  width: 8;
+  height: 8;
+  border-right-width: 2;
+  border-bottom-width: 2;
+  border-color: var(--color-base-content);
+  rotate: 45;
+  margin-bottom: 4;
+  horizontal-align: center;
+  vertical-align: middle;
+}
+.dsy-native-select-disabled .dsy-native-select-indicator {
+  opacity: 0.5;
 }
 .dsy-native-select-invalid .dsy-native-select-trigger {
   border-color: var(--color-error);

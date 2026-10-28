@@ -1,15 +1,28 @@
-<Button
-  #trigger
-  dsyButton
-  [text]="selectedLabel() + '  ▾'"
-  variant="outline"
-  dsyLayout="block"
-  [dsyColor]="color()"
-  [size]="size()"
-  [disabled]="isDisabled()"
-  [accessibilityLabel]="accessibleLabel() + ', ' + selectedLabel()"
-  [accessibilityHint]="accessibleDescription()"
-  class="dsy-native-select-trigger"
-  [class]="triggerClass()"
-  (pressed)="open()"
-></Button>
+<GridLayout columns="*, 40">
+  <Button
+    #trigger
+    colSpan="2"
+    dsyButton
+    [text]="selectedLabel()"
+    variant="outline"
+    dsyLayout="block"
+    [dsyColor]="color()"
+    [size]="size()"
+    [disabled]="isDisabled()"
+    [accessibilityLabel]="accessibleLabel() + ', ' + selectedLabel()"
+    [accessibilityHint]="accessibleDescription()"
+    class="dsy-native-select-trigger"
+    [class]="triggerClass()"
+    (pressed)="open()"
+  ></Button>
+  <GridLayout
+    col="1"
+    [isUserInteractionEnabled]="false"
+    [accessible]="false"
+    [accessibilityHidden]="true"
+    class="dsy-native-select-indicator"
+    [class]="indicatorClass()"
+  >
+    <GridLayout class="dsy-native-select-chevron" [accessible]="false"></GridLayout>
+  </GridLayout>
+</GridLayout>
