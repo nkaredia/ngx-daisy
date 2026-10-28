@@ -62,6 +62,13 @@ describe('Native theme adaptation', () => {
     ).toBe('96');
   });
 
+  it('darkens pressed surfaces without tinting them toward the label color', () => {
+    const theme = resolveNativeTheme(withToken('--color-primary', '#c86432'));
+    expect(theme.tokens['--dsy-color-primary-pressed']).toBe('rgba(176, 88, 44, 1)');
+    const transparent = resolveNativeTheme(withToken('--color-primary', 'rgba(200, 100, 50, 0.5)'));
+    expect(transparent.tokens['--dsy-color-primary-pressed']).toBe('rgba(176, 88, 44, 0.5)');
+  });
+
   it('rejects incompatible CSS expressions and invalid dimensions before applying a theme', () => {
     for (const value of ['calc(1rem + 2px)', '50%', '-1px', '1em'])
       expect(() => resolveNativeTheme(withToken('--radius-box', value))).toThrow();
