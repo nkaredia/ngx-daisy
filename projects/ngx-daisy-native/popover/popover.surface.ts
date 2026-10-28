@@ -43,6 +43,8 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
     <Button
       text=""
       class="dsy-native-popover-backdrop"
+      androidElevation="0"
+      androidDynamicElevationOffset="0"
       [class]="data.config.backdropClass ?? ''"
       width="100%"
       height="100%"

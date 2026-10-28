@@ -23,12 +23,12 @@ declare const android: {
       Config: { ARGB_8888: unknown };
     };
     Canvas: new (bitmap: unknown) => unknown;
-  };
-  text: {
-    SpannableString: new (text: string) => {
-      setSpan(span: unknown, start: number, end: number, flags: number): void;
+    drawable: {
+      BitmapDrawable: new (
+        resources: unknown,
+        bitmap: unknown,
+      ) => { setGravity(gravity: number): void };
     };
-    style: { ImageSpan: new (context: unknown, bitmap: unknown, alignment: number) => unknown };
   };
 };
 type SvgModule = {
@@ -54,17 +54,23 @@ function bindIcon(
   let disposed = false;
   let generation = 0;
   let lastKey = '';
+  let originalForeground: unknown;
+  let foregroundCaptured = false;
   let lastNodes: IconNode | undefined;
   const clear = () => {
     if (!host.isLoaded) return;
     if (!button) (host as Image).imageSource = undefined!;
     else if (isIOS) host.ios.setImageForState(null, 0);
-    else host.android.setText('');
+    else host.android.setForeground(originalForeground ?? null);
   };
   const draw = () => {
     const nodes = source();
     const version = ++generation;
     if (disposed || !host.isLoaded) return;
+    if (button && !isIOS && !foregroundCaptured) {
+      originalForeground = host.android.getForeground();
+      foregroundCaptured = true;
+    }
     if (!nodes) {
       lastNodes = undefined;
       lastKey = '';
@@ -98,14 +104,13 @@ function bindIcon(
         if (!button) (host as Image).imageSource = image;
         else if (isIOS) host.ios.setImageForState(image.ios, 0);
         else {
-          const text = new android.text.SpannableString('\uFFFC');
-          text.setSpan(
-            new android.text.style.ImageSpan(host.android.getContext(), image.android, 1),
-            0,
-            1,
-            33,
+          const resources = host.android.getResources();
+          (image.android as { setDensity(value: number): void }).setDensity(
+            resources.getDisplayMetrics().densityDpi,
           );
-          host.android.setText(text);
+          const drawable = new android.graphics.drawable.BitmapDrawable(resources, image.android);
+          drawable.setGravity(17); // Gravity.CENTER, independent of text metrics/transforms.
+          host.android.setForeground(drawable);
         }
         lastNodes = nodes;
         lastKey = key;
@@ -115,6 +120,10 @@ function bindIcon(
       });
   };
   const unload = () => {
+    if (button && !isIOS && foregroundCaptured)
+      host.android?.setForeground(originalForeground ?? null);
+    originalForeground = undefined;
+    foregroundCaptured = false;
     generation++;
     lastNodes = undefined;
     lastKey = '';

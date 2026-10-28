@@ -37,3 +37,11 @@ The Data Input expansion adds account details with validation, a live bio editor
 Select, Form Field and Fieldset add custom anchored selection popovers and schema-driven presentation. See [native form composition](native-form-composition.md) for usage and verification.
 
 Dropdown and Select use the shared custom [native popover](native-popover.md), with app-authored rich item/option templates. The showcase RootLayout surrounds its Frame, and its Android Back handler dismisses popovers before changing pages.
+
+### Initial Android device verification (October 28)
+
+Installed and launched a debug build on a Samsung SM-F766W running Android 17, using NativeScript Android 9.1.1 and SDK target 36. Checked checkout activation/completion, temporary drawer rendering and page navigation, anchored rich dropdown rows/icons/shadows, and Android Back dismissing the popover.
+
+The device pass exposed native Button backdrop elevation intercepting panel taps. Drawer and popover backdrop buttons now set both Android elevation and dynamic elevation offset to zero. Workspace setup also records the Android runtime, discovers the standard local SDK, supplies an app-local core-package link for native plugin AAR resolution, and checks Android's ESM bundle output.
+
+The Android button-icon renderer now uses a centered foreground drawable instead of native text spans; regression tests cover density, clearing and native text independence. Final visual confirmation of this update and the remaining control/modal interactions is pending direct phone checks. TalkBack, font scaling, fold/rotation behavior and a complete Android visual audit remain separate follow-up verification.

@@ -54,7 +54,11 @@ async function setup(ios = true) {
       off: vi.fn(),
     },
     ios: { setImageForState: vi.fn() },
-    android: { getContext: () => ({}), setText: vi.fn() },
+    android: {
+      getForeground: () => null,
+      setForeground: vi.fn(),
+      getResources: () => ({ getDisplayMetrics: () => ({ densityDpi: 320 }) }),
+    },
   };
   const nodes = signal<IconNode | undefined>(Check);
   TestBed.configureTestingModule({
@@ -104,47 +108,41 @@ it('does not restore an asynchronously loaded icon after a control is cleared or
   expect(runtime.nativeSvg).toHaveBeenCalledTimes(rendered);
 });
 
-it('renders Android button marks as density-aware image spans and clears the native text', async () => {
-  const bitmaps: unknown[] = [];
-  class Text {
-    span?: unknown;
-    constructor(readonly value: string) {}
-    setSpan(span: unknown) {
-      this.span = span;
+it('renders centered density-aware Android foreground icons without modifying button text', async () => {
+  const setDensity = vi.fn();
+  class Drawable {
+    gravity = 0;
+    constructor(
+      readonly resources: unknown,
+      readonly bitmap: unknown,
+    ) {}
+    setGravity(value: number) {
+      this.gravity = value;
     }
   }
   vi.stubGlobal('android', {
     graphics: {
       Bitmap: {
         Config: { ARGB_8888: 1 },
-        createBitmap: (width: number, height: number) => {
-          const bitmap = { width, height };
-          bitmaps.push(bitmap);
-          return bitmap;
-        },
+        createBitmap: (width: number, height: number) => ({ width, height, setDensity }),
       },
       Canvas: class {
         constructor(readonly bitmap: unknown) {}
       },
-    },
-    text: {
-      SpannableString: Text,
-      style: {
-        ImageSpan: class {
-          constructor(
-            readonly context: unknown,
-            readonly bitmap: unknown,
-          ) {}
-        },
-      },
+      drawable: { BitmapDrawable: Drawable },
     },
   });
   const { host, nodes } = await setup(false);
-  await vi.waitFor(() => expect(host.android.setText).toHaveBeenCalledWith(expect.any(Text)));
-  expect(bitmaps).toEqual([{ width: 40, height: 40 }]);
+  await vi.waitFor(() =>
+    expect(host.android.setForeground).toHaveBeenCalledWith(expect.any(Drawable)),
+  );
+  expect(setDensity).toHaveBeenCalledWith(320);
+  expect(host.android.setForeground.mock.lastCall![0]).toMatchObject({
+    gravity: 17,
+    bitmap: { width: 40, height: 40 },
+  });
   expect(runtime.canvas).toHaveBeenCalledOnce();
-  expect(host.android.setText.mock.lastCall![0].value).toBe('\uFFFC');
   nodes.set(undefined);
   TestBed.tick();
-  expect(host.android.setText).toHaveBeenLastCalledWith('');
+  expect(host.android.setForeground).toHaveBeenLastCalledWith(null);
 });
