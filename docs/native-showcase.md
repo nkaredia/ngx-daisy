@@ -73,3 +73,16 @@ base-100 drawer and primary-tinted active route, plus component navigation closi
 The new anchored theme menu still needs manual interaction confirmation because automated
 mirror input was inconsistent. Wide-screen/tablet layout and iOS rendering of this shell
 revision have not been visually verified.
+
+### iOS follow-up on the shell revision
+
+A fresh iPhone 17 / iOS 26.5 build installs and launches to Buttons; a blank startup was not
+reproduced. Opening/closing the drawer, selecting a component and opening Theme Builder work.
+The user reports Android becomes blank immediately at launch; that remains unresolved and
+must not be described as fixed by this iOS test.
+
+The iOS pass exposed a separate drawer rendering defect: with the animated drawer, some icons
+are absent and footer controls overlap. A static, nonanimated drawer comparison renders those
+slots correctly. Simple post-animation layout invalidation and delaying entrance until a
+layout event did not resolve it. Those diagnostic changes were removed. The theme picker
+cannot yet be considered visually verified on iOS; its hit target is affected by this defect.
