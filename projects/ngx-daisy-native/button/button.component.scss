@@ -120,29 +120,23 @@ $sizes: (
 }
 
 // Keep feedback on the surface rather than dimming the whole control and its label.
-.dsy-button {
-  --dsy-button-pressed-background: var(--dsy-color-base-200-pressed);
-}
 .dsy-button:highlighted {
-  background-color: var(--dsy-button-pressed-background);
+  background-color: var(--dsy-color-base-200-pressed);
 }
 .dsy-button-ghost:highlighted,
 .dsy-button-link:highlighted,
 .dsy-button-outline:highlighted {
-  --dsy-button-pressed-background: var(--dsy-color-base-200-pressed);
-  background-color: var(--dsy-button-pressed-background);
+  background-color: var(--dsy-color-base-200-pressed);
 }
 @each $color in neutral, primary, secondary, accent, info, success, warning, error {
   .dsy-button-#{$color}:highlighted {
-    --dsy-button-pressed-background: var(--dsy-color-#{$color}-pressed);
-    background-color: var(--dsy-button-pressed-background);
+    background-color: var(--dsy-color-#{$color}-pressed);
   }
   .dsy-button-#{$color}.dsy-button-outline:highlighted,
   .dsy-button-#{$color}.dsy-button-soft:highlighted,
   .dsy-button-#{$color}.dsy-button-ghost:highlighted,
   .dsy-button-#{$color}.dsy-button-link:highlighted {
-    --dsy-button-pressed-background: var(--dsy-color-#{$color}-soft-pressed);
-    background-color: var(--dsy-button-pressed-background);
+    background-color: var(--dsy-color-#{$color}-soft-pressed);
   }
 }
 

@@ -56,8 +56,8 @@ async function main() {
   ).css;
   // NativeScript's fallback resolver truncates resolved rgba values at their first comma.
   assert.doesNotMatch(buttonCss, /var\([^;{}]*,\s*var\(/);
-  assert.match(buttonCss, /--dsy-button-pressed-background:\s*var\(--dsy-color-primary-pressed\)/);
-  assert.match(buttonCss, /background-color:\s*var\(--dsy-button-pressed-background\)/);
+  assert.match(buttonCss, /background-color:\s*var\(--dsy-color-primary-pressed\)/);
+  assert.doesNotMatch(buttonCss, /--dsy-button-pressed-background/);
   console.log(
     'Native Tailwind semantic colors, radii, spacing, typography and overlay shadows verified.',
   );

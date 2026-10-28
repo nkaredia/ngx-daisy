@@ -55,7 +55,7 @@ The Android native dialog window uses a transparent background drawable. The rou
 
 Native buttons use theme-derived pressed surfaces instead of whole-control opacity. Solid and soft
 variants darken their existing surface by 12%, preserving its alpha and leaving label colors
-unchanged. Transparent outline, ghost and link variants use a darkened semantic soft tint. Apps can override `--dsy-button-pressed-background`.
+unchanged. Transparent outline, ghost and link variants use a darkened semantic soft tint. Apps can override pressed theme tokens or use native `backgroundColor` styles.
 Android buttons set both base elevation and dynamic pressed elevation to zero, avoiding
 platform shadows during touch feedback. Select triggers retain their neutral field surface
 and darken base-100 while pressed. Disabled controls retain their native interaction guard.

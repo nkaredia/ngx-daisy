@@ -24,6 +24,5 @@
 }
 
 .dsy-native-select .dsy-native-select-trigger:highlighted {
-  --dsy-button-pressed-background: var(--dsy-color-base-100-pressed);
-  background-color: var(--dsy-button-pressed-background);
+  background-color: var(--dsy-color-base-100-pressed);
 }
