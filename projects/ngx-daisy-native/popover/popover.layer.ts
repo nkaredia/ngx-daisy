@@ -30,26 +30,54 @@ let registered = false;
 export function ensurePopoverLayer(): void {
   if (registered) return;
   registered = true;
-  class DsyPopoverPanel extends GridLayout {}
-  CSSType('DsyPopoverPanel')(DsyPopoverPanel);
-  registerElement('DsyPopoverPanel', () => DsyPopoverPanel);
-  class DsyPopoverLayer extends AbsoluteLayout {
-    private positioningChildren = false;
+  class DsyPopoverPanel extends GridLayout {
     private blur?: ReturnType<typeof attachPopoverBlur>;
     private scheme: 'light' | 'dark' = 'light';
+    private surfaceColor = 'white';
     set materialScheme(value: 'light' | 'dark') {
       this.scheme = value;
       this.blur?.setScheme(value);
     }
+    set materialColor(value: string) {
+      this.surfaceColor = value;
+      this.blur?.setSurfaceColor(value);
+    }
+    private readonly refreshMaterial = () => {
+      // Explicit app backgrounds remain authoritative, including utility classes.
+      this.blur?.setCovered(!!this.style.backgroundColor?.a || !!this.style.backgroundImage);
+    };
     override onLoaded(): void {
       super.onLoaded();
-      if (isIOS) this.blur = attachPopoverBlur(this.nativeViewProtected, this.scheme);
+      if (isIOS) {
+        this.blur = attachPopoverBlur(this.nativeViewProtected, this.scheme, this.surfaceColor);
+        this.style.on('backgroundColorChange', this.refreshMaterial);
+        this.style.on('backgroundImageChange', this.refreshMaterial);
+        this.refreshMaterial();
+      }
     }
     override onUnloaded(): void {
       this.blur?.dispose();
       this.blur = undefined;
+      this.style.off('backgroundColorChange', this.refreshMaterial);
+      this.style.off('backgroundImageChange', this.refreshMaterial);
       super.onUnloaded();
     }
+    override onLayout(left: number, top: number, right: number, bottom: number): void {
+      super.onLayout(left, top, right, bottom);
+      this.blur?.layout();
+    }
+    override disposeNativeView(): void {
+      this.blur?.dispose();
+      this.blur = undefined;
+      this.style.off('backgroundColorChange', this.refreshMaterial);
+      this.style.off('backgroundImageChange', this.refreshMaterial);
+      super.disposeNativeView();
+    }
+  }
+  CSSType(isIOS ? 'DsyPopoverMaterialPanel' : 'DsyPopoverPanel')(DsyPopoverPanel);
+  registerElement('DsyPopoverPanel', () => DsyPopoverPanel);
+  class DsyPopoverLayer extends AbsoluteLayout {
+    private positioningChildren = false;
     override getSafeAreaInsets(): ReturnType<AbsoluteLayout['getSafeAreaInsets']> {
       // Anchors already use this view's local coordinates. Keep safe-area handling
       // for the layer's frame, without AbsoluteLayout offsetting its children again.
@@ -64,7 +92,6 @@ export function ensurePopoverLayer(): void {
       } finally {
         this.positioningChildren = false;
       }
-      this.blur?.layout();
     }
     override createNativeView(): ReturnType<AbsoluteLayout['createNativeView']> {
       if (!isIOS) return super.createNativeView();
@@ -112,8 +139,6 @@ export function ensurePopoverLayer(): void {
       }
     }
     override disposeNativeView(): void {
-      this.blur?.dispose();
-      this.blur = undefined;
       if (isIOS) owners.delete(this.nativeViewProtected);
       else this.nativeViewProtected.setOnKeyListener(null);
       super.disposeNativeView();

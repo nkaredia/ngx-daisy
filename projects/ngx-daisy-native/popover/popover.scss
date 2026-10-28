@@ -2,15 +2,21 @@
   margin: 0;
   padding: 0;
   border-width: 0;
-  background-color: rgba(0, 0, 0, 0.18);
+  background-color: transparent;
   android-elevation: 0;
 }
-DsyPopoverPanel {
-  background-color: var(--color-base-100);
+DsyPopoverPanel,
+DsyPopoverMaterialPanel {
   color: var(--color-base-content);
   border-color: var(--color-base-300);
   border-width: var(--border);
   border-radius: var(--radius-box);
+}
+DsyPopoverPanel {
+  background-color: var(--color-base-100);
+}
+DsyPopoverMaterialPanel {
+  background-color: transparent;
 }
 .dsy-native-popover-content {
   padding: 8;

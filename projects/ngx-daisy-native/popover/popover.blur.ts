@@ -1,10 +1,13 @@
-import { Application } from '@nativescript/core';
+import { Application, Color } from '@nativescript/core';
 
 interface NativeBlurView {
   frame: unknown;
   autoresizingMask: number;
   effect: unknown;
-  backgroundColor: unknown;
+  contentView: { backgroundColor: unknown };
+  hidden: boolean;
+  clipsToBounds: boolean;
+  layer: { cornerRadius: number };
   userInteractionEnabled: boolean;
   isAccessibilityElement: boolean;
   accessibilityElementsHidden: boolean;
@@ -12,6 +15,7 @@ interface NativeBlurView {
 }
 interface NativeBlurHost {
   bounds: unknown;
+  layer: { cornerRadius: number };
   insertSubviewAtIndex(view: NativeBlurView, index: number): void;
   sendSubviewToBack(view: NativeBlurView): void;
 }
@@ -19,22 +23,21 @@ declare const UIVisualEffectView: {
   alloc(): { initWithEffect(effect: unknown): NativeBlurView };
 };
 declare const UIBlurEffect: { effectWithStyle(style: number): unknown };
-declare const UIColor: {
-  clearColor: unknown;
-  colorWithWhiteAlpha(white: number, alpha: number): unknown;
-};
 declare function UIAccessibilityIsReduceTransparencyEnabled(): boolean;
 declare function UIAccessibilityDarkerSystemColorsEnabled(): boolean;
 declare const UIAccessibilityReduceTransparencyStatusDidChangeNotification: string;
 declare const UIAccessibilityDarkerSystemColorsStatusDidChangeNotification: string;
 
-/** Internal UIKit backdrop. Its host and effect keep alpha=1; tint belongs on the scrim. */
+/** A decorative material inside the panel bounds, beneath its sharp content. */
 export function attachPopoverBlur(
   host: NativeBlurHost,
   scheme: 'light' | 'dark',
+  surfaceColor: string,
 ): {
   layout(): void;
   setScheme(scheme: 'light' | 'dark'): void;
+  setSurfaceColor(color: string): void;
+  setCovered(covered: boolean): void;
   dispose(): void;
 } {
   const effect = UIVisualEffectView.alloc().initWithEffect(null);
@@ -42,15 +45,18 @@ export function attachPopoverBlur(
   effect.userInteractionEnabled = false;
   effect.isAccessibilityElement = false;
   effect.accessibilityElementsHidden = true;
+  effect.clipsToBounds = true;
   let disposed = false;
   const update = () => {
     if (disposed) return;
     const solid =
       UIAccessibilityIsReduceTransparencyEnabled() || UIAccessibilityDarkerSystemColorsEnabled();
-    // SystemThinMaterialLight / Dark follow the app theme even when it differs
-    // from the device appearance. The foreground keeps its opaque theme surface.
+    // Keep the material themed; stronger accessibility preferences replace it
+    // with an opaque theme surface rather than a translucent scrim.
     effect.effect = solid ? null : UIBlurEffect.effectWithStyle(scheme === 'dark' ? 17 : 12);
-    effect.backgroundColor = solid ? UIColor.colorWithWhiteAlpha(0, 0.45) : UIColor.clearColor;
+    effect.contentView.backgroundColor = new Color(surfaceColor).ios.colorWithAlphaComponent(
+      solid ? 1 : 0.15,
+    );
   };
   const notifications = [
     UIAccessibilityReduceTransparencyStatusDidChangeNotification,
@@ -64,6 +70,7 @@ export function attachPopoverBlur(
   const layout = () => {
     if (disposed) return;
     effect.frame = host.bounds;
+    effect.layer.cornerRadius = host.layer.cornerRadius;
     // NativeScript can insert/reorder children after initNativeView.
     host.sendSubviewToBack(effect);
   };
@@ -75,6 +82,14 @@ export function attachPopoverBlur(
       if (next === scheme) return;
       scheme = next;
       update();
+    },
+    setSurfaceColor(next) {
+      if (next === surfaceColor) return;
+      surfaceColor = next;
+      update();
+    },
+    setCovered(covered) {
+      if (!disposed) effect.hidden = covered;
     },
     dispose() {
       if (disposed) return;

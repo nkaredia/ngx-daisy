@@ -14,7 +14,7 @@ import {
 import { NgComponentOutlet, NgTemplateOutlet } from '@angular/common';
 import type { View } from '@nativescript/core';
 import { DsyButton } from '@ngx-daisy/native/button';
-import { DsyTheme, DSY_LIGHT_THEME } from '@ngx-daisy/native/theme';
+import { DsyTheme, DSY_LIGHT_THEME, resolveNativeTheme } from '@ngx-daisy/native/theme';
 import type { DsyPopoverConfig, DsyPopoverContent } from './popover.types';
 import { ensurePopoverLayer } from './popover.layer';
 import { positionPopover, type PopoverPosition } from './position';
@@ -32,7 +32,6 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
   template: `<DsyPopoverLayer
     #overlay
     [dsyTheme]="theme()"
-    [materialScheme]="theme().colorScheme"
     width="100%"
     height="100%"
     [iosOverflowSafeArea]="false"
@@ -51,6 +50,8 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
     ></Button>
     <DsyPopoverPanel
       #panel
+      [materialScheme]="theme().colorScheme"
+      [materialColor]="nativeTheme().tokens['--color-base-100']"
       class="dsy-native-popover-panel"
       [class]="data.config.panelClass ?? ''"
       [left]="position().left"
@@ -121,6 +122,7 @@ export class DsyNativePopoverSurface {
       ? this.data.config.theme()
       : (this.data.config.theme ?? DSY_LIGHT_THEME),
   );
+  readonly nativeTheme = computed(() => resolveNativeTheme(this.theme()));
   measureContent(event: unknown): void {
     const height = (event as { object: View }).object.getActualSize()?.height;
     if (height && height !== this.contentHeight) {
