@@ -51,6 +51,13 @@ async function main() {
     assert.match(defaults.toString(), /box-shadow:\s*var\(--dsy-native-overlay-shadow\)/);
     assert.match(defaults.toString(), /border-radius:\s*var\(--radius-box\)/);
   }
+  const buttonCss = sass.compile(
+    path.resolve(__dirname, '../../ngx-daisy-native/button/button.component.scss'),
+  ).css;
+  // NativeScript's fallback resolver truncates resolved rgba values at their first comma.
+  assert.doesNotMatch(buttonCss, /var\([^;{}]*,\s*var\(/);
+  assert.match(buttonCss, /--dsy-button-pressed-background:\s*var\(--dsy-color-primary-pressed\)/);
+  assert.match(buttonCss, /background-color:\s*var\(--dsy-button-pressed-background\)/);
   console.log(
     'Native Tailwind semantic colors, radii, spacing, typography and overlay shadows verified.',
   );
