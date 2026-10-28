@@ -32,6 +32,7 @@ export const DSY_POPOVER_DATA = new InjectionToken<DsyPopoverData>('DsyPopoverDa
   template: `<DsyPopoverLayer
     #overlay
     [dsyTheme]="theme()"
+    [materialScheme]="theme().colorScheme"
     width="100%"
     height="100%"
     [iosOverflowSafeArea]="false"

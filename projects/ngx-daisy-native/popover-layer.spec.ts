@@ -5,6 +5,7 @@ const runtime = vi.hoisted(() => ({
   insets: undefined as unknown,
 }));
 vi.mock('@nativescript/core', () => ({
+  Application: {},
   GridLayout: class GridLayout {},
   CSSType: () => () => {},
   isIOS: true,

@@ -1,5 +1,6 @@
 import { AbsoluteLayout, GridLayout, CSSType, isIOS } from '@nativescript/core';
 import { registerElement } from '@nativescript/angular';
+import { attachPopoverBlur } from './popover.blur';
 interface NativeLayer {
   becomeFirstResponder(): boolean;
 }
@@ -34,6 +35,21 @@ export function ensurePopoverLayer(): void {
   registerElement('DsyPopoverPanel', () => DsyPopoverPanel);
   class DsyPopoverLayer extends AbsoluteLayout {
     private positioningChildren = false;
+    private blur?: ReturnType<typeof attachPopoverBlur>;
+    private scheme: 'light' | 'dark' = 'light';
+    set materialScheme(value: 'light' | 'dark') {
+      this.scheme = value;
+      this.blur?.setScheme(value);
+    }
+    override onLoaded(): void {
+      super.onLoaded();
+      if (isIOS) this.blur = attachPopoverBlur(this.nativeViewProtected, this.scheme);
+    }
+    override onUnloaded(): void {
+      this.blur?.dispose();
+      this.blur = undefined;
+      super.onUnloaded();
+    }
     override getSafeAreaInsets(): ReturnType<AbsoluteLayout['getSafeAreaInsets']> {
       // Anchors already use this view's local coordinates. Keep safe-area handling
       // for the layer's frame, without AbsoluteLayout offsetting its children again.
@@ -48,6 +64,7 @@ export function ensurePopoverLayer(): void {
       } finally {
         this.positioningChildren = false;
       }
+      this.blur?.layout();
     }
     override createNativeView(): ReturnType<AbsoluteLayout['createNativeView']> {
       if (!isIOS) return super.createNativeView();
@@ -95,6 +112,8 @@ export function ensurePopoverLayer(): void {
       }
     }
     override disposeNativeView(): void {
+      this.blur?.dispose();
+      this.blur = undefined;
       if (isIOS) owners.delete(this.nativeViewProtected);
       else this.nativeViewProtected.setOnKeyListener(null);
       super.disposeNativeView();
