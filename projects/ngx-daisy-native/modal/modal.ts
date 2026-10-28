@@ -27,6 +27,7 @@ import { NATIVE_DIALOG_DATA, NativeDialog, NativeDialogRef } from '@nativescript
 import type { NativeDialogConfig } from '@nativescript/angular';
 import { DSY_LIGHT_THEME, DsyTheme, type DsyThemeDefinition } from '@ngx-daisy/native/theme';
 import { take } from 'rxjs';
+import { ensureModalPanel } from './modal.panel';
 
 export interface DsyModalHandle<R = unknown> {
   close(result?: R): void;
@@ -59,7 +60,7 @@ interface SurfaceData {
     [dsyTheme]="theme()"
     class="dsy-native-modal-root"
     [class.dsy-native-modal-android]="android"
-    [width]="android ? width() : '100%'"
+    [width]="android ? width() + 32 : '100%'"
     [height]="android ? 'auto' : '100%'"
     (layoutChanged)="onLayout($event)"
   >
@@ -75,7 +76,7 @@ interface SurfaceData {
         (tap)="dismissOutside()"
       ></Button>
     }
-    <GridLayout
+    <DsyModalPanel
       verticalAlignment="middle"
       horizontalAlignment="center"
       [width]="width()"
@@ -109,13 +110,16 @@ interface SurfaceData {
           <ng-container [ngTemplateOutlet]="data.template" [ngTemplateOutletContext]="context" />
         </StackLayout>
       </ScrollView>
-    </GridLayout>
+    </DsyModalPanel>
   </RootLayout>`,
   styleUrl: './modal.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class DsyNativeModalSurface {
+  constructor() {
+    ensureModalPanel();
+  }
   readonly closeIcon = X;
   readonly android = isAndroid;
   private readonly viewport = signal({ width: 360, height: 720 });

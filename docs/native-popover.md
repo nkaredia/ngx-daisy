@@ -65,6 +65,25 @@ When [Reduce Transparency](https://developer.apple.com/documentation/uikit/uiacc
 
 `backdropClass` customizes the dismissal target; `panelClass` and theme tokens customize the panel. Explicit panel background colors or images suppress the material, preserving app styling overrides. Keep the panel and its ancestors at full opacity, as UIKit visual effects do not support ancestor opacity fading. Choose accessible foreground/background combinations when overriding defaults. A frosted surface does not replace focus handling, meaningful labels, contrast checks or a screen-reader audit.
 
+## Overlay shadows
+
+Dropdown and Select panels share a two-layer native [`box-shadow`](https://docs.nativescript.org/guide/styling) with Modal on iOS and Android. The native theme adapter derives `--dsy-native-overlay-shadow` from the theme's light/dark color scheme, using stronger black shadows for dark themes. Rounded corners remain controlled by `--radius-box`; the iOS material continues clipping inside the panel while the shadow draws outside it. The clear dismissal backdrop has no shadow.
+
+Use `panelClass` for an application-owned class that overrides `box-shadow`, or set `--dsy-native-overlay-shadow` on that panel class. For example:
+
+```scss
+.quiet-overlay {
+  --dsy-native-overlay-shadow: 0 4 12 rgba(0, 0, 0, 0.18);
+}
+.flat-overlay {
+  box-shadow: none;
+}
+```
+
+Panel defaults use native type selectors so application classes retain styling priority. Android dialogs reserve padding around their panel for shadows. Shadow rendering adds no animation and does not change focus, accessibility scope or dismissal behavior.
+
+The native showcase's temporary navigation drawer uses the same shadow token; its persistent sidebar stays flat.
+
 ## Dropdown content
 
 `ng-template[dsyDropdownContent]` is rendered as authored. Use ordinary Labels, layouts, provider-owned icons and other native views for headers, descriptions, badges or custom items. `DsyDropdownItem` works on Button, GridLayout and StackLayout. It owns guarded activation, closes the dropdown and emits `triggered`; layout items need an explicit `label` and may supply `description` for accessibility. Keep nested independent controls outside an actionable item so touch and accessibility targets do not conflict. Use native Buttons for ordinary actions.
@@ -100,4 +119,6 @@ On iPhone 17 / iOS 26.5, verified rich Dropdown rows with provider icons, descri
 
 On the same simulator, verified the corrected frosted material inside both Dropdown and Select panels, rounded clipping, sharp foreground text and surrounding page, a dark material matching the app theme despite the device's light appearance, Escape dismissal and selection updating the form/restoring the background accessibility entries. Material unit checks cover placement on the panel rather than the full-screen layer, rounded bounds and resize handling, theme changes, explicit app background overrides, exclusion from hit testing and accessibility, both opaque accessibility fallbacks, live preference changes, and observer/view cleanup. Mocked preferences verify the fallback logic; native accessibility preferences still require device validation.
 
-Android execution remains unverified because the local JDK and Android platform/build tools are missing. JavaScript bundles and mocked Android lifecycle paths do not establish rendering, hardware keyboard behavior or Back handling on device. Outside taps, rotation, large font scales and screen-reader operation also need direct device interaction checks.
+Android execution remains unverified because Android SDK platform/build-tools packages are missing. JavaScript bundles and mocked Android lifecycle paths do not establish rendering, hardware keyboard behavior or Back handling on device. Outside taps, rotation, large font scales and screen-reader operation also need direct device interaction checks.
+
+Overlay shadow verification: on iPhone 17 / iOS 26.5, checked the temporary navigation drawer, rounded frosted Dropdown and compact Modal, plus close-button dismissal removing the popover/dialog shadow and restoring the page. Both platform JavaScript bundles, 73 native unit tests and native style checks pass. A local JDK is now available, but Android SDK platform/build-tools packages remain missing, so Android shadow rendering is not device-verified.

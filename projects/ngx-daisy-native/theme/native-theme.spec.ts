@@ -14,6 +14,10 @@ describe('Native theme adaptation', () => {
     expect(DSY_LIGHT_THEME.tokens['--radius-field']).toBe('0.25rem');
     expect(Object.isFrozen(native.tokens)).toBe(true);
     expect(resolveNativeTheme(DSY_DARK_THEME).colorScheme).toBe('dark');
+    expect(native.tokens['--dsy-native-overlay-shadow']).toContain('rgba(0, 0, 0, 0.22)');
+    expect(resolveNativeTheme(DSY_DARK_THEME).tokens['--dsy-native-overlay-shadow']).toContain(
+      'rgba(0, 0, 0, 0.5)',
+    );
   });
 
   it('preserves color alpha and maps out-of-gamut colors into native sRGB', () => {

@@ -4,10 +4,12 @@
 }
 .dsy-native-modal-android {
   background-color: transparent;
+  padding: 16;
 }
-.dsy-native-modal-surface {
+DsyModalPanel {
   background-color: var(--color-base-100);
   border-radius: var(--radius-box);
+  box-shadow: var(--dsy-native-overlay-shadow);
 }
 .dsy-native-modal {
   color: var(--color-base-content);

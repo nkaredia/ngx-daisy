@@ -11,6 +11,7 @@ DsyPopoverMaterialPanel {
   border-color: var(--color-base-300);
   border-width: var(--border);
   border-radius: var(--radius-box);
+  box-shadow: var(--dsy-native-overlay-shadow);
 }
 DsyPopoverPanel {
   background-color: var(--color-base-100);

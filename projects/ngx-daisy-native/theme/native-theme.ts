@@ -37,6 +37,10 @@ export function resolveNativeTheme(
       tokens[name] = String(length);
     }
   }
+  tokens['--dsy-native-overlay-shadow'] =
+    definition.colorScheme === 'dark'
+      ? '0 8 24 rgba(0, 0, 0, 0.5), 0 2 6 rgba(0, 0, 0, 0.3)'
+      : '0 8 24 rgba(0, 0, 0, 0.22), 0 2 6 rgba(0, 0, 0, 0.12)';
   // NativeScript cannot evaluate CSS color-mix; derive the soft variant surface once per theme.
   for (const name of [
     'neutral',

@@ -2,6 +2,9 @@
   border-bottom-width: 1;
   border-bottom-color: var(--color-base-200);
 }
+.native-navigation-overlay-panel {
+  box-shadow: var(--dsy-native-overlay-shadow);
+}
 .native-theme-footer {
   border-top-width: 1;
   border-top-color: var(--color-base-300);
