@@ -1,3 +1,4 @@
+import { NativeSidebarMotion } from './shell/sidebar-motion';
 import { DsyMotionPresence } from '@ngx-daisy/native/motion';
 import { NativeFormCompositionExample } from './form-composition-example/form-composition-example';
 import { NativeSelectionExample } from './selection-example/selection-example';
@@ -73,6 +74,7 @@ function storedTheme(): DsyThemeDefinition {
   standalone: true,
   imports: [
     DsyMotionPresence,
+    NativeSidebarMotion,
     NativeScriptCommonModule,
     NativeIconButton,
     NativeThemePicker,
@@ -122,6 +124,7 @@ export class NativeShowcase {
       : (this.currentPage()?.description ?? ''),
   );
   readonly persistentNavigation = computed(() => this.desktop() && this.page() !== 'themes');
+  readonly navigationMounted = signal(false);
   readonly navigationOpened = signal(false);
   readonly overlayOpen = computed(() => this.navigationOpened() && !this.persistentNavigation());
   readonly title = computed(() =>
@@ -150,6 +153,10 @@ export class NativeShowcase {
     };
     Application.android?.on('activityBackPressed', back);
     inject(DestroyRef).onDestroy(() => Application.android?.off('activityBackPressed', back));
+  }
+  openNavigation(): void {
+    this.navigationMounted.set(true);
+    this.navigationOpened.set(true);
   }
   onLayout(event: unknown): void {
     const width = ((event as EventData).object as View).getActualSize().width;

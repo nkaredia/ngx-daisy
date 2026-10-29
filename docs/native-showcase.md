@@ -86,3 +86,24 @@ are absent and footer controls overlap. A static, nonanimated drawer comparison 
 slots correctly. Simple post-animation layout invalidation and delaying entrance until a
 layout event did not resolve it. Those diagnostic changes were removed. The theme picker
 cannot yet be considered visually verified on iOS; its hit target is affected by this defect.
+
+### Sidebar rendering correction
+
+The temporary sidebar is now created on first use. Its header, category list and footer keep
+a normal native layout throughout presentation. iOS animates a short-lived native snapshot
+of that layout, then reveals the live controls; neither the real sidebar nor its full-screen
+container receives a transform animation. The backdrop fades separately and the container
+stays mounted through sidebar exit. Android retains its shared native view animation.
+
+The presenter uses the shared motion preference/configuration helpers, including reduced
+motion and duration scaling. Snapshots are noninteractive and excluded from accessibility;
+closing immediately removes live controls from interaction/accessibility. Cancellation and
+unload remove pending snapshots and ignore stale completions. An unavailable snapshot falls
+back to the live sidebar. The theme selection, drawer scroll position and component state
+remain owned by the existing shell.
+
+Verified on iPhone 17 / iOS 26.5: category icons and close button placement, the complete
+footer toolbar, theme popup swatches and selected checkmark, live Synthwave selection, and
+opening/closing the sidebar. Strict templates, both platform bundles, 88 native unit tests
+and six shell/presentation checks pass. No Android emulator was connected for this pass;
+the previously reported Android blank startup remains a separate unresolved issue.

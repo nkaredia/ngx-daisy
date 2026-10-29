@@ -24,7 +24,7 @@
               appIconButton
               label="Open component navigation"
               [artwork]="menu"
-              (pressed)="navigationOpened.set(true)"
+              (pressed)="openNavigation()"
             ></GridLayout>
             <StackLayout col="1" orientation="horizontal" verticalAlignment="middle" class="ml-3">
               <Label
@@ -113,7 +113,7 @@
             appIconButton
             label="Open component navigation"
             [artwork]="menu"
-            (pressed)="navigationOpened.set(true)"
+            (pressed)="openNavigation()"
             horizontalAlignment="right"
             verticalAlignment="bottom"
             margin="20"
@@ -124,12 +124,13 @@
           <GridLayout col="0" rowSpan="2" class="bg-base-100 native-navigation-panel"
             ><ng-container [ngTemplateOutlet]="navigation"
           /></GridLayout>
-        } @else {
+        } @else if (navigationMounted()) {
           <GridLayout
             rowSpan="2"
             columns="288, *"
-            [dsyMotionVisible]="navigationOpened()"
-            [motionFade]="false"
+            [visibility]="navigationOpened() || sidebarMotion.retained() ? 'visible' : 'collapse'"
+            [isUserInteractionEnabled]="navigationOpened()"
+            [accessibilityHidden]="!navigationOpened()"
           >
             <Button
               colSpan="2"
@@ -151,9 +152,8 @@
             <GridLayout
               col="0"
               class="bg-base-100 native-navigation-panel native-navigation-overlay-panel"
-              [dsyMotionVisible]="navigationOpened()"
-              [motionFromX]="-288"
-              [motionFade]="false"
+              #sidebarMotion="appSidebarMotion"
+              [appSidebarMotion]="navigationOpened()"
               ><ng-container [ngTemplateOutlet]="navigation"
             /></GridLayout>
           </GridLayout>

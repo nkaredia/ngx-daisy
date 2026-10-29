@@ -75,3 +75,121 @@ test('native navigation lists each supported component once under the web catego
   assert.equal(new Set(nativePages.map((page) => page.description)).size, nativePages.length);
   assert.ok(nativePages.every((page) => page.description.length > 30));
 });
+
+function snapshotFixture(available = true, opened = true) {
+  const { animateSidebarSnapshot } = loadSource('../src/app/shell/sidebar-snapshot.ts');
+  let scheduled;
+  let completion;
+  let removed = 0;
+  let completed = 0;
+  const snapshot = { removeFromSuperview: () => removed++ };
+  const native = {
+    alpha: 1,
+    frame: { x: 0, y: 0, width: 288, height: 800 },
+    transform: 'live-identity',
+    layoutIfNeeded() {},
+    superview: {
+      addSubview(view) {
+        assert.equal(view, snapshot);
+      },
+    },
+    snapshotViewAfterScreenUpdates: () => {
+      if (available === 'throw') throw new Error('capture failed');
+      return available ? snapshot : null;
+    },
+  };
+  const view = { opacity: 0, ios: native };
+  const bridge = {
+    withoutAnimation: (work) => work(),
+    animate: (seconds, work, done) => {
+      assert.equal(seconds, opened ? 0.18 : 0.12);
+      work();
+      completion = done;
+    },
+    translation: (x, y) => ({ x, y }),
+    identity: 'identity',
+    capture: (surface) => surface.snapshotViewAfterScreenUpdates(),
+    schedule: (work) => {
+      scheduled = work;
+      return () => {
+        scheduled = undefined;
+      };
+    },
+  };
+  const cancel = animateSidebarSnapshot(
+    view,
+    opened,
+    opened ? 0.18 : 0.12,
+    () => completed++,
+    bridge,
+  );
+  return {
+    view,
+    native,
+    snapshot,
+    cancel,
+    start: () => scheduled?.(),
+    finish: () => completion?.(),
+    get removed() {
+      return removed;
+    },
+    get completed() {
+      return completed;
+    },
+  };
+}
+
+test('iOS sidebar presentation leaves live layout intact and hides duplicate accessibility', () => {
+  const fixture = snapshotFixture();
+  fixture.start();
+  assert.equal(fixture.native.transform, 'live-identity');
+  assert.equal(fixture.native.alpha, 0);
+  assert.equal(fixture.snapshot.transform, 'identity');
+  assert.equal(fixture.snapshot.userInteractionEnabled, false);
+  assert.equal(fixture.snapshot.accessibilityElementsHidden, true);
+  assert.equal(fixture.completed, 0);
+  fixture.finish();
+  assert.equal(fixture.native.alpha, 1);
+  assert.equal(fixture.view.opacity, 1);
+  assert.equal(fixture.removed, 1);
+  assert.equal(fixture.completed, 1);
+  fixture.finish();
+  assert.equal(fixture.completed, 1);
+});
+
+test('sidebar cancellation cleans up and ignores a stale animation completion', () => {
+  const fixture = snapshotFixture();
+  fixture.start();
+  fixture.cancel();
+  fixture.finish();
+  assert.equal(fixture.removed, 1);
+  assert.equal(fixture.completed, 0);
+  assert.equal(fixture.native.alpha, 1);
+  const pending = snapshotFixture();
+  pending.cancel();
+  pending.start();
+  assert.equal(pending.removed, 0);
+  assert.equal(pending.completed, 0);
+});
+
+test('sidebar snapshot failure reveals the real panel and completes dismissal ownership', () => {
+  const fixture = snapshotFixture(false);
+  fixture.start();
+  assert.equal(fixture.native.alpha, 1);
+  assert.equal(fixture.view.opacity, 1);
+  assert.equal(fixture.completed, 1);
+});
+
+test('sidebar exit retains the surface until presentation finishes and recovers capture exceptions', () => {
+  const exiting = snapshotFixture(true, false);
+  exiting.start();
+  assert.deepEqual(exiting.snapshot.transform, { x: -288, y: 0 });
+  assert.equal(exiting.completed, 0);
+  exiting.finish();
+  assert.equal(exiting.completed, 1);
+  assert.equal(exiting.native.alpha, 1);
+  const failed = snapshotFixture('throw');
+  failed.start();
+  assert.equal(failed.completed, 1);
+  assert.equal(failed.native.alpha, 1);
+});
