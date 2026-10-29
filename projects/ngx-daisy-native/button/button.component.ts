@@ -4,13 +4,15 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
+  ElementRef,
+  inject,
   input,
   output,
   signal,
   NO_ERRORS_SCHEMA,
   ViewEncapsulation,
 } from '@angular/core';
-import type { EventData } from '@nativescript/core';
+import type { Button, EventData } from '@nativescript/core';
 import type {
   DsyButtonColor,
   DsyButtonLayout,
@@ -50,9 +52,24 @@ export type DsyNativeButtonVariant = Exclude<DsyButtonVariant, 'dash'>;
     '[androidElevation]': '0',
     '[androidDynamicElevationOffset]': '0',
     '(tap)': 'onTap($event)',
+    '(touch)': 'preservePressedTextColor()',
   },
 })
 export class DsyButton {
+  private readonly view = inject<ElementRef<Button>>(ElementRef).nativeElement;
+
+  protected preservePressedTextColor(): void {
+    // UIKit system buttons otherwise derive a dimmed highlighted title color.
+    // Read the current normal color so themes and app foreground overrides win.
+    const button = this.view.ios as
+      | {
+          titleColorForState(state: number): unknown;
+          setTitleColorForState(color: unknown, state: number): void;
+        }
+      | undefined;
+    if (button) button.setTitleColorForState(button.titleColorForState(0), 1);
+  }
+
   constructor() {
     bindNativeFeedback(undefined, () => !this.isDisabled());
   }

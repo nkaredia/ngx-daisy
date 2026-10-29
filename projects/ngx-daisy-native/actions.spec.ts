@@ -88,6 +88,25 @@ function nativeDialog() {
 }
 
 describe('Native Actions', () => {
+  it('keeps the current iOS button foreground when pressed, including theme changes', () => {
+    const fixture = TestBed.createComponent(FabHost);
+    fixture.detectChanges();
+    const button = fixture.debugElement.query(By.directive(DsyButton));
+    let foreground = { name: 'light foreground' };
+    const setTitleColorForState = vi.fn();
+    button.nativeElement.ios = {
+      titleColorForState: vi.fn(() => foreground),
+      setTitleColorForState,
+    };
+    button.triggerEventHandler('touch', { action: 'down' });
+    expect(setTitleColorForState).toHaveBeenLastCalledWith(foreground, 1);
+    foreground = { name: 'app foreground override' };
+    button.triggerEventHandler('touch', { action: 'down' });
+    expect(setTitleColorForState).toHaveBeenLastCalledWith(foreground, 1);
+    delete button.nativeElement.ios;
+    expect(() => button.triggerEventHandler('touch', { action: 'down' })).not.toThrow();
+  });
+
   it('contains dialogs on narrow screens and protects implicit dismissal', () => {
     const config = { width: 500, disableClose: true };
     const close = vi.fn();
