@@ -132,7 +132,7 @@ test('resolves multiple source classes and transforms metadata without changing 
     // Type-check actual generated metadata against the renderer's contract, in memory.
     function contractDiagnostics(expression) {
       const virtualPath = join(directory, 'contract-check.ts');
-      const contractPath = join(root, 'projects/showcase/src/app/playground/playground.types');
+      const contractPath = join(root, 'projects/ngx-daisy-core/playground/playground');
       const text = `import type { PlaygroundProperty } from '${contractPath}';
         const props: readonly PlaygroundProperty[] = ${expression};`;
       const options = {
