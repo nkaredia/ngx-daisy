@@ -25,6 +25,7 @@ for (const output of outputs) {
     'minus',
     'moon',
     'paintbrush',
+    'panels-top-left',
     'plus',
     'settings',
     'star',

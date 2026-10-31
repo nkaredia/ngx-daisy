@@ -1,6 +1,24 @@
-import { Zap, ChartNoAxesColumn, Keyboard } from 'lucide';
+import { Zap, ChartNoAxesColumn, Keyboard, PanelsTopLeft } from 'lucide';
 import { lucideArtwork } from '../icons/svg-artwork';
 export const nativePages = [
+  {
+    id: 'cards',
+    label: 'Cards',
+    category: 'data-display',
+    description: 'Compose focused content and clear actions in reusable surfaces.',
+  },
+  {
+    id: 'badges',
+    label: 'Badges',
+    category: 'data-display',
+    description: 'Make status, categories and small details easy to scan.',
+  },
+  {
+    id: 'dividers',
+    label: 'Dividers',
+    category: 'layout',
+    description: 'Separate related content with lines and optional labels.',
+  },
   {
     id: 'buttons',
     description: 'Buttons communicate actions, from a quick confirmation to your next big step.',
@@ -103,4 +121,5 @@ export const nativeGroups = [
   { id: 'actions', label: 'Actions', icon: lucideArtwork(Zap) },
   { id: 'data-display', label: 'Data Display', icon: lucideArtwork(ChartNoAxesColumn) },
   { id: 'data-input', label: 'Data Input', icon: lucideArtwork(Keyboard) },
+  { id: 'layout', label: 'Layout', icon: lucideArtwork(PanelsTopLeft) },
 ].map((group) => ({ ...group, pages: nativePages.filter((page) => page.category === group.id) }));

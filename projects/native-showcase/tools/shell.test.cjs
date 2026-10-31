@@ -48,7 +48,7 @@ test('native navigation lists each supported component once under the web catego
   const pages = nativeGroups.flatMap((group) => group.pages);
   assert.deepEqual(
     nativeGroups.map((group) => group.id),
-    ['actions', 'data-display', 'data-input'],
+    ['actions', 'data-display', 'data-input', 'layout'],
   );
   assert.deepEqual(
     pages.map((page) => page.id),
@@ -59,6 +59,8 @@ test('native navigation lists each supported component once under the web catego
       'modals',
       'swaps',
       'theme-controllers',
+      'cards',
+      'badges',
       'icons',
       'inputs',
       'textareas',
@@ -69,6 +71,7 @@ test('native navigation lists each supported component once under the web catego
       'form-fields',
       'fieldsets',
       'toggles',
+      'dividers',
     ],
   );
   assert.equal(new Set(pages.map((page) => page.id)).size, nativePages.length);
