@@ -199,3 +199,35 @@ test('sidebar exit retains the surface until presentation finishes and recovers 
   assert.equal(failed.completed, 1);
   assert.equal(failed.native.alpha, 1);
 });
+
+test('theme exports retain every portable daisyUI token and plugin flags', () => {
+  const { nativeThemeCss } = loadSource('../src/app/shell/theme-source.ts');
+  const { nativeThemes } = loadSource('../src/app/shell/themes.ts');
+  for (const theme of nativeThemes) {
+    const css = nativeThemeCss(theme);
+    assert.ok(css.startsWith('@plugin "daisyui/theme" {'));
+    assert.ok(css.includes(`name: "${theme.name}";`));
+    assert.ok(css.includes(`color-scheme: ${theme.colorScheme};`));
+    assert.ok(css.includes(`prefersdark: ${theme.prefersDark ?? false};`));
+    assert.equal(Object.keys(theme.tokens).length, 28);
+    for (const [token, value] of Object.entries(theme.tokens))
+      assert.ok(css.includes(`${token}: ${value};`));
+  }
+});
+
+test('native page geometry preserves mobile gutters and reserves a persistent documentation column only on wide component pages', () => {
+  const { nativeShowcaseGeometry } = loadSource('../src/app/shell/layout.ts');
+  assert.deepEqual(nativeShowcaseGeometry(390, false), {
+    persistentNavigation: false,
+    sectionNavigation: false,
+    columns: '*',
+    contentWidth: 358,
+  });
+  assert.equal(nativeShowcaseGeometry(1024, false).columns, '288, *');
+  assert.equal(nativeShowcaseGeometry(1320, false).columns, '288, *, 176');
+  assert.equal(nativeShowcaseGeometry(1320, false).contentWidth, 808);
+  assert.equal(nativeShowcaseGeometry(1920, false).contentWidth, 1056);
+  assert.equal(nativeShowcaseGeometry(1920, true).columns, '*');
+  assert.equal(nativeShowcaseGeometry(1920, true).sectionNavigation, false);
+  assert.equal(nativeShowcaseGeometry(0, false).contentWidth, 358);
+});

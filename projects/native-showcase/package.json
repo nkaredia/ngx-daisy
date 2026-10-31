@@ -11,7 +11,7 @@
     "check": "ngc -p tsconfig.json --noEmit",
     "check:styles": "node tools/check-styles.cjs",
     "check:icons": "node --test tools/icon-artwork.test.cjs && node tools/check-icon-bundles.cjs",
-    "check:shell": "node --test tools/shell.test.cjs"
+    "check:shell": "node --test tools/shell.test.cjs tools/playground.test.cjs"
   },
   "dependencies": {
     "@angular/animations": "22.2.3",

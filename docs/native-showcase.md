@@ -4,7 +4,7 @@ The native showcase follows the web showcase's shell: grouped navigation, ngx-da
 
 ## Navigation and layout
 
-`projects/native-showcase/src/app/shell/catalog.ts` drives labels, categories and page selection. The implemented native catalog has sixteen pages: Buttons, Dropdowns, FAB / Speed Dial, Modals, Swaps, Theme Controllers, Icons, Input, Textarea, Checkbox, Radio, Range, Select, Form Field, Fieldset and Toggle. Categories follow the web order: Actions, Data Display, then Data Input. Unimplemented native families do not have dead navigation entries.
+`projects/native-showcase/src/app/shell/catalog.ts` drives labels, categories and page selection. The implemented native catalog has 22 pages: the six Actions families, Icon, Card, Badge, Alert, Progress, Skeleton, Input, Textarea, Checkbox, Radio, Range, Select, Form Field, Fieldset, Toggle and Divider. Categories follow the web order: Actions, Data Display, Feedback, Data Input and Layout. Unimplemented native families do not have dead navigation entries.
 
 Below 1024 DIP, a titlebar shows the navigation button and brand/version. The drawer shows Components and a close button, avoiding duplicate branding. The drawer overlays its backdrop, disables and hides the underlying page from accessibility, and closes when selecting a page or tapping the backdrop/close control. On Android, Back closes the drawer first and returns other component pages to Buttons before the normal root behavior.
 
@@ -16,9 +16,9 @@ Button examples now live in their own component. Each Actions family can be sele
 
 The preset catalog imports daisyUI's public `theme/object` and `functions/themeOrder` data. All 35 built-in definitions pass through the shared theme contract and native color/length converter. Browser CSS is not imported. Light/dark remain a separate switch; other presets appear in a native picker with each theme's four-color swatch. The selection persists across page navigation and app restarts. Native checked-property echoes do not override a selected preset.
 
-The native Theme Builder is a smaller editor than the browser generator. It edits primary/secondary colors and field radius, validates the converted theme before applying it, previews shared component styling, and saves one custom theme locally. The saved theme is also selectable in the picker. It does not yet reproduce the web generator's complete token editor, import/export or share-link UI.
+The native Theme Builder edits all 28 portable daisyUI tokens, theme name, color scheme and default/dark preference flags. It previews valid drafts locally, validates native colors and lengths before applying, saves one named custom theme, and supports JSON import plus exact JSON and daisyUI plugin CSS copying. Invalid drafts leave the preview on the current applied theme and show validation on apply/export. Built-in preset names are reserved when saving. Browser compressed share links and browser color picker widgets are not used in native; exported JSON is portable across the apps.
 
-The picker uses the existing native Modal family, retaining explicit dismissal and detached theme scope support. Sidebar navigation itself is currently app-owned native layout, not a new library Drawer implementation. No custom drawer animation is applied.
+The picker uses the anchored native Dropdown. Sidebar navigation is app-owned native layout, with shared motion preferences and an iOS snapshot transition that preserves live layout; see the rendering correction below.
 
 ## Verification
 
@@ -64,7 +64,7 @@ The preset selector now uses the native anchored Dropdown rather than a modal. I
 and rows share a four-token theme swatch, and the current theme has an individual Lucide
 checkmark. Light/dark retains its separate switch; all other presets and a saved custom theme
 remain in the dropdown. The editor stays an icon button alongside those controls. Native
-playgrounds and property editors are intentionally a separate step from this shell pass.
+playgrounds and property editors are now shared across every implemented component page, as described below.
 
 For this shell update, strict templates, both platform JavaScript bundles, CSS checks,
 preset/catalog checks and all 88 native unit tests pass. Android emulator inspection
@@ -107,3 +107,23 @@ footer toolbar, theme popup swatches and selected checkmark, live Synthwave sele
 opening/closing the sidebar. Strict templates, both platform bundles, 88 native unit tests
 and six shell/presentation checks pass. No Android emulator was connected for this pass;
 the previously reported Android blank startup remains a separate unresolved issue.
+
+## Shared component page UI
+
+All 22 supported component pages have the same structure as the web documentation pages: heading and package entry point, Try it out, a playground card, UI examples with always-visible HTML source, Angular usage, extracted API reference and accessibility guidance. Unimplemented library families remain absent from the native navigation.
+
+The shared native Playground renders an ordinary authored preview under each `*-demo/example` folder. Its toolbar contains individually imported Lucide code, placement and reset buttons. Code expands directly beneath the titlebar. Properties appear beside the preview when the available body width reaches 820 DIP; narrower layouts stack them below. Switching placement retains state, while Reset recreates only the preview and restores its fixture defaults. Page changes reset the controls. Models keep local edits through unrelated input changes.
+
+Every extracted scalar input has a bound preview input: finite literals use Select with typed option identities, booleans use Toggle, and text/numbers use native text controls. Explicit unset/null actions remain distinct from defaults. Complex inputs explain their fixture ownership rather than pretending to edit objects. The API section shares the extracted input descriptions/types. Desktop-width pages show section navigation on the right; mobile uses a compact horizontal section strip. Both scroll smoothly to the target inside the native page ScrollView. At viewport widths of 1320 DIP and above, the shell gives section navigation a separate fixed right-hand column outside the page ScrollView. The page and both sidebars retain independent scrolling/layout; narrower widths use the compact section strip.
+
+Native Webpack applies `tools/playground-loader.cjs` only to plain `playground.ts` modules after Angular compilation. The loader shares the web extractor, resolves native/core classes from source, caches only within a compilation and registers source/type/resource dependencies for rebuilds. Generated metadata and source text remain in memory; Angular type-checking sees the authored optional fields. No generated configuration file is written. Shared types live in the portable core playground entry point and remain re-exported from the existing web path.
+
+The native source viewer renders build-highlighted Shiki tokens as safe native FormattedString/Span text in a read-only TextView. It assembles the entire span list in one batch before assigning it, avoiding quadratic native text updates when long inline sources are shown. It switches light/dark token colors, provides file tabs and puts an accessible copy icon in the current file panel. The clipboard receives the exact authored contents, with no native HTML interpretation or bundled Shiki runtime. Curated inline examples now keep their template in a single component file; the extractor produces the virtual HTML tab in memory. Inline example shells show that HTML by default; full previews offer the complete TS/HTML source set. The existing curated examples remain available after the live playground.
+
+The Theme Builder uses the same theme definitions as all other pages. Its settings and preview sit beside each other at wide widths and stack on phones. All 28 tokens are grouped into base, brand, status, shape/size and effect settings. Depth/noise are retained in exported definitions even where native rendering does not emulate browser textures. Applying a draft updates the global scope; merely editing it changes only the preview.
+
+### Verification of the shared page UI
+
+The web production build and 35 web showcase tests pass, as do four shared extractor/source tests, all 94 native component tests, both native platform bundles, selected-icon/CSS checks and 12 native shell/source/state checks. The new checks cover all 22 extracted configurations, exact authored files, every scalar preview binding, typed literal values, explicit unset/null, all 28 exported tokens and a 5,000-span single-batch source render. The web build reports initial bundle and Theme Builder stylesheet budget warnings.
+
+On iPhone 17 / iOS 26.5, all 22 component pages were opened and showed their live playground, package heading and property metadata. Checked highlighted source display, the toolbar code disclosure, smooth API section navigation, local preview Reset and the expanded Theme Builder's grouped fields and floating navigation control. A rendering stall on long sources was corrected by batching native formatted spans, then the complete catalog was checked again. No Android device/emulator was connected; Android native rendering, the wide/tablet layout, direct keyboard editing/copy/import workflows and a screen-reader audit remain unverified. Native bundling and state checks do not establish those device results.
