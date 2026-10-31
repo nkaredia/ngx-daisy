@@ -1,3 +1,4 @@
+import { NativeFeedbackExample } from './feedback-example/feedback-example';
 import { NativeDisplayExample } from './display-example/display-example';
 import { NativeSidebarMotion } from './shell/sidebar-motion';
 import { DsyMotionPresence } from '@ngx-daisy/native/motion';
@@ -74,6 +75,7 @@ function storedTheme(): DsyThemeDefinition {
   selector: 'dsy-native-showcase',
   standalone: true,
   imports: [
+    NativeFeedbackExample,
     NativeDisplayExample,
     DsyMotionPresence,
     NativeSidebarMotion,

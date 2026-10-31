@@ -1,6 +1,24 @@
-import { Zap, ChartNoAxesColumn, Keyboard, PanelsTopLeft } from 'lucide';
+import { Zap, ChartNoAxesColumn, Keyboard, PanelsTopLeft, MessageCircle } from 'lucide';
 import { lucideArtwork } from '../icons/svg-artwork';
 export const nativePages = [
+  {
+    id: 'alerts',
+    label: 'Alerts',
+    category: 'feedback',
+    description: 'Keep people informed with contextual status and recovery actions.',
+  },
+  {
+    id: 'progress',
+    label: 'Progress',
+    category: 'feedback',
+    description: 'Show how much work is complete, or when work is still underway.',
+  },
+  {
+    id: 'skeletons',
+    label: 'Skeletons',
+    category: 'feedback',
+    description: 'Reserve space for content with quiet, reusable loading placeholders.',
+  },
   {
     id: 'cards',
     label: 'Cards',
@@ -120,6 +138,7 @@ export type NativePageId = (typeof nativePages)[number]['id'] | 'themes';
 export const nativeGroups = [
   { id: 'actions', label: 'Actions', icon: lucideArtwork(Zap) },
   { id: 'data-display', label: 'Data Display', icon: lucideArtwork(ChartNoAxesColumn) },
+  { id: 'feedback', label: 'Feedback', icon: lucideArtwork(MessageCircle) },
   { id: 'data-input', label: 'Data Input', icon: lucideArtwork(Keyboard) },
   { id: 'layout', label: 'Layout', icon: lucideArtwork(PanelsTopLeft) },
 ].map((group) => ({ ...group, pages: nativePages.filter((page) => page.category === group.id) }));
