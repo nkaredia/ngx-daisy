@@ -25,6 +25,10 @@ Shared extraction moves the existing Button and Icon type contracts and theme de
 
 The native Button adapts compact sizing to a minimum 44-unit touch target. Loading uses a localizable text label. Dashed borders, icon composition and depth/noise effects are deferred. API differences reflect the native platform and are documented in the [native package guide](../projects/ngx-daisy-native/README.md).
 
+## Native content composition
+
+Card, Badge and Divider now have native secondary entry points and separate showcase pages. They compose app-owned native content with theme-derived surfaces, semantic status colors and horizontal/vertical separators. See [native content composition](native-data-display.md) for APIs and platform differences.
+
 ## Next component families
 
 Input, Textarea, Toggle, Checkbox, Radio, Range and Select now provide native Data Input controls with Signal Forms contracts and independent showcase pages. Form Field and Fieldset provide reusable composition; see [native Data Input](native-data-inputs.md) and [native form composition](native-form-composition.md). Continue with remaining form controls and Loader. Validate keyboard/focus behavior, accessibility and OS lifecycle on iOS and Android as the catalog expands. Navigation, drawers and overlays need native implementations and native back/dismissal behavior; browser CDK overlays and focus traps do not belong in the native package.

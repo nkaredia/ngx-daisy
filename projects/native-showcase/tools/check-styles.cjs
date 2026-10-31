@@ -58,6 +58,23 @@ async function main() {
   assert.doesNotMatch(buttonCss, /var\([^;{}]*,\s*var\(/);
   assert.match(buttonCss, /background-color:\s*var\(--dsy-color-primary-pressed\)/);
   assert.doesNotMatch(buttonCss, /--dsy-button-pressed-background/);
+  // New visual families must keep theme tokens and native (unitless) geometry.
+  for (const family of ['badge', 'card', 'divider']) {
+    const surface = sass.compile(
+      path.resolve(__dirname, `../../ngx-daisy-native/${family}/${family}.scss`),
+    ).css;
+    const compiled = await postcss([require('@nativescript/tailwind')]).process(surface, {
+      from: undefined,
+    });
+    assert.match(compiled.css, /var\(--color-base-/);
+    assert.doesNotMatch(compiled.css, /(?:document|:root|!important|#[0-9a-f]{3,8}\b)/i);
+    if (family === 'badge') {
+      assert.match(compiled.css, /var\(--dsy-color-success-soft\)/);
+      assert.match(compiled.css, /var\(--radius-selector\)/);
+    }
+    if (family === 'card') assert.match(compiled.css, /var\(--radius-box\)/);
+    if (family === 'divider') assert.match(compiled.css, /dsy-native-divider-vertical/);
+  }
   console.log(
     'Native Tailwind semantic colors, radii, spacing, typography and overlay shadows verified.',
   );

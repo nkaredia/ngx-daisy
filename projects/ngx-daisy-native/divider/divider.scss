@@ -1,0 +1,35 @@
+.dsy-native-divider {
+  margin: 16 0;
+  color: var(--color-base-content);
+}
+.dsy-native-divider-line {
+  background-color: var(--color-base-300);
+}
+.dsy-native-divider-horizontal .dsy-native-divider-line {
+  height: 1;
+  vertical-align: middle;
+}
+.dsy-native-divider-vertical {
+  margin: 0 16;
+}
+.dsy-native-divider-vertical .dsy-native-divider-line {
+  width: 1;
+  horizontal-align: center;
+}
+.dsy-native-divider-text {
+  padding: 0 12;
+  font-size: 14;
+  text-align: center;
+  vertical-align: middle;
+}
+.dsy-native-divider-vertical .dsy-native-divider-text {
+  padding: 12 0;
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-divider-#{$color} {
+    color: var(--color-#{$color});
+  }
+  .dsy-native-divider-#{$color} .dsy-native-divider-line {
+    background-color: var(--color-#{$color});
+  }
+}
