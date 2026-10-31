@@ -1,0 +1,30 @@
+.dsy-native-skeleton {
+  background-color: var(--color-base-300);
+  border-radius: var(--radius-box);
+  height: 80;
+}
+.dsy-native-skeleton-circle {
+  border-radius: 9999;
+  width: 48;
+  height: 48;
+}
+.dsy-native-skeleton-text {
+  border-radius: var(--radius-selector);
+  height: 16;
+}
+.dsy-native-skeleton-animated {
+  animation-name: dsy-native-skeleton-pulse;
+  animation-duration: 1.6s;
+  animation-iteration-count: infinite;
+}
+@keyframes dsy-native-skeleton-pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 1;
+  }
+}

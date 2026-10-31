@@ -29,6 +29,10 @@ The native Button adapts compact sizing to a minimum 44-unit touch target. Loadi
 
 Card, Badge and Divider now have native secondary entry points and separate showcase pages. They compose app-owned native content with theme-derived surfaces, semantic status colors and horizontal/vertical separators. See [native content composition](native-data-display.md) for APIs and platform differences.
 
+## Native feedback
+
+Alert, Progress and Skeleton now provide contextual status, OS progress/busy indicators and reduced-motion-aware loading placeholders. Each has its own native showcase page. See [native feedback](native-feedback.md) for APIs, announcement ownership and platform differences.
+
 ## Next component families
 
 Input, Textarea, Toggle, Checkbox, Radio, Range and Select now provide native Data Input controls with Signal Forms contracts and independent showcase pages. Form Field and Fieldset provide reusable composition; see [native Data Input](native-data-inputs.md) and [native form composition](native-form-composition.md). Continue with remaining form controls and Loader. Validate keyboard/focus behavior, accessibility and OS lifecycle on iOS and Android as the catalog expands. Navigation, drawers and overlays need native implementations and native back/dismissal behavior; browser CDK overlays and focus traps do not belong in the native package.

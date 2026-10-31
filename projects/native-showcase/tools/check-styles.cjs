@@ -59,7 +59,7 @@ async function main() {
   assert.match(buttonCss, /background-color:\s*var\(--dsy-color-primary-pressed\)/);
   assert.doesNotMatch(buttonCss, /--dsy-button-pressed-background/);
   // New visual families must keep theme tokens and native (unitless) geometry.
-  for (const family of ['badge', 'card', 'divider']) {
+  for (const family of ['badge', 'card', 'divider', 'alert', 'progress', 'skeleton']) {
     const surface = sass.compile(
       path.resolve(__dirname, `../../ngx-daisy-native/${family}/${family}.scss`),
     ).css;
@@ -71,6 +71,10 @@ async function main() {
     if (family === 'badge') {
       assert.match(compiled.css, /var\(--dsy-color-success-soft\)/);
       assert.match(compiled.css, /var\(--radius-selector\)/);
+    }
+    if (family === 'skeleton') {
+      assert.match(compiled.css, /@keyframes dsy-native-skeleton-pulse/);
+      assert.match(compiled.css, /animation-iteration-count: infinite/);
     }
     if (family === 'card') assert.match(compiled.css, /var\(--radius-box\)/);
     if (family === 'divider') assert.match(compiled.css, /dsy-native-divider-vertical/);
