@@ -1,3 +1,7 @@
+import { nativeShowcaseGeometry } from './shell/layout';
+import { NativeSectionNavigation } from './playground/section-navigation';
+import { NativeComponentPage } from './playground/component-page';
+import { nativePlaygrounds } from './playground/catalog';
 import { NativeFeedbackExample } from './feedback-example/feedback-example';
 import { NativeDisplayExample } from './display-example/display-example';
 import { NativeSidebarMotion } from './shell/sidebar-motion';
@@ -66,7 +70,7 @@ function storedTheme(): DsyThemeDefinition {
     ApplicationSettings.getBoolean('ngx-daisy.dark', false) ? 'dark' : 'light',
   );
   return (
-    (name === 'custom' ? storedCustom() : undefined) ??
+    (storedCustom()?.name === name ? storedCustom() : undefined) ??
     nativeThemes.find((theme) => theme.name === name) ??
     nativeThemes.find((theme) => theme.name === 'light')!
   );
@@ -75,6 +79,8 @@ function storedTheme(): DsyThemeDefinition {
   selector: 'dsy-native-showcase',
   standalone: true,
   imports: [
+    NativeSectionNavigation,
+    NativeComponentPage,
     NativeFeedbackExample,
     NativeDisplayExample,
     DsyMotionPresence,
@@ -100,6 +106,11 @@ function storedTheme(): DsyThemeDefinition {
   encapsulation: ViewEncapsulation.None,
 })
 export class NativeShowcase {
+  readonly playground = computed(() =>
+    this.page() === 'themes'
+      ? undefined
+      : nativePlaygrounds[this.page() as keyof typeof nativePlaygrounds],
+  );
   readonly version = libraryPackage.version;
   readonly page = signal<NativePageId>('buttons');
   readonly groups = nativeGroups;
@@ -111,23 +122,25 @@ export class NativeShowcase {
   ]);
   readonly dark = computed(() => this.theme().colorScheme === 'dark');
   readonly viewportWidth = signal(390);
-  readonly desktop = signal(false);
-  readonly contentWidth = computed(() =>
-    Math.max(
-      1,
-      Math.min(
-        1056,
-        this.viewportWidth() - (this.persistentNavigation() ? 288 : 0) - (this.desktop() ? 48 : 32),
-      ),
-    ),
+  readonly geometry = computed(() =>
+    nativeShowcaseGeometry(this.viewportWidth(), this.page() === 'themes'),
   );
+  readonly showPageNavigation = computed(() => this.geometry().sectionNavigation);
+  readonly activeSection = signal('try');
+  private readonly componentPage = viewChild(NativeComponentPage);
+  scrollDocumentation(section: string): void {
+    this.componentPage()?.scrollTo(section);
+  }
+  readonly layoutColumns = computed(() => this.geometry().columns);
+  readonly desktop = signal(false);
+  readonly contentWidth = computed(() => this.geometry().contentWidth);
   readonly currentPage = computed(() => nativePages.find((page) => page.id === this.page()));
   readonly description = computed(() =>
     this.page() === 'themes'
       ? 'Create a theme that brings your interface to life. Preview, customize and save your colors.'
       : (this.currentPage()?.description ?? ''),
   );
-  readonly persistentNavigation = computed(() => this.desktop() && this.page() !== 'themes');
+  readonly persistentNavigation = computed(() => this.geometry().persistentNavigation);
   readonly navigationMounted = signal(false);
   readonly navigationOpened = signal(false);
   readonly overlayOpen = computed(() => this.navigationOpened() && !this.persistentNavigation());
@@ -174,14 +187,15 @@ export class NativeShowcase {
   }
   selectPage(page: NativePageId): void {
     this.page.set(page);
+    this.activeSection.set('try');
     this.navigationOpened.set(false);
     this.scroll()?.nativeElement.scrollToVerticalOffset(0, false);
   }
   selectTheme(theme: DsyThemeDefinition): void {
     this.theme.set(theme);
     ApplicationSettings.setString('ngx-daisy.theme', theme.name);
-    if (theme.name === 'custom') this.savedCustom.set(theme);
-    if (theme.name === 'custom')
+    if (!nativeThemes.some((preset) => preset.name === theme.name)) this.savedCustom.set(theme);
+    if (!nativeThemes.some((preset) => preset.name === theme.name))
       ApplicationSettings.setString('ngx-daisy.custom-theme', JSON.stringify(theme));
   }
   colorMode(event: unknown): void {

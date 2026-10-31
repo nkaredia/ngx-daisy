@@ -1,0 +1,23 @@
+<Button dsyButton text="Create project" dsyColor="primary" (pressed)="dialog.open()"></Button
+><ng-template
+  dsyModal
+  #dialog="dsyModal"
+  [opened]="value('opened', false)"
+  [disableClose]="value('disableClose', false)"
+  [label]="value('label', 'Create project')"
+  [panelClass]="value('panelClass', '')"
+  [panelWidth]="value('panelWidth', 320)"
+  ><StackLayout class="p-5"
+    ><Label text="Start something new" class="text-[22px] font-bold mb-3" textWrap="true"></Label
+    ><Label
+      text="Invite your team and keep ideas in one place."
+      textWrap="true"
+      class="mb-4"
+    ></Label
+    ><Button
+      dsyButton
+      text="Done"
+      dsyColor="primary"
+      (pressed)="dialog.close()"
+    ></Button></StackLayout
+></ng-template>

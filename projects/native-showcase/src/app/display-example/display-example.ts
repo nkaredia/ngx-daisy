@@ -15,7 +15,197 @@ import { DsyButton } from '@ngx-daisy/native/button';
   standalone: true,
   imports: [DsyBadge, DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions, DsyDivider, DsyButton],
   schemas: [NO_ERRORS_SCHEMA],
-  templateUrl: './display-example.html',
+  template: `
+    @switch (family()) {
+      @case ('cards') {
+        <StackLayout dsyCard border="solid" class="mb-6">
+          <StackLayout class="bg-primary rounded-box px-6 py-8">
+            <Label
+              text="THE WEEKEND COLLECTION"
+              class="text-primary-content text-[12px] font-bold mb-2"
+              textWrap="true"
+            ></Label>
+            <Label
+              text="Go somewhere new."
+              class="text-primary-content text-[28px] font-bold"
+              textWrap="true"
+            ></Label>
+          </StackLayout>
+          <StackLayout dsyCardBody>
+            <Label
+              dsyBadge
+              text="New arrival"
+              dsyColor="primary"
+              variant="soft"
+              class="mb-3"
+            ></Label>
+            <Label dsyCardTitle text="Everyday explorer pack"></Label>
+            <Label
+              text="Room for the essentials, built for spontaneous plans. Recycled fabric with a lifetime repair promise."
+              textWrap="true"
+              class="opacity-70"
+            ></Label>
+            <GridLayout dsyDivider />
+            <GridLayout columns="*, auto">
+              <Label text="Sand · 24 litre" verticalAlignment="middle" textWrap="true"></Label>
+              <Label col="1" text="$89" class="text-[24px] font-bold"></Label>
+            </GridLayout>
+            <FlexboxLayout dsyCardActions>
+              <Button
+                dsyButton
+                [text]="saved() ? 'Saved' : 'Save for later'"
+                variant="ghost"
+                (pressed)="saved.set(!saved())"
+              ></Button>
+              <Button
+                dsyButton
+                text="Add to bag"
+                dsyColor="primary"
+                (pressed)="saved.set(true)"
+              ></Button>
+            </FlexboxLayout>
+            @if (saved()) {
+              <Label
+                text="Added to your collection."
+                textWrap="true"
+                class="text-success mt-3"
+              ></Label>
+            }
+          </StackLayout>
+        </StackLayout>
+        <Label
+          text="Compact activity card"
+          class="text-[20px] font-bold mb-3"
+          accessibilityRole="header"
+        ></Label>
+        <StackLayout dsyCard size="sm" class="bg-base-200">
+          <StackLayout dsyCardBody>
+            <Label dsyCardTitle text="Your delivery is on its way"></Label>
+            <Label
+              text="Order #2048 · Arriving tomorrow"
+              textWrap="true"
+              class="opacity-70 mb-3"
+            ></Label>
+            <Label dsyBadge text="In transit" dsyColor="info" variant="outline"></Label>
+          </StackLayout>
+        </StackLayout>
+      }
+      @case ('badges') {
+        <StackLayout dsyCard border="solid" class="mb-6">
+          <StackLayout dsyCardBody>
+            <Label dsyCardTitle text="Workspace activity"></Label>
+            <Label
+              text="Make status easy to scan without turning it into an action."
+              textWrap="true"
+              class="opacity-70 mb-4"
+            ></Label>
+            <GridLayout columns="*, auto" class="mb-3">
+              <Label text="Website refresh" verticalAlignment="middle" textWrap="true"></Label>
+              <Label col="1" dsyBadge text="In review" dsyColor="warning" variant="soft"></Label>
+            </GridLayout>
+            <GridLayout columns="*, auto" class="mb-3">
+              <Label text="Mobile release" verticalAlignment="middle" textWrap="true"></Label>
+              <Label col="1" dsyBadge text="Shipped" dsyColor="success"></Label>
+            </GridLayout>
+            <GridLayout columns="*, auto">
+              <Label text="Team invitation" verticalAlignment="middle" textWrap="true"></Label>
+              <Label col="1" dsyBadge text="Pending" variant="outline"></Label>
+            </GridLayout>
+          </StackLayout>
+        </StackLayout>
+        <Label
+          text="Semantic colors"
+          class="text-[20px] font-bold mb-3"
+          accessibilityRole="header"
+        ></Label>
+        <FlexboxLayout flexWrap="wrap" class="mb-5">
+          @for (color of colors; track color) {
+            <Label dsyBadge [text]="color" [dsyColor]="color" margin="0 8 8 0"></Label>
+          }
+        </FlexboxLayout>
+        <Label
+          text="Emphasis and size"
+          class="text-[20px] font-bold mb-3"
+          accessibilityRole="header"
+        ></Label>
+        <FlexboxLayout flexWrap="wrap" class="mb-4">
+          @for (variant of variants; track variant) {
+            <Label
+              dsyBadge
+              [text]="variant"
+              [variant]="variant"
+              dsyColor="primary"
+              margin="0 8 8 0"
+            ></Label>
+          }
+        </FlexboxLayout>
+        <FlexboxLayout flexWrap="wrap" alignItems="center">
+          @for (size of sizes; track size) {
+            <Label
+              dsyBadge
+              [text]="size"
+              [size]="size"
+              dsyColor="secondary"
+              margin="0 8 8 0"
+            ></Label>
+          }
+        </FlexboxLayout>
+      }
+      @case ('dividers') {
+        <StackLayout dsyCard border="solid">
+          <StackLayout dsyCardBody>
+            <Label dsyCardTitle text="Your membership"></Label>
+            <Label
+              text="A calmer space for your next big idea."
+              textWrap="true"
+              class="opacity-70"
+            ></Label>
+            <GridLayout dsyDivider text="CURRENT PLAN" align="start" />
+            <GridLayout columns="*, auto">
+              <Label text="Studio" class="text-[22px] font-bold"></Label>
+              <Label col="1" dsyBadge text="Active" dsyColor="success" variant="soft"></Label>
+            </GridLayout>
+            <Label
+              text="Unlimited projects · 5 collaborators"
+              textWrap="true"
+              class="mt-2 opacity-70"
+            ></Label>
+            <GridLayout dsyDivider />
+            <GridLayout columns="*, auto, *" height="90">
+              <StackLayout verticalAlignment="middle">
+                <Label text="24" class="text-[24px] font-bold" textAlignment="center"></Label>
+                <Label text="Projects" textAlignment="center"></Label>
+              </StackLayout>
+              <GridLayout col="1" dsyDivider orientation="vertical" />
+              <StackLayout col="2" verticalAlignment="middle">
+                <Label text="5" class="text-[24px] font-bold" textAlignment="center"></Label>
+                <Label text="Members" textAlignment="center"></Label>
+              </StackLayout>
+            </GridLayout>
+            <GridLayout dsyDivider text="WHAT'S NEXT" dsyColor="primary" />
+            <Label
+              text="Invite a teammate and start something together."
+              textWrap="true"
+              class="mb-4"
+            ></Label>
+            <Button
+              dsyButton
+              text="Invite teammate"
+              dsyColor="primary"
+              (pressed)="saved.set(true)"
+            ></Button>
+            @if (saved()) {
+              <Label
+                text="Invitation ready to share."
+                textWrap="true"
+                class="mt-3 text-success"
+              ></Label>
+            }
+          </StackLayout>
+        </StackLayout>
+      }
+    }
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })

@@ -1,0 +1,18 @@
+<Label text="Your workspace shortcuts" class="text-[20px] font-bold mb-4"></Label
+><StackLayout dsyFab [opened]="value('opened', false)" [disabled]="value('disabled', false)"
+  ><Button
+    dsyButton
+    dsyFabAction
+    text="New note"
+    variant="soft"
+    (pressed)="notice.set('Note created')"
+  ></Button
+  ><Button
+    dsyButton
+    dsyFabAction
+    text="New project"
+    variant="soft"
+    (pressed)="notice.set('Project created')"
+  ></Button
+  ><Button dsyButton dsyFabTrigger text="Create" dsyColor="primary"></Button></StackLayout
+><Label [text]="notice()" class="mt-3" textWrap="true"></Label>

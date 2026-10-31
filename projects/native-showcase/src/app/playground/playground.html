@@ -1,0 +1,144 @@
+<StackLayout class="native-playground mb-6">
+  <GridLayout columns="*, auto, auto, auto" class="native-playground-toolbar px-4 py-2">
+    <Label text="Playground" class="font-semibold" verticalAlignment="middle"></Label>
+    <GridLayout
+      col="1"
+      appIconButton
+      [label]="position() === 'side' ? 'Show properties below' : 'Show properties on the side'"
+      [artwork]="position() === 'side' ? icons.bottom : icons.side"
+      (pressed)="togglePosition()"
+    />
+    <GridLayout
+      col="2"
+      appIconButton
+      label="Reset playground"
+      [artwork]="icons.reset"
+      (pressed)="reset()"
+    />
+    <GridLayout
+      col="3"
+      appIconButton
+      [label]="codeOpen() ? 'Hide code' : 'Show code'"
+      [artwork]="icons.code"
+      (pressed)="codeOpen.set(!codeOpen())"
+    />
+  </GridLayout>
+  @if (codeOpen()) {
+    <app-native-example-code [files]="files()" [dark]="dark()" />
+  }
+  <GridLayout [columns]="side() ? '*, 300' : '*'" [rows]="side() ? 'auto' : 'auto, auto'">
+    <StackLayout row="0" col="0" class="native-playground-preview p-5" verticalAlignment="middle">
+      @for (generation of generations(); track generation) {
+        <ng-container *ngComponentOutlet="config().previews[0]; inputs: { values: values() }" />
+      }
+    </StackLayout>
+    <StackLayout [row]="side() ? 0 : 1" [col]="side() ? 1 : 0" class="native-playground-props p-4">
+      <Label
+        text="Properties"
+        class="font-bold text-[14px] mb-4"
+        accessibilityRole="header"
+      ></Label>
+      @for (group of config().components; track $index; let index = $index) {
+        <Label
+          [text]="group.name ?? 'Component'"
+          class="text-[12px] opacity-60 mb-3"
+          textWrap="true"
+        ></Label>
+        @for (prop of group.props ?? []; track prop.property) {
+          <StackLayout class="mb-4">
+            <GridLayout columns="*, auto">
+              <Label
+                [text]="prop.name"
+                class="font-semibold text-[14px]"
+                textWrap="true"
+                verticalAlignment="middle"
+              ></Label>
+              @if (prop.action.kind === 'toggle') {
+                <Switch
+                  col="1"
+                  dsyToggle
+                  [checked]="value(index, prop) === true"
+                  [label]="prop.name"
+                  (checkedChange)="set(index, prop, $event)"
+                />
+              }
+            </GridLayout>
+            <Label [text]="prop.type" class="text-[11px] opacity-60 mb-2" textWrap="true"></Label>
+            @switch (prop.action.kind) {
+              @case ('select') {
+                <GridLayout
+                  dsySelect
+                  [options]="options(prop)"
+                  [value]="selected(index, prop)"
+                  [label]="prop.name"
+                  placeholder="Default / unset"
+                  size="sm"
+                  (valueChange)="choose(index, prop, $event)"
+                />
+              }
+              @case ('text') {
+                <TextField
+                  dsyInput
+                  [value]="$any(value(index, prop) ?? '')"
+                  [label]="prop.name"
+                  size="sm"
+                  autocorrect="false"
+                  autocapitalizationType="none"
+                  (valueChange)="edit(index, prop, $event)"
+                ></TextField>
+              }
+              @case ('number') {
+                <TextField
+                  dsyInput
+                  [value]="value(index, prop) == null ? '' : '' + value(index, prop)"
+                  [label]="prop.name"
+                  size="sm"
+                  keyboardType="number"
+                  (valueChange)="edit(index, prop, $event)"
+                ></TextField>
+              }
+              @case ('unsupported') {
+                <Label
+                  text="Provided by this example's fixture."
+                  class="text-[12px] opacity-60"
+                  textWrap="true"
+                ></Label>
+              }
+            }
+            @if (prop.description) {
+              <Label
+                [text]="prop.description"
+                class="text-[12px] opacity-60 mt-1"
+                textWrap="true"
+              ></Label>
+            }
+            @if (prop.optional || prop.nullable) {
+              <StackLayout orientation="horizontal">
+                @if (prop.optional) {
+                  <Button
+                    dsyButton
+                    text="Unset"
+                    size="xs"
+                    variant="ghost"
+                    [accessibilityLabel]="'Unset ' + prop.name"
+                    (pressed)="set(index, prop, undefined)"
+                  ></Button>
+                }
+                @if (prop.nullable) {
+                  <Button
+                    dsyButton
+                    text="Null"
+                    size="xs"
+                    variant="ghost"
+                    [accessibilityLabel]="'Set ' + prop.name + ' to null'"
+                    (pressed)="set(index, prop, null)"
+                  ></Button>
+                }
+              </StackLayout>
+            }
+          </StackLayout>
+        }
+      }
+    </StackLayout>
+  </GridLayout>
+</StackLayout>

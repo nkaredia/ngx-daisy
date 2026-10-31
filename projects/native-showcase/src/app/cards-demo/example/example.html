@@ -1,0 +1,17 @@
+<StackLayout dsyCard [size]="value('size', 'md')" [border]="value('border', 'solid')"
+  ><StackLayout dsyCardBody
+    ><Label dsyCardTitle text="Your next adventure"></Label
+    ><Label
+      text="An everyday pack, ready for wherever the weekend takes you."
+      textWrap="true"
+    ></Label
+    ><Label text="$89 · Sand" class="font-bold mt-3"></Label
+    ><FlexboxLayout dsyCardActions
+      ><Button
+        dsyButton
+        text="Save to collection"
+        dsyColor="primary"
+        (pressed)="notice.set('Saved to your collection')"
+      ></Button></FlexboxLayout
+    ><Label [text]="notice()" textWrap="true" class="mt-3"></Label></StackLayout
+></StackLayout>

@@ -1,0 +1,20 @@
+<Label text="Choose a workspace" class="text-[20px] font-bold mb-3"></Label
+><StackLayout
+  dsyRadioGroup
+  [value]="value('value', 'personal')"
+  [disabled]="value('disabled', false)"
+  [readonly]="value('readonly', false)"
+  [hidden]="value('hidden', false)"
+  [invalid]="value('invalid', false)"
+  [touched]="value('touched', false)"
+  [label]="value('label', 'Workspace type')"
+  [dsyColor]="value('color', 'primary')"
+  [size]="value('size', 'md')"
+  ><Button
+    dsyRadio
+    optionValue="personal"
+    label="Personal"
+    description="A space for your own ideas."
+  ></Button
+  ><Button dsyRadio optionValue="team" label="Team" description="Bring everyone together."></Button
+></StackLayout>

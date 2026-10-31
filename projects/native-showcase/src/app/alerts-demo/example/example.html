@@ -1,0 +1,18 @@
+<StackLayout
+  dsyAlert
+  [dsyColor]="value('color', 'success')"
+  [variant]="value('variant', 'soft')"
+  [title]="value('title', 'Your changes are saved')"
+  [message]="value('message', 'Everything is up to date across your devices.')"
+  [announcement]="value('announcement', 'polite')"
+  [iconClass]="value('iconClass', '')"
+  [contentClass]="value('contentClass', '')"
+  ><Button
+    dsyButton
+    text="View workspace"
+    variant="ghost"
+    (pressed)="notice.set('Workspace is up to date')"
+    marginTop="12"
+  ></Button
+  ><Label [text]="notice()" textWrap="true"></Label
+></StackLayout>

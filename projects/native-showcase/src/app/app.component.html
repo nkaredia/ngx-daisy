@@ -6,11 +6,7 @@
       [statusBarStyle]="dark() ? 'light' : 'dark'"
       class="bg-base-100 text-base-content"
     >
-      <GridLayout
-        rows="auto, *"
-        [columns]="persistentNavigation() ? '288, *' : '*'"
-        (layoutChanged)="onLayout($event)"
-      >
+      <GridLayout rows="auto, *" [columns]="layoutColumns()" (layoutChanged)="onLayout($event)">
         @if (!persistentNavigation() && page() !== 'themes') {
           <GridLayout
             row="0"
@@ -53,78 +49,96 @@
             [width]="contentWidth()"
             horizontalAlignment="center"
           >
-            <Label
-              [text]="title()"
-              class="text-[32px] font-bold mb-2"
-              textWrap="true"
-              accessibilityRole="header"
-            ></Label>
-            <Label
-              [text]="description()"
-              class="text-[16px] opacity-65 mb-6"
-              textWrap="true"
-            ></Label>
-            @switch (page()) {
-              @case ('buttons') {
-                <dsy-native-button-example />
-              }
-              @case ('alerts') {
-                <dsy-native-feedback-example family="alerts" />
-              }
-              @case ('progress') {
-                <dsy-native-feedback-example family="progress" />
-              }
-              @case ('skeletons') {
-                <dsy-native-feedback-example family="skeletons" />
-              }
-              @case ('cards') {
-                <dsy-native-display-example family="cards" />
-              }
-              @case ('badges') {
-                <dsy-native-display-example family="badges" />
-              }
-              @case ('dividers') {
-                <dsy-native-display-example family="dividers" />
-              }
-              @case ('icons') {
-                <dsy-native-icon-example />
-              }
-              @case ('checkboxes') {
-                <dsy-native-selection-example family="checkboxes" />
-              }
-              @case ('radios') {
-                <dsy-native-selection-example family="radios" />
-              }
-              @case ('ranges') {
-                <dsy-native-selection-example family="ranges" />
-              }
-              @case ('selects') {
-                <dsy-native-form-composition-example family="selects" />
-              }
-              @case ('form-fields') {
-                <dsy-native-form-composition-example family="form-fields" />
-              }
-              @case ('fieldsets') {
-                <dsy-native-form-composition-example family="fieldsets" />
-              }
-              @case ('inputs') {
-                <dsy-native-data-input-example family="inputs" />
-              }
-              @case ('textareas') {
-                <dsy-native-data-input-example family="textareas" />
-              }
-              @case ('toggles') {
-                <dsy-native-data-input-example family="toggles" />
-              }
-              @case ('themes') {
-                <dsy-native-theme-editor [theme]="theme()" (applied)="selectTheme($event)" />
-              }
-              @default {
-                <dsy-native-actions-example [family]="$any(page())" />
-              }
+            @if (page() === 'themes') {
+              <Label
+                [text]="title()"
+                class="text-[28px] font-bold mb-2"
+                textWrap="true"
+                accessibilityRole="header"
+              ></Label>
+              <dsy-native-theme-editor
+                [width]="contentWidth()"
+                [theme]="theme()"
+                (applied)="selectTheme($event)"
+              />
+            } @else if (playground(); as config) {
+              <app-native-component-page
+                [page]="page()"
+                [title]="title()"
+                [description]="description()"
+                [config]="config"
+                [externalNavigation]="showPageNavigation()"
+                (sectionChange)="activeSection.set($event)"
+                [width]="contentWidth()"
+                [dark]="dark()"
+              >
+                @switch (page()) {
+                  @case ('buttons') {
+                    <dsy-native-button-example />
+                  }
+                  @case ('alerts') {
+                    <dsy-native-feedback-example family="alerts" />
+                  }
+                  @case ('progress') {
+                    <dsy-native-feedback-example family="progress" />
+                  }
+                  @case ('skeletons') {
+                    <dsy-native-feedback-example family="skeletons" />
+                  }
+                  @case ('cards') {
+                    <dsy-native-display-example family="cards" />
+                  }
+                  @case ('badges') {
+                    <dsy-native-display-example family="badges" />
+                  }
+                  @case ('dividers') {
+                    <dsy-native-display-example family="dividers" />
+                  }
+                  @case ('icons') {
+                    <dsy-native-icon-example />
+                  }
+                  @case ('checkboxes') {
+                    <dsy-native-selection-example family="checkboxes" />
+                  }
+                  @case ('radios') {
+                    <dsy-native-selection-example family="radios" />
+                  }
+                  @case ('ranges') {
+                    <dsy-native-selection-example family="ranges" />
+                  }
+                  @case ('selects') {
+                    <dsy-native-form-composition-example family="selects" />
+                  }
+                  @case ('form-fields') {
+                    <dsy-native-form-composition-example family="form-fields" />
+                  }
+                  @case ('fieldsets') {
+                    <dsy-native-form-composition-example family="fieldsets" />
+                  }
+                  @case ('inputs') {
+                    <dsy-native-data-input-example family="inputs" />
+                  }
+                  @case ('textareas') {
+                    <dsy-native-data-input-example family="textareas" />
+                  }
+                  @case ('toggles') {
+                    <dsy-native-data-input-example family="toggles" />
+                  }
+                  @default {
+                    <dsy-native-actions-example [family]="$any(page())" />
+                  }
+                }
+              </app-native-component-page>
             }
           </StackLayout>
         </ScrollView>
+        @if (showPageNavigation()) {
+          <StackLayout row="1" col="2" class="px-3 py-6"
+            ><app-native-section-navigation
+              [active]="activeSection()"
+              (selected)="scrollDocumentation($event)"
+          /></StackLayout>
+        }
         @if (page() === 'themes' && !overlayOpen()) {
           <GridLayout
             row="1"

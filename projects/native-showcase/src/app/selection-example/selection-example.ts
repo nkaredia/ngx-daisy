@@ -26,7 +26,273 @@ import { DsyButton } from '@ngx-daisy/native/button';
     DsyButton,
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  templateUrl: './selection-example.html',
+  template: `
+    <StackLayout>
+      @switch (family()) {
+        @case ('checkboxes') {
+          <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+            <Label
+              text="Make it a little special"
+              class="text-[24px] font-bold mb-2"
+              textWrap="true"
+              accessibilityRole="header"
+            ></Label>
+            <Label
+              text="A few thoughtful extras for your Weekend essentials order."
+              class="opacity-75 mb-5"
+              textWrap="true"
+            ></Label>
+            <GridLayout columns="auto, *" class="mb-5">
+              <Button
+                dsyCheckbox
+                [checked]="extrasCount() === 2"
+                [indeterminate]="extrasCount() === 1"
+                (checkedChange)="setAll($event)"
+                label="Select all extras"
+                size="sm"
+              ></Button>
+              <StackLayout col="1" marginLeft="16" verticalAlignment="middle"
+                ><Label
+                  text="All the finishing touches"
+                  class="font-semibold"
+                  textWrap="true"
+                ></Label
+                ><Label
+                  [text]="extrasCount() + ' of 2 selected'"
+                  class="opacity-60 text-sm mt-1"
+                ></Label
+              ></StackLayout>
+            </GridLayout>
+            <GridLayout columns="auto, *" class="bg-base-100 rounded-box p-4 mb-3">
+              <Button
+                dsyCheckbox
+                [formField]="fields.gift"
+                label="Gift wrapping, four dollars"
+                size="sm"
+                verticalAlignment="middle"
+              ></Button>
+              <StackLayout col="1" marginLeft="16"
+                ><Label text="Gift wrapping · $4" class="font-semibold" textWrap="true"></Label
+                ><Label
+                  text="Recycled paper, ribbon and a handwritten note."
+                  class="opacity-75 text-sm mt-1"
+                  textWrap="true"
+                ></Label
+              ></StackLayout>
+            </GridLayout>
+            <GridLayout columns="auto, *" class="bg-base-100 rounded-box p-4 mb-3">
+              <Button
+                dsyCheckbox
+                [formField]="fields.protection"
+                label="Package protection, six dollars"
+                size="sm"
+                verticalAlignment="middle"
+              ></Button>
+              <StackLayout col="1" marginLeft="16"
+                ><Label text="Package protection · $6" class="font-semibold" textWrap="true"></Label
+                ><Label
+                  text="A little peace of mind from our door to yours."
+                  class="opacity-75 text-sm mt-1"
+                  textWrap="true"
+                ></Label
+              ></StackLayout>
+            </GridLayout>
+            <GridLayout columns="auto, *" class="mt-2">
+              <Button
+                dsyCheckbox
+                [checked]="true"
+                disabled
+                label="Plastic-free packaging included"
+                size="sm"
+              ></Button>
+              <Label
+                col="1"
+                text="Plastic-free packaging included"
+                class="opacity-60 text-sm"
+                marginLeft="16"
+                verticalAlignment="middle"
+                textWrap="true"
+              ></Label>
+            </GridLayout>
+          </StackLayout>
+          <StackLayout class="bg-base-200 rounded-box p-5 mb-5"
+            ><Label
+              text="Order extras"
+              class="text-xl font-semibold mb-2"
+              accessibilityRole="header"
+            ></Label
+            ><Label
+              [text]="
+                extrasCount() +
+                (extrasCount() === 1 ? ' extra · $' : ' extras · $') +
+                extrasPrice().toFixed(2)
+              "
+              class="text-primary font-semibold"
+            ></Label
+            ><Label
+              text="These selections are a local demo, with no purchase."
+              class="opacity-60 text-sm mt-3"
+              textWrap="true"
+            ></Label
+          ></StackLayout>
+        }
+        @case ('radios') {
+          <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+            <Label
+              text="Good things, on their way"
+              class="text-[24px] font-bold mb-2"
+              textWrap="true"
+              accessibilityRole="header"
+            ></Label>
+            <Label
+              text="Choose how your new everyday backpack gets to you."
+              class="opacity-75 mb-5"
+              textWrap="true"
+            ></Label>
+            <StackLayout
+              dsyRadioGroup
+              [formField]="fields.delivery"
+              label="Delivery method"
+              size="sm"
+            >
+              <GridLayout columns="auto, *" class="bg-base-100 rounded-box p-4 mb-3">
+                <Button
+                  dsyRadio
+                  optionValue="standard"
+                  label="Standard delivery, free, three to five business days"
+                  verticalAlignment="middle"
+                ></Button>
+                <StackLayout col="1" marginLeft="16"
+                  ><Label text="Standard · Free" class="font-semibold" textWrap="true"></Label
+                  ><Label text="3–5 business days" class="opacity-75 text-sm mt-1"></Label
+                ></StackLayout>
+              </GridLayout>
+              <GridLayout columns="auto, *" class="bg-base-100 rounded-box p-4 mb-3">
+                <Button
+                  dsyRadio
+                  optionValue="express"
+                  label="Express delivery, nine dollars, one to two business days"
+                  verticalAlignment="middle"
+                ></Button>
+                <StackLayout col="1" marginLeft="16"
+                  ><Label text="Express · $9" class="font-semibold" textWrap="true"></Label
+                  ><Label text="1–2 business days" class="opacity-75 text-sm mt-1"></Label
+                ></StackLayout>
+              </GridLayout>
+              <GridLayout columns="auto, *" class="p-4">
+                <Button
+                  dsyRadio
+                  optionValue="same-day"
+                  label="Same-day delivery unavailable"
+                  disabled
+                  verticalAlignment="middle"
+                ></Button>
+                <StackLayout col="1" marginLeft="16"
+                  ><Label
+                    text="Same-day delivery"
+                    class="font-semibold opacity-60"
+                    textWrap="true"
+                  ></Label
+                  ><Label
+                    text="Not available in your area yet"
+                    class="opacity-60 text-sm mt-1"
+                    textWrap="true"
+                  ></Label
+                ></StackLayout>
+              </GridLayout>
+            </StackLayout>
+          </StackLayout>
+          <StackLayout class="bg-base-200 rounded-box p-5 mb-5"
+            ><Label
+              text="Your delivery"
+              class="text-xl font-semibold mb-2"
+              accessibilityRole="header"
+            ></Label
+            ><Label
+              [text]="deliveryLabel()"
+              class="text-primary font-semibold"
+              textWrap="true"
+            ></Label
+            ><Label
+              text="Tracking updates included with every order."
+              class="opacity-75 text-sm mt-3"
+              textWrap="true"
+            ></Label
+          ></StackLayout>
+        }
+        @case ('ranges') {
+          <StackLayout class="bg-base-200 rounded-box p-5 mb-5">
+            <Label
+              text="A little now. More later."
+              class="text-[24px] font-bold mb-2"
+              textWrap="true"
+              accessibilityRole="header"
+            ></Label>
+            <Label
+              text="Set a monthly goal for your next weekend away."
+              class="opacity-75 mb-5"
+              textWrap="true"
+            ></Label>
+            <Label
+              [text]="'$' + choices().budget"
+              class="text-[40px] font-bold text-primary text-center"
+            ></Label>
+            <Label text="monthly savings goal" class="opacity-60 text-center mb-4"></Label>
+            <Slider
+              dsyRange
+              [formField]="fields.budget"
+              step="5"
+              label="Monthly savings goal"
+              description="Twenty to two hundred dollars in five dollar increments."
+            ></Slider>
+            <GridLayout columns="*, auto" class="mt-2 mb-4"
+              ><Label text="$20" class="opacity-60 text-sm"></Label
+              ><Label col="1" text="$200" class="opacity-60 text-sm"></Label
+            ></GridLayout>
+            <GridLayout columns="*, *"
+              ><Button
+                dsyButton
+                text="− $5"
+                variant="outline"
+                size="sm"
+                marginRight="6"
+                accessibilityLabel="Decrease monthly goal by five dollars"
+                [disabled]="choices().budget <= 20"
+                (pressed)="adjustBudget(-5)"
+              ></Button
+              ><Button
+                col="1"
+                dsyButton
+                text="+ $5"
+                variant="outline"
+                size="sm"
+                marginLeft="6"
+                accessibilityLabel="Increase monthly goal by five dollars"
+                [disabled]="choices().budget >= 200"
+                (pressed)="adjustBudget(5)"
+              ></Button
+            ></GridLayout>
+          </StackLayout>
+          <StackLayout class="bg-base-200 rounded-box p-5 mb-5"
+            ><Label
+              text="Your next adventure"
+              class="text-xl font-semibold mb-2"
+              accessibilityRole="header"
+            ></Label
+            ><Label
+              [text]="'$' + annualGoal() + ' in a year'"
+              class="text-primary text-xl font-bold"
+            ></Label
+            ><Label
+              text="An illustration of your goal, with no interest or account connection."
+              class="opacity-75 text-sm mt-3"
+              textWrap="true"
+            ></Label
+          ></StackLayout>
+        }
+      }
+    </StackLayout>
+  `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })

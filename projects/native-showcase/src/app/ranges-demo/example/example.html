@@ -1,0 +1,15 @@
+<Label text="Listening preferences" class="text-[20px] font-bold mb-3"></Label
+><Label text="Adjust your listening level." class="opacity-70 mb-3"></Label
+><Slider
+  dsyRange
+  [value]="value('value', 40)"
+  [min]="value('min', 0)"
+  [max]="value('max', 100)"
+  [step]="value('step', 1)"
+  [disabled]="value('disabled', false)"
+  [readonly]="value('readonly', false)"
+  [hidden]="value('hidden', false)"
+  [label]="value('label', 'Volume')"
+  [description]="value('description', '')"
+  [dsyColor]="value('color', 'primary')"
+></Slider>

@@ -1,0 +1,23 @@
+<Label text="Make your workspace yours" class="text-[20px] font-bold mb-2"></Label
+><Label
+  text="Save your latest preferences, then continue where you left off."
+  textWrap="true"
+  class="opacity-70 mb-5"
+></Label
+><Button
+  dsyButton
+  [text]="value('text', 'Save changes')"
+  [dsyColor]="value('color', 'primary')"
+  [size]="value('size', 'md')"
+  [variant]="value('variant', 'solid')"
+  [shape]="value('shape', 'normal')"
+  [dsyLayout]="value('layout', 'auto')"
+  [disabled]="value('disabled', false)"
+  [loading]="value('loading', false)"
+  [loadingText]="value('loadingText', 'Loading…')"
+  [active]="value('active', false)"
+  [accessibilityLabel]="value('accessibilityLabel', undefined)"
+  [accessibilityHint]="value('accessibilityHint', '')"
+  (pressed)="notice.set('Preferences saved')"
+></Button
+><Label [text]="notice()" textWrap="true" class="mt-3"></Label>

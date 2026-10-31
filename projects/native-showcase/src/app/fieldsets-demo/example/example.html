@@ -1,0 +1,12 @@
+<StackLayout
+  dsyFieldset
+  [legend]="value('legend', 'Your profile')"
+  [description]="value('description', 'A few details to make this space your own.')"
+  [hidden]="value('hidden', false)"
+  [legendClass]="value('legendClass', '')"
+  [bodyClass]="value('bodyClass', '')"
+  ><Label text="Display name" class="mb-2"></Label
+  ><TextField dsyInput value="Alex Morgan" label="Display name"></TextField
+  ><Label text="Email updates" class="mt-4 mb-2"></Label
+  ><Switch dsyToggle label="Email updates"></Switch
+></StackLayout>

@@ -1,0 +1,12 @@
+<Label text="Reading preferences" class="text-[20px] font-bold mb-3"></Label
+><Label
+  text="Try a different appearance without changing your app configuration."
+  textWrap="true"
+  class="mb-4"
+></Label
+><Switch
+  [dsyThemeController]="darkTheme"
+  [checked]="value('checked', false)"
+  [disabled]="value('disabled', false)"
+  [label]="value('label', 'Use dark theme')"
+></Switch>

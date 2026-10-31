@@ -1,0 +1,8 @@
+<StackLayout
+  dsyFormField
+  [label]="value('label', 'Display name')"
+  [hint]="value('hint', 'Use the name your team knows.')"
+  [error]="value('error', '')"
+  [errorFallback]="value('errorFallback', 'Check this field.')"
+  ><TextField dsyInput [formField]="fields.name" hint="Your name"></TextField
+></StackLayout>
