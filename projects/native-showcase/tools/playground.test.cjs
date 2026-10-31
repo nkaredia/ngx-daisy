@@ -131,3 +131,19 @@ test('long highlighted sources update native formatted text in one batch and pre
   assert.equal(rendered.spans.values.map((span) => span.text).join(''), file.content);
   assert.equal(rendered.spans.values[0].color.value, '#abcdef');
 });
+
+test('literal property options remain stable through repeated checks so Select does not dismiss an open menu', () => {
+  const { playgroundOptions, selectedLiteral } = stateModule();
+  const property = { action: { kind: 'select', options: ['primary', 'secondary', false, 20] } };
+  const openedWith = playgroundOptions(property);
+  for (let check = 0; check < 20; check++) assert.equal(playgroundOptions(property), openedWith);
+  assert.deepEqual(openedWith, [
+    { value: '0', label: 'primary' },
+    { value: '1', label: 'secondary' },
+    { value: '2', label: 'false' },
+    { value: '3', label: '20' },
+  ]);
+  assert.equal(selectedLiteral(property, openedWith[2].value), false);
+  const otherProperty = { action: { kind: 'select', options: ['primary', 'secondary'] } };
+  assert.notEqual(playgroundOptions(otherProperty), openedWith);
+});

@@ -28,3 +28,25 @@ export function nativeTokenColor(color: string | undefined, dark: boolean): stri
   const match = color?.match(/^light-dark\(([^,]+),\s*([^)]+)\)$/);
   return match ? match[dark ? 2 : 1]?.trim() : color;
 }
+
+const literalOptions = new WeakMap<
+  PlaygroundProperty,
+  readonly { value: string; label: string }[]
+>();
+/** Metadata is immutable. Keep option identity stable while native menus are open. */
+export function playgroundOptions(
+  property: PlaygroundProperty,
+): readonly { value: string; label: string }[] {
+  let options = literalOptions.get(property);
+  if (!options) {
+    options =
+      property.action.kind === 'select'
+        ? property.action.options.map((value, index) => ({
+            value: String(index),
+            label: String(value),
+          }))
+        : [];
+    literalOptions.set(property, options);
+  }
+  return options;
+}

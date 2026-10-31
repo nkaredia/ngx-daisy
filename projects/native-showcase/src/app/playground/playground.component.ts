@@ -1,4 +1,4 @@
-import { playgroundValue, literalIndex, selectedLiteral } from './state';
+import { playgroundValue, literalIndex, selectedLiteral, playgroundOptions } from './state';
 import { NgComponentOutlet } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -81,9 +81,7 @@ export class NativePlayground {
     }));
   }
   options(prop: PlaygroundProperty) {
-    return prop.action.kind === 'select'
-      ? prop.action.options.map((value, index) => ({ value: String(index), label: String(value) }))
-      : [];
+    return playgroundOptions(prop);
   }
   selected(index: number, prop: PlaygroundProperty): string {
     return literalIndex(prop, this.value(index, prop));
