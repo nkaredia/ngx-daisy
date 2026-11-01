@@ -1,3 +1,4 @@
+import { DsyDiff } from '@ngx-daisy/cdk/diff';
 import { Component, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { DsyCalendar } from '@ngx-daisy/cdk/calendar';
@@ -61,6 +62,29 @@ describe('web accessibility semantics', () => {
     expect(fixture.nativeElement.querySelector('button').getAttribute('aria-label')).toBe(
       'Mute audio',
     );
+  });
+
+  it('names Diff comparison groups independently of its position control', async () => {
+    const fixture = TestBed.createComponent(DsyDiff);
+    fixture.componentRef.setInput('beforeLabel', 'Original photograph');
+    fixture.componentRef.setInput('afterLabel', 'Retouched photograph');
+    fixture.componentRef.setInput('label', 'Reveal original photograph');
+    fixture.componentRef.setInput('aria-describedby', 'comparison-help');
+    fixture.componentRef.setInput(
+      'valueText',
+      (position: number) => `${position} percent original`,
+    );
+    await fixture.whenStable();
+    const root: HTMLElement = fixture.nativeElement;
+    expect(
+      Array.from(root.querySelectorAll('[role="group"]')).map((e) => e.getAttribute('aria-label')),
+    ).toEqual(['Original photograph', 'Retouched photograph']);
+    expect(root.querySelector('input')?.getAttribute('aria-label')).toBe(
+      'Reveal original photograph',
+    );
+    expect(root.querySelector('input')?.getAttribute('aria-describedby')).toBe('comparison-help');
+    expect(root.querySelector('input')?.getAttribute('aria-valuetext')).toBe('50 percent original');
+    expect(root.querySelector('[inert],[aria-hidden="true"].dsy-diff-before')).toBeNull();
   });
 
   it('includes each Gallery button number in its accessible name while retaining its image context', async () => {
