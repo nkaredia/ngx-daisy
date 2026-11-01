@@ -65,6 +65,43 @@ describe('InlinePreview', () => {
     expect(buttons[1].textContent).toBe('Clicked 0');
     expect(root.querySelector('p')?.textContent).toBe('Example defaults');
   });
+  it('keeps example state and visible source when changing the presentation', async () => {
+    TestBed.configureTestingModule({
+      providers: providePlayground({
+        components: [],
+        previews: [],
+        exampleSources: [
+          {
+            component: CompactCounter,
+            files: [
+              { path: 'counter.html', language: 'html', content: '<button>Counter</button>' },
+            ],
+          },
+        ],
+      }),
+    });
+    const fixture = TestBed.createComponent(InlinePreviewShell);
+    fixture.componentRef.setInput('component', CompactCounter);
+    fixture.componentRef.setInput('title', 'Counter');
+    fixture.componentRef.setInput('presentation', 'framed');
+    await fixture.whenStable();
+    const root: HTMLElement = fixture.nativeElement;
+    const button = root.querySelector<HTMLButtonElement>('demo-inline-preview button')!;
+    button.click();
+    await fixture.whenStable();
+    fixture.componentRef.setInput('presentation', 'split');
+    await fixture.whenStable();
+    expect(root.querySelector('demo-inline-preview button')).toBe(button);
+    expect(button.textContent).toBe('Clicked 1');
+    expect(root.querySelector('.inline-preview-shell-split')).not.toBeNull();
+    expect(root.querySelector('.inline-preview-stage')).not.toBeNull();
+    expect(root.querySelector('.example-code-panel-header-copy')).not.toBeNull();
+    expect(root.querySelector('.example-code-file-header')?.textContent).toContain('HTML');
+    expect(root.querySelector('.inline-preview-source pre code')?.textContent).toBe(
+      '<button>Counter</button>',
+    );
+    expect(root.querySelector('[aria-label="Show code"]')).toBeNull();
+  });
   it('renders the actual colors example without a showcase heading, section or card', async () => {
     const fixture = TestBed.createComponent(InlinePreview);
     fixture.componentRef.setInput('component', ButtonColorsExample);

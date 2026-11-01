@@ -27,6 +27,7 @@ export class InlinePreviewShell {
   readonly title = input.required<string>();
   readonly description = input('');
   readonly showTypescript = input(false);
+  readonly presentation = input<'plain' | 'framed' | 'split'>('plain');
   private readonly configurations = inject(PLAYGROUND_CONFIGURATIONS, { optional: true }) ?? [];
   readonly sourceFiles = computed(
     () =>

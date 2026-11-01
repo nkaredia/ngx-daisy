@@ -73,6 +73,14 @@ describe('ExampleCode', () => {
     root.querySelector<HTMLButtonElement>('[aria-label="Copy example.scss"]')!.click();
     await fixture.whenStable();
     expect(root.querySelector('[role="status"]')?.textContent).toContain('Copy failed.');
+    fixture.componentRef.setInput('copyPlacement', 'header');
+    fixture.componentRef.setInput('wrap', true);
+    await fixture.whenStable();
+    const activePanel = root.querySelector('[role="tabpanel"]:not([hidden])')!;
+    expect(activePanel.classList.contains('example-code-panel-wrap')).toBe(true);
+    expect(activePanel.querySelector('.example-code-file-header')?.textContent).toContain('SCSS');
+    expect(activePanel.querySelectorAll('.example-code-copy')).toHaveLength(1);
+    expect(activePanel.querySelector('code')?.textContent).toBe(files[2].content);
     toggle.click();
     await fixture.whenStable();
     expect(root.querySelector('pre')).toBeNull();

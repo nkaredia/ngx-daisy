@@ -57,3 +57,32 @@ demo-example-code .dsy-tab-list {
   inset-block-start: 0.5rem;
   inset-inline-end: 0.5rem;
 }
+
+.example-code-panel-header-copy {
+  .example-code-file-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+    border: 1px solid var(--color-base-300);
+    border-radius: var(--radius-field, 0.5rem) var(--radius-field, 0.5rem) 0 0;
+    background: var(--example-code-background);
+    color: var(--example-code-foreground);
+    font-size: 0.75rem;
+    > .example-code-copy {
+      position: static;
+      flex: none;
+    }
+  }
+  pre {
+    border-block-start: 0;
+    border-start-start-radius: 0;
+    border-start-end-radius: 0;
+  }
+}
+
+.example-code-panel-wrap pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
