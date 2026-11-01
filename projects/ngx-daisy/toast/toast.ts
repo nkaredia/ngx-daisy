@@ -13,6 +13,11 @@ import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { DsyAlert } from '@ngx-daisy/cdk/alert';
 import { LucideX } from '@lucide/angular';
+/** Apply app-owned user preferences before publishing notifications. */
+export interface DsyToastAccessibility {
+  announcements: 'original' | 'polite' | 'off';
+  persistent: boolean;
+}
 export interface DsyToastOptions {
   color?: 'info' | 'success' | 'warning' | 'error';
   duration?: number;
@@ -26,6 +31,19 @@ export interface DsyToastMessage extends DsyToastOptions {
 export class DsyToastService {
   private readonly announcer = inject(LiveAnnouncer);
   private nextId = 0;
+  private readonly accessibilityState = signal<Readonly<DsyToastAccessibility>>({
+    announcements: 'original',
+    persistent: false,
+  });
+  readonly accessibility = this.accessibilityState.asReadonly();
+  /** Persistence cancels existing expiry; disabling it never restarts cancelled timers. */
+  setAccessibility(preferences: Partial<DsyToastAccessibility>): void {
+    this.accessibilityState.update((current) => ({ ...current, ...preferences }));
+    if (this.accessibility().persistent) {
+      for (const record of this.timers.values()) if (record.timer) clearTimeout(record.timer);
+      this.timers.clear();
+    }
+  }
   private readonly state = signal<readonly DsyToastMessage[]>([]);
   readonly messages = this.state.asReadonly();
   private readonly timers = new Map<
@@ -43,9 +61,13 @@ export class DsyToastService {
   show(text: string, options: DsyToastOptions = {}): number {
     const message = { id: ++this.nextId, text, ...options };
     this.state.update((items) => [...items, message]);
-    if (options.announcement !== 'off')
-      void this.announcer.announce(text, options.announcement ?? 'polite');
-    if (Number.isFinite(options.duration) && options.duration! > 0) {
+    const preferences = this.accessibility();
+    if (preferences.announcements !== 'off' && options.announcement !== 'off')
+      void this.announcer.announce(
+        text,
+        preferences.announcements === 'polite' ? 'polite' : (options.announcement ?? 'polite'),
+      );
+    if (!preferences.persistent && Number.isFinite(options.duration) && options.duration! > 0) {
       this.timers.set(message.id, { remaining: options.duration!, started: 0, reasons: new Set() });
       this.resume(message.id, 'initial');
     }
