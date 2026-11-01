@@ -5,6 +5,8 @@ import { ButtonDocumentation } from './button-documentation';
 import { playground } from './playground';
 import { Playground } from '../playground/playground.component';
 import { InlinePreviewShell } from '../playground/inline-preview-shell';
+import { ButtonStartExample } from './example/button-start-example';
+import { ButtonHierarchyExample } from './example/button-hierarchy-example';
 import { providePlayground } from '../playground/provide-playground';
 
 @Component({
@@ -19,8 +21,16 @@ import { providePlayground } from '../playground/provide-playground';
 })
 export class ButtonDemo {
   readonly playground = playground;
-  readonly quickStart = playground.inlinePreviews?.[0];
-  readonly variations = playground.inlinePreviews?.slice(1) ?? [];
+  readonly quickStart = playground.inlinePreviews?.find(
+    (preview) => preview.component === ButtonStartExample,
+  );
+  readonly hierarchy = playground.inlinePreviews?.find(
+    (preview) => preview.component === ButtonHierarchyExample,
+  );
+  readonly variations =
+    playground.inlinePreviews?.filter(
+      (preview) => preview !== this.quickStart && preview !== this.hierarchy,
+    ) ?? [];
   readonly variationDescriptions: Readonly<Record<string, string>> = {
     Basics:
       'Compare the default, filled and quieter treatments before choosing a visual hierarchy.',

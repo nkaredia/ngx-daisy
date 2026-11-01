@@ -33,6 +33,7 @@
           [component]="preview.component"
           [title]="preview.title"
           [showTypescript]="true"
+          presentation="split"
         />
       }
     </section>
@@ -65,6 +66,14 @@
           </dd>
         </div>
       </dl>
+      @if (hierarchy; as preview) {
+        <demo-inline-preview-shell
+          [component]="preview.component"
+          [title]="preview.title"
+          description="Keep the main action prominent and give people a quieter way to leave their work unchanged."
+          presentation="split"
+        />
+      }
     </section>
 
     <section
@@ -99,6 +108,7 @@
             [component]="preview.component"
             [title]="preview.title"
             [description]="variationDescriptions[preview.title] ?? ''"
+            presentation="framed"
             [showTypescript]="preview.showTypescript ?? false"
           />
         }

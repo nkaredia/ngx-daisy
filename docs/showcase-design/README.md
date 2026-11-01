@@ -67,3 +67,7 @@ Visual review: [before](buttons-before.jpg), [desktop after](buttons-after.jpg),
 Next component in catalog order: Dropdowns. Review its content needs before copying the Buttons composition; a menu needs guidance about action items, navigation and custom content rather than button-emphasis advice.
 
 The development showcase is running at `http://127.0.0.1:4401/`. An older offline service-worker cache was showing the previous Buttons page while that server was stopped. The current page was verified at `/buttons?ngsw-bypass=1`; this bypasses the old cache for the review without clearing offline application data.
+
+## Second pass: example presentation
+
+The user authorized richer page/example design. [The inline-example follow-up](inline-examples/README.md) adds optional preview framing, a responsive preview/source composition and a contextual action example. Other component pages retain their current presentation. Component palettes and sizes remain frozen.
