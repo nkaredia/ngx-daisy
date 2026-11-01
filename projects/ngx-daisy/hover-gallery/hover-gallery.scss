@@ -1,3 +1,5 @@
+@use './accessibility';
+
 @layer utilities {
   @layer ngx-daisy-display {
     :where(dsy-hover-gallery) {

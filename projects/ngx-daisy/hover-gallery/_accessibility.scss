@@ -1,0 +1,16 @@
+// Deliberate accessibility enhancement beyond daisyUI's hover-only gallery.
+@layer utilities {
+  @layer ngx-daisy-display {
+    :where(dsy-hover-gallery .dsy-gallery-controls) {
+      flex-wrap: wrap;
+    }
+    :where(dsy-hover-gallery .dsy-gallery-controls button) {
+      min-inline-size: 44px;
+      min-block-size: 44px;
+    }
+    :where(dsy-hover-gallery .dsy-gallery-controls button:focus-visible) {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
+}

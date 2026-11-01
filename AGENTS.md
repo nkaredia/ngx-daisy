@@ -73,3 +73,5 @@ Overlay transitions use fading native modal overlays with an independently fadin
 Code-highlighting accessibility is excluded from future audits at the user’s request. Preserve the existing syntax palettes and editor backgrounds; do not change them for accessibility reasons unless explicitly requested. This exclusion concerns highlighted source text, not the code viewer’s tabs, copy buttons or keyboard controls.
 
 Web theme-sensitive design and accessibility checks must cover every preset offered by the showcase, using its actual theme inventory rather than assuming light/dark coverage is sufficient. Report per-theme failures and incomplete checks; do not treat coverage as AA compliance. Keep these checks web-only unless native scope is explicitly requested.
+
+Web accessibility targets AA as a baseline and AAA where practical, with documented consumer configuration for applicable enhanced criteria. Follow docs/web-accessibility.md. Do not claim full conformance from component tests or a theme profile. Keep stronger daisyUI styling deviations isolated and preserve the syntax-highlighting audit exclusion.
