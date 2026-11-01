@@ -1,0 +1,13 @@
+❯ Building...
+✔ Building...
+Application bundle generation complete. [2.382 seconds] - 2026-11-01T11:30:38.682Z
+
+
+ RUN  v5.0.5 /Users/noorsil/workspace/ngx-daisy
+
+
+ Test Files  12 passed (12)
+      Tests  117 passed (117)
+   Start at  05:30:38
+   Duration  18.11s (import 74%, environment 14%, tests 6%, setup 3%, transform 2%)
+

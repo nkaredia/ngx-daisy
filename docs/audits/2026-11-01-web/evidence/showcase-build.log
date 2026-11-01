@@ -1,0 +1,39 @@
+Running showcase application builder.
+❯ Building...
+/*! 🌼 daisyUI 5.7.50 */
+[ngx-daisy-playground] prepared 70 playground module(s) in memory.
+✔ Building...
+Initial chunk files | Names               |  Raw size | Estimated transfer size
+main-IUFNSKA6.js    | main                | 733.04 kB |               141.47 kB
+styles-FNHRQQ5L.css | styles              | 385.50 kB |                38.94 kB
+
+                    | Initial total       |   1.12 MB |               180.41 kB
+
+Lazy chunk files    | Names               |  Raw size | Estimated transfer size
+chunk-jnlvlUtI.js   | button-demo         | 149.54 kB |                12.30 kB
+chunk-4JkND5G0.js   | menu-demo           | 112.84 kB |                 9.44 kB
+chunk-CmPcGC51.js   | tabs-demo           | 110.32 kB |                 8.76 kB
+chunk-Bx0WM6Ze.js   | loader-demo         | 105.98 kB |                11.74 kB
+chunk-RzFVEgdF.js   | drawer-demo         | 103.37 kB |                 8.42 kB
+chunk-BbPLZid3.js   | megamenu-demo       |  99.77 kB |                10.62 kB
+chunk-Dg3F-uSu.js   | mockup-browser-demo |  90.98 kB |                 6.90 kB
+chunk-DplW6-Eu.js   | toast-demo          |  90.79 kB |                 8.61 kB
+chunk-D18hwvjB.js   | hero-demo           |  89.49 kB |                 7.01 kB
+chunk-CsiA-h-Z.js   | filter-demo         |  87.99 kB |                 8.10 kB
+chunk-CIoCb2kp.js   | otp-demo            |  87.89 kB |                 8.58 kB
+chunk-D0GkhnhO.js   | theme-builder       |  87.61 kB |                16.48 kB
+chunk-D8-4AXTq.js   | calendar-demo       |  87.37 kB |                 9.71 kB
+chunk-BOohmdqr.js   | dock-demo           |  82.81 kB |                 7.70 kB
+chunk-CLOc51Uc.js   | table-demo          |  82.77 kB |                14.33 kB
+...and 69 more lazy chunks files. Use "--verbose" to show all the files.
+
+Application bundle generation complete. [9.927 seconds] - 2026-11-01T11:27:52.703Z
+
+▲ [WARNING] bundle initial exceeded maximum budget. Budget 600.00 kB was not met by 518.54 kB with a total of 1.12 MB.
+
+
+▲ [WARNING] projects/showcase/src/app/theme-builder/theme-builder.scss exceeded maximum budget. Budget 4.00 kB was not met by 3.15 kB with a total of 7.15 kB.
+
+
+Output location: /Users/noorsil/workspace/ngx-daisy/dist/showcase
+

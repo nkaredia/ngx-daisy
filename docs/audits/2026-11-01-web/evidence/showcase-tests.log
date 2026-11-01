@@ -1,0 +1,15 @@
+The 'buildTarget' is configured to use '@ngx-daisy/showcase-builder:application', which is not supported. The 'unit-test' builder is designed to work with '@angular/build:application' or '@angular/build:ng-packagr'. Unexpected behavior or build failures may occur.
+❯ Building...
+/*! 🌼 daisyUI 5.7.50 */
+✔ Building...
+Application bundle generation complete. [7.008 seconds] - 2026-11-01T11:30:46.225Z
+
+
+ RUN  v5.0.5 /Users/noorsil/workspace/ngx-daisy
+
+
+ Test Files  8 passed (8)
+      Tests  35 passed (35)
+   Start at  05:30:46
+   Duration  18.70s (import 86%, environment 6%, tests 4%, setup 2%, transform 2%)
+

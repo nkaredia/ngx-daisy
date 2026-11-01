@@ -1,0 +1,15 @@
+PASS daisyUI CSS: default
+PASS daisyUI CSS: all-themes
+PASS daisyUI CSS: no-themes
+PASS daisyUI CSS: scoped-root
+PASS daisyUI CSS: include
+PASS daisyUI CSS: exclude
+PASS daisyUI CSS: include-data-inputs
+PASS daisyUI CSS: include-data-display
+PASS daisyUI CSS: include-remaining
+PASS daisyUI CSS: daisy-prefix
+PASS daisyUI CSS: tailwind-prefix
+PASS daisyUI CSS: both-prefixes
+PASS daisyUI CSS: custom-theme
+PASS daisyUI CSS: logs
+Verified 14 configurations; browser fixtures: .angular/daisyui-compat/
