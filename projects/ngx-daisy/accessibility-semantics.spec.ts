@@ -69,7 +69,6 @@ describe('web accessibility semantics', () => {
       { src: 'alpine.svg', alt: 'Alpine landscape' },
       { src: 'coast.svg', alt: 'Coast' },
     ]);
-    fixture.componentRef.setInput('controls', true);
     await fixture.whenStable();
     const buttons: HTMLButtonElement[] = Array.from(
       fixture.nativeElement.querySelectorAll('button'),

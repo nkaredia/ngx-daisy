@@ -50,7 +50,7 @@ export interface DsyGalleryImage {
 export class DsyHoverGallery {
   readonly daisy = injectDaisyUIClasses();
   readonly images = input<readonly DsyGalleryImage[]>([]);
-  readonly controls = input(false, { transform: booleanAttribute });
+  readonly controls = input(true, { transform: booleanAttribute });
   readonly visibleImages = computed(() => this.images().slice(0, 10));
   readonly activeIndex = model(0);
   readonly label = input('Image gallery');

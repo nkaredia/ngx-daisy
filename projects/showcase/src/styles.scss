@@ -1,5 +1,7 @@
 @use 'tailwindcss';
 @source "../../../dist/ngx-daisy";
+@source not "../../../.agents";
+@source not "../../../.claude";
 @plugin "daisyui" {
   themes: all;
 }

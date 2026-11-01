@@ -805,6 +805,12 @@ for (const config of cases) {
     styles.includes('dsy-tabs > .dsy-tab-panel'),
     'Tab panel layout must use its stable host class, including bound directive inputs.',
   );
+  assert.ok(
+    styles.includes('min-inline-size: 44px') &&
+      styles.includes('min-block-size: 44px') &&
+      styles.includes('dsy-hover-gallery .dsy-gallery-controls button'),
+    `${config.name}: gallery enhanced targets survive library style compilation`,
+  );
   // Real compiled library styles are appended after the app CSS, just as Angular injects them.
   const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>daisyUI compatibility: ${config.name}</title>
     <style>${result.css}</style><style>${styles}</style></head><body>

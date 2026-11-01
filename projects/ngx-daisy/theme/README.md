@@ -39,3 +39,7 @@ const scss = exportDaisyTheme(theme);
 Import `DsyTheme` in your standalone component and use `<section [dsyTheme]="theme">…</section>`. Bind a new definition to update it. Bind `null` to restore previous inline values and the previous `data-theme`. Avoid independently binding `data-theme` or the same inline tokens on that host while the directive owns them. Other styles are preserved.
 
 The helper validates completeness and prevents declaration delimiters in exported values. CSS color/length support depends on the browser; the showcase also checks browser support. It preserves authored CSS values (including OKLCH) without converting colors or bundling daisyUI presets in the library. Applications own persistence and selection; the showcase's local storage is not a library dependency.
+
+## Accessibility assessment
+
+Use `evaluateDaisyContrast` from this entry point to assess resolved opaque sRGB color pairs against AA and AAA text thresholds. It reports contrast without changing a theme. See the [web accessibility guide](../../../docs/web-accessibility.md) for input requirements, consumer responsibilities and remaining gaps.

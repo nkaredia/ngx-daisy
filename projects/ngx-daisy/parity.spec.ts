@@ -128,6 +128,7 @@ describe('native daisyUI visual contracts', () => {
 
   it('changes gallery frames over the image and retains keyboard access without numbered controls', async () => {
     const fixture = TestBed.createComponent(DsyHoverGallery);
+    fixture.componentRef.setInput('controls', false);
     fixture.componentRef.setInput('images', [
       { src: 'a.svg', alt: 'A' },
       { src: 'b.svg', alt: 'B' },
