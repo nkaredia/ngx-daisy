@@ -5,7 +5,7 @@
   [disabled]="isDisabled()"
   [style.color]="variant() === 'plain' && color() ? 'var(--color-' + color() + ')' : null"
   [attr.data-state]="indeterminate() ? 'mixed' : checked() ? 'on' : 'off'"
-  [attr.aria-label]="label().trim() || 'Toggle'"
+  [attr.aria-label]="label().trim() || null"
   [attr.aria-pressed]="indeterminate() ? 'mixed' : checked()"
   (click)="toggle()"
   (blur)="blur()"

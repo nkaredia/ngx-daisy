@@ -31,7 +31,6 @@
       [checked]="value() === item"
       [disabled]="isDisabled()"
       [attr.aria-label]="label(item)"
-      [attr.aria-readonly]="readonly() || null"
       (click)="guardReadonlyClick($event)"
       (keydown)="guardReadonly($event)"
       (change)="rate(item)"

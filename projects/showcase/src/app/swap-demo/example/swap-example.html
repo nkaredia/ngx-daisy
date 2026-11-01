@@ -13,7 +13,7 @@
     (indeterminateChange)="indeterminate.set($event)"
     [disabled]="props().disabled ?? false"
     [animation]="props().animation ?? 'none'"
-    [aria-label]="props().label ?? 'Receive weekly highlights'"
+    [aria-label]="props().label?.trim() || 'Receive weekly highlights'"
     [color]="props().color"
     [size]="props().size"
     [variant]="props().variant ?? 'plain'"

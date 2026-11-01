@@ -31,12 +31,8 @@
           >
         </div>
         <div class="demo-card">
-          <h3>Indeterminate</h3>
-          <dsy-swap
-            [indeterminate]="true"
-            aria-label="Select all items"
-            color="primary"
-            variant="outline"
+          <h3>Select all items</h3>
+          <dsy-swap [indeterminate]="true" color="primary" variant="outline"
             ><span dsySwapOff>None</span><span dsySwapOn>All</span
             ><span dsySwapIndeterminate>Some</span></dsy-swap
           >
@@ -49,7 +45,6 @@
             [ngModel]="formValue()"
             (ngModelChange)="formValue.set($event)"
             [disabled]="disabled()"
-            aria-label="Receive updates"
             ><span dsySwapOff>Updates off</span><span dsySwapOn>Updates on</span></dsy-swap
           ><label><input type="checkbox" #d (change)="disabled.set(d.checked)" /> Disabled</label>
         </div>

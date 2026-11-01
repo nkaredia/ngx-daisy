@@ -38,18 +38,21 @@ export class DsyLink {
   readonly active = input(false, { transform: booleanAttribute });
   private readonly element = inject<ElementRef<HTMLElement>>(ElementRef).nativeElement;
   constructor() {
-    const unlisten = inject(Renderer2).listen(
-      this.element,
-      'click',
-      (event: Event) => {
-        if (this.disabled()) {
-          event.preventDefault();
-          event.stopImmediatePropagation();
-        }
-      },
-      { capture: true },
+    const renderer = inject(Renderer2);
+    const unlisteners = ['click', 'auxclick'].map((eventName) =>
+      renderer.listen(
+        this.element,
+        eventName,
+        (event: Event) => {
+          if (this.disabled()) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        },
+        { capture: true },
+      ),
     );
-    inject(DestroyRef).onDestroy(unlisten);
+    inject(DestroyRef).onDestroy(() => unlisteners.forEach((unlisten) => unlisten()));
   }
   readonly classes = computed(() =>
     this.daisy(

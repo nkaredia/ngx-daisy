@@ -5,6 +5,7 @@
   [attr.aria-describedby]="describedBy()"
   [attr.aria-invalid]="errorState() || null"
 >
+  <span hidden [id]="id() + '-label'">{{ ariaLabel() || 'Choose date' }}</span>
   <div [class]="parts('rdp-months')">
     <div class="dsy-calendar-header" [class]="parts('rdp-nav')">
       <button
@@ -37,10 +38,7 @@
       <table
         [class]="parts('rdp-month_grid')"
         role="grid"
-        [attr.aria-label]="ariaLabel() || 'Choose date'"
-        [attr.aria-labelledby]="
-          labelledBy() ? labelledBy() + ' ' + id() + '-month' : id() + '-month'
-        "
+        [attr.aria-labelledby]="(labelledBy() || id() + '-label') + ' ' + id() + '-month'"
         [attr.aria-readonly]="readonly() || null"
       >
         <thead>

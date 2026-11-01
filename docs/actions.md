@@ -135,16 +135,16 @@ Theme and utility styling works on host/panel/backdrop; tokens include `--radius
 Import `DsySwap` and optionally Angular `FormsModule` or `ReactiveFormsModule`.
 
 ```html
-<dsy-swap [(checked)]="enabled" animation="rotate" aria-label="Enable sound">
+<dsy-swap [(checked)]="enabled" animation="rotate">
   <span dsySwapOff>Sound off</span>
   <span dsySwapOn>Sound on</span>
   <span dsySwapIndeterminate>Some enabled</span>
 </dsy-swap>
 ```
 
-The three static marker attributes are projection slots; they need no directive imports. `checked` and `indeterminate` are boolean models (bind `[indeterminate]="true"`, not a bare attribute). `animation` is none (default), rotate or flip. `disabled` defaults false. `color`, `size`, `variant` (ghost default) mirror buttons; `buttonClass` styles the internal native button.
+The three static marker attributes are projection slots; they need no directive imports. `checked` and `indeterminate` are boolean models (bind `[indeterminate]="true"`, not a bare attribute). `animation` is none (default), rotate or flip. `disabled` defaults false. `color`, `size`, `variant` (plain default) mirror buttons; `buttonClass` styles the internal native button.
 
-The button uses `aria-pressed`, with mixed state when indeterminate. Inactive slots are inert and hidden from accessibility; projected icons should be decorative and noninteractive. Clicking clears indeterminate, toggles checked and updates the model/forms. A ControlValueAccessor supports ngModel/formControl, touched and disabled states. Use either the checked model or forms as the value owner. Native Space/Enter activation is retained. Supply a stable accessible name through `aria-label`.
+The button uses `aria-pressed`, with mixed state when indeterminate. Inactive slots are inert and hidden from accessibility; projected icons should be decorative and noninteractive. Clicking clears indeterminate, toggles checked and updates the model/forms. A ControlValueAccessor supports ngModel/formControl, touched and disabled states. Use either the checked model or forms as the value owner. Native Space/Enter activation is retained. Text swaps use their active projected text as their name by default. Icon-only swaps require a meaningful `aria-label`. If you explicitly name a text swap, include its visible text in every state.
 
 ## Theme Controller
 
