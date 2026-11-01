@@ -30,7 +30,19 @@ export class ToastDemo {
   readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly service = inject(DsyToastService);
   constructor() {
-    inject(DestroyRef).onDestroy(() => this.service.clear());
+    const original = this.service.accessibility();
+    inject(DestroyRef).onDestroy(() => {
+      this.service.clear();
+      this.service.setAccessibility(original);
+    });
+  }
+  togglePersistence() {
+    this.service.setAccessibility({ persistent: !this.service.accessibility().persistent });
+  }
+  toggleAnnouncements() {
+    this.service.setAccessibility({
+      announcements: this.service.accessibility().announcements === 'off' ? 'original' : 'off',
+    });
   }
   notify() {
     this.service.show('Project saved', { color: 'success' });

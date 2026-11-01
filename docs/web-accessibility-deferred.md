@@ -1,5 +1,7 @@
 # Deferred daisyUI accessibility overrides
 
+Current decision: colors and sizing are frozen at the user’s request. The proposals below are historical limitations, not authorized follow-up work. Focus subsequent remediation on semantics, keyboard operation and assistive-technology support.
+
 These remaining audit fixes are deferred. The user subsequently approved subtle default text-color corrections; [the implemented subset](subtle-contrast-adjustments.md) is no longer deferred. Larger deviations still require separate review. This file contains proposals only, not loaded CSS. Reference: [November 2026 web audit](audits/2026-11-01-web/README.md).
 
 | Audit finding               | Default that would change                                                                                                                                                        | Proposed follow-up                                                                                                                                                                                                                                                                                |

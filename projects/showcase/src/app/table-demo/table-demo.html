@@ -22,7 +22,12 @@
           >Search team
           <input type="text" [value]="source.filter()" (input)="search($any($event.target).value)"
         /></label>
-        <div class="display-table-scroll">
+        <div
+          class="display-table-scroll"
+          role="region"
+          aria-label="Team directory table"
+          tabindex="0"
+        >
           <table
             dsyTable
             cdk-table
