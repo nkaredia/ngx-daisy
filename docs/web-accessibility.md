@@ -45,3 +45,7 @@ Syntax-highlighting text remains excluded from our audits at the user's request.
 ## Validation of this increment
 
 Production core/library and showcase builds pass. The showcase retains its existing initial-bundle and theme-builder style warnings; skill folders are excluded from Tailwind source scanning. Checks pass: 130 web library tests, 35 showcase tests, 14 CSS configurations, four builder tests and 72 documentation examples. Gallery tests cover default controls, selection and explicit opt-out keyboard behavior. Contrast tests cover black/white, symmetry, near-threshold AA/AAA distinctions and invalid inputs. No new all-theme browser or assistive-technology run was performed for this increment; the prior matrix is historical evidence and does not verify these changes. Palette correction work remains open.
+
+## AAA verification outcome
+
+The [AAA verification report](audits/2026-11-01-web/aaa/README.md) records confirmed contrast/target gaps, focus-area concerns, all-preset static evidence and a complete AAA criterion ledger. Full AAA support is not established. Hooks and an assessment helper do not constitute a verified enhanced theme or complete consuming-page conformance.

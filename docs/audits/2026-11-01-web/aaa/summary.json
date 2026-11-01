@@ -1,0 +1,349 @@
+{
+  "sourceRevision": "972cb26",
+  "expectedCases": 4900,
+  "completedCases": 4900,
+  "uniqueCases": 4900,
+  "coverageComplete": true,
+  "missing": [],
+  "byTheme": [
+    {
+      "theme": "light",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 32,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "dark",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 62,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "cupcake",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 138,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "bumblebee",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 85,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "emerald",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "corporate",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 138,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "synthwave",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "retro",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "cyberpunk",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 75,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "valentine",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "halloween",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 18,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "garden",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 138,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "forest",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 22,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "aqua",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "lofi",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 20,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "pastel",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 85,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "fantasy",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "wireframe",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 83,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "black",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 79,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "luxury",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "dracula",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 8,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "cmyk",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 83,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "autumn",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 138,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "business",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 85,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "acid",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 75,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "lemonade",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 138,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "night",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 20,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "coffee",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "winter",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "dim",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "nord",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "sunset",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "caramellatte",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "abyss",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 12,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    },
+    {
+      "theme": "silk",
+      "cases": 140,
+      "aaaContrastCases": 140,
+      "aaContrastCases": 140,
+      "incompleteCases": 140,
+      "target44ReviewCases": 140,
+      "overflowCases": 0
+    }
+  ],
+  "rules": {
+    "color-contrast-enhanced": {
+      "cases": 4900,
+      "nodeOccurrences": 102418
+    },
+    "color-contrast": {
+      "cases": 3494,
+      "nodeOccurrences": 43725
+    },
+    "scrollable-region-focusable": {
+      "cases": 245,
+      "nodeOccurrences": 350
+    },
+    "label-content-name-mismatch": {
+      "cases": 70,
+      "nodeOccurrences": 70
+    }
+  },
+  "notes": [
+    "Default settled states only; no all-state or manual AT conformance claim.",
+    "Target44 entries are candidates for exception review, not automatic failures.",
+    "Syntax-highlighted text excluded; viewer controls included.",
+    "AAA color-contrast-enhanced may omit pairs already failing AA; inspect both rules."
+  ]
+}
