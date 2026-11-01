@@ -702,6 +702,11 @@ for (const config of cases) {
   } finally {
     console.log = previousLog;
   }
+  assert.ok(styles.includes('--dsy-color-secondary-text'), 'Contrast hooks must be present');
+  assert.ok(
+    styles.includes('[data-theme=dark]') || styles.includes('[data-theme="dark"]'),
+    'Contrast profiles must be scoped',
+  );
   const ast = result.root;
   assert.equal(
     logs.some((line) => line.includes('daisyUI')),
@@ -804,6 +809,11 @@ for (const config of cases) {
       <span id="success-reference" class="${tw('text-success')}">Success reference</span>
       <span id="error-reference" class="${tw('text-error')}">Error reference</span>
       <button id="theme-button" class="${markup('btn')} ${markup('btn-primary')}">Themed button</button>
+      <section data-theme="light"><button id="contrast-light-original" class="${markup('btn')} ${markup('btn-secondary')} ${markup('btn-outline')}">Original light</button><button id="contrast-light" class="${markup('btn')} ${markup('btn-secondary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-secondary-text)">Light contrast</button></section>
+      <section data-theme="dark"><button id="contrast-dark-original" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}">Original dark</button><button id="contrast-dark" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Dark contrast</button>
+      <div data-theme="compat-brand"><button id="contrast-custom" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Custom theme</button></div>
+      <button id="contrast-utility" class="${markup('btn')} ${markup('btn-primary')} ${tw('text-error')}" style="--${prefix}btn-fg:var(--dsy-color-primary-readable-content,var(--color-primary-content))">Utility foreground</button></section>
+      <section data-theme="dark" style="--dsy-contrast-strength:0"><button id="contrast-opt-out" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Native foreground</button></section>
       <div data-theme="dark"><button id="nested-button" class="${markup('btn')} ${markup('btn-primary')}">Nested dark theme</button></div>
       <dsy-icon id="utility-icon" class="dsy-icon ${tw('text-xl')} ${tw('w-10')} ${tw('text-error')}" style="--dsy-icon-size:4rem"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></dsy-icon>
       <dsy-loader class="dsy-loader" data-size="md"><span class="dsy-loader-visual" id="scaled-loader"></span></dsy-loader>

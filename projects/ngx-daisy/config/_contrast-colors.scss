@@ -1,0 +1,27 @@
+// Bounded text-only corrections for the built-in light/dark palettes.
+// Other named themes start with native colors. App utilities may override these hooks.
+@layer components {
+  :where([data-theme]) {
+    --dsy-color-primary-text: initial;
+    --dsy-color-secondary-text: initial;
+    --dsy-color-primary-readable-content: initial;
+  }
+  @supports (color: oklch(from red l c h)) {
+    :where([data-theme='light']) {
+      --dsy-color-secondary-text: oklch(
+        from var(--color-secondary) calc(l - 0.06 * var(--dsy-contrast-strength, 1)) c h
+      );
+    }
+    :where([data-theme='dark']) {
+      --dsy-color-primary-text: oklch(
+        from var(--color-primary) calc(l + 0.09 * var(--dsy-contrast-strength, 1)) c h
+      );
+      --dsy-color-secondary-text: oklch(
+        from var(--color-secondary) calc(l + 0.02 * var(--dsy-contrast-strength, 1)) c h
+      );
+      --dsy-color-primary-readable-content: oklch(
+        from var(--color-primary-content) min(1, l + 0.04 * var(--dsy-contrast-strength, 1)) c h
+      );
+    }
+  }
+}

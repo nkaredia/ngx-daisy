@@ -1,4 +1,5 @@
 import {
+  afterRenderEffect,
   booleanAttribute,
   ChangeDetectionStrategy,
   Component,
@@ -6,12 +7,13 @@ import {
   ElementRef,
   DestroyRef,
   Renderer2,
+  RendererStyleFlags2,
   inject,
   input,
   numberAttribute,
   ViewEncapsulation,
 } from '@angular/core';
-import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { DSY_DAISYUI_CONFIG, injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import type {
   DsyButtonColor,
   DsyButtonSize,
@@ -90,6 +92,25 @@ export class DsyButton {
   protected readonly anchor =
     inject<ElementRef<HTMLElement>>(ElementRef).nativeElement.tagName === 'A';
   private readonly daisyClasses = injectDaisyUIClasses();
+  private readonly contrastPrefix = inject(DSY_DAISYUI_CONFIG).prefix ?? '';
+  protected readonly contrastStyles = computed(() => {
+    const color = this.color();
+    const variant = this.variant();
+    const styles: Record<string, string> = {};
+    // Native hooks are namespaced by daisyUI's prefix, independently of Tailwind.
+    if (color === 'primary' && variant === 'solid') {
+      styles[`--${this.contrastPrefix}btn-fg`] =
+        'var(--dsy-color-primary-readable-content, var(--color-primary-content))';
+    } else if (color === 'primary' || color === 'secondary') {
+      if (variant === 'link') {
+        styles[`--${this.contrastPrefix}btn-color`] =
+          `var(--dsy-color-${color}-text, var(--color-${color}))`;
+      } else if (variant === 'outline' || variant === 'dash' || variant === 'ghost') {
+        styles[`--${this.contrastPrefix}btn-rest-fg`] = `var(--dsy-color-${color}-text)`;
+      }
+    }
+    return styles;
+  });
   protected readonly classes = computed(() => {
     const color = this.color();
     const size = this.size();
@@ -109,6 +130,35 @@ export class DsyButton {
   constructor() {
     const renderer = inject(Renderer2);
     const element = inject(ElementRef).nativeElement;
+    afterRenderEffect((onCleanup) => {
+      const entries = Object.entries(this.contrastStyles());
+      if (!entries.length) return;
+      const applied: [string, string][] = [];
+      const css = element.ownerDocument.defaultView?.getComputedStyle(element);
+      for (const [property, value] of entries) {
+        // An application binding owns its explicit native hook; never replace it.
+        if (element.style.getPropertyValue(property)) continue;
+        const existing = css?.getPropertyValue(property).trim();
+        if (existing) {
+          const nativeToken = property.endsWith('btn-fg')
+            ? '--color-primary-content'
+            : `--color-${this.color()}`;
+          if (
+            property.endsWith('btn-rest-fg') ||
+            existing !== css?.getPropertyValue(nativeToken).trim()
+          )
+            continue;
+        }
+        renderer.setStyle(element, property, value, RendererStyleFlags2.DashCase);
+        applied.push([property, value]);
+      }
+      onCleanup(() => {
+        for (const [property, value] of applied) {
+          if (element.style.getPropertyValue(property) === value)
+            renderer.removeStyle(element, property, RendererStyleFlags2.DashCase);
+        }
+      });
+    });
     const listeners = ['click', 'auxclick'].map((name) =>
       renderer.listen(element, name, (event: Event) => this.guardDisabled(event), {
         capture: true,
