@@ -1,3 +1,5 @@
+@use 'focus';
+
 @layer components {
   .dsy-dropdown {
     display: inline-block;
@@ -35,7 +37,6 @@
   .dsy-dropdown-item:hover,
   .dsy-dropdown-item:focus-visible {
     background: color-mix(in oklab, var(--color-base-content) 10%, transparent);
-    outline: none;
   }
   .dsy-dropdown-item[aria-disabled='true'] {
     opacity: 0.4;
@@ -55,7 +56,7 @@
     pointer-events: auto;
   }
   :where(.dsy-dropdown-panel:focus) {
-    outline: 2px solid var(--color-primary);
+    outline: 2px solid var(--dsy-dropdown-focus-color, var(--color-base-content));
     outline-offset: 2px;
   }
 }

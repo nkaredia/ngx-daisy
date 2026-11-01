@@ -704,6 +704,10 @@ for (const config of cases) {
   }
   assert.ok(styles.includes('--dsy-color-secondary-text'), 'Contrast hooks must be present');
   assert.ok(
+    styles.includes('--dsy-dropdown-focus-color'),
+    'Dropdown focus color must remain customizable',
+  );
+  assert.ok(
     styles.includes('[data-theme=dark]') || styles.includes('[data-theme="dark"]'),
     'Contrast profiles must be scoped',
   );

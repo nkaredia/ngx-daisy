@@ -1,0 +1,14 @@
+// Deliberate accessibility enhancement over daisyUI's low-opacity menu highlight.
+@layer components {
+  .dsy-dropdown-item:focus-visible {
+    outline: 2px solid var(--dsy-dropdown-focus-color, var(--color-base-content));
+    outline-offset: -2px;
+  }
+}
+@layer utilities {
+  @media (forced-colors: active) {
+    :where(.dsy-dropdown-item:focus-visible, .dsy-dropdown-panel:focus) {
+      --dsy-dropdown-focus-color: Highlight;
+    }
+  }
+}

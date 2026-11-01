@@ -1,0 +1,24 @@
+[
+  {
+    "background": "oklab(0.21 0.00164224 -0.00577088 / 0.1)",
+    "focus": "Open project",
+    "outline": "oklch(0.21 0.006 285.885) solid 2px",
+    "outlineColor": "oklch(0.21 0.006 285.885)",
+    "outlineOffset": "-2px",
+    "panelBackground": "oklch(1 0 0)",
+    "theme": "light",
+    "ratioAgainstTint": 14.45893082022333,
+    "ratioAgainstPanel": 17.730146223864487
+  },
+  {
+    "background": "oklab(0.97807 -0.00659902 -0.0282392 / 0.1)",
+    "focus": "Open project",
+    "outline": "oklch(0.97807 0.029 256.847) solid 2px",
+    "outlineColor": "oklch(0.97807 0.029 256.847)",
+    "outlineOffset": "-2px",
+    "panelBackground": "oklch(0.2533 0.016 252.42)",
+    "theme": "dark",
+    "ratioAgainstTint": 10.98871208313299,
+    "ratioAgainstPanel": 14.750476594942786
+  }
+]

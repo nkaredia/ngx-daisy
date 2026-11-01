@@ -46,3 +46,11 @@ A03 is implemented. Transparent native radio inputs occupy independent targets o
 Browser checks confirmed 24px minimum targets (including xs half-stars), no overlap between adjacent targets, joined visuals, native arrow-key selection, clearing and read-only guards. DOM hit testing confirms pointer access in the empty padding around the visuals. The original eleven target-size flags are absent at desktop/mobile widths in light/dark themes. No document overflow was found; larger scales can scroll inside the control. This does not certify every Rating accessibility criterion or consumer style.
 
 Rating validation: production web builds, 127 library tests and all 14 CSS configurations passed. [Four-case Rating evidence](audits/2026-11-01-web/target-focus/rating-results.json.gz) and [keyboard-focus capture](audits/2026-11-01-web/target-focus/rating-focus.png) are retained. Reduced-motion and forced-color rules are implemented; a full assistive-technology/forced-color rendering review remains outstanding.
+
+## Dropdown keyboard focus
+
+A07 is implemented in a separate `_focus.scss` enhancement. Menu geometry and pointer-hover tint are unchanged; keyboard-focused items gain a 2px inset outline using base-content. Panel focus uses the same `--dsy-dropdown-focus-color` hook, with system Highlight in forced-color mode. Application utilities remain available.
+
+[Rendered measurements](audits/2026-11-01-web/target-focus/dropdown-focus-measurements.json) show outline contrast against the tinted item surface of 14.46:1 in light mode and 10.99:1 in dark mode. [Focus capture](audits/2026-11-01-web/target-focus/dropdown-focus.png). Static calculations over all 35 preset base-content/base-100 pairs also exceed 3:1 for the default tint (lowest approximately 4.58:1); this is not browser certification of every theme or application override. Keyboard opening, End skipping the disabled item, Escape dismissal and trigger focus restoration were verified.
+
+Final validation: production web builds, 127 library tests, 35 showcase tests, 72 documentation examples and all 14 CSS configurations passed. Existing bundle/style budget warnings remain. Code-highlighting accessibility stays excluded. Larger color corrections, Gallery touch navigation, Diff projection policy and the audit's remaining manual checks remain open.
