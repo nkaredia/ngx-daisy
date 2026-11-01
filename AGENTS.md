@@ -71,3 +71,5 @@ Native interaction animations share @ngx-daisy/native/motion. Honor iOS Reduce M
 Overlay transitions use fading native modal overlays with an independently fading/growing panel (94% to full size), slide-only temporary drawer panels and independently fading backdrops. Popover opacity belongs to its motion controller; layout readiness must never reveal the panel before entrance or overwrite an in-progress animation.
 
 Code-highlighting accessibility is excluded from future audits at the user’s request. Preserve the existing syntax palettes and editor backgrounds; do not change them for accessibility reasons unless explicitly requested. This exclusion concerns highlighted source text, not the code viewer’s tabs, copy buttons or keyboard controls.
+
+Web theme-sensitive design and accessibility checks must cover every preset offered by the showcase, using its actual theme inventory rather than assuming light/dark coverage is sufficient. Report per-theme failures and incomplete checks; do not treat coverage as AA compliance. Keep these checks web-only unless native scope is explicitly requested.

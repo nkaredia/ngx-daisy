@@ -54,3 +54,7 @@ A07 is implemented in a separate `_focus.scss` enhancement. Menu geometry and po
 [Rendered measurements](audits/2026-11-01-web/target-focus/dropdown-focus-measurements.json) show outline contrast against the tinted item surface of 14.46:1 in light mode and 10.99:1 in dark mode. [Focus capture](audits/2026-11-01-web/target-focus/dropdown-focus.png). Static calculations over all 35 preset base-content/base-100 pairs also exceed 3:1 for the default tint (lowest approximately 4.58:1); this is not browser certification of every theme or application override. Keyboard opening, End skipping the disabled item, Escape dismissal and trigger focus restoration were verified.
 
 Final validation: production web builds, 127 library tests, 35 showcase tests, 72 documentation examples and all 14 CSS configurations passed. Existing bundle/style budget warnings remain. Code-highlighting accessibility stays excluded. Larger color corrections, Gallery touch navigation, Diff projection policy and the audit's remaining manual checks remain open.
+
+## All out-of-box themes checked
+
+The [35-preset web verification](audits/2026-11-01-web/all-presets/README.md) covers all 70 routes at desktop/mobile widths (4,900 cases), plus real theme selection and focused-menu checks for every preset. Rating target sizes and menu focus passed the checked conditions; contrast flags remain across all presets. Coverage does not establish AA compliance.

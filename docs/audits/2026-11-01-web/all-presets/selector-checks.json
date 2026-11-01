@@ -1,0 +1,284 @@
+{
+  "pickerInventory": [
+    "cupcake",
+    "bumblebee",
+    "emerald",
+    "corporate",
+    "synthwave",
+    "retro",
+    "cyberpunk",
+    "valentine",
+    "halloween",
+    "garden",
+    "forest",
+    "aqua",
+    "lofi",
+    "pastel",
+    "fantasy",
+    "wireframe",
+    "black",
+    "luxury",
+    "dracula",
+    "cmyk",
+    "autumn",
+    "business",
+    "acid",
+    "lemonade",
+    "night",
+    "coffee",
+    "winter",
+    "dim",
+    "nord",
+    "sunset",
+    "caramellatte",
+    "abyss",
+    "silk"
+  ],
+  "checks": [
+    {
+      "focus": "Open project",
+      "selected": "dark",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "dark"
+    },
+    {
+      "focus": "Open project",
+      "selected": "cupcake",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "cupcake"
+    },
+    {
+      "focus": "Open project",
+      "selected": "bumblebee",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "bumblebee"
+    },
+    {
+      "focus": "Open project",
+      "selected": "emerald",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "emerald"
+    },
+    {
+      "focus": "Open project",
+      "selected": "corporate",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "corporate"
+    },
+    {
+      "focus": "Open project",
+      "selected": "synthwave",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "synthwave"
+    },
+    {
+      "focus": "Open project",
+      "selected": "retro",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "retro"
+    },
+    {
+      "focus": "Open project",
+      "selected": "cyberpunk",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "cyberpunk"
+    },
+    {
+      "focus": "Open project",
+      "selected": "valentine",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "valentine"
+    },
+    {
+      "focus": "Open project",
+      "selected": "halloween",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "halloween"
+    },
+    {
+      "focus": "Open project",
+      "selected": "garden",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "garden"
+    },
+    {
+      "focus": "Open project",
+      "selected": "forest",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "forest"
+    },
+    {
+      "focus": "Open project",
+      "selected": "aqua",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "aqua"
+    },
+    {
+      "focus": "Open project",
+      "selected": "lofi",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "lofi"
+    },
+    {
+      "focus": "Open project",
+      "selected": "pastel",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "pastel"
+    },
+    {
+      "focus": "Open project",
+      "selected": "fantasy",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "fantasy"
+    },
+    {
+      "focus": "Open project",
+      "selected": "wireframe",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "wireframe"
+    },
+    {
+      "focus": "Open project",
+      "selected": "black",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "black"
+    },
+    {
+      "focus": "Open project",
+      "selected": "luxury",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "luxury"
+    },
+    {
+      "focus": "Open project",
+      "selected": "dracula",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "dracula"
+    },
+    {
+      "focus": "Open project",
+      "selected": "cmyk",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "cmyk"
+    },
+    {
+      "focus": "Open project",
+      "selected": "autumn",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "autumn"
+    },
+    {
+      "focus": "Open project",
+      "selected": "business",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "business"
+    },
+    {
+      "focus": "Open project",
+      "selected": "acid",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "acid"
+    },
+    {
+      "focus": "Open project",
+      "selected": "lemonade",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "lemonade"
+    },
+    {
+      "focus": "Open project",
+      "selected": "night",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "night"
+    },
+    {
+      "focus": "Open project",
+      "selected": "coffee",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "coffee"
+    },
+    {
+      "focus": "Open project",
+      "selected": "winter",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "winter"
+    },
+    {
+      "focus": "Open project",
+      "selected": "dim",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "dim"
+    },
+    {
+      "focus": "Open project",
+      "selected": "nord",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "nord"
+    },
+    {
+      "focus": "Open project",
+      "selected": "sunset",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "sunset"
+    },
+    {
+      "focus": "Open project",
+      "selected": "caramellatte",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "caramellatte"
+    },
+    {
+      "focus": "Open project",
+      "selected": "abyss",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "abyss"
+    },
+    {
+      "focus": "Open project",
+      "selected": "silk",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "silk"
+    },
+    {
+      "focus": "Open project",
+      "selected": "light",
+      "last": "Duplicate",
+      "restored": "Project actions",
+      "expected": "light"
+    }
+  ]
+}

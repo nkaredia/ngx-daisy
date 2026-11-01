@@ -8,6 +8,8 @@ Completed November 1, 2026. Source baseline: `3f73cf3`, branch `feature/web-desi
 
 The user requested restoring the original syntax palettes and excluding code-highlighting accessibility from future audits. A02 and the browser archives below remain historical findings. The reusable fixture now excludes `demo-example-code pre code` from checks, retaining tabs, copy controls and scroll containers in scope. Future scoped audits must state this exclusion and must not represent it as a WCAG pass.
 
+See the subsequent [all-35-preset verification](all-presets/README.md) for the complete desktop/mobile color and target-size matrix and live selector/focus checks.
+
 ## Coverage and evidence
 
 - **70 families:** all 68 daisyUI catalog families plus Icon and Form Field. Each route received four default-state browser scans: light/dark at 1440 × 1000 and 320 × 800 CSS pixels, **280 cases** total. See [the family matrix](coverage.md).

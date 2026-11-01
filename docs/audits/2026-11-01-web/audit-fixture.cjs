@@ -9,19 +9,65 @@ const results = path.resolve(
   process.env.AUDIT_RESULTS || '/private/tmp/ngx-daisy-web-audit/results',
 );
 fs.mkdirSync(results, { recursive: true });
+const themeSource = fs.readFileSync(
+  'projects/showcase/src/app/theme-builder/showcase-themes.ts',
+  'utf8',
+);
+const shippedThemes = [
+  ...themeSource
+    .split('export const daisyThemes = [')[1]
+    .split('] as const')[0]
+    .matchAll(/'([a-z]+)'/g),
+].map((match) => match[1]);
+const definitions = require(path.resolve('node_modules/daisyui/theme/object')).default;
+if (
+  shippedThemes.length !== 35 ||
+  shippedThemes.some((name) => !definitions[name]) ||
+  Object.keys(definitions).some((name) => !shippedThemes.includes(name))
+)
+  throw new Error('Showcase preset inventory differs from installed daisyUI');
 const runner = `(async()=>{
-const params=new URLSearchParams(location.search); const theme=params.get('auditTheme')||'light';
+const params=new URLSearchParams(location.search); const requested=params.get('auditTheme')||'light';
+const themes=requested==='all'?${JSON.stringify(shippedThemes)}:[requested];
 let tries=0;while(!document.querySelector('demo-playground .playground-preview')&&tries++<200)await new Promise(r=>setTimeout(r,100));
 await document.fonts.ready; await new Promise(r=>setTimeout(r,350));
-const shell=document.querySelector('.showcase-shell');if(shell)shell.setAttribute('data-theme',theme);
+const shell=document.querySelector('.showcase-shell');
+if(requested==='all'||params.has('auditMenus')){
+ const stable=document.createElement('style');stable.textContent='*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}';document.head.append(stable);
+}
+const compact=items=>items.map(rule=>({id:rule.id,impact:rule.impact,tags:rule.tags,help:rule.help,helpUrl:rule.helpUrl,count:rule.nodes.length,nodes:rule.nodes.map(node=>({target:node.target,html:node.html,failureSummary:node.failureSummary,checks:[...node.any,...node.all,...node.none].map(check=>({id:check.id,data:check.data,message:check.message}))}))}));
+const options=requested==='all'?{runOnly:{type:'rule',values:['color-contrast','target-size']}}:{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}};
+const summaries=[];
+for(const theme of themes){
+if(shell)shell.setAttribute('data-theme',theme);
 await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-await new Promise(r=>setTimeout(r,1000));
-const result=await axe.run({exclude:[['demo-example-code pre code']]},{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}});
-const compact=items=>items.map(rule=>({id:rule.id,impact:rule.impact,tags:rule.tags,help:rule.help,helpUrl:rule.helpUrl,count:rule.nodes.length,nodes:rule.nodes.slice(0,60).map(node=>({target:node.target,html:node.html,failureSummary:node.failureSummary,checks:[...node.any,...node.all,...node.none].map(check=>({id:check.id,data:check.data,message:check.message}))}))}));
-const report={route:location.pathname,theme,width:innerWidth,height:innerHeight,title:document.title,axeVersion:axe.version,viewportOverflow:document.documentElement.scrollWidth-innerWidth,violations:compact(result.violations),incomplete:compact(result.incomplete),passes:result.passes.map(rule=>rule.id),duplicateIds:[...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,all)=>id&&all.indexOf(id)!==i)};
+if(requested!=='all')await new Promise(r=>setTimeout(r,1000));
+const start=performance.now();
+const result=await axe.run({exclude:[['demo-example-code pre code']]},options);
+const report={route:location.pathname,theme,width:innerWidth,height:innerHeight,title:document.title,axeVersion:axe.version,mode:requested==='all'?'preset-static-color-and-target':'standard',state:params.has('auditMenus')?'menu-session-baseline':undefined,viewportOverflow:document.documentElement.scrollWidth-innerWidth,violations:compact(result.violations),incomplete:compact(result.incomplete),passes:result.passes.map(rule=>rule.id),durationMs:Math.round(performance.now()-start)};
+if(location.pathname==='/ratings')report.ratingTargets=[...document.querySelectorAll('dsy-rating input')].map(e=>{const r=e.getBoundingClientRect();return {width:r.width,height:r.height}});
 await fetch('/__audit/results',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(report)});
-const output=document.createElement('pre');output.id='web-audit-result';output.hidden=true;output.textContent=JSON.stringify({done:true,route:report.route,theme,width:innerWidth,violations:report.violations.map(rule=>({id:rule.id,count:rule.count})),incomplete:report.incomplete.length,overflow:report.viewportOverflow});document.body.append(output);
+summaries.push({theme,violations:report.violations.map(rule=>({id:rule.id,count:rule.count})),incomplete:report.incomplete.length});
+}
+const output=document.createElement('pre');output.id='web-audit-result';output.hidden=true;output.textContent=JSON.stringify({done:true,route:location.pathname,width:innerWidth,themes:summaries.length,cases:summaries});document.body.append(output);
+if(params.has('auditMenus')){
+ let busy=false;
+ document.addEventListener('focusin',async event=>{
+ if(busy||!event.target.matches('.dsy-dropdown-item')||event.target.textContent.trim()!=='Open project')return;
+ busy=true;
+ try{
+ await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+ const e=event.target,panel=e.closest('[role="menu"]');if(!panel||document.activeElement!==e)return;
+ const css=getComputedStyle(e),rect=panel.getBoundingClientRect();
+ const result=await axe.run(panel,{runOnly:{type:'rule',values:['color-contrast','target-size']}});
+ const report={route:location.pathname,theme:shell.getAttribute('data-theme'),width:innerWidth,state:'focused-menu',focus:e.textContent.trim(),outlineColor:css.outlineColor,outlineStyle:css.outlineStyle,outlineWidth:css.outlineWidth,outlineOffset:css.outlineOffset,background:css.backgroundColor,panelBackground:getComputedStyle(panel).backgroundColor,panelBounds:{left:rect.left,right:rect.right,width:rect.width},violations:compact(result.violations),incomplete:compact(result.incomplete)};
+ await fetch('/__audit/results',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(report)});
+ let node=document.getElementById('web-audit-menu-result');if(!node){node=document.createElement('pre');node.id='web-audit-menu-result';node.hidden=true;document.body.append(node);}node.setAttribute('data-theme',report.theme);node.textContent=JSON.stringify(report);
+ }finally{busy=false;}
+ });
+}
 })().catch(error=>{const node=document.createElement('pre');node.id='web-audit-result';node.textContent=JSON.stringify({error:String(error)});document.body.append(node);});`;
+
 const mime = {
   '.js': 'text/javascript',
   '.css': 'text/css',
@@ -51,7 +97,13 @@ http
         fs.writeFileSync(
           path.join(
             results,
-            data.route.replaceAll('/', '') + '-' + data.theme + '-' + data.width + '.json',
+            data.route.replaceAll('/', '') +
+              '-' +
+              data.theme +
+              '-' +
+              data.width +
+              (data.state ? '-' + data.state : '') +
+              '.json',
           ),
           JSON.stringify(data, null, 2),
         );
