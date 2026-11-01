@@ -1,7 +1,7 @@
 demo-example-code {
-  // Match Shiki's one-light and one-dark-pro editor backgrounds/foregrounds.
-  --example-code-background: light-dark(#fff, #24292e);
-  --example-code-foreground: light-dark(#24292e, #e1e4e8);
+  // Match Shiki's GitHub high-contrast editor palettes in both schemes.
+  --example-code-background: light-dark(#fff, #0a0c10);
+  --example-code-foreground: light-dark(#0e1116, #f0f3f6);
 
   display: block;
   min-width: 0;

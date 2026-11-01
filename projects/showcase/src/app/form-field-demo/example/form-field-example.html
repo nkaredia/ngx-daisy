@@ -7,7 +7,7 @@
     </div>
   </header>
   <dsy-form-field
-    [label]="props().label ?? 'Project name'"
+    [label]="props().label?.trim() || 'Project name'"
     [hideRequiredMarker]="props().hideRequiredMarker ?? false"
   >
     <input

@@ -47,7 +47,7 @@ demo-component-documentation {
   letter-spacing: 0.1em;
   font-size: 0.6875rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-base-content);
 }
 .component-documentation-table {
   max-inline-size: 100%;
@@ -68,7 +68,7 @@ demo-component-documentation {
   tbody th {
     font-weight: 400;
     > code {
-      color: var(--color-primary);
+      color: var(--color-base-content);
       font-weight: 650;
     }
   }

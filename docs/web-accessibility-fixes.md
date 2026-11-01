@@ -12,8 +12,23 @@ Follow-up to the [November 2026 audit](audits/2026-11-01-web/README.md). Native 
 
 Validation: production web builds passed with existing bundle/style warnings; 124 web library tests passed, including seven new regressions. Browser checks on the built Swap, Gallery, Calendar and Rating pages confirmed the naming/ARIA changes. Rating retains its eleven target-size flags because that visual/interaction change is deferred.
 
+## Showcase fixes
+
+- A02: all example languages now use paired GitHub Light/Dark High Contrast palettes with matching editor surfaces. Source content, safe rendering, tabs and copying remain unchanged. A builder regression checks representative emitted tokens against both actual surfaces at 4.5:1.
+- A01 (partial): Button page muted text and shared documentation labels/API identifiers use the readable base-content foreground. Preset-dependent semantic text and remaining example contrast findings remain open; no theme tokens or native component variants were overridden.
+- A08: custom example progress bars now expose progressbar roles and values; the Theme Controller chart has image semantics and its existing description.
+- A09: the Form Field preview retains a persistent Project name label when the configurable label is empty.
+- D01/D02: Aura and Hero examples size against their preview containers. Hero stacks when its available container is narrow; Aura's footer wraps at mobile widths. These are app-owned composition styles, not library default changes.
+- D07 (partial): Dropdown and Menu preview control icons use individual Lucide imports. Menu disclosure explicitly connects its trigger and content. Other documentation glyph examples remain for later cleanup.
+
+Follow-up browser evidence: [109 case summary](audits/2026-11-01-web/remediation/summary.json), [raw compressed results](audits/2026-11-01-web/remediation/browser-results.json.gz), [corrected Aura preview](audits/2026-11-01-web/remediation/aura-preview.png). The run covers all 70 desktop dark pages plus 13 changed pages in desktop light and mobile light/dark. No emitted syntax-token contrast violations or document overflow were found in those cases; incomplete results are still retained as review-required. Targeted names/ARIA/labels no longer trigger their original findings. The untouched Navbar decorative-logo warning remains, with the original manual disposition.
+
+At 1440px, Aura preview clientWidth/scrollWidth are both 590px (previous scrollWidth 692px). At 320px they are both 286px, including a footer with no overflow. Hero uses one column in side-properties mode and at mobile width, with no preview overflow.
+
+Validation: production web build passed with existing bundle/style budget warnings; 124 library tests, 35 showcase tests, five builder tests, 72 documentation examples and all 14 CSS configurations passed. Prettier and diff whitespace checks passed. This is targeted remediation verification, not a repeated complete manual WCAG audit.
+
 ## Deferred and outstanding work
 
 Proposals that change daisyUI defaults are parked in [web-accessibility-deferred.md](web-accessibility-deferred.md), with no runtime overrides applied. AA compliance remains blocked by those items and the outstanding manual checks in the audit ledger.
 
-Showcase code contrast, invalid chart/progress ARIA, missing Form Field example label and Aura/Hero preview sizing are the next implementation batch. D05 (keyboard interaction inside projected Diff layers) needs a content policy that preserves comparison text for assistive technology; it remains open. Other incomplete/manual audit results remain review-required rather than assumed passes.
+D05 (keyboard interaction inside projected Diff layers) needs a content policy that preserves comparison text for assistive technology; it remains open. Other incomplete/manual audit results remain review-required rather than assumed passes.
