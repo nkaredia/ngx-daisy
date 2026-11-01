@@ -1,3 +1,4 @@
+import { LucidePlus } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +18,7 @@ interface ExampleValues {
 @Component({
   selector: 'demo-input-example',
   standalone: true,
-  imports: [DsyInput],
+  imports: [LucidePlus, DsyInput],
   templateUrl: './input-example.html',
   styleUrl: './input-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

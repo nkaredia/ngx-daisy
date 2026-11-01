@@ -25,7 +25,7 @@
       aria-label="Project actions"
       [disabled]="props().disabled ?? false"
     >
-      <span aria-hidden="true">•••</span>
+      <svg lucideEllipsis size="1em" aria-hidden="true"></svg>
     </button>
     <ng-template dsyDropdownContent>
       @if ((props().kind ?? 'menu') === 'menu') {

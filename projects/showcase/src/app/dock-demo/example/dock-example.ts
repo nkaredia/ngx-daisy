@@ -1,3 +1,4 @@
+import { LucideSparkles } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -22,7 +23,7 @@ interface DockItemValues {
 @Component({
   selector: 'demo-dock-example',
   standalone: true,
-  imports: [DsyDock, DsyDockItem, DsyDockLabel],
+  imports: [LucideSparkles, DsyDock, DsyDockItem, DsyDockLabel],
   templateUrl: './dock-example.html',
   styleUrl: './dock-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

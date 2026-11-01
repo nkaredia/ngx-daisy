@@ -163,6 +163,8 @@ async function extractPlaygrounds(tsConfig, workspaceRoot, logger) {
       ...config.options.paths,
       '@ngx-daisy/core': [resolve(workspaceRoot, 'projects/ngx-daisy-core/src/public-api.ts')],
       '@ngx-daisy/core/*': [resolve(workspaceRoot, 'projects/ngx-daisy-core/*/public-api.ts')],
+      '@ngx-daisy/native': [resolve(workspaceRoot, 'projects/ngx-daisy-native/src/public-api.ts')],
+      '@ngx-daisy/native/*': [resolve(workspaceRoot, 'projects/ngx-daisy-native/*/public-api.ts')],
       '@ngx-daisy/cdk': [resolve(workspaceRoot, 'projects/ngx-daisy/src/public-api.ts')],
       '@ngx-daisy/cdk/*': [resolve(workspaceRoot, 'projects/ngx-daisy/*/public-api.ts')],
     },

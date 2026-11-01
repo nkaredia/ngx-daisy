@@ -3,17 +3,22 @@ demo-aura-example {
   place-items: center;
   min-width: 0;
   width: 100%;
+  container-type: inline-size;
 }
 .aura-example-stage {
   display: grid;
   place-items: center;
   width: 100%;
-  padding: clamp(1.5rem, 5vw, 3.5rem);
+  padding: clamp(0.5rem, 3cqi, 1.25rem);
+}
+demo-aura-example dsy-aura {
+  inline-size: min(34rem, 100%);
+  min-inline-size: 0;
 }
 .aura-product-card {
   display: grid;
   grid-template-columns: 10rem minmax(0, 1fr);
-  width: min(34rem, calc(100vw - 6rem));
+  width: 100%;
   overflow: hidden;
   border-radius: var(--radius-box);
   background: var(--color-base-100);
@@ -72,6 +77,7 @@ demo-aura-example {
 }
 .aura-product-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
@@ -80,10 +86,10 @@ demo-aura-example {
 .aura-product-footer > strong {
   font-size: 1.15rem;
 }
-@media (max-width: 36rem) {
+@container (max-width: 30rem) {
   .aura-product-card {
     grid-template-columns: 1fr;
-    width: min(22rem, calc(100vw - 6rem));
+    width: 100%;
   }
   .aura-product-art {
     min-height: 9rem;

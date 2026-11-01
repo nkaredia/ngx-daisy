@@ -32,7 +32,7 @@ export interface DsyGalleryImage {
         @for (image of visibleImages(); track $index) {
           <button
             type="button"
-            [attr.aria-label]="'Show ' + image.alt"
+            [attr.aria-label]="$index + 1 + ': Show ' + image.alt"
             [attr.aria-pressed]="$index === index()"
             (pointerenter)="activeIndex.set($index)"
             (click)="activeIndex.set($index)"

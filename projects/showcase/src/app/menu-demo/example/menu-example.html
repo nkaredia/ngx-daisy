@@ -18,12 +18,13 @@
         [disabled]="item().disabled ?? false"
         [active]="item().active ?? false"
         [focused]="item().focused ?? false"
-        ><span aria-hidden="true">⌂</span>Overview <span class="menu-example-count">4</span></a
+        ><svg lucideHouse size="1em" aria-hidden="true"></svg>Overview
+        <span class="menu-example-count">4</span></a
       >
     </li>
     <li>
       <details dsyMenuSubmenu [(opened)]="submenuOpened">
-        <summary><span aria-hidden="true">▦</span>Projects</summary>
+        <summary><svg lucideFolder size="1em" aria-hidden="true"></svg>Projects</summary>
         <ul>
           <li><a dsyMenuItem href="/buttons">Mobile refresh</a></li>
           <li><a dsyMenuItem href="/cards">Design system</a></li>
@@ -33,13 +34,14 @@
     <li>
       <button
         dsyMenuDropdownToggle
+        aria-controls="menu-example-resources"
         type="button"
         [opened]="dropdownOpened()"
         (click)="dropdownOpened.update(toggle)"
       >
-        <span aria-hidden="true">◇</span>Team resources
+        <svg lucideUsers size="1em" aria-hidden="true"></svg>Team resources
       </button>
-      <ul dsyMenuDropdown [opened]="dropdownOpened()">
+      <ul dsyMenuDropdown id="menu-example-resources" [opened]="dropdownOpened()">
         <li><a dsyMenuItem href="/tabs">Planning board</a></li>
         <li><a dsyMenuItem href="/drawers">Shared files</a></li>
       </ul>
@@ -49,6 +51,14 @@
     <span>This week</span>
     <strong>4 milestones are on track</strong>
     <p>Use the menu to move between your workspace and nested project destinations.</p>
-    <div aria-label="Project completion"><span style="width: 72%"></span></div>
+    <div
+      role="progressbar"
+      aria-label="Project completion"
+      aria-valuemin="0"
+      aria-valuemax="100"
+      aria-valuenow="72"
+    >
+      <span style="width: 72%"></span>
+    </div>
   </article>
 </section>

@@ -10,31 +10,45 @@
   [style.--dsy-rating-color]="resolvedColor()"
 >
   @if (allowClear()) {
-    <input
-      type="radio"
-      [class]="daisy('rating-hidden')"
-      [name]="groupName()"
-      aria-label="Clear rating"
-      [checked]="!value()"
-      [disabled]="isDisabled()"
-      (click)="guardReadonlyClick($event)"
-      (keydown)="guardReadonly($event)"
-      (change)="rate(0)"
-    />
+    <span class="dsy-rating-target" [class]="targetClass()">
+      <input
+        type="radio"
+        class="dsy-rating-input"
+        [class]="daisy('rating-hidden')"
+        [name]="groupName()"
+        aria-label="Clear rating"
+        [checked]="!value()"
+        [disabled]="isDisabled()"
+        (click)="guardReadonlyClick($event)"
+        (keydown)="guardReadonly($event)"
+        (change)="rate(0)"
+      />
+      <span class="dsy-rating-clear-visual" aria-hidden="true"><svg lucideX size="1em" /></span>
+    </span>
   }
   @for (item of items(); track item; let index = $index) {
-    <input
-      type="radio"
-      class="dsy-rating-item"
-      [class]="itemClasses(index)"
-      [name]="groupName()"
-      [checked]="value() === item"
-      [disabled]="isDisabled()"
-      [attr.aria-label]="label(item)"
-      [attr.aria-readonly]="readonly() || null"
-      (click)="guardReadonlyClick($event)"
-      (keydown)="guardReadonly($event)"
-      (change)="rate(item)"
-    />
+    <span
+      class="dsy-rating-target"
+      [class]="targetClass()"
+      [attr.data-half]="half() ? (index % 2 === 0 ? 'first' : 'second') : null"
+    >
+      <input
+        type="radio"
+        class="dsy-rating-input"
+        [name]="groupName()"
+        [checked]="value() === item"
+        [disabled]="isDisabled()"
+        [attr.aria-label]="label(item)"
+        (click)="guardReadonlyClick($event)"
+        (keydown)="guardReadonly($event)"
+        (change)="rate(item)"
+      />
+      <span
+        class="dsy-rating-item"
+        [class]="itemClasses(index)"
+        [attr.data-filled]="(value() ?? 0) >= item"
+        aria-hidden="true"
+      ></span>
+    </span>
   }
 </div>

@@ -12,6 +12,7 @@ import {
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DsyButton } from '@ngx-daisy/cdk/button';
 import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
+import { LucideChevronLeft, LucideChevronRight, LucideEllipsis } from '@lucide/angular';
 export interface DsyPageEvent {
   pageIndex: number;
   previousPageIndex: number;
@@ -20,7 +21,7 @@ export interface DsyPageEvent {
 }
 @Component({
   selector: 'dsy-pagination',
-  imports: [DsyButton, DsyJoin, DsyJoinItem],
+  imports: [DsyButton, DsyJoin, DsyJoinItem, LucideChevronLeft, LucideChevronRight, LucideEllipsis],
   template: `<nav [attr.aria-label]="label()">
     <dsy-join
       ><button
@@ -32,11 +33,13 @@ export interface DsyPageEvent {
         [attr.aria-label]="previousLabel()"
         (click)="go(index() - 1)"
       >
-        ‹
+        <svg lucideChevronLeft size="1em" aria-hidden="true"></svg>
       </button>
       @for (page of pages(); track page.key) {
         @if (page.index === null) {
-          <span class="dsy-pagination-gap" aria-hidden="true">…</span>
+          <span class="dsy-pagination-gap" aria-hidden="true"
+            ><svg lucideEllipsis size="1em"></svg
+          ></span>
         } @else {
           <button
             dsyButton
@@ -62,9 +65,8 @@ export interface DsyPageEvent {
         [attr.aria-label]="nextLabel()"
         (click)="go(index() + 1)"
       >
-        ›
-      </button></dsy-join
-    >
+        <svg lucideChevronRight size="1em" aria-hidden="true"></svg></button
+    ></dsy-join>
   </nav>`,
   styleUrl: './pagination.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

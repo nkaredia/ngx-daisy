@@ -9,5 +9,11 @@ module.exports = (env) => {
       .set('@ngx-daisy/core', path.resolve(__dirname, '../../dist/ngx-daisy-core'))
       .set('@ngx-daisy/native', path.resolve(__dirname, '../../dist/ngx-daisy-native'));
   });
-  return webpack.resolveConfig();
+  const config = webpack.resolveConfig();
+  config.module.rules.push({
+    test: /[/\\]playground\.ts$/,
+    enforce: 'post',
+    use: [{ loader: path.resolve(__dirname, 'tools/playground-loader.cjs') }],
+  });
+  return config;
 };

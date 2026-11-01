@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const outputs = [
   '../../../dist/native-check/ios/nativeshowcase/app/vendor.mjs',
-  '../../../dist/native-check/android/app/src/main/assets/app/vendor.js',
+  '../../../dist/native-check/android/app/src/main/assets/app/vendor.mjs',
 ];
 for (const output of outputs) {
   const bundle = fs.readFileSync(path.resolve(__dirname, output), 'utf8');
@@ -11,16 +11,35 @@ for (const output of outputs) {
     ...bundle.matchAll(/node_modules\/lucide\/dist\/esm\/icons\/([a-z-]+)\.mjs/g),
   ].map((match) => match[1]);
   assert.deepEqual([...new Set(lucideModules)].sort(), [
+    'archive',
     'chart-no-axes-column',
+    'check',
+    'chevron-down',
     'circle-check',
+    'circle-x',
+    'code',
+    'copy',
+    'dot',
     'heart',
     'house',
+    'info',
     'keyboard',
+    'link',
     'menu',
+    'message-circle',
+    'minus',
     'moon',
     'paintbrush',
+    'panel-bottom',
+    'panel-right',
+    'panels-top-left',
+    'plus',
+    'rotate-ccw',
     'settings',
+    'star',
     'sun',
+    'triangle-alert',
+    'user-plus',
     'x',
     'zap',
   ]);

@@ -41,7 +41,7 @@ demo-dock-example {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
 }
 
 .dock-example-avatar {
@@ -79,7 +79,7 @@ demo-dock-example {
   margin-bottom: 0.25rem;
   border-radius: 1.1rem;
   background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 1.5rem;
 }
 

@@ -1,3 +1,10 @@
+import {
+  LucidePlus,
+  LucideX,
+  LucideArrowUpRight,
+  LucideCheck,
+  LucideDownload,
+} from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -19,6 +26,11 @@ import {
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    LucidePlus,
+    LucideX,
+    LucideArrowUpRight,
+    LucideCheck,
+    LucideDownload,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

@@ -23,7 +23,7 @@ demo-badge-example {
   place-items: center;
   border-radius: 0.85rem;
   background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.85rem;
   font-weight: 800;
 }

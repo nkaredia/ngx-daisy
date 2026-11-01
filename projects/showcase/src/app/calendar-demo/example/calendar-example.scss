@@ -32,7 +32,7 @@ demo-calendar-example h3 {
 }
 
 demo-calendar-example .calendar-example-eyebrow {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;

@@ -1,3 +1,4 @@
+import { LucideCircle } from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,14 @@ import { DsyIndicator, DsyIndicatorItem } from '@ngx-daisy/cdk/indicator';
 @Component({
   selector: 'demo-indicator-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyIndicator, DsyIndicatorItem],
+  imports: [
+    LucideCircle,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyIndicator,
+    DsyIndicatorItem,
+  ],
   templateUrl: './indicator-demo.html',
   styleUrl: './indicator-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

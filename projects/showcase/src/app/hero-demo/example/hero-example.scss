@@ -1,6 +1,8 @@
 demo-hero-example {
   display: block;
+  inline-size: 100%;
   min-inline-size: 0;
+  container-type: inline-size;
 }
 demo-hero-example .hero-example-landscape {
   min-block-size: 25rem;
@@ -23,9 +25,9 @@ demo-hero-example .hero-example-landscape {
 demo-hero-example .hero-example-content {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.9fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: clamp(1rem, 4cqi, 2rem);
   inline-size: min(100%, 64rem);
-  padding: clamp(1.75rem, 5vw, 4rem);
+  padding: clamp(1rem, 4cqi, 2rem);
 }
 
 demo-hero-example .hero-example-copy {
@@ -51,7 +53,7 @@ demo-hero-example p {
 
 demo-hero-example h3 {
   max-inline-size: 13ch;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5cqi, 3.5rem);
   font-weight: 760;
   line-height: 1.02;
   letter-spacing: -0.04em;
@@ -145,7 +147,7 @@ demo-hero-example .hero-example-chip {
   font-weight: 700;
 }
 
-@media (max-width: 44rem) {
+@container (max-width: 44rem) {
   demo-hero-example .hero-example-content {
     grid-template-columns: minmax(0, 1fr);
   }

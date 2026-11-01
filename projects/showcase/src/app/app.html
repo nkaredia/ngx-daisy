@@ -161,15 +161,11 @@
                   <div class="bg-accent size-1 rounded-full"></div>
                 </div>
                 <svg
-                  width="12"
-                  height="12"
-                  class="mt-px hidden size-2 fill-current opacity-60 sm:inline-block"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 2048 2048"
+                  lucideChevronDown
+                  size="12"
+                  class="mt-px hidden opacity-60 sm:inline-block"
                   aria-hidden="true"
-                >
-                  <path d="M1799 349l242 241-1017 1017L7 590l242-241 775 775 775-775z"></path>
-                </svg>
+                ></svg>
               </button>
               <ng-template dsyDropdownContent>
                 <ul class="menu w-56 showcase-theme-list" role="presentation">
@@ -194,19 +190,12 @@
                         </div>
                         <div class="w-32 truncate">{{ theme }}</div>
                         <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="currentColor"
+                          lucideCheck
+                          size="16"
                           class="h-3 w-3 shrink-0"
                           [class.invisible]="themeSelection() !== 'daisy:' + theme"
                           aria-hidden="true"
-                        >
-                          <path
-                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
-                          ></path>
-                        </svg>
+                        ></svg>
                       </button>
                     </li>
                   }
@@ -232,19 +221,12 @@
                           </div>
                           <div class="w-32 truncate">{{ theme.name }}</div>
                           <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
+                            lucideCheck
+                            size="16"
                             class="h-3 w-3 shrink-0"
                             [class.invisible]="themeSelection() !== 'custom:' + theme.name"
                             aria-hidden="true"
-                          >
-                            <path
-                              d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
-                            ></path>
-                          </svg>
+                          ></svg>
                         </button>
                       </li>
                     }

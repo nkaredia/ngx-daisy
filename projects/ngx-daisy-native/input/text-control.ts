@@ -1,3 +1,4 @@
+import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   Directive,
   ElementRef,
@@ -24,6 +25,11 @@ export abstract class DsyTextControl implements FormValueControl<string> {
   readonly label = input('');
   /** Include helper/error text here so the native control announces its context. */
   readonly description = input('');
+  private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
+  readonly accessibleLabel = computed(() => this.label() || this.context?.label() || '');
+  readonly accessibleDescription = computed(
+    () => this.description() || this.context?.description() || '',
+  );
   readonly color = input<DsyButtonColor>(undefined, { alias: 'dsyColor' });
   readonly size = input<DsyButtonSize>('md');
   readonly variant = input<'bordered' | 'ghost'>('bordered');

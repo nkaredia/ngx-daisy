@@ -1,0 +1,37 @@
+<GridLayout columns="*, 40">
+  <Button
+    #trigger
+    colSpan="2"
+    dsyButton
+    [text]="selectedLabel()"
+    variant="outline"
+    dsyLayout="block"
+    [dsyColor]="color()"
+    [size]="size()"
+    [disabled]="isDisabled()"
+    [accessibilityLabel]="accessibleLabel() + ', ' + selectedLabel()"
+    [accessibilityHint]="accessibleDescription()"
+    class="dsy-native-select-trigger"
+    [class]="triggerClass()"
+    (pressed)="open()"
+  ></Button>
+  <GridLayout
+    col="1"
+    [isUserInteractionEnabled]="false"
+    [accessible]="false"
+    [accessibilityHidden]="true"
+    class="dsy-native-select-indicator"
+    [class]="indicatorClass()"
+  >
+    <Image [dsyControlIcon]="chevronIcon" class="dsy-native-select-chevron"></Image>
+  </GridLayout>
+</GridLayout>
+
+<ng-template #menuOption let-item let-checked="checked">
+  @if (optionFor(item.id); as option) {
+    <ng-container
+      [ngTemplateOutlet]="optionTemplate()?.template ?? null"
+      [ngTemplateOutletContext]="{ $implicit: option, selected: checked }"
+    />
+  }
+</ng-template>

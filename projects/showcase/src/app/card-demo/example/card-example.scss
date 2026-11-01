@@ -9,7 +9,7 @@ demo-card-example {
   box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 10%, transparent);
 }
 .card-example-eyebrow {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;

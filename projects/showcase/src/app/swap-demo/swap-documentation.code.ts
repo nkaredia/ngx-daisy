@@ -15,7 +15,7 @@ export const documentation = {
     'buttonClass reaches the internal native button. color and size apply to button variants; animation is none, rotate or flip and respects reduced motion.',
   ],
   accessibility: [
-    'Supply a stable action name. The internal button announces aria-pressed, including mixed state. Keep projected icons decorative and noninteractive; inactive slots are hidden and inert.',
+    'Text swaps use their active visible text as the name. Icon-only swaps require an aria-label; an explicit name for a text swap must include its visible text in every state. The internal button announces aria-pressed, including mixed state. Keep projected icons decorative and noninteractive; inactive slots are hidden and inert.',
   ],
   apiNotes: [
     {
@@ -34,7 +34,7 @@ export const documentation = {
       path: 'swap-example.ts',
       language: 'typescript',
       content:
-        'import { Component, signal } from \'@angular/core\';\nimport { DsySwap } from \'@ngx-daisy/cdk/swap\';\n\n@Component({\n  selector: \'app-swap-example\',\n  imports: [DsySwap],\n  template: `\n    <dsy-swap [(checked)]="sound" animation="rotate" aria-label="Enable sound">\n      <span dsySwapOff>Sound off</span>\n      <span dsySwapOn>Sound on</span>\n    </dsy-swap>\n  `,\n})\nexport class SwapUsageExample {\n  readonly sound = signal(false);\n}\n',
+        "import { Component, signal } from '@angular/core';\nimport { DsySwap } from '@ngx-daisy/cdk/swap';\n\n@Component({\n  selector: 'app-swap-example',\n  imports: [DsySwap],\n  template: `\n    <dsy-swap [(checked)]=\"sound\" animation=\"rotate\">\n      <span dsySwapOff>Sound off</span>\n      <span dsySwapOn>Sound on</span>\n    </dsy-swap>\n  `,\n})\nexport class SwapUsageExample {\n  readonly sound = signal(false);\n}\n",
     },
   ],
 } satisfies ComponentDocumentationContent;

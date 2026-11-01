@@ -49,7 +49,7 @@ demo-progress-example {
   place-items: center;
   border-radius: 0.75rem;
   background: color-mix(in oklab, var(--color-primary) 14%, var(--color-base-100));
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.65rem;
   font-weight: 800;
 }

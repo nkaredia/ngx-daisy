@@ -1,0 +1,18 @@
+.dsy-native-form-field {
+  margin-bottom: 16;
+}
+.dsy-native-field-label {
+  font-weight: 600;
+  margin-bottom: 8;
+  color: var(--color-base-content);
+}
+.dsy-native-field-message {
+  font-size: 13;
+  margin-top: 8;
+  color: var(--color-base-content);
+  opacity: 0.75;
+}
+.dsy-native-field-message.dsy-native-field-error {
+  color: var(--color-error);
+  opacity: 1;
+}

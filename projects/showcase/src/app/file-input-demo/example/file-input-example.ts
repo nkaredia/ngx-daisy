@@ -1,3 +1,4 @@
+import { LucideUpload } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -35,7 +36,7 @@ interface ExampleValues {
 @Component({
   selector: 'demo-file-input-example',
   standalone: true,
-  imports: [DsyFileInput],
+  imports: [LucideUpload, DsyFileInput],
   templateUrl: './file-input-example.html',
   styleUrl: './file-input-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

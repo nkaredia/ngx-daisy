@@ -1,3 +1,4 @@
+vi.mock('@nativescript/core', () => ({ isIOS: false, Utils: {} }));
 import { Component, NO_ERRORS_SCHEMA, signal } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { DsyButton } from './button.component';
@@ -32,6 +33,8 @@ describe('Native Button state and renderer bindings', () => {
     const element = fixture.nativeElement;
     expect(element.text).toBe('Place order');
     expect(element.isEnabled).toBe(true);
+    expect(element.androidElevation).toBe(0);
+    expect(element.androidDynamicElevationOffset).toBe(0);
     expect(element.accessibilityLabel).toBe('Place order');
     expect(element.getAttribute('accessibilityRole')).toBe('button');
   });

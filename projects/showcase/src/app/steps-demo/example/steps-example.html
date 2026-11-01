@@ -8,13 +8,17 @@
   </header>
   <ol dsySteps [orientation]="props().orientation ?? 'horizontal'">
     <li dsyStep [color]="step().color ?? 'inherit'" [current]="step().current ?? false">
-      <span dsyStepIcon aria-hidden="true">✓</span>Account
+      <span dsyStepIcon aria-hidden="true"
+        ><svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg></span
+      >Account
     </li>
     <li dsyStep color="primary" current><span dsyStepIcon aria-hidden="true">2</span>Workspace</li>
     <li dsyStep><span dsyStepIcon aria-hidden="true">3</span>Invite team</li>
   </ol>
   <div class="steps-example-callout">
-    <span aria-hidden="true">✦</span>
+    <span aria-hidden="true"
+      ><svg lucideSparkles size="1em" class="inline-block" aria-hidden="true"></svg
+    ></span>
     <div>
       <strong>Choose how your team will work</strong>
       <p>You can update roles and permissions at any time.</p>

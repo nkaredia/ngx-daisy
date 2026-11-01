@@ -1,114 +1,177 @@
+import { nativeThemeCss } from './theme-source';
 import {
   ChangeDetectionStrategy,
   Component,
   NO_ERRORS_SCHEMA,
   ViewEncapsulation,
+  computed,
   effect,
   input,
   output,
   signal,
 } from '@angular/core';
+import { nativeThemes } from './themes';
+import { Utils } from '@nativescript/core';
 import { DsyButton } from '@ngx-daisy/native/button';
+import { DsyInput } from '@ngx-daisy/native/input';
+import { DsySelect } from '@ngx-daisy/native/select';
+import { DsyToggle } from '@ngx-daisy/native/toggle';
+import { DsyBadge } from '@ngx-daisy/native/badge';
+import { DsyProgress } from '@ngx-daisy/native/progress';
+import { DsyAlert } from '@ngx-daisy/native/alert';
 import {
+  DsyTheme,
+  DSY_THEME_TOKENS,
   defineDaisyTheme,
   resolveNativeTheme,
   type DsyThemeDefinition,
+  type DsyThemeToken,
 } from '@ngx-daisy/native/theme';
 @Component({
   selector: 'dsy-native-theme-editor',
   standalone: true,
-  imports: [DsyButton],
+  imports: [DsyButton, DsyInput, DsySelect, DsyToggle, DsyBadge, DsyProgress, DsyAlert, DsyTheme],
   schemas: [NO_ERRORS_SCHEMA],
-  template: `<StackLayout>
-    <Label
-      text="Make it yours"
-      class="text-[28px] font-bold mb-3"
-      accessibilityRole="header"
-    ></Label>
-    <Label
-      text="Start with any preset, then customize its primary color, secondary color and field radius. Changes apply throughout the native showcase."
-      class="opacity-75 mb-5"
-      textWrap="true"
-    ></Label>
-    <Label text="Primary color" class="font-semibold mb-2"></Label>
-    <TextField
-      [text]="primary()"
-      (textChange)="primary.set($any($event).value)"
-      autocorrect="false"
-      autocapitalizationType="none"
-      accessibilityLabel="Primary color"
-      class="bg-base-200 rounded-field p-3 mb-4"
-    ></TextField>
-    <Label text="Secondary color" class="font-semibold mb-2"></Label>
-    <TextField
-      [text]="secondary()"
-      (textChange)="secondary.set($any($event).value)"
-      autocorrect="false"
-      autocapitalizationType="none"
-      accessibilityLabel="Secondary color"
-      class="bg-base-200 rounded-field p-3 mb-4"
-    ></TextField>
-    <Label text="Field radius" class="font-semibold mb-2"></Label>
-    <TextField
-      [text]="radius()"
-      (textChange)="radius.set($any($event).value)"
-      autocorrect="false"
-      autocapitalizationType="none"
-      accessibilityLabel="Field radius"
-      class="bg-base-200 rounded-field p-3 mb-5"
-    ></TextField>
-    <Button dsyButton text="Apply theme" dsyColor="primary" (pressed)="save()"></Button>
-    <Label
-      [text]="error()"
-      class="text-error mt-3"
-      textWrap="true"
-      accessibilityLiveRegion="polite"
-    ></Label>
-    <StackLayout class="bg-base-200 rounded-box p-5 mt-5"
-      ><Label text="Your next big idea" class="text-xl font-bold mb-3"></Label
-      ><Label
-        text="A shared theme, from every screen to every action."
-        class="opacity-75 mb-4"
-        textWrap="true"
-      ></Label
-      ><Button dsyButton text="Get started" dsyColor="secondary"></Button
-    ></StackLayout>
-  </StackLayout>`,
+  templateUrl: './theme-editor.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
 export class NativeThemeEditor {
   readonly theme = input.required<DsyThemeDefinition>();
+  readonly width = input(360);
   readonly applied = output<DsyThemeDefinition>();
-  readonly primary = signal('');
-  readonly secondary = signal('');
-  readonly radius = signal('');
+  readonly name = signal('custom');
+  readonly scheme = signal<'light' | 'dark'>('light');
+  readonly tokens = signal({} as Record<DsyThemeToken, string>);
+  readonly defaultTheme = signal(false);
+  readonly prefersDark = signal(false);
   readonly error = signal('');
+  readonly feedback = signal('');
+  readonly importText = signal('');
+  readonly importOpen = signal(false);
+  readonly groups = [
+    {
+      label: 'Base colors',
+      description: 'Surfaces and the text that sits on them.',
+      tokens: DSY_THEME_TOKENS.filter((token) => token.startsWith('--color-base-')),
+    },
+    {
+      label: 'Brand colors',
+      description: 'Your primary, secondary, accent and neutral palette.',
+      tokens: DSY_THEME_TOKENS.filter((token) =>
+        /^--color-(primary|secondary|accent|neutral)/.test(token),
+      ),
+    },
+    {
+      label: 'Status colors',
+      description: 'Information, success, warning and error feedback.',
+      tokens: DSY_THEME_TOKENS.filter((token) =>
+        /^--color-(info|success|warning|error)/.test(token),
+      ),
+    },
+    {
+      label: 'Shape and size',
+      description: 'Radius, control sizing and borders.',
+      tokens: DSY_THEME_TOKENS.filter((token) => /^--(radius|size|border)/.test(token)),
+    },
+    {
+      label: 'Effects',
+      description: 'Depth and noise options, retained in the exported daisyUI theme.',
+      tokens: DSY_THEME_TOKENS.filter((token) => token === '--depth' || token === '--noise'),
+    },
+  ];
+  readonly schemes = [
+    { value: 'light', label: 'Light' },
+    { value: 'dark', label: 'Dark' },
+  ];
+  readonly switches = [
+    { value: '0', label: 'Off' },
+    { value: '1', label: 'On' },
+  ];
+  readonly draft = computed(() => {
+    try {
+      const theme = this.definition();
+      resolveNativeTheme(theme);
+      return theme;
+    } catch {
+      return this.theme();
+    }
+  });
+  readonly previewTokens = computed(() => resolveNativeTheme(this.draft()).tokens);
+  colorChip(token: DsyThemeToken): string {
+    return this.previewTokens()[token] ?? 'transparent';
+  }
   constructor() {
-    effect(() => {
-      const theme = this.theme();
-      this.primary.set(theme.tokens['--color-primary']);
-      this.secondary.set(theme.tokens['--color-secondary']);
-      this.radius.set(theme.tokens['--radius-field']);
+    effect(() => this.load(this.theme()));
+  }
+  private load(theme: DsyThemeDefinition): void {
+    this.name.set(
+      nativeThemes.some((preset) => preset.name === theme.name) ? 'custom' : theme.name,
+    );
+    this.scheme.set(theme.colorScheme);
+    this.tokens.set({ ...theme.tokens });
+    this.defaultTheme.set(theme.default ?? false);
+    this.prefersDark.set(theme.prefersDark ?? false);
+    this.error.set('');
+    this.feedback.set('');
+  }
+  setToken(token: DsyThemeToken, value: string): void {
+    if (this.tokens()[token] !== value)
+      this.tokens.update((tokens) => ({ ...tokens, [token]: value }));
+  }
+  setScheme(value: string): void {
+    if (value === 'light' || value === 'dark') this.scheme.set(value);
+  }
+  label(token: string): string {
+    return token.replace(/^--/, '');
+  }
+  definition(): DsyThemeDefinition {
+    return defineDaisyTheme({
+      name: this.name(),
+      colorScheme: this.scheme(),
+      default: this.defaultTheme(),
+      prefersDark: this.prefersDark(),
+      tokens: this.tokens(),
     });
+  }
+  reset(): void {
+    this.load(this.theme());
   }
   save(): void {
     try {
-      const theme = defineDaisyTheme({
-        ...this.theme(),
-        name: 'custom',
-        tokens: {
-          ...this.theme().tokens,
-          '--color-primary': this.primary(),
-          '--color-secondary': this.secondary(),
-          '--radius-field': this.radius(),
-        },
-      });
+      const theme = this.definition();
+      if (nativeThemes.some((preset) => preset.name === theme.name))
+        throw new Error('Choose a custom name so the built-in preset stays available.');
       resolveNativeTheme(theme);
-      this.error.set('');
       this.applied.emit(theme);
+      this.error.set('');
+      this.feedback.set('Theme applied and saved.');
     } catch (error) {
       this.error.set(error instanceof Error ? error.message : 'Check the theme values.');
+    }
+  }
+  copy(format: 'json' | 'css'): void {
+    try {
+      const theme = this.definition();
+      resolveNativeTheme(theme);
+      const source = format === 'json' ? JSON.stringify(theme, null, 2) : nativeThemeCss(theme);
+      Utils.copyToClipboard(source);
+      this.error.set('');
+      this.feedback.set(`Copied ${format.toUpperCase()} theme.`);
+    } catch (error) {
+      this.error.set(error instanceof Error ? error.message : 'Check the theme values.');
+    }
+  }
+  importTheme(): void {
+    try {
+      const theme = defineDaisyTheme(JSON.parse(this.importText()));
+      resolveNativeTheme(theme);
+      this.load(theme);
+      this.name.set(theme.name);
+      this.feedback.set('Theme imported. Review the preview, then apply.');
+      this.importOpen.set(false);
+    } catch (error) {
+      this.error.set(error instanceof Error ? error.message : 'Paste a valid JSON theme.');
     }
   }
 }

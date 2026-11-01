@@ -50,3 +50,4 @@ projects/native-showcase/platforms/
 projects/native-showcase/hooks/
 projects/native-showcase/.nsbuildinfo
 projects/native-showcase/node_modules/
+projects/native-showcase/nsconfig.json

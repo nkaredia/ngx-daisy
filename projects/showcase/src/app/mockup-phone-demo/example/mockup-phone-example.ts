@@ -1,3 +1,4 @@
+import { LucideCircle } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -17,7 +18,7 @@ interface MockupPhoneValues {
 @Component({
   selector: 'demo-mockup-phone-example',
   standalone: true,
-  imports: [DsyMockupPhone, DsyButton],
+  imports: [LucideCircle, DsyMockupPhone, DsyButton],
   templateUrl: './mockup-phone-example.html',
   styleUrl: './mockup-phone-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

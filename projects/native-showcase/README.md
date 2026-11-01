@@ -33,6 +33,14 @@ yarn workspace @ngx-daisy/native-showcase exec ns doctor ios
 yarn workspace @ngx-daisy/native-showcase exec ns doctor android
 ```
 
+The Android launcher discovers the standard macOS SDK at `~/Library/Android/sdk` when no SDK environment variable is supplied. Explicit `ANDROID_HOME` or `ANDROID_SDK_ROOT` values take precedence. It adds SDK tools only to the launched process's path and provides a local core-package link for native plugins that assume app-local `node_modules`; Yarn remains the dependency manager. The Android runtime is recorded alongside the iOS runtime in this workspace.
+
+For a physical phone, enable USB debugging, connect it, approve the phone's debugging prompt, and select its ID explicitly when an emulator is also running:
+
+```sh
+yarn workspace @ngx-daisy/native-showcase android --device <device-id> --no-watch --no-hmr --env.aot
+```
+
 The NativeScript project selects its modern Yarn adapter (`yarn2`, also used for Yarn 4). The workspace inherits the root node-modules linker and lockfile. Do not install a global CLI or create an npm lockfile. NativeScript adds platform runtime dependencies when preparing the selected platform; review and retain those changes in the Yarn workspace.
 
 The initial app resources come from the official NativeScript Angular blank starter. Android cleartext access is restricted to local development hosts, and unused storage permissions have been removed.

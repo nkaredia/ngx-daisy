@@ -1,0 +1,18 @@
+.dsy-native-progress {
+  color: var(--color-base-content);
+  min-height: 8;
+}
+.dsy-native-progress-track {
+  background-color: var(--color-base-300);
+  vertical-align: middle;
+}
+.dsy-native-progress-busy {
+  width: 28;
+  height: 28;
+  horizontal-align: left;
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-progress-#{$color} {
+    color: var(--color-#{$color});
+  }
+}

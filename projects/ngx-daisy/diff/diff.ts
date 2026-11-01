@@ -8,8 +8,10 @@ import {
   booleanAttribute,
 } from '@angular/core';
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
+import { LucideChevronsLeftRight } from '@lucide/angular';
 @Component({
   selector: 'dsy-diff',
+  imports: [LucideChevronsLeftRight],
   template: `<div class="dsy-diff-stage" [class]="daisy('diff') + ' ' + stageClass()">
     <div
       [class]="daisy('diff-item-1')"
@@ -27,7 +29,7 @@ import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
       [style.left.%]="safePosition()"
       aria-hidden="true"
     >
-      <span class="dsy-diff-handle">‹ ›</span>
+      <span class="dsy-diff-handle"><svg lucideChevronsLeftRight size="1em"></svg></span>
     </div>
     <input
       class="dsy-diff-slider"

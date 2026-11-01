@@ -14,7 +14,7 @@
     [attr.aria-label]="resetLabel()"
     (click)="clear()"
   >
-    ×
+    <svg lucideX size="1em" aria-hidden="true"></svg>
   </button>
   @for (option of options(); track option.value) {
     <input

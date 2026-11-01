@@ -7,9 +7,9 @@ The six Actions families have native entry points under `@ngx-daisy/native`: But
 | Entry point         | Public building blocks                                                       | Native behavior                                                                        |
 | ------------------- | ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `/button`           | `DsyButton`                                                                  | Real native Button; see the package guide                                              |
-| `/dropdown`         | `DsyDropdown`, `DsyDropdownTrigger`, `DsyDropdownContent`, `DsyDropdownItem` | A native modal action surface, not a pointer-anchored browser menu                     |
+| `/dropdown`         | `DsyDropdown`, `DsyDropdownTrigger`, `DsyDropdownContent`, `DsyDropdownItem` | A themed custom anchored NativeScript popover                                          |
 | `/fab`              | `DsyFab`, `DsyFabTrigger`, `DsyFabAction`, `DsyFabClose`                     | Expandable projected actions within a native StackLayout; the app positions the layout |
-| `/modal`            | `DsyModal`, `DsyModalService`, `DsyModalConfig`, `DsyModalContext`           | Template-backed, themed NativeScript dialog presentation                               |
+| `/modal`            | `DsyModal`, `DsyModalService`, `DsyModalConfig`, `DsyModalContext`           | Template-backed, compact centered NativeScript dialog                                  |
 | `/swap`             | `DsySwap`                                                                    | A native Button swaps text/glyph labels and checked state                              |
 | `/theme-controller` | `DsyThemeController`, `DsyThemeControllerChange`                             | A native Switch emits theme intent; the app applies/persists it                        |
 | `/icon`             | `DsyIcon`, `DsyIconColor`                                                    | A native GridLayout projects app-owned artwork                                         |
@@ -18,24 +18,28 @@ Import each used standalone component/directive into the consuming component. Na
 
 ## Dropdown
 
+<!-- prettier-ignore -->
 ```html
 <StackLayout dsyDropdown label="Project actions">
-  <button dsyButton dsyDropdownTrigger text="Manage project"></button>
+  <Button dsyButton dsyDropdownTrigger text="Manage project"></Button>
   <ng-template dsyDropdownContent>
-    <button dsyButton dsyDropdownItem text="Duplicate" (triggered)="duplicate()"></button>
-    <button dsyButton dsyDropdownItem text="Unavailable" disabled></button>
+    <Button dsyButton dsyDropdownItem text="Duplicate" (triggered)="duplicate()"></Button>
+    <Button dsyButton dsyDropdownItem text="Unavailable" disabled></Button>
   </ng-template>
 </StackLayout>
 ```
 
-Use exactly one trigger and content template. `opened` is a boolean model. `open()`, `close()` and `toggle()` are also available through `exportAs="dsyDropdown"`. `disabled` prevents opening and closes an open surface. Each item accepts `disabled` and emits `triggered`; use that output for app actions. Selection dismisses the surface. Content is recreated on open, so keep persistent state in the app. Arbitrary native form/card content may also be put in the template and closed using the dropdown controller.
+Use exactly one trigger and content template. `opened` is a boolean model; `open()`, `close()` and `toggle()` are also available through `exportAs="dsyDropdown"`. `disabled` prevents opening and closes an active panel. Content is live Angular markup, recreated on each opening and destroyed on closing. It supports native layouts, provider-owned icons, badges, headers and custom action rows.
 
-The panel has a visible `label`, an explicit close control, `panelClass`, and native dismissal. Hover, HTML menu roles, browser keyboard navigation and physical popover placement are deliberately absent. This first native menu uses a sheet/dialog rather than an anchored popover.
+`DsyDropdownItem` accepts Button, GridLayout or StackLayout hosts. It guards disabled/stale activation, closes the panel and emits `triggered`. Give layout items an explicit `label`; `description` supplies accessible help. Section headings and visible secondary text are ordinary authored views. `destructive` provides the theme's error foreground. Keep independent interactive controls outside actionable rows.
+
+`panelClass`, `panelWidth` (280 DIP or `anchor`) and `maxHeight` customize the panel. The trigger remains an ordinary DsyButton. RootLayout setup, positioning, theme inheritance, Escape/Back/outside dismissal and custom Select option templates are documented in [native anchored popovers](native-popover.md).
 
 ## Modal
 
+<!-- prettier-ignore -->
 ```html
-<button dsyButton text="Create project" (pressed)="create.open()"></button>
+<Button dsyButton text="Create project" (pressed)="create.open()"></Button>
 <ng-template
   dsyModal
   #create="dsyModal"
@@ -43,8 +47,8 @@ The panel has a visible `label`, an explicit close control, `panelClass`, and na
   (closed)="handleResult($event)"
   let-dialog
 >
-  <label text="Start a private workspace" textWrap="true"></label>
-  <button dsyButton text="Create" (pressed)="dialog.close('created')"></button>
+  <Label text="Start a private workspace" textWrap="true"></Label>
+  <Button dsyButton text="Create" (pressed)="dialog.close('created')"></Button>
 </ng-template>
 ```
 
@@ -52,23 +56,24 @@ The panel has a visible `label`, an explicit close control, `panelClass`, and na
 
 `DsyModalService.open(template, config)` supports data, theme, width, panelClass, label, disableClose, viewContainerRef and NativeScript `nativeOptions`. It returns a NativeScript dialog reference with `close(result)` and lifecycle observables. The template receives the dialog as `$implicit` and optional `data`. Use `DsyModalContext<Data, Result>` (whose `$implicit` is a guarded `DsyModalHandle<Result>`) for typed templates/services. Template directives capture the nearest `DsyTheme` scope; the service defaults to the light preset unless given a theme definition or a reactive theme getter.
 
-Dropdown and Modal use the same themed, scrollable surface and NativeScript `NativeDialog` lifecycle. Native presentation handles modal isolation, dismissal and navigation; there is no DOM focus trap, body scroll lock or fake in-page overlay. The root presenter avoids trying to present from an Angular comment anchor. Themes are reapplied to the detached root and remain reactive. Custom motion is disabled by default; apps can opt into native presentation animation through service options. OS-specific dismissal behavior, accessibility and nested presentation still need platform validation.
+Modal uses a themed, scrollable card and NativeScript `NativeDialog` lifecycle. The card is centered and bounded to 560 DIP or the available height minus 96 DIP, whichever is smaller. Native presentation handles modal isolation, dismissal and navigation; there is no DOM focus trap, body scroll lock or fake in-page overlay. The root presenter avoids trying to present from an Angular comment anchor. Themes are reapplied to the detached root and remain reactive. On iOS, over-full-screen native presentation preserves the page behind a dimmed backdrop instead of opening a system sheet. Android uses a compact native dialog window. Custom motion is disabled by default; apps can opt into native presentation animation through service options. OS-specific dismissal behavior, accessibility and nested presentation still need platform validation.
 
-`panelClass` targets the inner content surface. NativeScript component styles can load after global utilities; use app native properties/global component overrides where ordering matters. Choose a panel width suitable for the target screen. Browser placement modes and backdropClass do not transfer to native presentation.
+`panelClass` targets the inner content surface. NativeScript component styles can load after global utilities; use app native properties/global component overrides where ordering matters. Choose a panel width suitable for the target screen; the default is clamped to leave horizontal screen margins. Browser placement modes and backdropClass do not transfer to native presentation.
 
 ## FAB / Speed Dial
 
+<!-- prettier-ignore -->
 ```html
 <StackLayout dsyFab horizontalAlignment="right" verticalAlignment="bottom">
-  <button dsyButton dsyFabAction text="New note" (triggered)="createNote()"></button>
-  <button dsyButton dsyFabClose text="Cancel"></button>
-  <button
+  <Button dsyButton dsyFabAction text="New note" (triggered)="createNote()"></Button>
+  <Button dsyButton dsyFabClose text="Cancel"></Button>
+  <Button
     dsyButton
     dsyFabTrigger
     text="+"
     shape="circle"
     accessibilityLabel="Quick create"
-  ></button>
+  ></Button>
 </StackLayout>
 ```
 
@@ -76,15 +81,16 @@ Dropdown and Modal use the same themed, scrollable surface and NativeScript `Nat
 
 ## Swap and Signal Forms
 
+<!-- prettier-ignore -->
 ```html
-<button
+<Button
   dsySwap
   [(checked)]="soundEnabled"
   label="Notification sounds"
   onText="Sound on"
   offText="Sound off"
   dsyColor="primary"
-></button>
+></Button>
 ```
 
 Inputs: `checked` and `indeterminate` models, `disabled`, `label`, `onText`, `offText`, `indeterminateText`, `dsyColor` and `size`. Activation clears indeterminate, toggles checked and emits `touch`. The native accessibility label stays stable while accessibility value describes the current state. Supply localized text for labels. Browser flip/rotate animations and projected on/off slots are not part of this initial native API; labels can contain app-owned font glyphs.
@@ -93,6 +99,7 @@ Swap implements Angular 22 `FormCheckboxControl` with `checked` and `touch`, so 
 
 ## Theme Controller
 
+<!-- prettier-ignore -->
 ```html
 <Switch
   [dsyThemeController]="darkTheme"
@@ -106,9 +113,10 @@ The required theme is a complete shared `DsyThemeDefinition`. `changed` emits `{
 
 ## Icon
 
+<!-- prettier-ignore -->
 ```html
 <GridLayout dsyIcon [size]="24" dsyColor="success" label="Saved">
-  <label text="✓" accessible="false"></label>
+  <Label text="✓" accessible="false"></Label>
 </GridLayout>
 ```
 
@@ -125,3 +133,9 @@ Run `yarn check:native` for package builds, strict templates, both platform bund
 The native package build, strict showcase templates, iOS/Android AOT JavaScript bundles and Tailwind semantic utility checks passed. The complete regression suite passed: 117 web library tests, 35 showcase tests, 23 native tests, 14 CSS configurations, four builder tests and 72 documentation examples.
 
 On iPhone 17 / iOS 26.5, verified Dropdown presentation, disabled item appearance, selection/result dismissal; Modal presentation and a returned creation result; speed-dial expansion, selection and collapse; Swap updating its Signal Forms value and visible feedback; Theme Controller switching a scoped card; and Icon sizes, semantic colors and decorative/labeled accessibility-tree entries. This was simulator interaction and accessibility-tree inspection, not a VoiceOver audit. Android device rendering, screen-reader operation, larger font scales and nested modal dismissal remain unverified.
+
+## Custom popover migration
+
+`@ngx-daisy/native/popover` is the reusable RootLayout-backed presentation foundation. `@ngx-daisy/native/menu` uses it for standard, optionally templated menu rows. The earlier UIMenu/PopupMenu bridge and `DSY_NATIVE_MENU_PRESENTER` token have been removed. Dropdown now renders its authored template directly instead of extracting item metadata. Select permits custom `dsySelectOption` templates.
+
+Use app classes/native properties and theme tokens for custom surfaces. Add RootLayout around the app's Frame, give popovers priority in app-owned Android Back handling, and follow the [popover guide](native-popover.md) for focus and cleanup boundaries. The historical October 26 checks above predate this presentation change.

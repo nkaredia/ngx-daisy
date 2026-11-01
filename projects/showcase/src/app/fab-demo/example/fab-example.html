@@ -21,9 +21,11 @@
     [aria-label]="props().label ?? 'Create content'"
   >
     <button dsyButton dsyFabTrigger shape="circle" color="primary" aria-label="Create content">
-      ＋
+      <svg lucidePlus size="1em" class="inline-block" aria-hidden="true"></svg>
     </button>
-    <button dsyButton dsyFabClose shape="circle" aria-label="Close actions">×</button>
+    <button dsyButton dsyFabClose shape="circle" aria-label="Close actions">
+      <svg lucideX size="1em" class="inline-block" aria-hidden="true"></svg>
+    </button>
     <button dsyButton dsyFabAction (triggered)="action.set('Note created')">New note</button>
     <button dsyButton dsyFabAction (triggered)="action.set('Task created')">New task</button>
   </dsy-fab>

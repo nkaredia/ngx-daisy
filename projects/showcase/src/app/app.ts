@@ -5,6 +5,8 @@ import {
   LucidePaintbrush,
   LucideSun,
   LucideX,
+  LucideChevronDown,
+  LucideCheck,
 } from '@lucide/angular';
 import {
   afterNextRender,
@@ -53,6 +55,8 @@ import {
     LucidePaintbrush,
     LucideSun,
     LucideX,
+    LucideChevronDown,
+    LucideCheck,
     DsyIcon,
     DsyButton,
     DsyToggle,

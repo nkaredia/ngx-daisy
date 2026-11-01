@@ -1,3 +1,4 @@
+import { DSY_NATIVE_FIELD } from '@ngx-daisy/native/form-field';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -31,8 +32,8 @@ import type { PropertyChangeData, Switch } from '@nativescript/core';
     '[checked]': 'checked()',
     '[isEnabled]': '!disabled() && !readonly() && !hidden()',
     '[visibility]': 'hidden() ? "collapsed" : "visible"',
-    '[accessibilityLabel]': 'label()',
-    '[accessibilityHint]': 'description()',
+    '[accessibilityLabel]': 'accessibleLabel()',
+    '[accessibilityHint]': 'accessibleDescription()',
     '[class]': 'classes()',
     '(loaded)': 'onLoaded()',
     '(unloaded)': 'nativeIOS.set(null)',
@@ -44,8 +45,13 @@ export class DsyToggle implements FormCheckboxControl {
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly readonly = input(false, { transform: booleanAttribute });
   readonly hidden = input(false, { transform: booleanAttribute });
-  readonly label = input('Toggle');
+  readonly label = input('');
   readonly description = input('');
+  private readonly context = inject(DSY_NATIVE_FIELD, { optional: true });
+  readonly accessibleLabel = computed(() => this.label() || this.context?.label() || 'Toggle');
+  readonly accessibleDescription = computed(
+    () => this.description() || this.context?.description() || '',
+  );
   readonly color = input<DsyButtonColor>('primary', { alias: 'dsyColor' });
   readonly touch = output<void>();
   private readonly element = inject<ElementRef<Switch>>(ElementRef);

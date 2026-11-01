@@ -14,6 +14,10 @@ describe('Native theme adaptation', () => {
     expect(DSY_LIGHT_THEME.tokens['--radius-field']).toBe('0.25rem');
     expect(Object.isFrozen(native.tokens)).toBe(true);
     expect(resolveNativeTheme(DSY_DARK_THEME).colorScheme).toBe('dark');
+    expect(native.tokens['--dsy-native-overlay-shadow']).toContain('rgba(0, 0, 0, 0.22)');
+    expect(resolveNativeTheme(DSY_DARK_THEME).tokens['--dsy-native-overlay-shadow']).toContain(
+      'rgba(0, 0, 0, 0.5)',
+    );
   });
 
   it('preserves color alpha and maps out-of-gamut colors into native sRGB', () => {
@@ -56,6 +60,13 @@ describe('Native theme adaptation', () => {
     expect(
       resolveNativeTheme(withToken('--size-field', '0.5rem')).tokens['--dsy-button-size-md'],
     ).toBe('96');
+  });
+
+  it('darkens pressed surfaces without tinting them toward the label color', () => {
+    const theme = resolveNativeTheme(withToken('--color-primary', '#c86432'));
+    expect(theme.tokens['--dsy-color-primary-pressed']).toBe('rgba(176, 88, 44, 1)');
+    const transparent = resolveNativeTheme(withToken('--color-primary', 'rgba(200, 100, 50, 0.5)'));
+    expect(transparent.tokens['--dsy-color-primary-pressed']).toBe('rgba(176, 88, 44, 0.5)');
   });
 
   it('rejects incompatible CSS expressions and invalid dimensions before applying a theme', () => {

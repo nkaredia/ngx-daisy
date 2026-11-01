@@ -4,6 +4,6 @@
   "lib": {
     "entryFile": "src/public-api.ts"
   },
-  "allowedNonPeerDependencies": ["colorjs.io"],
+  "allowedNonPeerDependencies": ["colorjs.io", "lucide"],
   "assets": ["tailwind.cjs"]
 }

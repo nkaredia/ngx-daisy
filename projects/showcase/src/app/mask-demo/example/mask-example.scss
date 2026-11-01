@@ -46,7 +46,7 @@ demo-mask-example p {
 }
 
 demo-mask-example .mask-example-copy > span {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0.06em;

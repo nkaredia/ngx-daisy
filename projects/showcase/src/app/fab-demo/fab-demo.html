@@ -29,8 +29,9 @@
                 color="primary"
                 aria-label="Create content"
               >
-                ＋</button
-              ><button dsyButton dsyFabClose shape="circle" aria-label="Close actions">×</button
+                <svg lucidePlus size="1em" class="inline-block" aria-hidden="true"></svg></button
+              ><button dsyButton dsyFabClose shape="circle" aria-label="Close actions">
+                <svg lucideX size="1em" class="inline-block" aria-hidden="true"></svg></button
               ><button dsyButton dsyFabAction (triggered)="action.set('New document')">
                 Document</button
               ><button dsyButton dsyFabAction (triggered)="action.set('New folder')">Folder</button
@@ -49,7 +50,12 @@
                 color="secondary"
                 aria-label="Share content"
               >
-                ↗</button
+                <svg
+                  lucideArrowUpRight
+                  size="1em"
+                  class="inline-block"
+                  aria-hidden="true"
+                ></svg></button
               ><button
                 dsyButton
                 dsyFabMainAction
@@ -58,7 +64,7 @@
                 aria-label="Share now"
                 (triggered)="action.set('Shared')"
               >
-                ✓</button
+                <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg></button
               ><button
                 dsyButton
                 dsyFabAction
@@ -82,9 +88,13 @@
                 aria-label="Save"
                 (triggered)="action.set('Saved')"
               >
-                ↓
-              </button></dsy-fab
-            >
+                <svg
+                  lucideDownload
+                  size="1em"
+                  class="inline-block"
+                  aria-hidden="true"
+                ></svg></button
+            ></dsy-fab>
           </div>
         </div>
       </div>
@@ -99,9 +109,8 @@
             aria-label="Add item"
             (click)="action.set('Item added')"
           >
-            ＋
-          </button></dsy-fab
-        >
+            <svg lucidePlus size="1em" class="inline-block" aria-hidden="true"></svg></button
+        ></dsy-fab>
         <p class="demo-status" aria-live="polite">{{ action() }}</p>
       </div>
     </section>

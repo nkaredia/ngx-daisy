@@ -12,7 +12,12 @@
     ><h3 dsyCardTitle>Alpine escape</h3>
     <p class="card-example-eyebrow">3 nights · Innsbruck</p>
     <p>A quiet weekend above the clouds, with breakfast and guided trails included.</p>
-    <div class="card-example-meta"><span>★ 4.9</span><span>From $680</span></div>
+    <div class="card-example-meta">
+      <span
+        ><svg lucideStar size="1em" class="inline-block fill-current" aria-hidden="true"></svg>
+        4.9</span
+      ><span>From $680</span>
+    </div>
     <dsy-card-actions
       ><button dsyButton type="button" color="primary" (click)="saved.update(toggle)">
         {{ saved() ? 'Saved' : 'Save trip' }}

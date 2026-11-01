@@ -1,3 +1,5 @@
+import { LucideSparkles } from '@lucide/angular';
+import { LucideCheck } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -19,7 +21,7 @@ interface StepValues {
 @Component({
   selector: 'demo-steps-example',
   standalone: true,
-  imports: [DsySteps, DsyStep, DsyStepIcon],
+  imports: [LucideSparkles, LucideCheck, DsySteps, DsyStep, DsyStepIcon],
   templateUrl: './steps-example.html',
   styleUrl: './steps-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

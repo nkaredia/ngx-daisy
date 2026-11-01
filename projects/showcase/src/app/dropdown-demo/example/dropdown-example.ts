@@ -7,6 +7,7 @@ import {
   signal,
   ViewEncapsulation,
 } from '@angular/core';
+import { LucideEllipsis } from '@lucide/angular';
 import { DsyButton } from '@ngx-daisy/cdk/button';
 import {
   DsyDropdown,
@@ -30,7 +31,14 @@ interface DropdownValues {
 
 @Component({
   selector: 'demo-dropdown-example',
-  imports: [DsyButton, DsyDropdown, DsyDropdownTrigger, DsyDropdownContent, DsyDropdownItem],
+  imports: [
+    LucideEllipsis,
+    DsyButton,
+    DsyDropdown,
+    DsyDropdownTrigger,
+    DsyDropdownContent,
+    DsyDropdownItem,
+  ],
   templateUrl: './dropdown-example.html',
   styleUrl: './dropdown-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

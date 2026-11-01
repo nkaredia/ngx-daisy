@@ -81,6 +81,7 @@ const styles = [
 ]
   .map((file) => sass.compile(path.join(root, 'projects/ngx-daisy', file)).css)
   .join('\n');
+const libraryStyles = postcss.parse(styles);
 
 const remainingClasses = [
   'tab',
@@ -701,6 +702,15 @@ for (const config of cases) {
   } finally {
     console.log = previousLog;
   }
+  assert.ok(styles.includes('--dsy-color-secondary-text'), 'Contrast hooks must be present');
+  assert.ok(
+    styles.includes('--dsy-dropdown-focus-color'),
+    'Dropdown focus color must remain customizable',
+  );
+  assert.ok(
+    styles.includes('[data-theme=dark]') || styles.includes('[data-theme="dark"]'),
+    'Contrast profiles must be scoped',
+  );
   const ast = result.root;
   assert.equal(
     logs.some((line) => line.includes('daisyUI')),
@@ -765,6 +775,20 @@ for (const config of cases) {
         rulesContaining(ast, selector(tw(name))).length,
         `${config.name}: unprefixed calendar part ${name}`,
       );
+    assert.ok(
+      rulesContaining(libraryStyles, '.dsy-calendar .rdp-chevron').some((rule) => {
+        if (!hasDeclaration(rule, 'fill', 'none')) return false;
+        for (let parent = rule.parent; parent; parent = parent.parent)
+          if (
+            parent.type === 'atrule' &&
+            parent.name === 'layer' &&
+            parent.params === 'ngx-daisy-control-icons'
+          )
+            return true;
+        return false;
+      }),
+      `${config.name}: Lucide calendar chevrons stay unfilled above daisyUI's icon fill layer`,
+    );
   }
 
   if ((!config.include || config.name === 'include-data-display') && !config.exclude) {
@@ -788,7 +812,17 @@ for (const config of cases) {
       <h1>${config.name}</h1>
       <span id="success-reference" class="${tw('text-success')}">Success reference</span>
       <span id="error-reference" class="${tw('text-error')}">Error reference</span>
+      <dsy-rating class="dsy-rating"><div class="${markup('rating')} ${markup('rating-half')} ${markup('rating-lg')}" role="radiogroup" aria-label="Target size fixture">
+        <span class="dsy-rating-target"><input class="dsy-rating-input ${markup('rating-hidden')}" type="radio" name="rating-fixture" aria-label="Clear rating"><span class="dsy-rating-clear-visual" aria-hidden="true">Clear</span></span>
+        <span class="dsy-rating-target" data-half="first"><input id="rating-half-target" class="dsy-rating-input" type="radio" name="rating-fixture" aria-label="0.5 of 1"><span id="rating-half-visual" class="dsy-rating-item ${markup('mask')} ${markup('mask-star')} ${markup('mask-half-1')}" data-filled="true" aria-hidden="true"></span></span>
+        <span class="dsy-rating-target" data-half="second"><input class="dsy-rating-input" type="radio" name="rating-fixture" aria-label="1 of 1"><span class="dsy-rating-item ${markup('mask')} ${markup('mask-star')} ${markup('mask-half-2')}" data-filled="false" aria-hidden="true"></span></span>
+      </div></dsy-rating>
       <button id="theme-button" class="${markup('btn')} ${markup('btn-primary')}">Themed button</button>
+      <section data-theme="light"><button id="contrast-light-original" class="${markup('btn')} ${markup('btn-secondary')} ${markup('btn-outline')}">Original light</button><button id="contrast-light" class="${markup('btn')} ${markup('btn-secondary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-secondary-text)">Light contrast</button></section>
+      <section data-theme="dark"><button id="contrast-dark-original" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}">Original dark</button><button id="contrast-dark" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Dark contrast</button>
+      <div data-theme="compat-brand"><button id="contrast-custom" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Custom theme</button></div>
+      <button id="contrast-utility" class="${markup('btn')} ${markup('btn-primary')} ${tw('text-error')}" style="--${prefix}btn-fg:var(--dsy-color-primary-readable-content,var(--color-primary-content))">Utility foreground</button></section>
+      <section data-theme="dark" style="--dsy-contrast-strength:0"><button id="contrast-opt-out" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Native foreground</button></section>
       <div data-theme="dark"><button id="nested-button" class="${markup('btn')} ${markup('btn-primary')}">Nested dark theme</button></div>
       <dsy-icon id="utility-icon" class="dsy-icon ${tw('text-xl')} ${tw('w-10')} ${tw('text-error')}" style="--dsy-icon-size:4rem"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg></dsy-icon>
       <dsy-loader class="dsy-loader" data-size="md"><span class="dsy-loader-visual" id="scaled-loader"></span></dsy-loader>

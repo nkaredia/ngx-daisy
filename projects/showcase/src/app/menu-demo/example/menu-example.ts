@@ -6,6 +6,7 @@ import {
   ViewEncapsulation,
   linkedSignal,
 } from '@angular/core';
+import { LucideHouse, LucideFolder, LucideUsers } from '@lucide/angular';
 import {
   DsyMenu,
   DsyMenuItem,
@@ -43,6 +44,9 @@ interface MenuDropdownToggleValues {
   selector: 'demo-menu-example',
   standalone: true,
   imports: [
+    LucideHouse,
+    LucideFolder,
+    LucideUsers,
     DsyMenu,
     DsyMenuItem,
     DsyMenuSubmenu,

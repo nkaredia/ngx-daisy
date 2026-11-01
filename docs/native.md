@@ -25,9 +25,17 @@ Shared extraction moves the existing Button and Icon type contracts and theme de
 
 The native Button adapts compact sizing to a minimum 44-unit touch target. Loading uses a localizable text label. Dashed borders, icon composition and depth/noise effects are deferred. API differences reflect the native platform and are documented in the [native package guide](../projects/ngx-daisy-native/README.md).
 
+## Native content composition
+
+Card, Badge and Divider now have native secondary entry points and separate showcase pages. They compose app-owned native content with theme-derived surfaces, semantic status colors and horizontal/vertical separators. See [native content composition](native-data-display.md) for APIs and platform differences.
+
+## Native feedback
+
+Alert, Progress and Skeleton now provide contextual status, OS progress/busy indicators and reduced-motion-aware loading placeholders. Each has its own native showcase page. See [native feedback](native-feedback.md) for APIs, announcement ownership and platform differences.
+
 ## Next component families
 
-Input, Textarea and Toggle now provide the first native Data Input batch with Signal Forms contracts and independent showcase pages; see [native Data Input](native-data-inputs.md). Continue with remaining form controls and Loader. Validate keyboard/focus behavior, accessibility and OS lifecycle on iOS and Android as the catalog expands. Navigation, drawers and overlays need native implementations and native back/dismissal behavior; browser CDK overlays and focus traps do not belong in the native package.
+Input, Textarea, Toggle, Checkbox, Radio, Range and Select now provide native Data Input controls with Signal Forms contracts and independent showcase pages. Form Field and Fieldset provide reusable composition; see [native Data Input](native-data-inputs.md) and [native form composition](native-form-composition.md). Continue with remaining form controls and Loader. Validate keyboard/focus behavior, accessibility and OS lifecycle on iOS and Android as the catalog expands. Navigation, drawers and overlays need native implementations and native back/dismissal behavior; browser CDK overlays and focus traps do not belong in the native package.
 
 Do not import web components, DOM globals or browser CSS into core/native. Share portable behavior only when both implementations actually need it. Keep platform-specific rendering and interaction within the corresponding package.
 
@@ -51,6 +59,10 @@ The native showcase uses the official `@nativescript/tailwind` integration with 
 
 ## Native Actions and Icon
 
-The native catalog now includes all six Actions families and Icon: Button, Dropdown, FAB/Speed Dial, Modal, Swap and Theme Controller. Each family has its own secondary entry point and a native showcase example. Modal and Dropdown share NativeScript dialog presentation and reactive detached theme scopes. Swap and Theme Controller use Angular Signal Forms checkbox contracts. Icon projects app-owned artwork. See [native Actions and Icon](native-actions.md) for APIs and explicit platform differences.
+The native catalog now includes all six Actions families and Icon: Button, Dropdown, FAB/Speed Dial, Modal, Swap and Theme Controller. Each family has its own secondary entry point and a native showcase example. Modal uses a compact centered NativeScript dialog and reactive detached theme scope. Dropdown and Select use custom anchored NativeScript view layers through @ngx-daisy/native/popover, with standard menu rendering under @ngx-daisy/native/menu. See [native popovers](native-popover.md) for setup, custom item templates and lifecycle. Swap and Theme Controller use Angular Signal Forms checkbox contracts. Icon projects app-owned artwork. See [native Actions and Icon](native-actions.md) for APIs and explicit platform differences.
 
 The native showcase now follows the web shell with grouped, responsive navigation, independent component pages and shared theme controls. See [native showcase shell](native-showcase.md) for current behavior and verification boundaries.
+
+## Interaction animations
+
+Native actions and selection controls share cancellable motion with OS reduced-motion preferences and an app-level opt-out. Popovers, FAB actions and temporary navigation retain exit transitions; dialogs use native presentation transitions. Switches and sliders preserve OS-owned animation. See [native motion](native-motion.md) for defaults, configuration and verification limits.

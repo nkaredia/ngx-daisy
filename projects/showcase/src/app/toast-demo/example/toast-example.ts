@@ -1,3 +1,4 @@
+import { LucideCheck } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -20,7 +21,7 @@ interface ExampleValues {
 @Component({
   selector: 'demo-toast-example',
   standalone: true,
-  imports: [DsyToastOutlet, DsyButton],
+  imports: [LucideCheck, DsyToastOutlet, DsyButton],
   providers: [DsyToastService],
   templateUrl: './toast-example.html',
   styleUrl: './toast-example.scss',

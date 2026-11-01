@@ -1,0 +1,12 @@
+.dsy-native-dropdown-item {
+  min-height: 44;
+  padding: 12;
+  border-radius: var(--radius-field);
+  color: var(--color-base-content);
+}
+.dsy-native-dropdown-item-disabled {
+  opacity: 0.5;
+}
+.dsy-native-dropdown-item-destructive {
+  color: var(--color-error);
+}

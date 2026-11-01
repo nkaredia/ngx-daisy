@@ -37,6 +37,10 @@ export function resolveNativeTheme(
       tokens[name] = String(length);
     }
   }
+  tokens['--dsy-native-overlay-shadow'] =
+    definition.colorScheme === 'dark'
+      ? '0 8 24 rgba(0, 0, 0, 0.5), 0 2 6 rgba(0, 0, 0, 0.3)'
+      : '0 8 24 rgba(0, 0, 0, 0.22), 0 2 6 rgba(0, 0, 0, 0.12)';
   // NativeScript cannot evaluate CSS color-mix; derive the soft variant surface once per theme.
   for (const name of [
     'neutral',
@@ -56,6 +60,27 @@ export function resolveNativeTheme(
       .toGamut({ space: 'srgb' });
     const channels = mixed.coords.map((channel) => Math.round((channel ?? 0) * 255));
     tokens[`--dsy-color-${name}-soft`] = `rgba(${channels.join(', ')}, ${mixed.alpha})`;
+  }
+  // Darken the existing surface without mixing in its contrasting label color.
+  for (const name of [
+    'base-100',
+    'base-200',
+    'neutral',
+    'primary',
+    'secondary',
+    'accent',
+    'info',
+    'success',
+    'warning',
+    'error',
+  ]) {
+    for (const soft of name.startsWith('base-') ? [false] : [false, true]) {
+      const source = soft ? `--dsy-color-${name}-soft` : `--color-${name}`;
+      const color = new Color(tokens[source]).to('srgb');
+      const channels = color.coords.map((channel) => Math.round((channel ?? 0) * 255 * 0.88));
+      tokens[`--dsy-color-${name}${soft ? '-soft' : ''}-pressed`] =
+        `rgba(${channels.join(', ')}, ${color.alpha})`;
+    }
   }
   const fieldSize = Number(tokens['--size-field']);
   for (const [size, multiplier] of Object.entries({ xs: 6, sm: 8, md: 12, lg: 14, xl: 16 })) {

@@ -91,7 +91,7 @@
       }
       &.showcase-navigation-active {
         background: color-mix(in oklab, var(--color-primary) 12%, var(--color-base-100));
-        color: var(--color-primary);
+        color: var(--dsy-color-primary-text, var(--color-primary));
         font-weight: 650;
       }
     }

@@ -1,0 +1,40 @@
+.dsy-native-choice {
+  margin: 0;
+  padding: 0;
+  width: var(--dsy-field-size-md);
+  height: var(--dsy-field-size-md);
+  min-width: 44;
+  min-height: 44;
+  font-size: 24;
+  font-weight: 600;
+  text-align: center;
+  vertical-align: middle;
+  horizontal-align: left;
+  border-width: var(--border);
+  border-color: var(--color-base-300);
+  border-radius: var(--radius-selector);
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
+@each $size in xs, sm, md, lg, xl {
+  .dsy-native-choice-#{$size} {
+    width: var(--dsy-field-size-#{$size});
+    height: var(--dsy-field-size-#{$size});
+  }
+}
+@each $color in neutral, primary, secondary, accent, info, success, warning, error {
+  .dsy-native-choice-#{$color}.dsy-native-choice-selected {
+    background-color: var(--color-#{$color});
+    border-color: var(--color-#{$color});
+    color: var(--color-#{$color}-content);
+  }
+}
+.dsy-native-choice.dsy-native-choice-invalid {
+  border-color: var(--color-error);
+}
+.dsy-native-choice:highlighted {
+  opacity: 0.8;
+}
+.dsy-native-choice-disabled {
+  opacity: 0.5;
+}

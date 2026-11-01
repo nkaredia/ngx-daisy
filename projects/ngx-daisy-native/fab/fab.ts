@@ -1,3 +1,4 @@
+import { bindNativePresence } from '@ngx-daisy/native/motion';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -69,12 +70,13 @@ export class DsyFabTrigger {
   standalone: true,
   host: {
     '(tap)': 'activate()',
-    '[attr.visibility]': 'fab.opened() && !fab.disabled() ? "visible" : "collapse"',
+    '[attr.visibility]': 'visible() ? "visible" : "collapse"',
     '[attr.isEnabled]': 'fab.opened() && !fab.disabled() && !disabled() && !button?.isDisabled()',
     '[attr.accessibilityHidden]': '!fab.opened() || fab.disabled()',
   },
 })
 export class DsyFabAction {
+  readonly visible = bindNativePresence(() => this.fab.opened() && !this.fab.disabled());
   constructor() {
     const remove = this.button?.registerDisabledSource(
       () => this.disabled() || this.fab.disabled() || !this.fab.opened(),
@@ -98,9 +100,19 @@ export class DsyFabAction {
   standalone: true,
   host: {
     '(tap)': 'fab.close()',
-    '[attr.visibility]': 'fab.opened() && !fab.disabled() ? "visible" : "collapse"',
+    '[attr.visibility]': 'visible() ? "visible" : "collapse"',
+    '[attr.isEnabled]': 'fab.opened() && !fab.disabled() && !button?.isDisabled()',
+    '[attr.accessibilityHidden]': '!fab.opened() || fab.disabled()',
   },
 })
 export class DsyFabClose {
+  constructor() {
+    const remove = this.button?.registerDisabledSource(
+      () => this.fab.disabled() || !this.fab.opened(),
+    );
+    if (remove) inject(DestroyRef).onDestroy(remove);
+  }
+  readonly button = inject(DsyButton, { optional: true });
+  readonly visible = bindNativePresence(() => this.fab.opened() && !this.fab.disabled());
   readonly fab = inject(DsyFab);
 }

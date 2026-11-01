@@ -1,3 +1,4 @@
+import { LucideCheck } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -37,7 +38,7 @@ interface ExampleValues {
 @Component({
   selector: 'demo-otp-example',
   standalone: true,
-  imports: [DsyOtp],
+  imports: [LucideCheck, DsyOtp],
   templateUrl: './otp-example.html',
   styleUrl: './otp-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

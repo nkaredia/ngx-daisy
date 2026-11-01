@@ -1,0 +1,213 @@
+<StackLayout>
+  <Label text="Make it yours" class="text-[22px] font-bold mb-2" accessibilityRole="header"></Label>
+  <Label
+    text="Start with a preset from the theme menu, then customize every color, shape and size. Your preview updates as you edit; apply when you are ready."
+    class="opacity-65 mb-5"
+    textWrap="true"
+  ></Label>
+  <FlexboxLayout flexWrap="wrap" class="mb-5">
+    <Button
+      dsyButton
+      text="Apply theme"
+      dsyColor="primary"
+      (pressed)="save()"
+      marginRight="8"
+    ></Button>
+    <Button dsyButton text="Reset" variant="ghost" (pressed)="reset()"></Button>
+    <Button dsyButton text="Copy CSS" variant="ghost" (pressed)="copy('css')"></Button>
+    <Button dsyButton text="Copy JSON" variant="ghost" (pressed)="copy('json')"></Button>
+    <Button
+      dsyButton
+      [text]="importOpen() ? 'Close import' : 'Import theme'"
+      variant="ghost"
+      (pressed)="importOpen.set(!importOpen())"
+    ></Button>
+  </FlexboxLayout>
+  @if (importOpen()) {
+    <StackLayout class="bg-base-200 rounded-box p-4 mb-5">
+      <Label text="Paste a theme JSON definition" class="font-semibold mb-2"></Label>
+      <TextView
+        [text]="importText()"
+        (textChange)="importText.set($any($event).value)"
+        height="160"
+        accessibilityLabel="Theme JSON"
+        autocorrect="false"
+        autocapitalizationType="none"
+      ></TextView>
+      <Button dsyButton text="Import JSON" dsyColor="primary" (pressed)="importTheme()"></Button>
+    </StackLayout>
+  }
+  @if (error()) {
+    <Label
+      [text]="error()"
+      class="text-error mb-4"
+      textWrap="true"
+      accessibilityLiveRegion="polite"
+    ></Label>
+  }
+  @if (feedback()) {
+    <Label
+      [text]="feedback()"
+      class="text-success mb-4"
+      textWrap="true"
+      accessibilityLiveRegion="polite"
+    ></Label>
+  }
+  <GridLayout
+    [columns]="width() >= 820 ? '340, *' : '*'"
+    [rows]="width() >= 820 ? 'auto' : 'auto, auto'"
+  >
+    <StackLayout class="bg-base-200 rounded-box p-4" [marginRight]="width() >= 820 ? 20 : 0">
+      <Label
+        text="Theme settings"
+        class="text-[20px] font-bold mb-3"
+        accessibilityRole="header"
+      ></Label>
+      <Label text="Name" class="font-semibold mb-1"></Label>
+      <TextField
+        dsyInput
+        [value]="name()"
+        (valueChange)="name.set($event)"
+        label="Theme name"
+        autocorrect="false"
+        autocapitalizationType="none"
+        class="mb-3"
+      ></TextField>
+      <Label text="Color scheme" class="font-semibold mb-1"></Label>
+      <GridLayout
+        dsySelect
+        [options]="schemes"
+        [value]="scheme()"
+        (valueChange)="setScheme($event)"
+        label="Color scheme"
+        class="mb-3"
+      />
+      <GridLayout columns="*, auto" class="mb-2"
+        ><Label text="Default theme" verticalAlignment="middle"></Label
+        ><Switch
+          col="1"
+          dsyToggle
+          label="Default theme"
+          [checked]="defaultTheme()"
+          (checkedChange)="defaultTheme.set($event)"
+      /></GridLayout>
+      <GridLayout columns="*, auto" class="mb-4"
+        ><Label text="Prefer for dark mode" textWrap="true" verticalAlignment="middle"></Label
+        ><Switch
+          col="1"
+          dsyToggle
+          label="Prefer for dark mode"
+          [checked]="prefersDark()"
+          (checkedChange)="prefersDark.set($event)"
+      /></GridLayout>
+      @for (group of groups; track group.label) {
+        <Label
+          [text]="group.label"
+          class="text-[18px] font-bold mt-4 mb-1"
+          accessibilityRole="header"
+        ></Label>
+        <Label
+          [text]="group.description"
+          class="text-[12px] opacity-65 mb-3"
+          textWrap="true"
+        ></Label>
+        @for (token of group.tokens; track token) {
+          <GridLayout columns="auto, *" class="mb-1">
+            @if (token.startsWith('--color-')) {
+              <StackLayout
+                width="20"
+                height="20"
+                [backgroundColor]="colorChip(token)"
+                class="border border-base-300 rounded-selector"
+                marginRight="8"
+                accessible="false"
+                accessibilityHidden="true"
+              />
+            }
+            <Label
+              col="1"
+              [text]="label(token)"
+              class="text-[12px] font-semibold"
+              verticalAlignment="middle"
+            ></Label>
+          </GridLayout>
+          @if (token === '--depth' || token === '--noise') {
+            <GridLayout
+              dsySelect
+              [options]="switches"
+              [value]="tokens()[token]"
+              [label]="label(token)"
+              (valueChange)="setToken(token, $event)"
+              class="mb-3"
+            />
+          } @else {
+            <TextField
+              dsyInput
+              [value]="tokens()[token]"
+              [label]="label(token)"
+              (valueChange)="setToken(token, $event)"
+              autocorrect="false"
+              autocapitalizationType="none"
+              size="sm"
+              class="mb-3"
+            ></TextField>
+          }
+        }
+      }
+    </StackLayout>
+    <StackLayout
+      [row]="width() >= 820 ? 0 : 1"
+      [col]="width() >= 820 ? 1 : 0"
+      [dsyTheme]="draft()"
+      class="bg-base-100 text-base-content rounded-box p-5"
+      marginTop="16"
+    >
+      <Label text="Preview" class="text-[20px] font-bold mb-4" accessibilityRole="header"></Label>
+      <Label text="Your next big idea" class="text-[26px] font-bold mb-2" textWrap="true"></Label>
+      <Label
+        text="A shared theme, from every screen to every action."
+        class="opacity-65 mb-5"
+        textWrap="true"
+      ></Label>
+      <FlexboxLayout flexWrap="wrap" class="mb-4"
+        ><Button dsyButton text="Get started" dsyColor="primary" marginRight="8"></Button
+        ><Button dsyButton text="Learn more" dsyColor="secondary" variant="outline"></Button
+      ></FlexboxLayout>
+      <Label dsyBadge text="New collection" dsyColor="accent" variant="soft" class="mb-5"></Label>
+      <Label text="Display name" class="font-semibold mb-2"></Label>
+      <TextField dsyInput value="Alex Morgan" label="Preview display name" class="mb-4"></TextField>
+      <GridLayout
+        dsySelect
+        [options]="[
+          { value: 'studio', label: 'Studio workspace' },
+          { value: 'personal', label: 'Personal workspace' },
+        ]"
+        value="studio"
+        label="Preview workspace"
+        class="mb-4"
+      />
+      <GridLayout
+        dsyProgress
+        [value]="65"
+        dsyColor="primary"
+        label="Preview progress"
+        class="mb-5"
+      />
+      <StackLayout
+        dsyAlert
+        dsyColor="success"
+        variant="soft"
+        title="Everything is ready"
+        message="Your theme works across all native components."
+        announcement="off"
+      />
+      <Label text="Base surfaces" class="font-semibold mt-5 mb-3"></Label>
+      <StackLayout class="bg-base-200 rounded-box p-4 mb-2"
+        ><Label text="Base 200" class="text-base-content"></Label
+      ></StackLayout>
+      <StackLayout class="bg-base-300 rounded-box p-4"
+        ><Label text="Base 300" class="text-base-content"></Label
+      ></StackLayout>
+    </StackLayout>
+  </GridLayout>
+</StackLayout>

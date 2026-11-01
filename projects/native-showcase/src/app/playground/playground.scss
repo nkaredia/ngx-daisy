@@ -1,0 +1,17 @@
+.native-playground {
+  border-width: 1;
+  border-color: var(--color-base-300);
+  border-radius: var(--radius-box);
+}
+.native-playground-toolbar {
+  border-bottom-width: 1;
+  border-bottom-color: var(--color-base-300);
+}
+.native-playground-preview {
+  min-height: 240;
+}
+.native-playground-props {
+  background-color: var(--color-base-200);
+  border-top-width: 1;
+  border-top-color: var(--color-base-300);
+}

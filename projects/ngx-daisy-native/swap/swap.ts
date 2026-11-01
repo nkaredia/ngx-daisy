@@ -1,3 +1,4 @@
+import { bindNativeFeedback } from '@ngx-daisy/native/motion';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -34,6 +35,12 @@ import type { DsyButtonColor, DsyButtonSize } from '@ngx-daisy/core/button';
   },
 })
 export class DsySwap implements FormCheckboxControl {
+  constructor() {
+    bindNativeFeedback(
+      () => this.checked(),
+      () => !this.disabled(),
+    );
+  }
   readonly checked = model(false);
   readonly indeterminate = model(false);
   readonly disabled = input(false, { transform: booleanAttribute });

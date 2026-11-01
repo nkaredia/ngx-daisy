@@ -1,0 +1,27 @@
+.dsy-native-card {
+  border-radius: var(--radius-box);
+  border-width: 0;
+  border-color: var(--color-base-300);
+}
+.dsy-native-card-border-solid {
+  border-width: var(--border);
+}
+.dsy-native-card-body {
+  padding: 24;
+}
+.dsy-native-card-title {
+  font-size: 20;
+  font-weight: 600;
+  margin-bottom: 8;
+}
+.dsy-native-card-actions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin-top: 16;
+}
+@each $size, $padding in (xs: 12, sm: 16, md: 24, lg: 32, xl: 40) {
+  .dsy-native-card-#{$size} .dsy-native-card-body {
+    padding: $padding;
+  }
+}

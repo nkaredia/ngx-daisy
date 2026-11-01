@@ -1,0 +1,17 @@
+.dsy-native-fieldset {
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+  border-color: var(--color-base-300);
+  border-width: var(--border);
+  border-radius: var(--radius-box);
+  padding: 20;
+}
+.dsy-native-fieldset-legend {
+  font-size: 20;
+  font-weight: 600;
+  margin-bottom: 8;
+}
+.dsy-native-fieldset-description {
+  opacity: 0.75;
+  margin-bottom: 20;
+}

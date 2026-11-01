@@ -1,3 +1,4 @@
+import { LucidePlus } from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,7 @@ import { DsyKbd } from '@ngx-daisy/cdk/kbd';
 @Component({
   selector: 'demo-kbd-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyKbd],
+  imports: [LucidePlus, DocumentationPage, ComponentDocumentation, Playground, DsyKbd],
   templateUrl: './kbd-demo.html',
   styleUrl: './kbd-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

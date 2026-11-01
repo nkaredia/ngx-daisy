@@ -27,7 +27,7 @@ demo-tooltip-example {
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: var(--dsy-color-primary-text, var(--color-primary));
   }
 
   p {

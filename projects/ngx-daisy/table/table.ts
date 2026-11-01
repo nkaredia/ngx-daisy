@@ -15,6 +15,7 @@ import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DataSource, CollectionViewer } from '@angular/cdk/collections';
 import { toObservable } from '@angular/core/rxjs-interop';
 import { Observable } from 'rxjs';
+import { LucideArrowUp, LucideArrowDown, LucideArrowUpDown } from '@lucide/angular';
 export interface DsyTableSort {
   active: string;
   direction: 'asc' | 'desc' | '';
@@ -117,17 +118,18 @@ export class DsySort {
 }
 @Component({
   selector: 'th[dsySortHeader]',
+  imports: [LucideArrowUp, LucideArrowDown, LucideArrowUpDown],
   template: `<button type="button" [disabled]="sort.disabled()" (click)="sort.toggle(key())">
     <ng-content />
-    <span aria-hidden="true">{{
-      sort.active() === key()
-        ? sort.direction() === 'asc'
-          ? '↑'
-          : sort.direction() === 'desc'
-            ? '↓'
-            : '↕'
-        : '↕'
-    }}</span>
+    <span aria-hidden="true">
+      @if (sort.active() === key() && sort.direction() === 'asc') {
+        <svg lucideArrowUp size="1em"></svg>
+      } @else if (sort.active() === key() && sort.direction() === 'desc') {
+        <svg lucideArrowDown size="1em"></svg>
+      } @else {
+        <svg lucideArrowUpDown size="1em"></svg>
+      }
+    </span>
   </button>`,
   host: {
     '[attr.aria-sort]':

@@ -11,7 +11,13 @@
           >more</a
         >
       </header>
-      <div class="flex gap-2"><span dsyBadge> Shoes × </span><span dsyBadge> Bags × </span></div>
+      <div class="flex gap-2">
+        <span dsyBadge>
+          Shoes <svg lucideX size="1em" class="inline-block" aria-hidden="true"></svg> </span
+        ><span dsyBadge>
+          Bags <svg lucideX size="1em" class="inline-block" aria-hidden="true"></svg>
+        </span>
+      </div>
       <div class="theme-preview-categories">
         @for (category of categories; track category.name) {
           <label
@@ -82,7 +88,17 @@
       />
       <h3>Nike Shoes <span dsyBadge color="secondary" size="sm">SALE</span></h3>
       <div class="flex justify-between text-xs">
-        <span class="text-warning" aria-label="5 out of 5 stars">★★★★★</span
+        <span class="text-warning" aria-label="5 out of 5 stars"
+          ><svg lucideStar size="1em" class="inline-block fill-current" aria-hidden="true"></svg
+          ><svg lucideStar size="1em" class="inline-block fill-current" aria-hidden="true"></svg
+          ><svg lucideStar size="1em" class="inline-block fill-current" aria-hidden="true"></svg
+          ><svg lucideStar size="1em" class="inline-block fill-current" aria-hidden="true"></svg
+          ><svg
+            lucideStar
+            size="1em"
+            class="inline-block fill-current"
+            aria-hidden="true"
+          ></svg></span
         ><span class="opacity-60">420 reviews</span>
       </div>
       <p><strong>$120</strong> <s class="opacity-40 text-sm">$150</s></p>
@@ -164,7 +180,9 @@
           >91</dsy-radial-progress
         >
       </div>
-      <p class="text-xs text-success">✓ All good</p>
+      <p class="text-xs text-success">
+        <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg> All good
+      </p>
     </article>
     <article class="theme-preview-card">
       <h3><svg lucideArrowUpRight aria-hidden="true"></svg>Recent orders</h3>
@@ -184,7 +202,10 @@
     <article class="theme-preview-card">
       <p class="opacity-60 text-xs">October Revenue</p>
       <strong class="text-3xl">$32,400</strong>
-      <p class="text-xs text-success">↗ 21% more than last month</p>
+      <p class="text-xs text-success">
+        <svg lucideArrowUpRight size="1em" class="inline-block" aria-hidden="true"></svg> 21% more
+        than last month
+      </p>
     </article>
     <article class="theme-preview-card">
       <h3><svg lucideMessageSquare aria-hidden="true"></svg>Write a new post</h3>
@@ -350,8 +371,9 @@
       <ul class="theme-preview-books">
         @for (book of books; track book) {
           <li>
-            <span class="theme-preview-book" aria-hidden="true">✦</span>{{ book
-            }}<span class="opacity-40 ml-auto">⋮</span>
+            <span class="theme-preview-book" aria-hidden="true"
+              ><svg lucideSparkles size="1em" class="inline-block" aria-hidden="true"></svg></span
+            >{{ book }}<span class="opacity-40 ml-auto">⋮</span>
           </li>
         }
       </ul>
@@ -383,10 +405,20 @@
         ><span class="opacity-60 text-xs">/{{ yearly() ? 'year' : 'month' }}</span>
       </p>
       <ul class="text-sm space-y-2">
-        <li>✓ 20 Tokens per day</li>
-        <li>✓ 10 Projects</li>
-        <li>✓ API Access</li>
-        <li>✓ Priority Support</li>
+        <li>
+          <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg> 20 Tokens per
+          day
+        </li>
+        <li>
+          <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg> 10 Projects
+        </li>
+        <li>
+          <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg> API Access
+        </li>
+        <li>
+          <svg lucideCheck size="1em" class="inline-block" aria-hidden="true"></svg> Priority
+          Support
+        </li>
       </ul>
       <button
         dsyButton

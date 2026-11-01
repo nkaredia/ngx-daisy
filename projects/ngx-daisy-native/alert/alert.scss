@@ -1,0 +1,34 @@
+.dsy-native-alert {
+  padding: 16;
+  border-radius: var(--radius-box);
+  border-width: var(--border);
+  border-color: var(--color-base-300);
+  background-color: var(--color-base-200);
+  color: var(--color-base-content);
+}
+.dsy-native-alert-title {
+  font-size: 16;
+  font-weight: 600;
+  margin-bottom: 4;
+}
+.dsy-native-alert-outline {
+  background-color: transparent;
+  border-color: var(--color-base-content);
+}
+@each $color in info, success, warning, error {
+  .dsy-native-alert-#{$color} {
+    background-color: var(--color-#{$color});
+    color: var(--color-#{$color}-content);
+    border-color: var(--color-#{$color});
+  }
+  .dsy-native-alert-#{$color}.dsy-native-alert-soft {
+    background-color: var(--dsy-color-#{$color}-soft);
+    color: var(--color-#{$color});
+    border-color: transparent;
+  }
+  .dsy-native-alert-#{$color}.dsy-native-alert-outline {
+    background-color: transparent;
+    color: var(--color-#{$color});
+    border-color: var(--color-#{$color});
+  }
+}

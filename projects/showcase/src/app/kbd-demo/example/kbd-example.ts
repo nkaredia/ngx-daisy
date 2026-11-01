@@ -1,3 +1,5 @@
+import { LucidePlus } from '@lucide/angular';
+import { LucideSearch } from '@lucide/angular';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -12,7 +14,7 @@ export interface KbdExampleValues {
 @Component({
   selector: 'demo-kbd-example',
   standalone: true,
-  imports: [DsyKbd],
+  imports: [LucidePlus, LucideSearch, DsyKbd],
   templateUrl: './kbd-example.html',
   styleUrl: './kbd-example.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

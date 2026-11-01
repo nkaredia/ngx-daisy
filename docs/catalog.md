@@ -86,3 +86,5 @@ Additional helpers: `@ngx-daisy/cdk/icon` at `/icons`, and `@ngx-daisy/cdk/form-
 - [Data Display](data-display.md)
 - [Navigation, feedback, layout and mockups](remaining-components.md)
 - [Themes and customization](daisyui-customization.md)
+
+The [November 2026 web design and WCAG 2.2 AA audit](audits/2026-11-01-web/README.md) covers all 70 routes, records confirmed failures and includes the remaining manual verification requirements. Catalog coverage and daisyUI parity are not accessibility compliance claims.

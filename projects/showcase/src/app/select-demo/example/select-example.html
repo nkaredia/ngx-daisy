@@ -1,6 +1,8 @@
 <section class="select-example-card" aria-labelledby="select-example-title">
   <div class="select-example-heading">
-    <span aria-hidden="true">↗</span>
+    <span aria-hidden="true"
+      ><svg lucideArrowUpRight size="1em" class="inline-block" aria-hidden="true"></svg
+    ></span>
     <div>
       <h3 id="select-example-title">Move this project</h3>
       <p>Choose its new team workspace.</p>
@@ -23,6 +25,9 @@
     </select>
   </label>
   <div class="select-example-route" aria-live="polite">
-    <span>Product workspace</span><span aria-hidden="true">→</span><strong>{{ value() }}</strong>
+    <span>Product workspace</span
+    ><span aria-hidden="true"
+      ><svg lucideArrowRight size="1em" class="inline-block" aria-hidden="true"></svg></span
+    ><strong>{{ value() }}</strong>
   </div>
 </section>

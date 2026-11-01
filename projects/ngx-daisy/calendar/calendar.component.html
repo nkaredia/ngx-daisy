@@ -5,6 +5,7 @@
   [attr.aria-describedby]="describedBy()"
   [attr.aria-invalid]="errorState() || null"
 >
+  <span hidden [id]="id() + '-label'">{{ ariaLabel() || 'Choose date' }}</span>
   <div [class]="parts('rdp-months')">
     <div class="dsy-calendar-header" [class]="parts('rdp-nav')">
       <button
@@ -15,9 +16,7 @@
         [disabled]="!canNavigate(-1)"
         (click)="navigate(-1)"
       >
-        <svg [class]="parts('rdp-chevron')" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m14 6-6 6 6 6 2-2-4-4 4-4z" />
-        </svg>
+        <svg lucideChevronLeft [class]="parts('rdp-chevron')" aria-hidden="true"></svg>
       </button>
       <button
         type="button"
@@ -27,9 +26,7 @@
         [disabled]="!canNavigate(1)"
         (click)="navigate(1)"
       >
-        <svg [class]="parts('rdp-chevron')" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="m10 6 6 6-6 6-2-2 4-4-4-4z" />
-        </svg>
+        <svg lucideChevronRight [class]="parts('rdp-chevron')" aria-hidden="true"></svg>
       </button>
     </div>
     <div [class]="parts('rdp-month')">
@@ -41,10 +38,7 @@
       <table
         [class]="parts('rdp-month_grid')"
         role="grid"
-        [attr.aria-label]="ariaLabel() || 'Choose date'"
-        [attr.aria-labelledby]="
-          labelledBy() ? labelledBy() + ' ' + id() + '-month' : id() + '-month'
-        "
+        [attr.aria-labelledby]="(labelledBy() || id() + '-label') + ' ' + id() + '-month'"
         [attr.aria-readonly]="readonly() || null"
       >
         <thead>

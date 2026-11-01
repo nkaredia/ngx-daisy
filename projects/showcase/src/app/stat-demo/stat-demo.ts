@@ -1,3 +1,4 @@
+import { LucideArrowUpRight } from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -26,6 +27,7 @@ import {
   selector: 'demo-stat-demo',
   providers: providePlayground(playground),
   imports: [
+    LucideArrowUpRight,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

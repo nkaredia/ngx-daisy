@@ -30,7 +30,7 @@ export class DsySwap implements ControlValueAccessor {
   readonly indeterminate = model(false);
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly animation = input<DsySwapAnimation>('none');
-  readonly label = input('Toggle', { alias: 'aria-label' });
+  readonly label = input('', { alias: 'aria-label' });
   readonly color = input<DsyButtonColor>();
   readonly size = input<DsyButtonSize>();
   readonly variant = input<DsyButtonVariant | 'plain'>('plain');

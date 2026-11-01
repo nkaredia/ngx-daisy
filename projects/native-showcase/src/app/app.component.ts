@@ -1,6 +1,17 @@
+import { nativeShowcaseGeometry } from './shell/layout';
+import { NativeSectionNavigation } from './playground/section-navigation';
+import { NativeComponentPage } from './playground/component-page';
+import { nativePlaygrounds } from './playground/catalog';
+import { NativeFeedbackExample } from './feedback-example/feedback-example';
+import { NativeDisplayExample } from './display-example/display-example';
+import { NativeSidebarMotion } from './shell/sidebar-motion';
+import { DsyMotionPresence } from '@ngx-daisy/native/motion';
+import { NativeFormCompositionExample } from './form-composition-example/form-composition-example';
+import { NativeSelectionExample } from './selection-example/selection-example';
 import { NativeDataInputExample } from './data-input-example/data-input-example';
 import { NativeIconButton } from './shell/icon-button';
-import { DsyModal } from '@ngx-daisy/native/modal';
+import { DsyPopoverService } from '@ngx-daisy/native/popover';
+import { NativeThemePicker } from './shell/theme-picker';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -59,7 +70,7 @@ function storedTheme(): DsyThemeDefinition {
     ApplicationSettings.getBoolean('ngx-daisy.dark', false) ? 'dark' : 'light',
   );
   return (
-    (name === 'custom' ? storedCustom() : undefined) ??
+    (storedCustom()?.name === name ? storedCustom() : undefined) ??
     nativeThemes.find((theme) => theme.name === name) ??
     nativeThemes.find((theme) => theme.name === 'light')!
   );
@@ -68,9 +79,15 @@ function storedTheme(): DsyThemeDefinition {
   selector: 'dsy-native-showcase',
   standalone: true,
   imports: [
+    NativeSectionNavigation,
+    NativeComponentPage,
+    NativeFeedbackExample,
+    NativeDisplayExample,
+    DsyMotionPresence,
+    NativeSidebarMotion,
     NativeScriptCommonModule,
     NativeIconButton,
-    DsyModal,
+    NativeThemePicker,
     DsyButton,
     DsyIcon,
     DsyTheme,
@@ -79,6 +96,8 @@ function storedTheme(): DsyThemeDefinition {
     NativeButtonExample,
     NativeThemeEditor,
     NativeDataInputExample,
+    NativeSelectionExample,
+    NativeFormCompositionExample,
   ],
   schemas: [NO_ERRORS_SCHEMA],
   templateUrl: './app.component.html',
@@ -87,6 +106,11 @@ function storedTheme(): DsyThemeDefinition {
   encapsulation: ViewEncapsulation.None,
 })
 export class NativeShowcase {
+  readonly playground = computed(() =>
+    this.page() === 'themes'
+      ? undefined
+      : nativePlaygrounds[this.page() as keyof typeof nativePlaygrounds],
+  );
   readonly version = libraryPackage.version;
   readonly page = signal<NativePageId>('buttons');
   readonly groups = nativeGroups;
@@ -97,8 +121,27 @@ export class NativeShowcase {
     ...(this.savedCustom() ? [this.savedCustom()!] : []),
   ]);
   readonly dark = computed(() => this.theme().colorScheme === 'dark');
+  readonly viewportWidth = signal(390);
+  readonly geometry = computed(() =>
+    nativeShowcaseGeometry(this.viewportWidth(), this.page() === 'themes'),
+  );
+  readonly showPageNavigation = computed(() => this.geometry().sectionNavigation);
+  readonly activeSection = signal('try');
+  private readonly componentPage = viewChild(NativeComponentPage);
+  scrollDocumentation(section: string): void {
+    this.componentPage()?.scrollTo(section);
+  }
+  readonly layoutColumns = computed(() => this.geometry().columns);
   readonly desktop = signal(false);
-  readonly persistentNavigation = computed(() => this.desktop() && this.page() !== 'themes');
+  readonly contentWidth = computed(() => this.geometry().contentWidth);
+  readonly currentPage = computed(() => nativePages.find((page) => page.id === this.page()));
+  readonly description = computed(() =>
+    this.page() === 'themes'
+      ? 'Create a theme that brings your interface to life. Preview, customize and save your colors.'
+      : (this.currentPage()?.description ?? ''),
+  );
+  readonly persistentNavigation = computed(() => this.geometry().persistentNavigation);
+  readonly navigationMounted = signal(false);
   readonly navigationOpened = signal(false);
   readonly overlayOpen = computed(() => this.navigationOpened() && !this.persistentNavigation());
   readonly title = computed(() =>
@@ -112,9 +155,12 @@ export class NativeShowcase {
   readonly sun = lucideArtwork(Sun);
   readonly moon = lucideArtwork(Moon);
   private readonly scroll = viewChild<ElementRef<ScrollView>>('pageScroll');
+  private readonly popovers = inject(DsyPopoverService);
   constructor() {
     const back = (event: AndroidActivityBackPressedEventData) => {
-      if (this.overlayOpen()) {
+      if (this.popovers.closeActive()) {
+        event.cancel = true;
+      } else if (this.overlayOpen()) {
         event.cancel = true;
         this.navigationOpened.set(false);
       } else if (this.page() !== 'buttons') {
@@ -125,8 +171,15 @@ export class NativeShowcase {
     Application.android?.on('activityBackPressed', back);
     inject(DestroyRef).onDestroy(() => Application.android?.off('activityBackPressed', back));
   }
+  openNavigation(): void {
+    this.navigationMounted.set(true);
+    this.navigationOpened.set(true);
+  }
   onLayout(event: unknown): void {
-    const desktop = ((event as EventData).object as View).getActualSize().width >= 1024;
+    const width = ((event as EventData).object as View).getActualSize().width;
+    if (width <= 0) return;
+    this.viewportWidth.set(width);
+    const desktop = width >= 1024;
     if (desktop !== this.desktop()) {
       this.desktop.set(desktop);
       this.navigationOpened.set(false);
@@ -134,14 +187,15 @@ export class NativeShowcase {
   }
   selectPage(page: NativePageId): void {
     this.page.set(page);
+    this.activeSection.set('try');
     this.navigationOpened.set(false);
     this.scroll()?.nativeElement.scrollToVerticalOffset(0, false);
   }
   selectTheme(theme: DsyThemeDefinition): void {
     this.theme.set(theme);
     ApplicationSettings.setString('ngx-daisy.theme', theme.name);
-    if (theme.name === 'custom') this.savedCustom.set(theme);
-    if (theme.name === 'custom')
+    if (!nativeThemes.some((preset) => preset.name === theme.name)) this.savedCustom.set(theme);
+    if (!nativeThemes.some((preset) => preset.name === theme.name))
       ApplicationSettings.setString('ngx-daisy.custom-theme', JSON.stringify(theme));
   }
   colorMode(event: unknown): void {

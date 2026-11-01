@@ -1,0 +1,525 @@
+{
+  "scope": "70 desktop dark routes; Buttons and Theme Controllers desktop light; Buttons mobile light/dark. Code highlighting excluded by user request. Idle states only; not AA certification.",
+  "cases": 74,
+  "overflowCases": [],
+  "results": [
+    {
+      "route": "/accordions",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/alerts",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/auras",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/avatars",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/badges",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 5,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/breadcrumbs",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr"]
+    },
+    {
+      "route": "/browser-mockups",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/buttons",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/buttons",
+      "theme": "dark",
+      "width": 320,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/buttons",
+      "theme": "light",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/buttons",
+      "theme": "light",
+      "width": 320,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/calendars",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/cards",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/carousels",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/chat",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 3,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/checkboxes",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/code-mockups",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr"]
+    },
+    {
+      "route": "/collapses",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/countdowns",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/diffs",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/dividers",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/docks",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/drawers",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/dropdowns",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/fabs",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/fieldsets",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/file-inputs",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/filters",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/footers",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/form-fields",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/heroes",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/hover-3d",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/hover-galleries",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/icons",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/indicators",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/inputs",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/joins",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/keyboard",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/labels",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/links",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 3,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/lists",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr"]
+    },
+    {
+      "route": "/loaders",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 3,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/masks",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/megamenus",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/menus",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/modals",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/navbars",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/otp",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast", "form-field-multiple-labels"]
+    },
+    {
+      "route": "/pagination",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/phone-mockups",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 3,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/progress",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/radial-progress",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/radios",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/ranges",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/ratings",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr"]
+    },
+    {
+      "route": "/selects",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/skeletons",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/stacks",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 4,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/stats",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/statuses",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/steps",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/swaps",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast", "label-content-name-mismatch"]
+    },
+    {
+      "route": "/tables",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/tabs",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr"]
+    },
+    {
+      "route": "/text-rotate",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/textareas",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/theme-controllers",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 3,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/theme-controllers",
+      "theme": "light",
+      "width": 1440,
+      "contrastNodes": 2,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/timelines",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/toasts",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/toggles",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/tooltips",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/validators",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 0,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    },
+    {
+      "route": "/window-mockups",
+      "theme": "dark",
+      "width": 1440,
+      "contrastNodes": 1,
+      "incomplete": ["aria-prohibited-attr", "color-contrast"]
+    }
+  ]
+}

@@ -40,7 +40,7 @@ demo-mockup-code-example footer {
 }
 
 demo-mockup-code-example .mockup-code-example-eyebrow {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;

@@ -20,7 +20,7 @@ demo-validator-example p {
 }
 
 demo-validator-example .validator-example-kicker {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0.08em;

@@ -1,0 +1,4661 @@
+{
+  "method": "Static token pairs, Color.js CSS gamut mapping to sRGB; WCAG relative luminance; hypothetical normal text, no opacity/mixing/hover. Not rendered conformance.",
+  "themes": 35,
+  "pairs": [
+    {
+      "theme": "synthwave",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 9.775,
+      "usage": "body text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 9.036,
+      "usage": "body text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 8.014,
+      "usage": "body text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.37,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 7.013,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 8.227,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 11.683,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 6.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 8.385,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 5.578,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 2.395,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 6.314,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 8.966,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 7.761,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 10.452,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 6.51,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 14.878,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.003,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "synthwave",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 8.158,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 14.75,
+      "usage": "body text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 15.619,
+      "usage": "body text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 16.443,
+      "usage": "body text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 4.137,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 3.403,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 3.045,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 4.315,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 5.083,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 8.299,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 15.707,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.258,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 6.314,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 7.118,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.085,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 8.059,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 5.243,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 8.98,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.47,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dark",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 5.516,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 17.212,
+      "usage": "body text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 14.005,
+      "usage": "body text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 11.246,
+      "usage": "body text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 4.143,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 4.143,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 4.848,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 4.848,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 3.658,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 3.658,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 21,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 21,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 3.725,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 3.725,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 3.3,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 3.3,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 13.291,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.58,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.204,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "corporate",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.915,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 10.819,
+      "usage": "body text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 11.33,
+      "usage": "body text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 11.765,
+      "usage": "body text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 8.038,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 6.82,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 7.84,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 7.04,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 8.015,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 7.208,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 8.602,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.363,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 8.971,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 7.612,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.93,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 5.88,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 10.776,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.239,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "forest",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 6.142,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 18.103,
+      "usage": "body text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 16.598,
+      "usage": "body text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 14.288,
+      "usage": "body text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.523,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.58,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 4.094,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 2.379,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 21,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 21,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 8.241,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 10.449,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 4.274,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.224,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.085,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.965,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 5.243,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.763,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 3.536,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "bumblebee",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.915,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 7.223,
+      "usage": "body text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 6.507,
+      "usage": "body text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 5.691,
+      "usage": "body text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.266,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.529,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 5.966,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.041,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 3.142,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.299,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 5.076,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 6.076,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 3.7,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 3.237,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 4.833,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 4.228,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 3.284,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 2.873,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 3.341,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "retro",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.277,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 10.981,
+      "usage": "body text"
+    },
+    {
+      "theme": "night",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 11.313,
+      "usage": "body text"
+    },
+    {
+      "theme": "night",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 11.615,
+      "usage": "body text"
+    },
+    {
+      "theme": "night",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 9.157,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 8.332,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 6.716,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 5.985,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 7.466,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 6.696,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 9.433,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.22,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 7.574,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 6.438,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 10.423,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 9.587,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 11.376,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 10.554,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.361,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "night",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 6.595,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 18.103,
+      "usage": "body text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 15.644,
+      "usage": "body text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 13.431,
+      "usage": "body text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 8.056,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 2.458,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 5.518,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 3.667,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 15.844,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.167,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 10.778,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 17.405,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 7.266,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.744,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.382,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 7.476,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 7.42,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 2.683,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.053,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cmyk",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 4.019,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 6.711,
+      "usage": "body text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 7.214,
+      "usage": "body text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 7.884,
+      "usage": "body text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 7.777,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 6.493,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 7.678,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.454,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 5.729,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.057,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 11.541,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.165,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 10.48,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 8.955,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 8.944,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 7.541,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 13.197,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 11.552,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 9.116,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "coffee",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 7.699,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 7.879,
+      "usage": "body text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 8.68,
+      "usage": "body text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 9.154,
+      "usage": "body text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 13.005,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 9.076,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 7.88,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 5.259,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 8.211,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 5.496,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 9.602,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.219,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 13.021,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 9.088,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 13.168,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 9.202,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.543,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 8.718,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 10.845,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dim",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 7.426,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 10.835,
+      "usage": "body text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 10.256,
+      "usage": "body text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 9.245,
+      "usage": "body text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.042,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 3.496,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 7.399,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 2.335,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 9.756,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.736,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 5.461,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 6.4,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 7.053,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.457,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 9.587,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.769,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.23,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.355,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 4.97,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "nord",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 3.548,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 12.976,
+      "usage": "body text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 14.255,
+      "usage": "body text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 15.043,
+      "usage": "body text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 4.773,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 14.703,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 4.831,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 10.334,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 7.654,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.177,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 9.548,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.359,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 6.314,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 7.935,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 8.502,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 9.875,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 4.594,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 10.743,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 4.263,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "abyss",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 4.966,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 21,
+      "usage": "body text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 19.253,
+      "usage": "body text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 17.612,
+      "usage": "body text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 19.436,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 19.436,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 17.541,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 17.541,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 15.134,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 15.134,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 21,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 21,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 10.592,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.829,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 14.744,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.267,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.905,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.467,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 9.012,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lofi",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.172,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 8.456,
+      "usage": "body text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 7.964,
+      "usage": "body text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 6.837,
+      "usage": "body text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 14.785,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 15.428,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 6.485,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 15.428,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 13.165,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 15.428,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 9.676,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 16.592,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 7.158,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.673,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 10.117,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.459,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 4.768,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.514,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 4.582,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "silk",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.306,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 5.459,
+      "usage": "body text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 4.966,
+      "usage": "body text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 4.199,
+      "usage": "body text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 3.67,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 3.347,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 3.847,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 3.841,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 5.569,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.557,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 7.028,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 9.136,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 5.184,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.339,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 4.954,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.407,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 6.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 2.17,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 3.587,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "valentine",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 3.585,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 18.059,
+      "usage": "body text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 16.547,
+      "usage": "body text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 13.688,
+      "usage": "body text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 7.521,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 2.268,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 12.318,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.328,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 7.183,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.387,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 14.627,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 14.627,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 8.971,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.013,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.93,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 2.606,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.422,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.239,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cyberpunk",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.495,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 8.496,
+      "usage": "body text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 7.898,
+      "usage": "body text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 6.97,
+      "usage": "body text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 3.633,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 4.71,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 6.2,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 8.796,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 4.65,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 4.383,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 11.183,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 18.308,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 13.537,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.394,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 10.845,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.783,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 13.577,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.39,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.929,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "winter",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.501,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 11.2,
+      "usage": "body text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 12.577,
+      "usage": "body text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 13.263,
+      "usage": "body text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 8.148,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 7.939,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 5.74,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 2.205,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 6.953,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 5.872,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 10.322,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.081,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 3.944,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 3.431,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.108,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 5.379,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 6.31,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 5.567,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.851,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "halloween",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 5.143,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 9.029,
+      "usage": "body text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 8.185,
+      "usage": "body text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 7.629,
+      "usage": "body text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 18.103,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 19.895,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 9.561,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.339,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 7.371,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.834,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 13.537,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.205,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 10.258,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 10.502,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 10.278,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 10.525,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.622,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 13.195,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.359,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "luxury",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 7.348,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 19.824,
+      "usage": "body text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 18.147,
+      "usage": "body text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 16.071,
+      "usage": "body text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 6.429,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 2.93,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 7.436,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 2.519,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 15.674,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.114,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 11.215,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 17.197,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 5.329,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 3.59,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 13.525,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.31,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 14.424,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.225,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.097,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "acid",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 3.739,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 10.262,
+      "usage": "body text"
+    },
+    {
+      "theme": "business",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 10.733,
+      "usage": "body text"
+    },
+    {
+      "theme": "business",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 11.173,
+      "usage": "body text"
+    },
+    {
+      "theme": "business",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 6.043,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.902,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 6.055,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 4.897,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 6.328,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 5.13,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 9.543,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.097,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 5.779,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 4.664,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 7.809,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 6.41,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 9.511,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 7.923,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 4.468,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "business",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.707,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 8.106,
+      "usage": "body text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 11.126,
+      "usage": "body text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 13.185,
+      "usage": "body text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 6.038,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 7.353,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 3.568,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 2.686,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 15.356,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 8.93,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 8.164,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.449,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 3.944,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.089,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.108,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 3.275,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 4.842,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 3.39,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.531,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "aqua",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 4.101,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 14.679,
+      "usage": "body text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 11.944,
+      "usage": "body text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 9.591,
+      "usage": "body text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 7.416,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 10.966,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 3.72,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 4.871,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 8.292,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.375,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 9.458,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 14.679,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 8.971,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.341,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.93,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 3.03,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.653,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.239,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "fantasy",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.901,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 15.537,
+      "usage": "body text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 12.675,
+      "usage": "body text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 10.217,
+      "usage": "body text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 3.906,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 3.171,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 4.96,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 5.528,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 4.482,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 3.638,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 13.32,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 13.32,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 8.971,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.9,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.93,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 2.46,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.342,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.239,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "garden",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.355,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 9.179,
+      "usage": "body text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 8.393,
+      "usage": "body text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 7.159,
+      "usage": "body text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 21,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 19.792,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 12.838,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 16.46,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 5.405,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 6.93,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 4.991,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 4.991,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 6.613,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 8.479,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.617,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 7.201,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 5.243,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.662,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 3.536,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "caramellatte",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.747,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 16.299,
+      "usage": "body text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 13.281,
+      "usage": "body text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 10.686,
+      "usage": "body text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 6.73,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 8.617,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 5.073,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 3.544,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 8.219,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.13,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 3.837,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 4.463,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 7.508,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.346,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.556,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 3.223,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 7.14,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 2.475,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 4.168,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "autumn",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 4.963,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 13.357,
+      "usage": "body text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 14.254,
+      "usage": "body text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 15.13,
+      "usage": "body text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 8.285,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 5.969,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 8.201,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 5.904,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 11.3,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 8.358,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 6.572,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.503,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 13.627,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 10.287,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 13.73,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 10.374,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 16.452,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 12.743,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 6.393,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "dracula",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 4.532,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 17.73,
+      "usage": "body text"
+    },
+    {
+      "theme": "light",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 16.737,
+      "usage": "body text"
+    },
+    {
+      "theme": "light",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 15.322,
+      "usage": "body text"
+    },
+    {
+      "theme": "light",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 6.757,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 8.326,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 3.045,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 3.67,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 5.083,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.908,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 15.707,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 19.913,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 6.314,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.224,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.085,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.965,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 5.243,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.763,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.47,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "light",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.87,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 17.607,
+      "usage": "body text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 14.329,
+      "usage": "body text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 11.513,
+      "usage": "body text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.274,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 3.722,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 9.931,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.899,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 12.379,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.491,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 8.591,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 12.617,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 12.658,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.455,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 12.732,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.446,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.58,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.465,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 12.333,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "lemonade",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 1.498,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 8.492,
+      "usage": "body text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 8.883,
+      "usage": "body text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 9.231,
+      "usage": "body text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 8.295,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 7.25,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 7.516,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 6.525,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 7.366,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 6.387,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 5.821,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.115,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 12.619,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 11.454,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 12.625,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 11.459,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.2,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 11.032,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 11.942,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "sunset",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 10.775,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 14.449,
+      "usage": "body text"
+    },
+    {
+      "theme": "black",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 12.706,
+      "usage": "body text"
+    },
+    {
+      "theme": "black",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 11.912,
+      "usage": "body text"
+    },
+    {
+      "theme": "black",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 11.306,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.857,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 11.306,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.857,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 11.306,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.857,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 11.306,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.857,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 6.143,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.445,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 3.905,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 4.086,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 17.028,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 19.556,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.081,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "black",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 5.254,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 18.103,
+      "usage": "body text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 16.598,
+      "usage": "body text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 15.182,
+      "usage": "body text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 10.485,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.482,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 10.485,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.482,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 10.485,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.482,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 10.485,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 1.482,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 5.712,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 7.609,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 5.875,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 7.64,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 5.724,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 7.222,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 5.798,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "wireframe",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 8.519,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 18.103,
+      "usage": "body text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 17.322,
+      "usage": "body text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 14.493,
+      "usage": "body text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.239,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.373,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 4.308,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.423,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 4.261,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.3,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 3.829,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 4.848,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 3.595,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 1.468,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 3.624,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 1.402,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 3.06,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.731,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 3.329,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "pastel",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 1.958,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 15.915,
+      "usage": "body text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 14.213,
+      "usage": "body text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 13.212,
+      "usage": "body text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.18,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.402,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 5.697,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 1.336,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 5.407,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 1.275,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 11.896,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 14.14,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 5.084,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.59,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.051,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 2.359,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 7.626,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.826,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 4.121,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "cupcake",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 3.572,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "base-content",
+      "background": "base-100",
+      "ratio": 11.086,
+      "usage": "body text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "base-content",
+      "background": "base-200",
+      "ratio": 9.02,
+      "usage": "body text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "base-content",
+      "background": "base-300",
+      "ratio": 7.244,
+      "usage": "body text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "primary-content",
+      "background": "primary",
+      "ratio": 5.944,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "primary",
+      "background": "base-100",
+      "ratio": 1.987,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "secondary-content",
+      "background": "secondary",
+      "ratio": 3.861,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "secondary",
+      "background": "base-100",
+      "ratio": 3.861,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "accent-content",
+      "background": "accent",
+      "ratio": 8.205,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "accent",
+      "background": "base-100",
+      "ratio": 2.559,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "neutral-content",
+      "background": "neutral",
+      "ratio": 10.607,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "neutral",
+      "background": "base-100",
+      "ratio": 11.086,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "info-content",
+      "background": "info",
+      "ratio": 8.971,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "info",
+      "background": "base-100",
+      "ratio": 2.341,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "success-content",
+      "background": "success",
+      "ratio": 6.93,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "success",
+      "background": "base-100",
+      "ratio": 3.03,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "warning-content",
+      "background": "warning",
+      "ratio": 12.701,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "warning",
+      "background": "base-100",
+      "ratio": 1.653,
+      "usage": "outline/link semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "error-content",
+      "background": "error",
+      "ratio": 7.239,
+      "usage": "solid semantic text"
+    },
+    {
+      "theme": "emerald",
+      "foreground": "error",
+      "background": "base-100",
+      "ratio": 2.901,
+      "usage": "outline/link semantic text"
+    }
+  ]
+}
