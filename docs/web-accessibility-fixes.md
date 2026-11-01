@@ -14,7 +14,7 @@ Validation: production web builds passed with existing bundle/style warnings; 12
 
 ## Showcase fixes
 
-- A02: all example languages now use paired GitHub Light/Dark High Contrast palettes with matching editor surfaces. Source content, safe rendering, tabs and copying remain unchanged. A builder regression checks representative emitted tokens against both actual surfaces at 4.5:1.
+- A02: the high-contrast palette change was reverted at the user’s request. Original GitHub Light/GitHub Dark (HTML/SCSS/CSS) and Light Plus/Dark Plus (TypeScript) palettes and editor backgrounds are restored. Code-highlighting accessibility is excluded from future audits; the palette contrast regression was removed. Viewer controls remain in scope.
 - A01 (partial): Button page muted text and shared documentation labels/API identifiers use the readable base-content foreground. Preset-dependent semantic text and remaining example contrast findings remain open; no theme tokens or native component variants were overridden.
 - A08: custom example progress bars now expose progressbar roles and values; the Theme Controller chart has image semantics and its existing description.
 - A09: the Form Field preview retains a persistent Project name label when the configurable label is empty.
@@ -32,3 +32,5 @@ Validation: production web build passed with existing bundle/style budget warnin
 Proposals that change daisyUI defaults are parked in [web-accessibility-deferred.md](web-accessibility-deferred.md), with no runtime overrides applied. AA compliance remains blocked by those items and the outstanding manual checks in the audit ledger.
 
 D05 (keyboard interaction inside projected Diff layers) needs a content policy that preserves comparison text for assistive technology; it remains open. Other incomplete/manual audit results remain review-required rather than assumed passes.
+
+The 109-case evidence and five-builder-test count above describe the earlier high-contrast implementation before this requested revert. They remain historical evidence, not validation of the restored palettes.

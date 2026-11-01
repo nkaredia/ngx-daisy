@@ -16,7 +16,7 @@ await document.fonts.ready; await new Promise(r=>setTimeout(r,350));
 const shell=document.querySelector('.showcase-shell');if(shell)shell.setAttribute('data-theme',theme);
 await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
 await new Promise(r=>setTimeout(r,1000));
-const result=await axe.run(document,{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}});
+const result=await axe.run({exclude:[['demo-example-code pre code']]},{runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21a','wcag21aa','wcag22aa','best-practice']}});
 const compact=items=>items.map(rule=>({id:rule.id,impact:rule.impact,tags:rule.tags,help:rule.help,helpUrl:rule.helpUrl,count:rule.nodes.length,nodes:rule.nodes.slice(0,60).map(node=>({target:node.target,html:node.html,failureSummary:node.failureSummary,checks:[...node.any,...node.all,...node.none].map(check=>({id:check.id,data:check.data,message:check.message}))}))}));
 const report={route:location.pathname,theme,width:innerWidth,height:innerHeight,title:document.title,axeVersion:axe.version,viewportOverflow:document.documentElement.scrollWidth-innerWidth,violations:compact(result.violations),incomplete:compact(result.incomplete),passes:result.passes.map(rule=>rule.id),duplicateIds:[...document.querySelectorAll('[id]')].map(e=>e.id).filter((id,i,all)=>id&&all.indexOf(id)!==i)};
 await fetch('/__audit/results',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(report)});

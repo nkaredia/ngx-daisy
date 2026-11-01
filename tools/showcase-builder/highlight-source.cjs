@@ -9,7 +9,7 @@ let highlighter;
 async function highlightSource(content, language) {
   highlighter ??= import('shiki').then(({ createHighlighter }) =>
     createHighlighter({
-      themes: ['github-light-high-contrast', 'github-dark-high-contrast'],
+      themes: ['github-light', 'light-plus', 'github-dark', 'dark-plus'],
       langs: ['typescript', 'html', 'scss', 'css'],
     }),
   );
@@ -17,8 +17,8 @@ async function highlightSource(content, language) {
   const { tokens } = engine.codeToTokens(content, {
     lang: language,
     themes: {
-      light: 'github-light-high-contrast',
-      dark: 'github-dark-high-contrast',
+      light: language.match(/html|scss|css$/) ? 'github-light' : 'light-plus',
+      dark: language.match(/html|scss|css$/) ? 'github-dark' : 'dark-plus',
     },
     defaultColor: 'light-dark()',
   });
