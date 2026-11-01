@@ -1,38 +1,109 @@
 <demo-documentation-page [sections]="sections" navigationLabel="Button documentation sections">
-  <section class="action-demo" aria-labelledby="buttons">
-    <h2 id="buttons" class="text-xl font-semibold">Buttons</h2>
-    <p class="button-page-description">
-      Trigger actions and navigate with native buttons and links, styled by daisyUI and ready for
-      Angular signals, forms, and routing.
-    </p>
-    <div class="button-page-import"><code>&#64;ngx-daisy/cdk/button</code><span>Actions</span></div>
+  <article class="action-demo button-page" aria-labelledby="buttons">
+    <header class="button-page-header">
+      <div class="button-page-import">
+        <span>Actions</span><code translate="no">&#64;ngx-daisy/cdk/button</code>
+      </div>
+      <h1 id="buttons">Buttons</h1>
+      <p class="button-page-description">
+        Give people a clear next action. Start with a native button, choose its emphasis, and let
+        your application own what happens next.
+      </p>
+      <a
+        href="https://daisyui.com/components/button/"
+        target="_blank"
+        rel="noreferrer"
+        class="link"
+      >
+        daisyUI reference<span class="sr-only"> (opens in a new tab)</span>
+      </a>
+    </header>
 
-    <div id="button-playground" class="button-page-section-heading">
-      <h3>Try it out</h3>
-      <p>
-        Change the inputs to explore appearance and state. Open the code panel for a complete
-        Angular example.
-      </p>
-    </div>
-    @for (preview of playground.previews; track $index) {
-      <demo-playground [component]="preview" />
-    }
-    <div id="button-examples" class="button-page-section-heading">
-      <h3>UI examples</h3>
-      <p>
-        Compare colors, sizes, variants, and states. Each example includes the HTML you can copy
-        into your app.
-      </p>
-    </div>
-    <div class="button-inline-previews">
-      @for (preview of playground.inlinePreviews ?? []; track $index) {
+    <section id="button-start" class="button-page-section" aria-labelledby="button-start-heading">
+      <div class="button-page-section-heading">
+        <h2 id="button-start-heading">Get started</h2>
+        <p>
+          Add <code translate="no">DsyButton</code> to your standalone imports, then apply
+          <code translate="no">dsyButton</code> to a native button. Your app supplies the Tailwind
+          and daisyUI stylesheet.
+        </p>
+      </div>
+      @if (quickStart; as preview) {
         <demo-inline-preview-shell
           [component]="preview.component"
           [title]="preview.title"
-          [showTypescript]="preview.showTypescript ?? false"
+          [showTypescript]="true"
         />
       }
-    </div>
+    </section>
+
+    <section id="button-usage" class="button-page-section" aria-labelledby="button-usage-heading">
+      <div class="button-page-section-heading">
+        <h2 id="button-usage-heading">Choose the right control</h2>
+        <p>Choose behavior first. The visual treatment comes after it.</p>
+      </div>
+      <dl class="button-usage-list">
+        <div>
+          <dt>Run an action</dt>
+          <dd>
+            Use <code>&lt;button dsyButton&gt;</code> to save changes, open a dialog or submit a
+            form. Name the action with a clear verb.
+          </dd>
+        </div>
+        <div>
+          <dt>Go somewhere</dt>
+          <dd>
+            Use <code>&lt;a dsyButton&gt;</code> with <code>href</code> or
+            <code>RouterLink</code> for a destination. It keeps native link behavior.
+          </dd>
+        </div>
+        <div>
+          <dt>Set the emphasis</dt>
+          <dd>
+            Give the main action the strongest treatment. Use a quieter variant for secondary
+            actions, and pair semantic color with meaningful text.
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section
+      id="button-playground"
+      class="button-page-section"
+      aria-labelledby="button-playground-heading"
+    >
+      <div class="button-page-section-heading">
+        <h2 id="button-playground-heading">Try it in context</h2>
+        <p>
+          Explore a workspace invitation. Change the properties to compare treatments; open the code
+          panel for the complete Angular example.
+        </p>
+      </div>
+      @for (preview of playground.previews; track $index) {
+        <demo-playground [component]="preview" />
+      }
+    </section>
+
+    <section
+      id="button-examples"
+      class="button-page-section"
+      aria-labelledby="button-examples-heading"
+    >
+      <div class="button-page-section-heading">
+        <h2 id="button-examples-heading">Find a variation</h2>
+        <p>Compare the available options. Every example includes its exact template.</p>
+      </div>
+      <div class="button-inline-previews">
+        @for (preview of variations; track preview.component) {
+          <demo-inline-preview-shell
+            [component]="preview.component"
+            [title]="preview.title"
+            [description]="variationDescriptions[preview.title] ?? ''"
+            [showTypescript]="preview.showTypescript ?? false"
+          />
+        }
+      </div>
+    </section>
     <demo-button-documentation />
-  </section>
+  </article>
 </demo-documentation-page>

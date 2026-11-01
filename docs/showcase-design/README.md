@@ -17,7 +17,7 @@ Both skills were downloaded from official repositories through the skill-install
 
 Audience: application developers choosing a button treatment and integrating it into an Angular app. The page should answer “what should I use?” and “what do I copy?” before showing every configurable property.
 
-Current issues:
+Baseline issues (before the first pass):
 
 - `button-demo.html:3`: the page begins with an h2 and moves into a large property editor before a minimal integration example.
 - `button-demo.html:17`: playground controls dominate the opening experience even for a reader seeking a single native button.
@@ -46,6 +46,24 @@ Angular integration / Styling / API / Accessibility
 Existing deeper documentation and right-hand section navigation
 ```
 
-Use the current theme's semantic tokens and existing typeface. Page typography, spacing and responsive composition may improve; do not change library control sizes or palettes. Favor left-aligned reading, short paragraphs and a restrained opening. Avoid decorative gradients, replacement branding, animated introductions and a wall of identical advice cards. Make no global shell or playground redesign in this first pass. Keep all existing examples, source tabs and section anchors available.
+Use the current theme's semantic tokens and existing typeface. Page typography, spacing and responsive composition may improve; do not change library control sizes or palettes. Favor left-aligned reading, short paragraphs and a restrained opening. Avoid decorative gradients, replacement branding, animated introductions and a wall of identical advice cards. Make no global shell or playground redesign in this first pass. Keep the right-hand index vertical on desktop; for Buttons only, use a horizontal scrolling index below 1200px so section links do not bury the introduction. Keep all existing examples, source tabs and section anchors available.
 
 The initial alternative—a large decorative hero with repeated quick-link cards—was rejected because it delays the code and duplicates the persistent section navigation. The page's visual emphasis should come from an understandable live example and a clear reading sequence.
+
+## First pass delivered
+
+Buttons now leads with a page title, package identity and a generated-source starter example. A concise decision list explains actions, navigation and emphasis. The existing full playground and all five variation sets remain, with descriptive context. Deeper Angular integration, styling, API and accessibility guidance retain their anchors; their heading levels now follow the page hierarchy. The shared inline shell accepts optional editorial descriptions and puts HTML before optional supporting TypeScript, preserving exact source contents.
+
+The change is scoped to Buttons, with the small shared shell extensions available for reuse. No library component styles, theme definitions, control sizes, font packages or highlighting palettes were changed. No additional animations were introduced.
+
+## Validation and review artifacts
+
+Production core/library/showcase builds pass, with the existing bundle and theme-builder style warnings. All 35 showcase tests, four builder tests and 72 documentation examples pass. The inline-source regression now checks that HTML remains the default when supporting TypeScript is requested. Route checks accept a page h1 followed by section headings and validate all eight Buttons section links.
+
+[Theme/layout summary](buttons-validation.json) and [raw preset results](buttons-theme-results.json.gz) cover all 35 shipped themes at 1440px and 320px: 70 cases, no missing combinations and no document overflow. Existing contrast flags and incomplete checks remain in the evidence; colors/sizing are frozen, and this is not a new accessibility conformance audit. Native and manual screen-reader/keyboard verification were excluded.
+
+Visual review: [before](buttons-before.jpg), [desktop after](buttons-after.jpg), [mobile after](buttons-mobile.jpg). The starter HTML and TypeScript tabs were inspected in the built page: HTML contains only the authored native button; TypeScript includes its actual DsyButton import and component declaration. All five original inline variation sets and the full interactive playground remain.
+
+Next component in catalog order: Dropdowns. Review its content needs before copying the Buttons composition; a menu needs guidance about action items, navigation and custom content rather than button-emphasis advice.
+
+The development showcase is running at `http://127.0.0.1:4401/`. An older offline service-worker cache was showing the previous Buttons page while that server was stopped. The current page was verified at `/buttons?ngsw-bypass=1`; this bypasses the old cache for the review without clearing offline application data.

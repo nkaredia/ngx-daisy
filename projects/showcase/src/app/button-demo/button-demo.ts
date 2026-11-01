@@ -19,7 +19,20 @@ import { providePlayground } from '../playground/provide-playground';
 })
 export class ButtonDemo {
   readonly playground = playground;
+  readonly quickStart = playground.inlinePreviews?.[0];
+  readonly variations = playground.inlinePreviews?.slice(1) ?? [];
+  readonly variationDescriptions: Readonly<Record<string, string>> = {
+    Basics:
+      'Compare the default, filled and quieter treatments before choosing a visual hierarchy.',
+    Colors: 'Use semantic intent for actions such as saving, confirming or deleting.',
+    Sizes: 'Compare the existing size presets in the context of your application.',
+    Variants: 'Change visual emphasis while keeping the same action and native behavior.',
+    'Shapes, layouts and states':
+      'See icon actions, navigation links, full-width layouts and pending work.',
+  };
   readonly sections: readonly DocumentationSection[] = [
+    { id: 'button-start', label: 'Get started' },
+    { id: 'button-usage', label: 'Choose a control' },
     { id: 'button-playground', label: 'Playground' },
     { id: 'button-examples', label: 'UI examples' },
     { id: 'button-angular', label: 'Angular usage' },

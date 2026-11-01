@@ -125,12 +125,12 @@ describe('Showcase routes', () => {
   it('redirects the root and unknown paths to the buttons page', async () => {
     const { fixture, router, root } = await renderShowcase('/');
     expect(router.url).toBe('/buttons');
-    expect(root.querySelector('main h2')?.textContent?.trim()).toBe('Buttons');
+    expect(root.querySelector('main h1, main h2')?.textContent?.trim()).toBe('Buttons');
 
     await router.navigateByUrl('/missing-component');
     await fixture.whenStable();
     expect(router.url).toBe('/buttons');
-    expect(root.querySelector('main h2')?.textContent?.trim()).toBe('Buttons');
+    expect(root.querySelector('main h1, main h2')?.textContent?.trim()).toBe('Buttons');
   });
 
   it('keeps the current component path and query parameters when skipping to the examples', async () => {
@@ -242,14 +242,15 @@ describe('Showcase routes', () => {
       const activeLink = links.find((link) => link.textContent?.trim() === label);
 
       expect(router.url).toBe(path);
-      expect(main?.querySelectorAll('h2')).toHaveLength(1);
-      expect(main?.querySelector('h2')?.textContent?.trim()).toBe(label);
+      const pageHeading = main?.querySelector('h1, h2');
+      expect(pageHeading?.textContent?.trim()).toBe(label);
+      expect(main?.querySelectorAll(pageHeading!.tagName)).toHaveLength(1);
       expect(main?.querySelector(selector)).not.toBeNull();
       expect(main?.querySelector('demo-documentation-page')).not.toBeNull();
       const sectionLinks = main!.querySelectorAll<HTMLAnchorElement>(
         'demo-documentation-navigation a',
       );
-      expect(sectionLinks).toHaveLength(6);
+      expect(sectionLinks).toHaveLength(path === '/buttons' ? 8 : 6);
       for (const link of sectionLinks) {
         const id = new URL(link.href).hash.slice(1);
         expect(

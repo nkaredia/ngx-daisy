@@ -77,3 +77,5 @@ Web theme-sensitive design and accessibility checks must cover every preset offe
 Web accessibility targets AA as a baseline and AAA where practical, with documented consumer configuration for applicable enhanced criteria. Follow docs/web-accessibility.md. Do not claim full conformance from component tests or a theme profile. Keep stronger daisyUI styling deviations isolated and preserve the syntax-highlighting audit exclusion.
 
 Web accessibility follow-ups must not change colors or sizing without a new explicit user request. Existing contrast, target-size and focus-area findings remain documented limitations; prioritize semantics, keyboard operation, assistive-technology support, announcements and app-owned user preferences.
+
+Review showcase page design one component at a time using docs/showcase-design/README.md. Apply installed frontend-design and web-design-guidelines together with Angular/daisyUI conventions; preserve component colors/sizes and source-generation contracts. Screen-reader and keyboard verification are parked until the user resumes them.
