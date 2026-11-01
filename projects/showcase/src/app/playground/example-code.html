@@ -20,9 +20,8 @@
     @if (expanded()) {
       <dsy-tabs
         label="Example source files"
-        variant="border"
+        variant="lift"
         size="sm"
-        shape="circle"
         [(selectedIndex)]="selectedIndex"
       >
         @for (file of files(); track file.path) {
