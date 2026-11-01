@@ -37,7 +37,7 @@ demo-button-documentation {
     border-radius: 0.25rem;
   }
   a {
-    color: var(--color-primary);
+    color: var(--dsy-color-primary-text, var(--color-primary));
     text-decoration: underline;
     text-underline-offset: 0.2em;
   }
@@ -47,7 +47,7 @@ demo-button-documentation {
   letter-spacing: 0.1em;
   font-size: 0.6875rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
 }
 .button-doc-callout {
   border-inline-start: 3px solid var(--color-primary);
@@ -115,7 +115,7 @@ demo-button-documentation {
     inline-size: 45%;
     font-weight: 400;
     > code {
-      color: var(--color-primary);
+      color: var(--dsy-color-primary-text, var(--color-primary));
       font-weight: 650;
     }
   }

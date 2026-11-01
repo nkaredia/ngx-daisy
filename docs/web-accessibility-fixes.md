@@ -34,3 +34,7 @@ Proposals that change daisyUI defaults are parked in [web-accessibility-deferred
 D05 (keyboard interaction inside projected Diff layers) needs a content policy that preserves comparison text for assistive technology; it remains open. Other incomplete/manual audit results remain review-required rather than assumed passes.
 
 The 109-case evidence and five-builder-test count above describe the earlier high-contrast implementation before this requested revert. They remain historical evidence, not validation of the restored palettes.
+
+## Small default color corrections
+
+The user approved [bounded default foreground adjustments](subtle-contrast-adjustments.md). Selected light/dark Button text and showcase-owned primary text now use the corrected foregrounds; surfaces and original syntax palettes remain unchanged. Larger semantic/soft/tinted-background corrections remain deferred.

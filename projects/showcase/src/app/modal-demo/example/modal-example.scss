@@ -23,7 +23,7 @@ demo-modal-example {
   place-items: center;
   border-radius: 1rem;
   background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 1.25rem;
   font-weight: 800;
 }
@@ -37,7 +37,7 @@ demo-modal-example {
   font-size: 0.85rem;
 }
 .modal-example-eyebrow {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.08em;

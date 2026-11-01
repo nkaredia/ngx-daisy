@@ -20,7 +20,7 @@ demo-text-rotate-example {
   box-shadow: 0 1rem 2.5rem color-mix(in oklab, var(--color-base-content) 8%, transparent);
 }
 .text-rotate-example-eyebrow {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.08em;

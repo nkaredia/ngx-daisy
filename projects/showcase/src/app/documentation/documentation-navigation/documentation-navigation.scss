@@ -20,7 +20,7 @@ demo-documentation-navigation {
     text-decoration: none;
     &:hover,
     &:focus-visible {
-      color: var(--color-primary);
+      color: var(--dsy-color-primary-text, var(--color-primary));
       background: var(--color-base-200);
     }
   }

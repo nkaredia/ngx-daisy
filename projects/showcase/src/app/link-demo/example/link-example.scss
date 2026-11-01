@@ -37,5 +37,5 @@ demo-link-example {
 .link-example-kicker {
   font-size: 0.75rem;
   font-weight: 650;
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
 }

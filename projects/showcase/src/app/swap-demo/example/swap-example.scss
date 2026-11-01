@@ -23,7 +23,7 @@ demo-swap-example {
   place-items: center;
   border-radius: 50%;
   background: color-mix(in oklab, var(--color-primary) 16%, var(--color-base-100));
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
 }
 .swap-example-copy {
   min-width: 0;

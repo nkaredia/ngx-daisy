@@ -51,7 +51,7 @@ demo-range-example .range-example-details > span {
 }
 
 demo-range-example .range-example-details p {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;

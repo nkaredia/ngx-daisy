@@ -200,3 +200,7 @@ See [Data Display](data-display.md) for all 19 families and slot APIs. All nativ
 ## Remaining catalog styling
 
 [Navigation, feedback, layout and mockups](remaining-components.md) cover the final 26 families. The fourteen-case CSS matrix checks their native classes, including Join utilities, tabs, tooltips, menus and mockup parts. Applications retain the same theme/root/include/exclude/prefix/logging controls. Megamenu and tooltip panels copy inherited theme tokens through CDK portals; use global selectors scoped to panelClass/tooltipClass because ancestor selectors do not cross portals. Toast outlets stay within their theme scope. New structural styles sit in a nested utilities layer so application utilities can override visual defaults.
+
+## Bounded contrast defaults
+
+Primary/secondary Button text in explicit light/dark theme scopes receives small relative foreground corrections. Surfaces and theme tokens remain native; custom named themes retain their original colors. See [scope, override hooks and limitations](subtle-contrast-adjustments.md). Set `--dsy-contrast-strength: 0` on a theme scope to retain exact native colors.

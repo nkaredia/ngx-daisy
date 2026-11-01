@@ -16,7 +16,7 @@ demo-timeline-example {
   margin-bottom: 1rem;
 }
 .timeline-example-release header p {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.08em;

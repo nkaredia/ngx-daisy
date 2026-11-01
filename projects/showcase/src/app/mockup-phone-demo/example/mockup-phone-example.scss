@@ -120,6 +120,6 @@ demo-mockup-phone-example nav {
 }
 
 demo-mockup-phone-example nav span:first-child {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-weight: 750;
 }

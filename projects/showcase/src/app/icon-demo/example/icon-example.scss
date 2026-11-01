@@ -28,7 +28,7 @@ demo-icon-example {
   min-width: 0;
 }
 .icon-example-destination p {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.7rem;
   font-weight: 750;
   letter-spacing: 0.08em;

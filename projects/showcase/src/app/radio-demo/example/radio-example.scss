@@ -20,7 +20,7 @@ demo-radio-example p {
 }
 
 demo-radio-example .radio-example-step {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.68rem;
   font-weight: 750;
   letter-spacing: 0.08em;
@@ -51,6 +51,6 @@ demo-radio-example dsy-radio-button {
 }
 
 demo-radio-example dsy-radio-button:has(input:checked) {
-  border-color: var(--color-primary);
+  border-color: var(--dsy-color-primary-text, var(--color-primary));
   background: color-mix(in oklab, var(--color-primary) 8%, var(--color-base-100));
 }

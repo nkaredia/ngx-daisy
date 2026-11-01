@@ -24,7 +24,7 @@ demo-avatar-example {
   min-width: 0;
 }
 .avatar-example-copy > p {
-  color: var(--color-primary);
+  color: var(--dsy-color-primary-text, var(--color-primary));
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
