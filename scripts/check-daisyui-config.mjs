@@ -808,6 +808,11 @@ for (const config of cases) {
       <h1>${config.name}</h1>
       <span id="success-reference" class="${tw('text-success')}">Success reference</span>
       <span id="error-reference" class="${tw('text-error')}">Error reference</span>
+      <dsy-rating class="dsy-rating"><div class="${markup('rating')} ${markup('rating-half')} ${markup('rating-lg')}" role="radiogroup" aria-label="Target size fixture">
+        <span class="dsy-rating-target"><input class="dsy-rating-input ${markup('rating-hidden')}" type="radio" name="rating-fixture" aria-label="Clear rating"><span class="dsy-rating-clear-visual" aria-hidden="true">Clear</span></span>
+        <span class="dsy-rating-target" data-half="first"><input id="rating-half-target" class="dsy-rating-input" type="radio" name="rating-fixture" aria-label="0.5 of 1"><span id="rating-half-visual" class="dsy-rating-item ${markup('mask')} ${markup('mask-star')} ${markup('mask-half-1')}" data-filled="true" aria-hidden="true"></span></span>
+        <span class="dsy-rating-target" data-half="second"><input class="dsy-rating-input" type="radio" name="rating-fixture" aria-label="1 of 1"><span class="dsy-rating-item ${markup('mask')} ${markup('mask-star')} ${markup('mask-half-2')}" data-filled="false" aria-hidden="true"></span></span>
+      </div></dsy-rating>
       <button id="theme-button" class="${markup('btn')} ${markup('btn-primary')}">Themed button</button>
       <section data-theme="light"><button id="contrast-light-original" class="${markup('btn')} ${markup('btn-secondary')} ${markup('btn-outline')}">Original light</button><button id="contrast-light" class="${markup('btn')} ${markup('btn-secondary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-secondary-text)">Light contrast</button></section>
       <section data-theme="dark"><button id="contrast-dark-original" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}">Original dark</button><button id="contrast-dark" class="${markup('btn')} ${markup('btn-primary')} ${markup('btn-outline')}" style="--${prefix}btn-rest-fg:var(--dsy-color-primary-text)">Dark contrast</button>

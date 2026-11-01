@@ -12,7 +12,7 @@ export const documentation = {
   ],
   styling: [
     'Appearance follows the active daisyUI theme. Use application utilities for spacing, layout and responsive sizing; keep disabled, hidden and inert safeguards. Match the library prefix provider to the CSS prefix configuration.',
-    'Choose semantic color and a consistent control size. Preserve native focus and disabled/readonly presentation. Apply application classes to public surfaces instead of overriding Angular form-state safeguards.',
+    'Native radio targets are at least 24px. Half-star pairs keep their visual size with wider interaction spacing. itemClass styles the decorative mask; targetClass styles the hit-area container. Keep native focus and disabled/readonly safeguards.',
   ],
   accessibility: [
     'Provide a visible label or accessible name and associate supporting text with the control. Keep error messages available to assistive technology; do not communicate invalid state using color alone. Preserve native keyboard operation and a visible focus indicator.',

@@ -38,3 +38,11 @@ The 109-case evidence and five-builder-test count above describe the earlier hig
 ## Small default color corrections
 
 The user approved [bounded default foreground adjustments](subtle-contrast-adjustments.md). Selected light/dark Button text and showcase-owned primary text now use the corrected foregrounds; surfaces and original syntax palettes remain unchanged. Larger semantic/soft/tinted-background corrections remain deferred.
+
+## Rating hit areas
+
+A03 is implemented. Transparent native radio inputs occupy independent targets of at least 24px; decorative masks retain the native full/half-star dimensions and selected appearance. Half-star pairs join at their common boundary. Clear rating has a Lucide icon. `targetClass` and CSS hooks expose sizing/focus customization; `itemClass` now styles the decorative mask span.
+
+Browser checks confirmed 24px minimum targets (including xs half-stars), no overlap between adjacent targets, joined visuals, native arrow-key selection, clearing and read-only guards. DOM hit testing confirms pointer access in the empty padding around the visuals. The original eleven target-size flags are absent at desktop/mobile widths in light/dark themes. No document overflow was found; larger scales can scroll inside the control. This does not certify every Rating accessibility criterion or consumer style.
+
+Rating validation: production web builds, 127 library tests and all 14 CSS configurations passed. [Four-case Rating evidence](audits/2026-11-01-web/target-focus/rating-results.json.gz) and [keyboard-focus capture](audits/2026-11-01-web/target-focus/rating-focus.png) are retained. Reduced-motion and forced-color rules are implemented; a full assistive-technology/forced-color rendering review remains outstanding.

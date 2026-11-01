@@ -143,3 +143,33 @@ describe('web accessibility semantics', () => {
     expect(fixture.componentInstance.activations).toBe(1);
   });
 });
+
+describe('Rating target composition', () => {
+  it('keeps full native radio controls separate from decorative half-star masks and updates selection', async () => {
+    const fixture = TestBed.createComponent(DsyRating);
+    fixture.componentRef.setInput('half', true);
+    fixture.componentRef.setInput('allowClear', true);
+    fixture.componentRef.setInput('value', 2.5);
+    fixture.componentRef.setInput('targetClass', 'custom-target');
+    fixture.componentRef.setInput('itemClass', 'custom-visual');
+    await fixture.whenStable();
+    const root: HTMLElement = fixture.nativeElement;
+    const radios = root.querySelectorAll<HTMLInputElement>('input[type="radio"]');
+    expect(radios).toHaveLength(11);
+    expect(root.querySelectorAll('.dsy-rating-target.custom-target')).toHaveLength(11);
+    expect(root.querySelectorAll('.custom-visual[aria-hidden="true"]')).toHaveLength(10);
+    expect(root.querySelector('input.mask')).toBeNull();
+    expect(root.querySelectorAll('.dsy-rating-item[data-filled="true"]')).toHaveLength(5);
+    radios[7].click();
+    await fixture.whenStable();
+    expect(fixture.componentInstance.value()).toBe(3.5);
+    expect(root.querySelectorAll('.dsy-rating-item[data-filled="true"]')).toHaveLength(7);
+    radios[0].click();
+    await fixture.whenStable();
+    expect(fixture.componentInstance.value()).toBe(0);
+    expect(root.querySelectorAll('.dsy-rating-item[data-filled="true"]')).toHaveLength(0);
+    fixture.componentRef.setInput('disabled', true);
+    await fixture.whenStable();
+    expect([...radios].every((radio) => radio.disabled)).toBe(true);
+  });
+});

@@ -155,7 +155,7 @@ Browsers only allow users to populate native file inputs. Programmatic nonempty 
 
 ### Rating
 
-`<dsy-rating>` edits `number | null`. `max` is the number of shapes (default 5, clamped 1–20); `half` enables half steps; `allowClear` adds the zero/clear radio. `shape` supports star, star-2, heart and circle. `size` has the five daisyUI presets. `color` accepts a semantic name or CSS color (base-content by default); `itemClass` customizes the radio shapes.
+`<dsy-rating>` edits `number | null`. `max` is the number of shapes (default 5, clamped 1–20); `half` enables half steps; `allowClear` adds the zero/clear radio. `shape` supports star, star-2, heart and circle. `size` has the five daisyUI presets. `color` accepts a semantic name or CSS color (base-content by default); `itemClass` customizes the decorative mask spans; `targetClass` customizes their target containers. Native radios have separate hit areas of at least 24 × 24 CSS pixels. Half-star visuals remain joined at their native size, with wider spacing between stars; clearing has a visible Lucide icon. See the [Rating target guide](../projects/ngx-daisy/rating/README.md#accessible-target-areas).
 
 Native radio keyboard behavior and labels describe each step, with disabled/readonly safeguards. Schema validation owns allowed values: for example, `required` alone does not mean a rating must exceed zero; apply a minimum rule when needed. Visual shape count is independent of application business rules unless the form supplies matching max metadata.
 

@@ -8,6 +8,7 @@ import {
   numberAttribute,
   ViewEncapsulation,
 } from '@angular/core';
+import { LucideX } from '@lucide/angular';
 import { FormValueControl } from '@angular/forms/signals';
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { DSY_FIELD_CONTROL, DsyValueControl } from '@ngx-daisy/cdk/form-field';
@@ -38,6 +39,7 @@ const shapes = {
 @Component({
   selector: 'dsy-rating',
   standalone: true,
+  imports: [LucideX],
   templateUrl: './rating.component.html',
   styleUrl: './rating.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -62,6 +64,7 @@ export class DsyRating extends DsyValueControl<number> implements FormValueContr
       : this.color() || null,
   );
   readonly itemClass = input('');
+  readonly targetClass = input('');
   protected readonly count = computed(() =>
     Math.max(1, Math.min(20, Math.floor(this.max() ?? 5) || 5)),
   );

@@ -29,6 +29,7 @@ interface ExampleValues {
   readonly size?: ReturnType<DsyRating['size']>;
   readonly shape?: ReturnType<DsyRating['shape']>;
   readonly color?: ReturnType<DsyRating['color']>;
+  readonly targetClass?: ReturnType<DsyRating['targetClass']>;
   readonly itemClass?: ReturnType<DsyRating['itemClass']>;
   readonly value?: ReturnType<DsyRating['value']>;
 }

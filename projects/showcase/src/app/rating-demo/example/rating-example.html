@@ -23,6 +23,7 @@
     [size]="props().size"
     [shape]="props().shape ?? 'star'"
     [color]="props().color ?? ''"
+    [targetClass]="props().targetClass ?? ''"
     [itemClass]="props().itemClass ?? ''"
     [value]="selected()"
     (valueChange)="selected.set($event)"
