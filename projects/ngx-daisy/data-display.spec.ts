@@ -199,6 +199,9 @@ describe('Data Display values', () => {
     await fixture.whenStable();
     expect(host.position()).toBe(75);
     expect(range.getAttribute('aria-valuetext')).toBe('75% before');
+    expect(root.querySelector('.dsy-diff-before')?.textContent).toBe('Before');
+    expect(root.querySelector('.dsy-diff-after')?.textContent).toBe('After');
+    expect(root.querySelector('.dsy-diff-before')?.hasAttribute('inert')).toBe(false);
     host.position.set(200);
     host.disabled.set(true);
     await fixture.whenStable();

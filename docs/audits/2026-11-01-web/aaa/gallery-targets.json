@@ -1,0 +1,36 @@
+{
+  "route": "/hover-galleries",
+  "targets": [
+    {
+      "height": 44,
+      "name": "1: Show Alpine landscape",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "name": "2: Show Coastal landscape",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "name": "3: Show Desert landscape",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "name": "1: Show Alpine landscape",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "name": "2: Show Coastal landscape",
+      "width": 44
+    },
+    {
+      "height": 44,
+      "name": "3: Show Desert landscape",
+      "width": 44
+    }
+  ],
+  "width": 1280
+}

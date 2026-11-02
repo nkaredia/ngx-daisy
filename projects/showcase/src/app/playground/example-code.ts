@@ -34,6 +34,9 @@ export class ExampleCode {
   readonly files = input.required<readonly PlaygroundSourceFile[]>();
   readonly expanded = model(false);
   readonly showToggle = input(true);
+  readonly copyPlacement = input<'overlay' | 'header'>('overlay');
+  readonly wrap = input(false);
+  readonly languageLabels = { typescript: 'TypeScript', html: 'HTML', scss: 'SCSS', css: 'CSS' };
   readonly selectedIndex = linkedSignal({ source: this.files, computation: () => 0 });
   readonly selectedFile = computed(() => this.files()[this.selectedIndex()] ?? this.files()[0]);
   readonly copyStatus = linkedSignal({ source: this.selectedFile, computation: () => '' });

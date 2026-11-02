@@ -1,0 +1,65 @@
+{
+  "toast": {
+    "dismissButtons": ["Dismiss Background sync complete"],
+    "live": [""],
+    "preferences": [
+      {
+        "name": "Keep notifications until dismissed",
+        "pressed": "true"
+      },
+      {
+        "name": "Quiet announcements",
+        "pressed": "true"
+      }
+    ],
+    "theme": "light",
+    "width": 1280
+  },
+  "tableBefore": {
+    "clientHeight": 288,
+    "clientWidth": 366,
+    "name": "Project contributors table",
+    "role": "region",
+    "scrollHeight": 512,
+    "scrollTop": 0,
+    "scrollWidth": 512,
+    "tabindex": "0"
+  },
+  "tableAfter": {
+    "focused": true,
+    "scrollTop": 40
+  },
+  "diff": {
+    "groups": [
+      {
+        "hidden": null,
+        "inert": false,
+        "name": "Before",
+        "text": "StarterSimple analytics12.4kMonthly visitors"
+      },
+      {
+        "hidden": null,
+        "inert": false,
+        "name": "After",
+        "text": "RefreshedFocused analytics18.7kMonthly visitors · 51% growth"
+      },
+      {
+        "hidden": null,
+        "inert": false,
+        "name": "Before",
+        "text": "OriginalA light surface with familiar details."
+      },
+      {
+        "hidden": null,
+        "inert": false,
+        "name": "After",
+        "text": "RefreshedA different mood, the same content."
+      }
+    ],
+    "range": {
+      "label": "Comparison position",
+      "value": "51",
+      "valueText": "51% before"
+    }
+  }
+}

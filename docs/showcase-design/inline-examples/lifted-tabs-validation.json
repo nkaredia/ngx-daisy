@@ -1,0 +1,9 @@
+{
+  "variant": "lift",
+  "cases": 70,
+  "presets": 35,
+  "widths": [320, 1440],
+  "overflowCases": 0,
+  "incompleteCases": 70,
+  "notes": "Layout checks only. Existing colors/sizing remain frozen; no screen-reader or keyboard audit."
+}

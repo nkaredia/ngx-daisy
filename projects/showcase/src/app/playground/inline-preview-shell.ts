@@ -25,7 +25,9 @@ let nextInlinePreviewId = 0;
 export class InlinePreviewShell {
   readonly component = input.required<Type<unknown>>();
   readonly title = input.required<string>();
+  readonly description = input('');
   readonly showTypescript = input(false);
+  readonly presentation = input<'plain' | 'framed' | 'split'>('plain');
   private readonly configurations = inject(PLAYGROUND_CONFIGURATIONS, { optional: true }) ?? [];
   readonly sourceFiles = computed(
     () =>
@@ -35,6 +37,9 @@ export class InlinePreviewShell {
         ?.files.filter(
           (file) =>
             file.language === 'html' || (this.showTypescript() && file.language === 'typescript'),
+        )
+        .sort(
+          (left, right) => Number(left.language !== 'html') - Number(right.language !== 'html'),
         ) ?? [],
   );
   readonly headingId = `inline-preview-heading-${nextInlinePreviewId++}`;

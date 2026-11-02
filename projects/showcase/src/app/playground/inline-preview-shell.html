@@ -1,7 +1,29 @@
-<section class="inline-preview-shell" [attr.aria-labelledby]="headingId">
-  <h3 [id]="headingId">{{ title() }}</h3>
-  <demo-inline-preview [component]="component()" />
-  @if (sourceFiles().length) {
-    <demo-example-code [files]="sourceFiles()" [showToggle]="false" [expanded]="true" />
-  }
+<section
+  class="inline-preview-shell"
+  [class.inline-preview-shell-framed]="presentation() !== 'plain'"
+  [class.inline-preview-shell-split]="presentation() === 'split'"
+  [attr.aria-labelledby]="headingId"
+>
+  <header class="inline-preview-heading">
+    <h3 [id]="headingId">{{ title() }}</h3>
+    @if (description()) {
+      <p class="inline-preview-description">{{ description() }}</p>
+    }
+  </header>
+  <div class="inline-preview-body">
+    <div class="inline-preview-stage">
+      <demo-inline-preview [component]="component()" />
+    </div>
+    @if (sourceFiles().length) {
+      <div class="inline-preview-source">
+        <demo-example-code
+          [files]="sourceFiles()"
+          [showToggle]="false"
+          [expanded]="true"
+          [copyPlacement]="presentation() === 'plain' ? 'overlay' : 'header'"
+          [wrap]="presentation() !== 'plain'"
+        />
+      </div>
+    }
+  </div>
 </section>

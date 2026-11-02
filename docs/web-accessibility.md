@@ -32,16 +32,20 @@ const result = evaluateDaisyContrast([118, 118, 118], [255, 255, 255]);
 
 Inputs are resolved, opaque sRGB channels (0–255). Resolve theme variables, convert other color spaces and composite transparency against the actual backdrop before calling. This helper does not parse CSS, inspect the DOM, choose a theme, modify colors or classify text size. Large text generally means at least 24 CSS px, or roughly 18.67 CSS px when bold; verify the actual delivered typography. Gradients/images require checking the least favorable area behind the text. Passing one pair does not establish component or page compliance.
 
-## Remaining work, in priority order
+## Current follow-up scope
 
-1. Turn the existing 35-theme contrast findings into unique component/state/background cases, with both AA and AAA thresholds. Preserve the accepted subtle defaults. Keep stronger daisyUI deviations in separate files for review; do not silently recolor every preset.
-2. Provide verified enhanced foreground/surface combinations for variants that cannot reach 7:1 with a foreground change alone. Preserve original presets and app overrides; document combinations that need a surface change.
-3. Audit every action target and focus indicator for the enhanced criteria, then supply missing slot hooks or isolated enhancements. Rating supports 44px targets but is not asserted AAA in every layout.
-4. Run manual screen-reader, keyboard, zoom, forced-colors and reduced-motion checks. Automated contrast/target checks cannot replace these.
-5. Publish criterion-by-criterion support and consumer responsibilities with evidence and unresolved gaps for each component family.
+The user has frozen colors and sizing. Existing contrast, enhanced target-size and focus-area findings remain limitations; do not implement further visual corrections without a new explicit request. Historical audit remediation lists do not override this decision.
+
+Prioritize semantics, keyboard access, programmatic names/relationships, user-controlled announcements/timing and manual assistive-technology verification. Toast now exposes per-service user preferences for persistent messages and quiet/polite announcements. Diff exposes named comparison groups, external descriptions and localized value text without hiding comparison content. Showcase table scrollers are named keyboard-focusable regions. See the [remediation log](web-accessibility-fixes.md).
+
+Remaining work includes real screen-reader announcements and reading-order testing, complete keyboard/overlay traversal, browser zoom/text-spacing/reduced-motion checks, incomplete-rule review and consuming-page help/authentication/submission flows. Source and DOM checks do not establish spoken output or full AAA compliance.
 
 Syntax-highlighting text remains excluded from our audits at the user's request. Its existing palettes remain unchanged. Code-viewer tabs, copy buttons, focus and keyboard behavior remain in scope. A full consuming-page conformance evaluation must still address all applicable content, including code samples.
 
 ## Validation of this increment
 
 Production core/library and showcase builds pass. The showcase retains its existing initial-bundle and theme-builder style warnings; skill folders are excluded from Tailwind source scanning. Checks pass: 130 web library tests, 35 showcase tests, 14 CSS configurations, four builder tests and 72 documentation examples. Gallery tests cover default controls, selection and explicit opt-out keyboard behavior. Contrast tests cover black/white, symmetry, near-threshold AA/AAA distinctions and invalid inputs. No new all-theme browser or assistive-technology run was performed for this increment; the prior matrix is historical evidence and does not verify these changes. Palette correction work remains open.
+
+## AAA verification outcome
+
+The [AAA verification report](audits/2026-11-01-web/aaa/README.md) records confirmed contrast/target gaps, focus-area concerns, all-preset static evidence and a complete AAA criterion ledger. Full AAA support is not established. Hooks and an assessment helper do not constitute a verified enhanced theme or complete consuming-page conformance.

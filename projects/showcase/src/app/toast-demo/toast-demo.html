@@ -26,6 +26,28 @@
             Clear notifications
           </button>
         </div>
+        <div class="demo-row" role="group" aria-label="Notification accessibility preferences">
+          <button
+            type="button"
+            class="catalog-button"
+            [attr.aria-pressed]="service.accessibility().persistent"
+            (click)="togglePersistence()"
+          >
+            Keep notifications until dismissed
+          </button>
+          <button
+            type="button"
+            class="catalog-button"
+            [attr.aria-pressed]="service.accessibility().announcements === 'off'"
+            (click)="toggleAnnouncements()"
+          >
+            Quiet announcements
+          </button>
+        </div>
+        <p>
+          Quiet announcements keeps notifications visible without publishing new live announcements.
+          Persistence cancels expiry for existing and future messages.
+        </p>
         <p class="demo-status">Active notifications: {{ service.messages().length }}</p>
         <dsy-toast-outlet />
       </section>

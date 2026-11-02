@@ -1,0 +1,15 @@
+{
+  "checked": true,
+  "focus": "2 of 5",
+  "insetArea": 176,
+  "offset": "-2px",
+  "outline": "oklch(0.4 0.0081 61.42) solid 2px",
+  "referenceArea": 192,
+  "route": "/ratings",
+  "target": {
+    "height": 24,
+    "width": 24
+  },
+  "theme": "silk",
+  "width": 1280
+}

@@ -1,0 +1,9 @@
+{
+  "cases": 70,
+  "presets": 35,
+  "widths": [320, 1440],
+  "overflowCases": 0,
+  "incompleteCases": 70,
+  "contrastFlagCases": 68,
+  "scope": "Buttons framed/split presentation layout; color and size findings remain frozen; no manual screen-reader or keyboard verification."
+}

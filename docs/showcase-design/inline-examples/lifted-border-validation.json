@@ -1,0 +1,8 @@
+{
+  "cases": 70,
+  "presets": 35,
+  "widths": [320, 1440],
+  "overflowCases": 0,
+  "incompleteCases": 70,
+  "scope": "Layout check for duplicate code-viewer border removal. Existing color findings remain frozen; no manual AT verification."
+}

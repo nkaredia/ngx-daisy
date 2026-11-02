@@ -1,0 +1,25 @@
+{
+  "opened": {
+    "height": 36,
+    "insetArea": 896,
+    "name": "Open project",
+    "offset": "-2px",
+    "outline": "oklch(0.21 0.006 285.885) solid 2px",
+    "referenceArea": 912,
+    "role": "menuitem",
+    "width": 192
+  },
+  "end": "Duplicate",
+  "escape": {
+    "expanded": "false",
+    "label": "Project actions",
+    "menuPresent": false,
+    "text": ""
+  },
+  "context": {
+    "height": 720,
+    "route": "/dropdowns",
+    "theme": "light",
+    "width": 1280
+  }
+}

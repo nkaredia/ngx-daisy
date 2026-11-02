@@ -24,8 +24,8 @@ demo-example-code {
   margin: 0;
   padding: 1rem 1rem;
   overflow: auto;
-  border: 1px solid var(--color-base-300);
-  border-radius: var(--radius-field, 0.5rem);
+  border: 0;
+  border-radius: 0;
   background: var(--example-code-background);
   color: var(--example-code-foreground);
   font-family: ui-monospace, monospace;
@@ -51,9 +51,34 @@ demo-example-code .dsy-tab-list {
 
 .example-code-panel {
   position: relative;
+  // The native lifted tab panel owns the outer border and corner geometry.
+  overflow: hidden;
 }
 .example-code-copy {
   position: absolute;
   inset-block-start: 0.5rem;
   inset-inline-end: 0.5rem;
+}
+
+.example-code-panel-header-copy {
+  .example-code-file-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+    border-block-end: 1px solid var(--color-base-300);
+    background: var(--example-code-background);
+    color: var(--example-code-foreground);
+    font-size: 0.75rem;
+    > .example-code-copy {
+      position: static;
+      flex: none;
+    }
+  }
+}
+
+.example-code-panel-wrap pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }

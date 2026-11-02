@@ -358,6 +358,33 @@ describe('Toast notifications', () => {
     vi.advanceTimersByTime(1);
     expect(service.messages()).toHaveLength(0);
   });
+  it('lets app-owned preferences suppress or de-escalate future announcements', () => {
+    const service = TestBed.inject(DsyToastService);
+    service.setAccessibility({ announcements: 'off' });
+    service.show('Background update', { announcement: 'assertive' });
+    expect(announce).not.toHaveBeenCalled();
+    expect(service.messages()).toHaveLength(1);
+    service.setAccessibility({ announcements: 'polite' });
+    service.show('Updated', { announcement: 'assertive' });
+    expect(announce).toHaveBeenCalledWith('Updated', 'polite');
+    service.show('Silent', { announcement: 'off' });
+    expect(announce).toHaveBeenCalledTimes(1);
+  });
+  it('cancels current and future expiry without restarting it when preferences change', () => {
+    vi.useFakeTimers();
+    const service = TestBed.inject(DsyToastService);
+    const first = service.show('First', { duration: 1000 });
+    service.pause(first, 'focus');
+    service.setAccessibility({ persistent: true });
+    service.resume(first, 'focus');
+    service.show('Second', { duration: 1000 });
+    service.setAccessibility({ persistent: false });
+    vi.advanceTimersByTime(5000);
+    expect(service.messages().map((message) => message.text)).toEqual(['First', 'Second']);
+    service.show('Third', { duration: 1000 });
+    vi.advanceTimersByTime(1000);
+    expect(service.messages()).toHaveLength(2);
+  });
   it('renders dismiss controls without taking focus', async () => {
     const { root, fixture } = await render(ToastHost);
     const active = document.activeElement;

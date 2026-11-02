@@ -16,11 +16,18 @@ import { LucideChevronsLeftRight } from '@lucide/angular';
     <div
       [class]="daisy('diff-item-1')"
       class="dsy-diff-before"
+      role="group"
+      [attr.aria-label]="beforeLabel()"
       [style.clip-path]="'inset(0 ' + (100 - safePosition()) + '% 0 0)'"
     >
       <ng-content select="[dsyDiffBefore]" />
     </div>
-    <div [class]="daisy('diff-item-2')" class="dsy-diff-after">
+    <div
+      [class]="daisy('diff-item-2')"
+      class="dsy-diff-after"
+      role="group"
+      [attr.aria-label]="afterLabel()"
+    >
       <ng-content select="[dsyDiffAfter]" />
     </div>
     <div
@@ -40,7 +47,10 @@ import { LucideChevronsLeftRight } from '@lucide/angular';
       [value]="safePosition()"
       [disabled]="disabled()"
       [attr.aria-label]="label()"
-      [attr.aria-valuetext]="safePosition() + '% before'"
+      [attr.aria-valuetext]="
+        valueText() ? valueText()!(safePosition()) : safePosition() + '% before'
+      "
+      [attr.aria-describedby]="ariaDescribedBy() || null"
       (input)="position.set(+$any($event.target).value)"
     />
   </div>`,
@@ -54,6 +64,10 @@ export class DsyDiff {
   readonly daisy = injectDaisyUIClasses();
   readonly position = model(50);
   readonly label = input('Comparison position');
+  readonly beforeLabel = input('Before');
+  readonly afterLabel = input('After');
+  readonly ariaDescribedBy = input('', { alias: 'aria-describedby' });
+  readonly valueText = input<((position: number) => string) | null>(null);
   readonly disabled = input(false, { transform: booleanAttribute });
   readonly safePosition = computed(() =>
     Math.max(0, Math.min(100, Number.isFinite(this.position()) ? this.position() : 50)),

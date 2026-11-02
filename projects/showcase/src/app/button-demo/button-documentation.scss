@@ -10,12 +10,12 @@ demo-button-documentation {
   scroll-margin-block-start: 6rem;
   padding-block-start: 2rem;
   border-block-start: 1px solid var(--color-base-300);
-  h3 {
+  h2 {
     font-size: 1.5rem;
     font-weight: 650;
     letter-spacing: -0.025em;
   }
-  h4 {
+  h3 {
     font-size: 1rem;
     font-weight: 650;
     margin-block-start: 1rem;
@@ -42,13 +42,6 @@ demo-button-documentation {
     text-underline-offset: 0.2em;
   }
 }
-.button-doc-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--dsy-color-primary-text, var(--color-primary));
-}
 .button-doc-callout {
   border-inline-start: 3px solid var(--color-primary);
   background: color-mix(in oklab, var(--color-primary) 5%, var(--color-base-100));
@@ -69,7 +62,7 @@ demo-button-documentation {
     padding: 1.25rem;
     background: var(--color-base-200);
     border-radius: var(--radius-box);
-    h4 {
+    h3 {
       margin: 0 0 0.5rem;
       font-size: 0.875rem;
     }

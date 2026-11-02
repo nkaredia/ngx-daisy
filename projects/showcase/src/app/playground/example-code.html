@@ -20,28 +20,37 @@
     @if (expanded()) {
       <dsy-tabs
         label="Example source files"
-        variant="border"
+        variant="lift"
         size="sm"
-        shape="circle"
         [(selectedIndex)]="selectedIndex"
       >
         @for (file of files(); track file.path) {
           <button dsyTab>{{ file.path }}</button>
         }
         @for (file of files(); track file.path; let index = $index) {
-          <div [dsyTabPanel]="index" class="example-code-panel">
-            <button
-              dsyButton
-              variant="ghost"
-              size="sm"
-              shape="circle"
-              class="example-code-copy"
-              [attr.aria-label]="'Copy ' + file.path"
-              [dsyTooltip]="'Copy ' + file.path"
-              (click)="copy(file)"
-            >
-              <dsy-icon><svg [lucideIcon]="icons.copy" aria-hidden="true"></svg></dsy-icon>
-            </button>
+          <div
+            [dsyTabPanel]="index"
+            class="example-code-panel"
+            [class.example-code-panel-header-copy]="copyPlacement() === 'header'"
+            [class.example-code-panel-wrap]="wrap()"
+          >
+            <div class="example-code-file-header">
+              @if (copyPlacement() === 'header') {
+                <span>{{ languageLabels[file.language] }}</span>
+              }
+              <button
+                dsyButton
+                variant="ghost"
+                size="sm"
+                shape="circle"
+                class="example-code-copy"
+                [attr.aria-label]="'Copy ' + file.path"
+                [dsyTooltip]="'Copy ' + file.path"
+                (click)="copy(file)"
+              >
+                <dsy-icon><svg [lucideIcon]="icons.copy" aria-hidden="true"></svg></dsy-icon>
+              </button>
+            </div>
             <pre
               tabindex="0"
               [attr.aria-label]="'Source code: ' + file.path"

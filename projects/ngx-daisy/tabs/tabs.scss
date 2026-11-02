@@ -31,6 +31,22 @@
     :where(dsy-tabs[data-variant='lift'] > .dsy-tab-list) {
       z-index: 1;
     }
+    // daisyUI's first-inactive-tab exception expects headings and content as siblings.
+    // Mirror it across our separate tablist so the seam cannot protrude past a rounded panel.
+    :where(
+      dsy-tabs[data-variant='lift'][data-placement='top']
+        > .dsy-tab-list
+        > [role='tab']:first-child[aria-selected='false']
+    ) {
+      border-block-end-color: transparent;
+    }
+    :where(
+      dsy-tabs[data-variant='lift'][data-placement='bottom']
+        > .dsy-tab-list
+        > [role='tab']:first-child[aria-selected='false']
+    ) {
+      border-block-start-color: transparent;
+    }
     :where(dsy-tabs[data-variant='lift'] > .dsy-tab-panel) {
       border-color: var(--tab-border-color, var(--color-base-300));
       background: var(--tab-bg, var(--color-base-100));
