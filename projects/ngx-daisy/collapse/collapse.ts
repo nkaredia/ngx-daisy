@@ -1,5 +1,6 @@
 import {
   Component,
+  Directive,
   ChangeDetectionStrategy,
   ViewEncapsulation,
   input,
@@ -12,66 +13,46 @@ import {
   TemplateRef,
   signal,
   untracked,
+  viewChild,
 } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { injectDaisyUIClasses } from '@ngx-daisy/cdk/config';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
+import {
+  ACCORDION_GROUP,
+  AccordionGroup,
+  AccordionTrigger,
+  AccordionPanel,
+  AccordionContent,
+} from '@angular/aria/accordion';
+import { DsyAccordion } from '@ngx-daisy/cdk/accordion';
 import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
+/** Bridges the Angular logical view boundary without depending on Aria internals. */
+@Directive({
+  selector: '[dsyCollapseAriaContext]',
+  providers: [
+    {
+      provide: ACCORDION_GROUP,
+      useFactory: () => {
+        const collapse = inject(DsyCollapse);
+        return collapse.parentAccordion?.ariaGroup ?? collapse.localGroup();
+      },
+    },
+  ],
+})
+class DsyCollapseAriaContext {}
 @Component({
   selector: 'dsy-collapse',
   hostDirectives: [CdkAccordionItem],
-  imports: [NgTemplateOutlet],
-  template: `@if (trigger() === 'button') {
-      <div [class]="daisy('collapse-title') + ' dsy-collapse-button-heading ' + titleClass()">
-        <div class="dsy-collapse-header">
-          <span>{{ title() }}</span
-          ><ng-content select="[dsyCollapseHeader]" />
-        </div>
-        @if (triggerTemplate(); as template) {
-          <ng-container
-            [ngTemplateOutlet]="template"
-            [ngTemplateOutletContext]="{ $implicit: this }"
-          />
-        } @else {
-          <button
-            type="button"
-            class="dsy-collapse-trigger dsy-collapse-default-trigger"
-            [id]="id + '-trigger'"
-            [disabled]="disabled()"
-            [attr.aria-expanded]="opened()"
-            [attr.aria-controls]="id + '-panel'"
-            (click)="toggle()"
-          >
-            {{ opened() ? closeLabel() : openLabel() }}
-          </button>
-        }
-      </div>
-    } @else {
-      <h3 class="dsy-collapse-heading">
-        <button
-          type="button"
-          [class]="daisy('collapse-title') + ' ' + titleClass()"
-          [id]="id + '-trigger'"
-          [disabled]="disabled()"
-          [attr.aria-expanded]="opened()"
-          [attr.aria-controls]="id + '-panel'"
-          (click)="toggle()"
-        >
-          {{ title() }}<ng-content select="[dsyCollapseTitle]" />
-        </button>
-      </h3>
-    }
-    <div
-      [id]="id + '-panel'"
-      [class]="daisy('collapse-content') + ' ' + contentClass()"
-      role="region"
-      [attr.aria-labelledby]="id + '-trigger'"
-      [hidden]="!contentVisible()"
-      [attr.aria-hidden]="opened() ? null : 'true'"
-      [attr.inert]="opened() ? null : ''"
-    >
-      <ng-content />
-    </div>`,
+  imports: [
+    NgTemplateOutlet,
+    AccordionGroup,
+    AccordionTrigger,
+    AccordionPanel,
+    AccordionContent,
+    DsyCollapseAriaContext,
+  ],
+  templateUrl: './collapse.html',
   styleUrl: './collapse.scss',
   host: {
     '[class]': 'classes()',
@@ -83,8 +64,14 @@ import { DsyIdGenerator } from '@ngx-daisy/cdk/overlay';
   encapsulation: ViewEncapsulation.None,
 })
 export class DsyCollapse {
+  /** @internal Only standalone disclosures create a local keyboard group. */
+  readonly parentAccordion = inject(DsyAccordion, { optional: true });
+  readonly localGroup = viewChild.required(AccordionGroup);
   readonly triggerTemplate = input<TemplateRef<{ $implicit: DsyCollapse }> | null>(null);
   readonly trigger = input<'title' | 'button'>('title');
+  readonly customTrigger = computed(() =>
+    this.trigger() === 'button' ? this.triggerTemplate() : null,
+  );
   readonly openLabel = input('Show details');
   readonly closeLabel = input('Hide details');
   readonly titleClass = input('');
@@ -141,6 +128,16 @@ export class DsyCollapse {
       if (!this.opened()) this.restoreFocus();
       this.item.expanded = this.opened();
     });
+  }
+  /** Keep panel editing and custom header controls outside the group's disclosure key map. */
+  containInteraction(event: KeyboardEvent) {
+    if (
+      !event.altKey &&
+      !event.ctrlKey &&
+      !event.metaKey &&
+      ['ArrowUp', 'ArrowDown', 'Home', 'End', 'Enter', ' '].includes(event.key)
+    )
+      event.stopPropagation();
   }
   finishClose(event: TransitionEvent) {
     if (

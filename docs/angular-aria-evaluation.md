@@ -2,6 +2,10 @@
 
 Evaluated on November 1, 2026 against the installed Angular, CDK and Aria **22.2.3** packages. This is an adoption spike, not a migration or an accessibility certification.
 
+## Implementation follow-up
+
+The Accordion/Collapse pilot has now adopted Aria for enabled built-in triggers and panel relationships while retaining CDK expansion coordination for compatibility with legacy custom templates. Native-disabled triggers remain native-only and are omitted from the enabled-trigger navigation list. This deliberately keeps one existing expansion coordinator for both kinds of trigger; it is not a wholesale replacement of CDK. Tabs and Dropdown remain unchanged. See the component READMEs for the shipped contract. The evaluation observations below describe the original isolated probes, before this implementation.
+
 ## Decision
 
 Adopt selectively through our existing `dsy` components. Start with an **Accordion/Collapse adapter pilot**, then resolve the Tabs projection boundary, then prototype Dropdown's menu mode with its real overlay lifecycle. Keep CDK overlays, theme propagation, focus traps and announcement services where they already serve the library.
@@ -23,7 +27,7 @@ No shipped component, showcase route or public entry point imports Aria in this 
 
 Aria's `multiExpandable` maps naturally to our `multi`. The prototype retains eager projected content when a panel closes. This is distinct from Aria's optional lazy template content, which is removed on collapse by default unless preserved. See the [Accordion guide](https://angular.dev/guide/aria/accordion).
 
-A trigger requires an accordion-group injection context. Our standalone `dsy-collapse` currently works without an authored `dsy-accordion`, so a production adapter needs a local fallback group without breaking the surrounding group when present. The negative standalone probe documents that requirement. Aria's group does not expose our `openAll` / `closeAll` facade; the wrapper must retain those methods using its owned child triggers and supported public expansion methods.
+A trigger requires an accordion-group injection context. Our standalone `dsy-collapse` currently works without an authored `dsy-accordion`, so a production adapter needs a local fallback group without breaking the surrounding group when present. The negative standalone probe documents that requirement. Aria names its public group commands `expandAll` and `collapseAll`. Our existing `openAll` / `closeAll` facade still needs to be preserved.
 
 Our custom button-only disclosure variation and its caller-supplied trigger template need a separate adapter design. Keep content inert immediately on close while retaining the exiting visual content for our existing reduced-motion-aware transition. Aria's panel state alone does not implement that visual lifecycle.
 
