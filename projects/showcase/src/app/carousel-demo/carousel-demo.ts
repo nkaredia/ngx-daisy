@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,14 @@ import { DsyCarousel, DsyCarouselItem } from '@ngx-daisy/cdk/carousel';
 @Component({
   selector: 'demo-carousel-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyCarousel, DsyCarouselItem],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyCarousel,
+    DsyCarouselItem,
+  ],
   templateUrl: './carousel-demo.html',
   styleUrl: './carousel-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

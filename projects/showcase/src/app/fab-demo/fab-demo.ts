@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import {
   LucidePlus,
   LucideX,
@@ -26,6 +27,7 @@ import {
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     LucidePlus,
     LucideX,
     LucideArrowUpRight,
@@ -49,10 +51,6 @@ import {
 export class FabDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = [
-    { id: 'fab-overview', label: 'Overview' },
-    { id: 'fab-playground', label: 'Playground' },
-    ...componentDocumentationSections(documentation.id).slice(1),
-  ];
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly action = signal('Choose an action');
 }

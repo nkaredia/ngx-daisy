@@ -3,15 +3,30 @@
   navigationLabel="Breadcrumbs documentation sections"
 >
   <div id="breadcrumbs-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Breadcrumbs</h2>
-      <p>A labelled navigation landmark with native list and link semantics.</p>
-      <h3 id="breadcrumbs-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo catalog-demo component-page" aria-labelledby="breadcrumbs-title">
+      <demo-documentation-header
+        title="Breadcrumbs"
+        headingId="breadcrumbs-title"
+        category="Navigation"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/breadcrumbs/"
+      >
+        A labelled navigation landmark with native list and link semantics.
+      </demo-documentation-header>
+      <div id="breadcrumbs-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="breadcrumbs-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Project location</h3>

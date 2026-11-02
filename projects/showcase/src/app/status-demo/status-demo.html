@@ -3,15 +3,30 @@
   navigationLabel="Status Indicators documentation sections"
 >
   <div id="status-overview" class="component-documentation-demo">
-    <section class="action-demo display-demo">
-      <h2>Status Indicators</h2>
-      <p>Decorative status dots paired with text, so meaning does not rely on color.</p>
-      <h3 id="status-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo display-demo component-page" aria-labelledby="status-title">
+      <demo-documentation-header
+        title="Status Indicators"
+        headingId="status-title"
+        category="Data Display"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/status/"
+      >
+        Decorative status dots paired with text, so meaning does not rely on color.
+      </demo-documentation-header>
+      <div id="status-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="status-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Service health</h3>

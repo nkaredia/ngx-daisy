@@ -3,15 +3,30 @@
   navigationLabel="Progress documentation sections"
 >
   <div id="progress-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Progress</h2>
-      <p>Native progress bars support determinate and indeterminate tasks.</p>
-      <h3 id="progress-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo catalog-demo component-page" aria-labelledby="progress-title">
+      <demo-documentation-header
+        title="Progress"
+        headingId="progress-title"
+        category="Feedback"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/progress/"
+      >
+        Native progress bars support determinate and indeterminate tasks.
+      </demo-documentation-header>
+      <div id="progress-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="progress-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Upload progress</h3>

@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,14 @@ import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 @Component({
   selector: 'demo-accordion-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyAccordion, DsyCollapse],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyAccordion,
+    DsyCollapse,
+  ],
   templateUrl: './accordion-demo.html',
   styleUrl: './accordion-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

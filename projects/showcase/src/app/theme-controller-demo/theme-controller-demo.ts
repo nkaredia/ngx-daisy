@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -12,7 +13,14 @@ import { DsyButton } from '@ngx-daisy/cdk/button';
   selector: 'demo-theme-controller-demo',
   standalone: true,
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyThemeController, DsyButton],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyThemeController,
+    DsyButton,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './theme-controller-demo.html',
@@ -21,11 +29,7 @@ import { DsyButton } from '@ngx-daisy/cdk/button';
 export class ThemeControllerDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = [
-    { id: 'theme-controller-overview', label: 'Overview' },
-    { id: 'theme-controller-playground', label: 'Playground' },
-    ...componentDocumentationSections(documentation.id).slice(1),
-  ];
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly theme = signal('light');
   readonly themes = ['light', 'dark', 'cupcake', 'synthwave'];
 }

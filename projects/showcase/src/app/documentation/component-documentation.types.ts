@@ -19,6 +19,7 @@ export interface ComponentDocumentationContent {
 export function componentDocumentationSections(id: string): readonly DocumentationSection[] {
   return [
     { id: `${id}-overview`, label: 'Overview' },
+    { id: `${id}-playground`, label: 'Playground' },
     { id: `${id}-examples`, label: 'UI examples' },
     { id: `${id}-angular`, label: 'Angular usage' },
     { id: `${id}-styling`, label: 'Styling' },

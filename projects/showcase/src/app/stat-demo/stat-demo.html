@@ -3,15 +3,30 @@
   navigationLabel="Stats documentation sections"
 >
   <div id="stat-overview" class="component-documentation-demo">
-    <section class="action-demo display-demo">
-      <h2>Stats</h2>
-      <p>Group figures horizontally or vertically while inheriting the current theme.</p>
-      <h3 id="stat-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo display-demo component-page" aria-labelledby="stat-title">
+      <demo-documentation-header
+        title="Stats"
+        headingId="stat-title"
+        category="Data Display"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/stat/"
+      >
+        Group figures horizontally or vertically while inheriting the current theme.
+      </demo-documentation-header>
+      <div id="stat-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="stat-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Project overview</h3>

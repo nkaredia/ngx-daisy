@@ -3,15 +3,30 @@
   navigationLabel="Steps documentation sections"
 >
   <div id="steps-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Steps</h2>
-      <p>Show workflow progress without imposing form or navigation behavior.</p>
-      <h3 id="steps-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo catalog-demo component-page" aria-labelledby="steps-title">
+      <demo-documentation-header
+        title="Steps"
+        headingId="steps-title"
+        category="Navigation"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/steps/"
+      >
+        Show workflow progress without imposing form or navigation behavior.
+      </demo-documentation-header>
+      <div id="steps-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="steps-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Setup progress</h3>

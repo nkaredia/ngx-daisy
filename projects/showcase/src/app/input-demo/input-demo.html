@@ -3,18 +3,31 @@
   navigationLabel="Text Inputs documentation sections"
 >
   <div id="input-overview" class="component-documentation-demo">
-    <section class="action-demo input-demo">
-      <h2>Text Inputs</h2>
-      <p>
+    <section class="action-demo input-demo component-page" aria-labelledby="input-title">
+      <demo-documentation-header
+        title="Text Inputs"
+        headingId="input-title"
+        category="Data Input"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/input/"
+      >
         Native text, number and date inputs with Material-style field composition and app-owned
         validation.
-      </p>
-      <h3 id="input-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="input-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="input-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <div class="demo-card">

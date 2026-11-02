@@ -3,18 +3,31 @@
   navigationLabel="Hover 3D Cards documentation sections"
 >
   <div id="hover-3d-overview" class="component-documentation-demo">
-    <section class="action-demo display-demo">
-      <h2>Hover 3D Cards</h2>
-      <p>
+    <section class="action-demo display-demo component-page" aria-labelledby="hover-3d-title">
+      <demo-documentation-header
+        title="Hover 3D Cards"
+        headingId="hover-3d-title"
+        category="Data Display"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/hover-3d/"
+      >
         A subtle pointer tilt that preserves links and buttons. Reduced-motion preferences disable
         the effect.
-      </p>
-      <h3 id="hover-3d-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="hover-3d-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="hover-3d-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Interactive content</h3>

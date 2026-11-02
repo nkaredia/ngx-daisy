@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -20,7 +21,14 @@ import { map } from 'rxjs';
 @Component({
   selector: 'demo-megamenu-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyMegamenu, DsyMegamenuItem],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyMegamenu,
+    DsyMegamenuItem,
+  ],
   templateUrl: './megamenu-demo.html',
   styleUrl: './megamenu-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

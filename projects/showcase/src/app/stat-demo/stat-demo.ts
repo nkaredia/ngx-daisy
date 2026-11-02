@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { LucideArrowUpRight } from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
@@ -27,6 +28,7 @@ import {
   selector: 'demo-stat-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     LucideArrowUpRight,
     DocumentationPage,
     ComponentDocumentation,

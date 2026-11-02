@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,14 @@ import { DsyToast, DsyToastOutlet, DsyToastService } from '@ngx-daisy/cdk/toast'
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-toast-demo',
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyToast, DsyToastOutlet],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyToast,
+    DsyToastOutlet,
+  ],
   templateUrl: './toast-demo.html',
   styleUrl: './toast-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

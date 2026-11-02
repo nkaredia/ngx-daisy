@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,13 @@ import { DsyHoverGallery } from '@ngx-daisy/cdk/hover-gallery';
 @Component({
   selector: 'demo-hover-gallery-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyHoverGallery],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyHoverGallery,
+  ],
   templateUrl: './hover-gallery-demo.html',
   styleUrl: './hover-gallery-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

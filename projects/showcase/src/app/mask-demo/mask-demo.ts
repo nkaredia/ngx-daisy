@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,7 @@ import { DsyMask } from '@ngx-daisy/cdk/mask';
 @Component({
   selector: 'demo-mask-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyMask],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyMask],
   templateUrl: './mask-demo.html',
   styleUrl: './mask-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

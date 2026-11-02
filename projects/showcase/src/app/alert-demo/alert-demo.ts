@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { LucideCheck, LucideX } from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
@@ -19,7 +20,15 @@ import { DsyAlert } from '@ngx-daisy/cdk/alert';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-alert-demo',
-  imports: [LucideCheck, LucideX, DocumentationPage, ComponentDocumentation, Playground, DsyAlert],
+  imports: [
+    DocumentationHeader,
+    LucideCheck,
+    LucideX,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyAlert,
+  ],
   templateUrl: './alert-demo.html',
   styleUrl: './alert-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

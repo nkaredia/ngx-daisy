@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,13 @@ import { DsyTextRotate } from '@ngx-daisy/cdk/text-rotate';
 @Component({
   selector: 'demo-text-rotate-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyTextRotate],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyTextRotate,
+  ],
   templateUrl: './text-rotate-demo.html',
   styleUrl: './text-rotate-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

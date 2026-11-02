@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -26,7 +27,14 @@ import {
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-loader-demo',
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyButton, DsyLoader],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyButton,
+    DsyLoader,
+  ],
   templateUrl: './loader-demo.html',
   styleUrl: './loader-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

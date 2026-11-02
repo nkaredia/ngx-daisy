@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,7 @@ import { DsyHover3d } from '@ngx-daisy/cdk/hover-3d';
 @Component({
   selector: 'demo-hover-3d-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyHover3d],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyHover3d],
   templateUrl: './hover-3d-demo.html',
   styleUrl: './hover-3d-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

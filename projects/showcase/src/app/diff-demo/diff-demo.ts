@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,7 @@ import { DsyDiff } from '@ngx-daisy/cdk/diff';
 @Component({
   selector: 'demo-diff-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyDiff],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyDiff],
   templateUrl: './diff-demo.html',
   styleUrl: './diff-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

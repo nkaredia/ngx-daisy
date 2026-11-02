@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { DsyProgress } from '@ngx-daisy/cdk/progress';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-progress-demo',
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyProgress],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyProgress,
+  ],
   templateUrl: './progress-demo.html',
   styleUrl: './progress-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

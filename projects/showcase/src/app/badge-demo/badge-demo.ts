@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,7 @@ import { DsyBadge } from '@ngx-daisy/cdk/badge';
 @Component({
   selector: 'demo-badge-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyBadge],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyBadge],
   templateUrl: './badge-demo.html',
   styleUrl: './badge-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

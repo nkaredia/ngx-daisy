@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -20,6 +21,7 @@ import {
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,
@@ -38,11 +40,7 @@ import {
 export class ModalDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = [
-    { id: 'modal-overview', label: 'Overview' },
-    { id: 'modal-playground', label: 'Playground' },
-    ...componentDocumentationSections(documentation.id).slice(1),
-  ];
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly placement = signal<DsyModalPlacement>('middle');
   readonly locked = signal(false);
   readonly result = signal('No result yet');

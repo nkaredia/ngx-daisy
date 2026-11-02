@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -19,7 +20,15 @@ import { DsyJoin, DsyJoinItem } from '@ngx-daisy/cdk/join';
 @Component({
   selector: 'demo-join-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyJoin, DsyJoinItem, DsyButton],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyJoin,
+    DsyJoinItem,
+    DsyButton,
+  ],
   templateUrl: './join-demo.html',
   styleUrl: './join-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
