@@ -21,7 +21,11 @@ import { DsySwap } from '@ngx-daisy/cdk/swap';
 export class SwapDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = componentDocumentationSections(documentation.id);
+  readonly documentationSections = [
+    { id: 'swap-overview', label: 'Overview' },
+    { id: 'swap-playground', label: 'Playground' },
+    ...componentDocumentationSections(documentation.id).slice(1),
+  ];
   readonly sound = signal(false);
   readonly formValue = signal(true);
   readonly disabled = signal(false);

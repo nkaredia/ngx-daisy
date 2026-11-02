@@ -25,3 +25,18 @@ demo-documentation-navigation {
     }
   }
 }
+
+@media (max-width: 1199px) {
+  demo-documentation-navigation {
+    min-inline-size: 0;
+  }
+  .documentation-section-links {
+    flex-direction: row;
+    overflow-x: auto;
+    border-inline-start: 0;
+    > a {
+      flex: none;
+      white-space: nowrap;
+    }
+  }
+}

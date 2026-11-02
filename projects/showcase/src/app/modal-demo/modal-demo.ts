@@ -38,7 +38,11 @@ import {
 export class ModalDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = componentDocumentationSections(documentation.id);
+  readonly documentationSections = [
+    { id: 'modal-overview', label: 'Overview' },
+    { id: 'modal-playground', label: 'Playground' },
+    ...componentDocumentationSections(documentation.id).slice(1),
+  ];
   readonly placement = signal<DsyModalPlacement>('middle');
   readonly locked = signal(false);
   readonly result = signal('No result yet');

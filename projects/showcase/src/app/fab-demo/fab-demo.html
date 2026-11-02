@@ -3,18 +3,34 @@
   navigationLabel="FAB / Speed Dial documentation sections"
 >
   <div id="fab-overview" class="component-documentation-demo">
-    <section class="action-demo">
-      <h2>FAB / Speed Dial</h2>
-      <p>
-        Floating action buttons support a single action, a vertical speed dial or a flower layout.
-        Use click, Escape, arrow keys and typeahead to move between actions.
-      </p>
-      <h3 id="fab-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo component-page" aria-labelledby="fab-title">
+      <header class="component-page-header">
+        <div class="component-page-import">
+          <span>Actions</span><code translate="no">&#64;ngx-daisy/cdk/fab</code>
+        </div>
+        <h1 id="fab-title">FAB / Speed Dial</h1>
+        <p class="component-page-description">
+          Keep one frequent action within reach. Add a speed dial when a small set of related
+          actions needs the same entry point.
+        </p>
+        <a class="link" href="https://daisyui.com/components/fab/" target="_blank" rel="noreferrer"
+          >daisyUI reference<span class="sr-only"> (opens in a new tab)</span></a
+        >
+      </header>
+      <div id="fab-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Explore a workspace creation menu. Compare the vertical and flower layouts, then open the
+          complete Angular example.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="fab-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the available patterns and choose the one that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <div class="demo-card">

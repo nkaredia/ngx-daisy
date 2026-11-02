@@ -3,18 +3,38 @@
   navigationLabel="Modals documentation sections"
 >
   <div id="modal-overview" class="component-documentation-demo">
-    <section class="action-demo">
-      <h2>Modals</h2>
-      <p>
-        Dialogs keep keyboard focus inside, make the background inert and return focus to the
-        opener. Nested dialogs share the same focus and scroll management as drawers.
-      </p>
-      <h3 id="modal-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo component-page" aria-labelledby="modal-title">
+      <header class="component-page-header">
+        <div class="component-page-import">
+          <span>Actions</span><code translate="no">&#64;ngx-daisy/cdk/modal</code>
+        </div>
+        <h1 id="modal-title">Modals</h1>
+        <p class="component-page-description">
+          Give a focused decision its own space. Keep the purpose clear, explain what happens next,
+          and provide an obvious way to leave.
+        </p>
+        <a
+          class="link"
+          href="https://daisyui.com/components/modal/"
+          target="_blank"
+          rel="noreferrer"
+          >daisyUI reference<span class="sr-only"> (opens in a new tab)</span></a
+        >
+      </header>
+      <div id="modal-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Explore a project dialog. Change placement and dismissal behavior without losing the
+          surrounding page.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="modal-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the available patterns and choose the one that fits your interface.</p>
+      </div>
 
       <div class="demo-card">
         <h3>Placement and dismissal</h3>

@@ -3,18 +3,34 @@
   navigationLabel="Swaps documentation sections"
 >
   <div id="swap-overview" class="component-documentation-demo">
-    <section class="action-demo">
-      <h2>Swaps</h2>
-      <p>
-        One accessible toggle button with two or three projected states. Use a checked model or
-        Angular forms, with rotate and flip animations.
-      </p>
-      <h3 id="swap-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo component-page" aria-labelledby="swap-title">
+      <header class="component-page-header">
+        <div class="component-page-import">
+          <span>Actions</span><code translate="no">&#64;ngx-daisy/cdk/swap</code>
+        </div>
+        <h1 id="swap-title">Swaps</h1>
+        <p class="component-page-description">
+          Show two sides of the same control. Pair each visual state with a clear label and let your
+          application own its value.
+        </p>
+        <a class="link" href="https://daisyui.com/components/swap/" target="_blank" rel="noreferrer"
+          >daisyUI reference<span class="sr-only"> (opens in a new tab)</span></a
+        >
+      </header>
+      <div id="swap-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Compare state, animation and appearance. Use the complete example to connect the control
+          to local application state.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="swap-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the available patterns and choose the one that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <div class="demo-card">
