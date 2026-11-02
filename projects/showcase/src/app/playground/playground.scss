@@ -160,7 +160,6 @@ demo-playground {
 
 .playground-example-source {
   padding: 0 1rem 0.5rem;
-  border-top: 1px solid var(--color-base-300);
 }
 
 .playground-header-controls {
@@ -183,7 +182,7 @@ demo-playground {
   font-weight: 600;
 }
 .playground-code-collapse .playground-example-source {
-  padding: 0 1rem 0.5rem;
+  padding: 1rem 1rem 0.5rem;
 }
 .playground-code-collapse[data-opened='false'] .playground-example-source {
   padding: 0;
