@@ -40,7 +40,7 @@ The shared shell provides responsive component navigation and a theme switch tha
 - Standalone components, signal APIs, OnPush, ViewEncapsulation.None, zoneless.
 - Angular Material-inspired APIs; target the full Material catalog plus daisyUI extras.
 - Standard daisyUI appearance with app-controlled themes; no fixed brand palette.
-- Angular CDK for interaction foundations; no Angular Material dependency.
+- Angular CDK for interaction foundations, with Angular Aria for built-in Accordion/Collapse trigger interaction; no Angular Material dependency.
 - Components use `dsy-`, native element directives/components use `dsy`, classes use `Dsy`.
 - One ng-packagr library with a `ng-package.json` and `public-api.ts` in each component-family entry point.
 - Prefer Angular CLI generators. Workspace component defaults enforce OnPush and no encapsulation.

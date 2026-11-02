@@ -47,8 +47,12 @@ describe('button-only collapse', () => {
     expect(panel.hasAttribute('inert')).toBe(true);
     fixture.componentInstance.disabled.set(true);
     await fixture.whenStable();
-    trigger.click();
+    const disabledTrigger = root.querySelector<HTMLButtonElement>('.dsy-collapse-trigger')!;
+    disabledTrigger.click();
     expect(fixture.componentInstance.opened()).toBe(false);
-    expect(trigger.disabled).toBe(true);
+    expect(disabledTrigger.disabled).toBe(true);
+    expect(disabledTrigger.getAttribute('aria-controls')).toBe(
+      root.querySelector('[role="region"]')!.id,
+    );
   });
 });

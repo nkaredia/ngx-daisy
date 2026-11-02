@@ -44,7 +44,7 @@ import { DsyCollapse } from '@ngx-daisy/cdk/collapse';
 </dsy-accordion>
 ```
 
-Use `[(opened)]` for application state and `multi` for multiple expanded panels. Rich title content can use a projected element with `dsyCollapseTitle`; leave `title` empty in that case. Native heading buttons expose expanded state and reference uniquely identified regions. Closed content is hidden and inert. Closing a panel that contains focus restores focus to its heading. Disabled headings cannot be toggled by users. The disabled input does not prevent applications from changing state programmatically. The accordion uses `CdkAccordion` and `CdkAccordionItem` instead of radio-input selection tricks.
+Use `[(opened)]` for application state and `multi` for multiple expanded panels. Rich title content can use a projected element with `dsyCollapseTitle`; leave `title` empty in that case. Native heading buttons expose expanded state and reference uniquely identified regions. Closed content is hidden and inert. Closing a panel that contains focus restores focus to its heading. Disabled headings cannot be toggled by users. The disabled input does not prevent applications from changing state programmatically. The accordion retains `CdkAccordion` and `CdkAccordionItem` for expansion coordination. Enabled built-in triggers use Angular Aria for ARIA relationships and Up/Down/Home/End navigation. Native-disabled and caller-authored custom triggers stay outside that enabled-trigger navigation list. Standalone Collapse has its own local Aria keyboard group; custom templates retain their existing click/Tab behavior. Install the declared `@angular/aria` peer with a matching CDK version; no application markup change or provider is required.
 
 ## Content composition
 
