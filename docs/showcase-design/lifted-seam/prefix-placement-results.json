@@ -1,0 +1,672 @@
+[
+  {
+    "fixture": "default",
+    "edges": [
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-rtl"
+      }
+    ]
+  },
+  {
+    "fixture": "daisy-prefix",
+    "edges": [
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-rtl"
+      }
+    ]
+  },
+  {
+    "fixture": "tailwind-prefix",
+    "edges": [
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-rtl"
+      }
+    ]
+  },
+  {
+    "fixture": "both-prefixes",
+    "edges": [
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-rtl"
+      }
+    ]
+  },
+  {
+    "fixture": "custom-theme",
+    "edges": [
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bottom-rtl"
+      }
+    ]
+  },
+  {
+    "fixture": "preset-seams",
+    "edges": [
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-synthwave-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-synthwave-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-synthwave-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-synthwave-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dark-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dark-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dark-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dark-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-corporate-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-corporate-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-corporate-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-corporate-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-forest-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-forest-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-forest-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-forest-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bumblebee-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bumblebee-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bumblebee-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-bumblebee-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-retro-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-retro-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-retro-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-retro-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-night-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-night-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-night-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-night-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cmyk-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cmyk-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cmyk-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cmyk-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-coffee-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-coffee-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-coffee-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-coffee-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dim-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dim-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dim-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dim-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-nord-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-nord-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-nord-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-nord-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-abyss-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-abyss-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-abyss-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-abyss-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lofi-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lofi-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lofi-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lofi-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-silk-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-silk-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-silk-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-silk-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-valentine-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-valentine-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-valentine-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-valentine-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cyberpunk-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cyberpunk-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cyberpunk-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cyberpunk-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-winter-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-winter-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-winter-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-winter-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-halloween-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-halloween-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-halloween-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-halloween-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-luxury-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-luxury-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-luxury-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-luxury-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-acid-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-acid-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-acid-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-acid-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-business-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-business-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-business-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-business-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-aqua-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-aqua-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-aqua-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-aqua-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-fantasy-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-fantasy-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-fantasy-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-fantasy-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-garden-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-garden-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-garden-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-garden-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-caramellatte-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-caramellatte-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-caramellatte-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-caramellatte-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-autumn-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-autumn-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-autumn-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-autumn-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dracula-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dracula-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dracula-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-dracula-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-light-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-light-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-light-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-light-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lemonade-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lemonade-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lemonade-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-lemonade-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-sunset-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-sunset-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-sunset-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-sunset-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-black-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-black-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-black-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-black-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-wireframe-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-wireframe-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-wireframe-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-wireframe-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-pastel-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-pastel-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-pastel-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-pastel-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cupcake-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cupcake-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cupcake-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-cupcake-bottom-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-emerald-top-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-emerald-top-rtl"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-emerald-bottom-ltr"
+      },
+      {
+        "color": "rgba(0, 0, 0, 0)",
+        "id": "seam-emerald-bottom-rtl"
+      }
+    ]
+  }
+]

@@ -811,11 +811,42 @@ for (const config of cases) {
       styles.includes('dsy-hover-gallery .dsy-gallery-controls button'),
     `${config.name}: gallery enhanced targets survive library style compilation`,
   );
+  for (const [placement, edge] of [
+    ['top', 'border-block-end-color'],
+    ['bottom', 'border-block-start-color'],
+  ]) {
+    assert.ok(
+      rulesContaining(libraryStyles, '[role=tab]:first-child[aria-selected=false]').some(
+        (rule) =>
+          (placement === 'bottom'
+            ? rule.selector.includes('bottom')
+            : !rule.selector.includes('bottom')) &&
+          rule.nodes.some((node) => node.prop === edge && node.value === 'transparent'),
+      ),
+      `${config.name}: ${placement} lifted seam uses a prefix-independent logical edge`,
+    );
+  }
   // Real compiled library styles are appended after the app CSS, just as Angular injects them.
   const html = `<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>daisyUI compatibility: ${config.name}</title>
     <style>${result.css}</style><style>${styles}</style></head><body>
     <div id="compat-root" ${config.custom ? 'data-theme="compat-brand"' : ''} style="padding:24px">
       <h1>${config.name}</h1>
+      ${['top', 'bottom']
+        .flatMap((placement) =>
+          ['ltr', 'rtl'].map(
+            (direction) => `
+        <section dir="${direction}" style="margin-block:24px">
+          <dsy-tabs class="${markup('tabs')} ${markup('tabs-lift')} ${markup('tabs-' + placement)}" data-variant="lift" data-first-active="false" data-placement="${placement}" data-orientation="horizontal">
+            <div class="dsy-tab-list ${markup('tabs')} ${markup('tabs-lift')} ${markup('tabs-sm')} ${markup('tabs-' + placement)}" role="tablist" aria-label="${placement} ${direction} seam fixture">
+              <button class="${markup('tab')}" role="tab" aria-selected="false" id="seam-${placement}-${direction}">First</button>
+              <button class="${markup('tab')} ${markup('tab-active')}" role="tab" aria-selected="true">Second</button>
+            </div>
+            <section class="dsy-tab-panel ${markup('tab-content')}" role="tabpanel" style="padding:24px">Native lifted panel</section>
+          </dsy-tabs>
+        </section>`,
+          ),
+        )
+        .join('')}
       <span id="success-reference" class="${tw('text-success')}">Success reference</span>
       <span id="error-reference" class="${tw('text-error')}">Error reference</span>
       <dsy-rating class="dsy-rating"><div class="${markup('rating')} ${markup('rating-half')} ${markup('rating-lg')}" role="radiogroup" aria-label="Target size fixture">
