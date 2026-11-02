@@ -46,6 +46,8 @@
 :is(.button-page-section-heading, .component-page-section-heading) {
   max-inline-size: 65ch;
   h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
     margin-block-end: 0.5rem;
     text-wrap: balance;
   }

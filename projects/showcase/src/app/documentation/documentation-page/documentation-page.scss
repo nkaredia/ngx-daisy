@@ -1,3 +1,5 @@
+@use '../../component-page';
+
 demo-documentation-page {
   display: block;
   min-inline-size: 0;
@@ -36,4 +38,15 @@ demo-documentation-page {
       grid-row: 1;
     }
   }
+}
+
+.component-documentation-demo > .component-page {
+  display: grid;
+  gap: 3rem;
+  min-inline-size: 0;
+  max-inline-size: 70rem;
+}
+demo-documentation-header {
+  display: block;
+  min-inline-size: 0;
 }

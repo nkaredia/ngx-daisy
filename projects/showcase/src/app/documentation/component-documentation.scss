@@ -10,12 +10,12 @@ demo-component-documentation {
   min-inline-size: 0;
   padding-block-start: 2rem;
   border-block-start: 1px solid var(--color-base-300);
-  h3 {
+  h2 {
     font-size: 1.5rem;
     font-weight: 650;
     letter-spacing: -0.025em;
   }
-  h4 {
+  h3 {
     font-size: 1rem;
     font-weight: 650;
     margin-block-start: 0.75rem;
@@ -41,13 +41,6 @@ demo-component-documentation {
     list-style: disc;
     padding-inline-start: 1.25rem;
   }
-}
-.component-documentation-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--color-base-content);
 }
 .component-documentation-table {
   max-inline-size: 100%;

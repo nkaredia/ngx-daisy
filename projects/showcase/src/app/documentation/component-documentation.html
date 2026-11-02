@@ -1,6 +1,5 @@
 <section class="component-documentation-section" [id]="content().id + '-angular'">
-  <span class="component-documentation-eyebrow">Angular</span>
-  <h3>Usage and integration</h3>
+  <h2>Usage and integration</h2>
   <p>{{ content().summary }}</p>
   <p>
     Import the standalone declarations from <code>{{ content().entryPoint }}</code> and include them
@@ -9,28 +8,32 @@
   @for (paragraph of content().angular; track $index) {
     <p>{{ paragraph }}</p>
   }
-  <demo-example-code [files]="content().files" [expanded]="true" [showToggle]="false" />
-  <h4>Choosing and composing the UI</h4>
+  <demo-example-code
+    [files]="content().files"
+    [expanded]="true"
+    [showToggle]="false"
+    copyPlacement="header"
+    [wrap]="true"
+  />
+  <h3>Choosing and composing the UI</h3>
   @for (paragraph of content().usage; track $index) {
     <p>{{ paragraph }}</p>
   }
 </section>
 <section class="component-documentation-section" [id]="content().id + '-styling'">
-  <span class="component-documentation-eyebrow">Appearance</span>
-  <h3>Styling and customization</h3>
+  <h2>Styling and customization</h2>
   @for (paragraph of content().styling; track $index) {
     <p>{{ paragraph }}</p>
   }
 </section>
 <section class="component-documentation-section" [id]="content().id + '-api'">
-  <span class="component-documentation-eyebrow">Reference</span>
-  <h3>API reference</h3>
+  <h2>API reference</h2>
   <p>
     Inputs, two-way models and defaults for the declarations used by this component. Native HTML
     attributes and Angular forms bindings remain available where the control supports them.
   </p>
   @for (component of playground().components; track component.class) {
-    <h4>{{ component.name ?? component.class.name }}</h4>
+    <h3>{{ component.name ?? component.class.name }}</h3>
     @if (component.props?.length) {
       <div
         class="component-documentation-table"
@@ -86,7 +89,7 @@
     }
   }
   @if (content().apiNotes.length) {
-    <h4>Events, methods and composition</h4>
+    <h3>Events, methods and composition</h3>
     <dl class="component-documentation-api-notes">
       @for (note of content().apiNotes; track note.name) {
         <div>
@@ -100,8 +103,7 @@
   }
 </section>
 <section class="component-documentation-section" [id]="content().id + '-accessibility'">
-  <span class="component-documentation-eyebrow">Accessibility</span>
-  <h3>Interaction and accessible content</h3>
+  <h2>Interaction and accessible content</h2>
   <ul>
     @for (item of content().accessibility; track $index) {
       <li>{{ item }}</li>
