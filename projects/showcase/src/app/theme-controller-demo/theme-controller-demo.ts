@@ -21,7 +21,11 @@ import { DsyButton } from '@ngx-daisy/cdk/button';
 export class ThemeControllerDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = componentDocumentationSections(documentation.id);
+  readonly documentationSections = [
+    { id: 'theme-controller-overview', label: 'Overview' },
+    { id: 'theme-controller-playground', label: 'Playground' },
+    ...componentDocumentationSections(documentation.id).slice(1),
+  ];
   readonly theme = signal('light');
   readonly themes = ['light', 'dark', 'cupcake', 'synthwave'];
 }

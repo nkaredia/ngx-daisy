@@ -3,19 +3,75 @@
   navigationLabel="Dropdowns documentation sections"
 >
   <div id="dropdown-overview" class="component-documentation-demo">
-    <section class="action-demo">
-      <h2>Dropdowns</h2>
-      <p>
-        Menus with keyboard navigation, hover opening and flexible content. Overlays follow the
-        surrounding theme and stay inside the viewport.
-      </p>
-      <h3 id="dropdown-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo component-page" aria-labelledby="dropdown-title">
+      <header class="component-page-header">
+        <div class="component-page-import">
+          <span>Actions</span><code translate="no">&#64;ngx-daisy/cdk/dropdown</code>
+        </div>
+        <h1 id="dropdown-title">Dropdowns</h1>
+        <p class="component-page-description">
+          Keep related commands close to the work. Open an action menu from a button, or use a small
+          content panel for preferences.
+        </p>
+        <a
+          class="link"
+          href="https://daisyui.com/components/dropdown/"
+          target="_blank"
+          rel="noreferrer"
+          >daisyUI reference<span class="sr-only"> (opens in a new tab)</span></a
+        >
+      </header>
+      <div id="dropdown-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Explore project actions, placement and content mode. The full example shows how your
+          application owns selection and open state.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="dropdown-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the available patterns and choose the one that fits your interface.</p>
+      </div>
 
+      <dl class="component-usage-list">
+        <div>
+          <dt>Action menu</dt>
+          <dd>
+            Use menu mode for a short list of commands. Each item performs one action; selection
+            closes the menu.
+          </dd>
+        </div>
+        <div>
+          <dt>Content panel</dt>
+          <dd>
+            Use <code>kind="content"</code> for preferences and native form controls. Keep
+            persistent values in your component, because panel content is recreated when opened.
+          </dd>
+        </div>
+        <div>
+          <dt>Choosing a value</dt>
+          <dd>
+            Use Select when people need to choose a form value. A dropdown trigger represents an
+            action, rather than the current selection.
+          </dd>
+        </div>
+      </dl>
+      @for (preview of playground.inlinePreviews ?? []; track preview.component) {
+        <demo-inline-preview-shell
+          [component]="preview.component"
+          [title]="preview.title"
+          [showTypescript]="true"
+          presentation="split"
+          [description]="
+            preview.title === 'Document actions'
+              ? 'Keep related commands together. Disabled items remain visible when an action is temporarily unavailable.'
+              : 'A content panel keeps native form behavior. Close and reopen it to see that the preference stays selected.'
+          "
+        />
+      }
       <div class="demo-card">
         <h3>Menu placement</h3>
         <div class="demo-row">

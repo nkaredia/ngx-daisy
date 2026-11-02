@@ -1,3 +1,4 @@
+import { InlinePreviewShell } from '../playground/inline-preview-shell';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -20,6 +21,7 @@ import {
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    InlinePreviewShell,
     DocumentationPage,
     ComponentDocumentation,
     Playground,
@@ -37,7 +39,11 @@ import {
 export class DropdownDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = componentDocumentationSections(documentation.id);
+  readonly documentationSections = [
+    { id: 'dropdown-overview', label: 'Overview' },
+    { id: 'dropdown-playground', label: 'Playground' },
+    ...componentDocumentationSections(documentation.id).slice(1),
+  ];
   readonly selection = signal('Nothing selected');
   readonly placement = signal<DsyDropdownPlacement>('bottom');
   readonly align = signal<DsyDropdownAlign>('start');

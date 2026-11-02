@@ -49,6 +49,10 @@ import {
 export class FabDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = componentDocumentationSections(documentation.id);
+  readonly documentationSections = [
+    { id: 'fab-overview', label: 'Overview' },
+    { id: 'fab-playground', label: 'Playground' },
+    ...componentDocumentationSections(documentation.id).slice(1),
+  ];
   readonly action = signal('Choose an action');
 }
