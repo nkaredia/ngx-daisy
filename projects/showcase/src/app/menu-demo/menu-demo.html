@@ -3,18 +3,31 @@
   navigationLabel="Menus documentation sections"
 >
   <div id="menu-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Menus</h2>
-      <p>
+    <section class="action-demo catalog-demo component-page" aria-labelledby="menu-title">
+      <demo-documentation-header
+        title="Menus"
+        headingId="menu-title"
+        category="Navigation"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/menu/"
+      >
         Native navigation lists retain normal Tab navigation and details/summary disclosure
         behavior.
-      </p>
-      <h3 id="menu-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="menu-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="menu-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Project navigation</h3>

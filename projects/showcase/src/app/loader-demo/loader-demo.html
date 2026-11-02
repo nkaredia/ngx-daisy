@@ -3,23 +3,30 @@
   navigationLabel="Loaders documentation sections"
 >
   <div id="loader-overview" class="component-documentation-demo">
-    <section class="loader-demo" aria-labelledby="loaders">
-      <header class="loader-demo-heading">
-        <div>
-          <h2 id="loaders" class="text-xl font-semibold">Loaders</h2>
-          <p class="mt-2 text-base-content/70">
-            A little feedback for every wait. Choose a style, tune its motion, or show real
-            progress.
-          </p>
-        </div>
-        <span class="badge badge-outline">Respects reduced motion</span>
-      </header>
-      <h3 id="loader-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="loader-demo component-page" aria-labelledby="loaders">
+      <demo-documentation-header
+        title="Loaders"
+        headingId="loaders"
+        category="Feedback"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/loading/"
+      >
+        A little feedback for every wait. Choose a style, tune its motion, or show real progress. </demo-documentation-header
+      ><span class="badge badge-outline w-fit">Respects reduced motion</span>
+      <div id="loader-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="loader-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="loader-demo-playground">
         <div class="loader-demo-controls">

@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -16,6 +17,7 @@ import { DsyIcon, type DsyIconColor } from '@ngx-daisy/cdk/icon';
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

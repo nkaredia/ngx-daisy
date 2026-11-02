@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { computed } from '@angular/core';
 @Component({
   selector: 'demo-countdown-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyCountdown],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyCountdown,
+  ],
   templateUrl: './countdown-demo.html',
   styleUrl: './countdown-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

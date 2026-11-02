@@ -3,15 +3,30 @@
   navigationLabel="Footers documentation sections"
 >
   <div id="footer-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Footers</h2>
-      <p>Semantic footer content with horizontal, vertical or centered composition.</p>
-      <h3 id="footer-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo catalog-demo component-page" aria-labelledby="footer-title">
+      <demo-documentation-header
+        title="Footers"
+        headingId="footer-title"
+        category="Layout"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/footer/"
+      >
+        Semantic footer content with horizontal, vertical or centered composition.
+      </demo-documentation-header>
+      <div id="footer-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="footer-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Site footer</h3>

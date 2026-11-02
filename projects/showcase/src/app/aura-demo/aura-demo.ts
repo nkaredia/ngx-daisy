@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,7 +18,7 @@ import { DsyAura } from '@ngx-daisy/cdk/aura';
 @Component({
   selector: 'demo-aura-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyAura],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyAura],
   templateUrl: './aura-demo.html',
   styleUrl: './aura-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

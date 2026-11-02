@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { LucideCircle } from '@lucide/angular';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
@@ -20,6 +21,7 @@ import { DsyIndicator, DsyIndicatorItem } from '@ngx-daisy/cdk/indicator';
   selector: 'demo-indicator-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     LucideCircle,
     DocumentationPage,
     ComponentDocumentation,

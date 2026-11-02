@@ -3,15 +3,33 @@
   navigationLabel="Radial Progress documentation sections"
 >
   <div id="radial-progress-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Radial Progress</h2>
-      <p>Determinate circular progress with configurable size and thickness.</p>
-      <h3 id="radial-progress-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section
+      class="action-demo catalog-demo component-page"
+      aria-labelledby="radial-progress-title"
+    >
+      <demo-documentation-header
+        title="Radial Progress"
+        headingId="radial-progress-title"
+        category="Feedback"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/radial-progress/"
+      >
+        Determinate circular progress with configurable size and thickness.
+      </demo-documentation-header>
+      <div id="radial-progress-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="radial-progress-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Project completion</h3>

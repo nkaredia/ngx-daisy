@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -14,6 +15,7 @@ import { DsyDrawer, DsyDrawerContainer, DsyDrawerContent } from '@ngx-daisy/cdk/
   standalone: true,
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

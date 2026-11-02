@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,7 @@ import { DsyTooltip } from '@ngx-daisy/cdk/tooltip';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-tooltip-demo',
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyTooltip],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyTooltip],
   templateUrl: './tooltip-demo.html',
   styleUrl: './tooltip-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

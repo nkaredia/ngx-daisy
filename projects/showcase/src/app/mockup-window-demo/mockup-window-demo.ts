@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { DsyMockupWindow } from '@ngx-daisy/cdk/mockup-window';
 @Component({
   selector: 'demo-mockup-window-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyMockupWindow],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyMockupWindow,
+  ],
   templateUrl: './mockup-window-demo.html',
   styleUrl: './mockup-window-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

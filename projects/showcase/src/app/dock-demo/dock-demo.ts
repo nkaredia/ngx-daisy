@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -19,6 +20,7 @@ import { DsyDock, DsyDockItem, DsyDockLabel } from '@ngx-daisy/cdk/dock';
   selector: 'demo-dock-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

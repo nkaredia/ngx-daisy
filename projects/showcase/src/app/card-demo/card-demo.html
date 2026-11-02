@@ -3,15 +3,30 @@
   navigationLabel="Cards documentation sections"
 >
   <div id="card-overview" class="component-documentation-demo">
-    <section class="action-demo display-demo">
-      <h2>Cards</h2>
-      <p>Compose semantic headings, figures and actions inside responsive cards.</p>
-      <h3 id="card-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+    <section class="action-demo display-demo component-page" aria-labelledby="card-title">
+      <demo-documentation-header
+        title="Cards"
+        headingId="card-title"
+        category="Data Display"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/card/"
+      >
+        Compose semantic headings, figures and actions inside responsive cards.
+      </demo-documentation-header>
+      <div id="card-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="card-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <dsy-card border="solid" class="bg-base-200"

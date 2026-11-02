@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { DsyRadialProgress } from '@ngx-daisy/cdk/radial-progress';
 @Component({
   providers: providePlayground(playground),
   selector: 'demo-radial-progress-demo',
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyRadialProgress],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyRadialProgress,
+  ],
   templateUrl: './radial-progress-demo.html',
   styleUrl: './radial-progress-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

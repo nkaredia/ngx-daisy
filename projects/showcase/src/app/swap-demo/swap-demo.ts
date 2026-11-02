@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -12,7 +13,14 @@ import { DsySwap } from '@ngx-daisy/cdk/swap';
   selector: 'demo-swap-demo',
   standalone: true,
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsySwap, FormsModule],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsySwap,
+    FormsModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   templateUrl: './swap-demo.html',
@@ -21,11 +29,7 @@ import { DsySwap } from '@ngx-daisy/cdk/swap';
 export class SwapDemo {
   readonly playground = playground;
   readonly documentation = documentation;
-  readonly documentationSections = [
-    { id: 'swap-overview', label: 'Overview' },
-    { id: 'swap-playground', label: 'Playground' },
-    ...componentDocumentationSections(documentation.id).slice(1),
-  ];
+  readonly documentationSections = componentDocumentationSections(documentation.id);
   readonly sound = signal(false);
   readonly formValue = signal(true);
   readonly disabled = signal(false);

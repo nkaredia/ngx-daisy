@@ -250,14 +250,7 @@ describe('Showcase routes', () => {
       const sectionLinks = main!.querySelectorAll<HTMLAnchorElement>(
         'demo-documentation-navigation a',
       );
-      const actionPage = [
-        '/dropdowns',
-        '/fabs',
-        '/modals',
-        '/swaps',
-        '/theme-controllers',
-      ].includes(path);
-      expect(sectionLinks).toHaveLength(path === '/buttons' ? 8 : actionPage ? 7 : 6);
+      expect(sectionLinks).toHaveLength(path === '/buttons' ? 8 : 7);
       for (const link of sectionLinks) {
         const id = new URL(link.href).hash.slice(1);
         expect(

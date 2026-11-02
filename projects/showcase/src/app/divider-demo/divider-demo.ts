@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,7 @@ import { DsyDivider } from '@ngx-daisy/cdk/divider';
 @Component({
   selector: 'demo-divider-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyDivider],
+  imports: [DocumentationHeader, DocumentationPage, ComponentDocumentation, Playground, DsyDivider],
   templateUrl: './divider-demo.html',
   styleUrl: './divider-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

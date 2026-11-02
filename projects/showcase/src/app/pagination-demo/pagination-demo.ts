@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { DsyPagination } from '@ngx-daisy/cdk/pagination';
 @Component({
   selector: 'demo-pagination-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyPagination],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyPagination,
+  ],
   templateUrl: './pagination-demo.html',
   styleUrl: './pagination-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

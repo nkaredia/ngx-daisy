@@ -3,18 +3,31 @@
   navigationLabel="Selects documentation sections"
 >
   <div id="select-overview" class="component-documentation-demo">
-    <section class="action-demo input-demo">
-      <h2>Selects</h2>
-      <p>
+    <section class="action-demo input-demo component-page" aria-labelledby="select-title">
+      <demo-documentation-header
+        title="Selects"
+        headingId="select-title"
+        category="Data Input"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/select/"
+      >
         Native selects retain Angular forms, object comparison, option groups and multiple-selection
         behavior.
-      </p>
-      <h3 id="select-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="select-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="select-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <div class="demo-card">

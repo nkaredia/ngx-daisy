@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,14 @@ import { DsyFooter, DsyFooterTitle } from '@ngx-daisy/cdk/footer';
 @Component({
   selector: 'demo-footer-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyFooter, DsyFooterTitle],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyFooter,
+    DsyFooterTitle,
+  ],
   templateUrl: './footer-demo.html',
   styleUrl: './footer-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

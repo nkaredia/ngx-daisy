@@ -3,18 +3,31 @@
   navigationLabel="Form Fields documentation sections"
 >
   <div id="form-field-overview" class="component-documentation-demo">
-    <section class="action-demo input-demo">
-      <h2>Form Fields</h2>
-      <p>
+    <section class="action-demo input-demo component-page" aria-labelledby="form-field-title">
+      <demo-documentation-header
+        title="Form Fields"
+        headingId="form-field-title"
+        category="Data Input"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/fieldset/"
+      >
         Angular validation is the source of truth. Errors appear after touch or submission; pending,
         disabled and programmatic changes stay reactive.
-      </p>
-      <h3 id="form-field-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="form-field-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="form-field-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <div class="demo-card">

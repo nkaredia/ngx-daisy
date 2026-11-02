@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,6 +19,7 @@ import { DsyCard, DsyCardBody, DsyCardTitle, DsyCardActions } from '@ngx-daisy/c
   selector: 'demo-card-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

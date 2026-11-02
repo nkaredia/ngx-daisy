@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,15 @@ import { DsySteps, DsyStep, DsyStepIcon } from '@ngx-daisy/cdk/steps';
 @Component({
   selector: 'demo-steps-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsySteps, DsyStep, DsyStepIcon],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsySteps,
+    DsyStep,
+    DsyStepIcon,
+  ],
   templateUrl: './steps-demo.html',
   styleUrl: './steps-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

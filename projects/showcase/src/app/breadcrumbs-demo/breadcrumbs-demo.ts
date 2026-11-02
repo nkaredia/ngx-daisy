@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { DsyBreadcrumbs } from '@ngx-daisy/cdk/breadcrumbs';
 @Component({
   selector: 'demo-breadcrumbs-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyBreadcrumbs],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyBreadcrumbs,
+  ],
   templateUrl: './breadcrumbs-demo.html',
   styleUrl: './breadcrumbs-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

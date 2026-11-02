@@ -3,18 +3,31 @@
   navigationLabel="Fieldsets documentation sections"
 >
   <div id="fieldset-overview" class="component-documentation-demo">
-    <section class="action-demo input-demo">
-      <h2>Fieldsets</h2>
-      <p>
+    <section class="action-demo input-demo component-page" aria-labelledby="fieldset-title">
+      <demo-documentation-header
+        title="Fieldsets"
+        headingId="fieldset-title"
+        category="Data Input"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/fieldset/"
+      >
         Native fieldset and legend semantics group related controls and disable their descendants
         together.
-      </p>
-      <h3 id="fieldset-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="fieldset-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="fieldset-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="demo-card">
         <fieldset dsyFieldset [disabled]="locked()" class="border border-base-300 rounded-box p-5">

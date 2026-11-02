@@ -3,18 +3,31 @@
   navigationLabel="Toasts documentation sections"
 >
   <div id="toast-overview" class="component-documentation-demo">
-    <section class="action-demo catalog-demo">
-      <h2>Toasts</h2>
-      <p>
+    <section class="action-demo catalog-demo component-page" aria-labelledby="toast-title">
+      <demo-documentation-header
+        title="Toasts"
+        headingId="toast-title"
+        category="Feedback"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/toast/"
+      >
         Position notifications around the viewport. Timed notifications pause while hovered or
         focused.
-      </p>
-      <h3 id="toast-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="toast-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="toast-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <section class="demo-card">
         <h3>Notifications</h3>

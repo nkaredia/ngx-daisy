@@ -3,18 +3,31 @@
   navigationLabel="Radio Groups documentation sections"
 >
   <div id="radio-overview" class="component-documentation-demo">
-    <section class="action-demo input-demo">
-      <h2>Radio Groups</h2>
-      <p>
+    <section class="action-demo input-demo component-page" aria-labelledby="radio-title">
+      <demo-documentation-header
+        title="Radio Groups"
+        headingId="radio-title"
+        category="Data Input"
+        [entryPoint]="documentation.entryPoint"
+        reference="https://daisyui.com/components/radio/"
+      >
         Radio groups share one form value, with CDK arrow-key navigation, disabled-option skipping
         and projected labels.
-      </p>
-      <h3 id="radio-examples" class="component-documentation-examples-heading">
-        Playground and UI examples
-      </h3>
+      </demo-documentation-header>
+      <div id="radio-playground" class="component-page-section-heading">
+        <h2>Try it in context</h2>
+        <p>
+          Adjust the properties to explore this example. Open the code panel for its complete
+          Angular implementation.
+        </p>
+      </div>
       @for (preview of playground.previews; track preview) {
         <demo-playground [component]="preview" />
       }
+      <div id="radio-examples" class="component-page-section-heading">
+        <h2>Explore variations</h2>
+        <p>Compare the patterns below and choose the composition that fits your interface.</p>
+      </div>
 
       <div class="demo-grid">
         <div class="demo-card">

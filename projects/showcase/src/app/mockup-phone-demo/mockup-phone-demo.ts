@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -18,7 +19,13 @@ import { DsyMockupPhone } from '@ngx-daisy/cdk/mockup-phone';
 @Component({
   selector: 'demo-mockup-phone-demo',
   providers: providePlayground(playground),
-  imports: [DocumentationPage, ComponentDocumentation, Playground, DsyMockupPhone],
+  imports: [
+    DocumentationHeader,
+    DocumentationPage,
+    ComponentDocumentation,
+    Playground,
+    DsyMockupPhone,
+  ],
   templateUrl: './mockup-phone-demo.html',
   styleUrl: './mockup-phone-demo.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

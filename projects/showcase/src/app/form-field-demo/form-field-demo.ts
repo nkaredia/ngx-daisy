@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -17,6 +18,7 @@ import { DsyValidator } from '@ngx-daisy/cdk/validator';
   selector: 'demo-form-field-demo',
   standalone: true,
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,

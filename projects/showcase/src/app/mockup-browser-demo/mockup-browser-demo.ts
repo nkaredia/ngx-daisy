@@ -1,3 +1,4 @@
+import { DocumentationHeader } from '../documentation/documentation-header/documentation-header';
 import { DocumentationPage } from '../documentation/documentation-page/documentation-page';
 import { ComponentDocumentation } from '../documentation/component-documentation';
 import { componentDocumentationSections } from '../documentation/component-documentation.types';
@@ -19,6 +20,7 @@ import { DsyMockupBrowser, DsyBrowserToolbar } from '@ngx-daisy/cdk/mockup-brows
   selector: 'demo-mockup-browser-demo',
   providers: providePlayground(playground),
   imports: [
+    DocumentationHeader,
     DocumentationPage,
     ComponentDocumentation,
     Playground,
