@@ -116,3 +116,7 @@ Native showcase page parity: every implemented native component page uses the sh
 ## Shared component documentation layout (November 1)
 
 All 70 web showcase component routes now follow the Buttons page hierarchy: category/import identity, descriptive h1, dedicated playground and curated variation sections, and a responsive section index. A shared DocumentationHeader owns the repeated header presentation. Existing examples and their interactions stay page-owned. Shared Angular usage, styling, API and accessibility documentation uses consistent section headings and the existing lifted code viewer with header copy controls and visual wrapping. Theme palettes, component sizes, syntax-highlight palettes and native mobile scope are unchanged. See docs/showcase-design/all-components/README.md for validation and boundaries.
+
+## Angular Aria evaluation
+
+Angular Aria 22.2.3 has been evaluated for web Tabs, Accordion/Collapse and Dropdown menus using isolated test fixtures. Runtime components still use the existing CDK foundations. See docs/angular-aria-evaluation.md for compatibility findings, the projected-content injection boundaries, public menu-context bridge, required behavior preservation and recommended Accordion/Collapse pilot. Aria is currently a development-only dependency, not a library peer or native implementation dependency. Manual assistive-technology verification remains deferred.
