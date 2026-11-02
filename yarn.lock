@@ -189,6 +189,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@angular/aria@npm:22.2.3":
+  version: 22.2.3
+  resolution: "@angular/aria@npm:22.2.3"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    "@angular/cdk": 22.2.3
+    "@angular/core": ^22.0.0 || ^23.0.0
+  checksum: 10c0/4e15203d6cd33d5ad94021906e121634af2581b3cfda3b7808f424953e219be3fc55b4c18e770ed1b32d0b192bac71bb4ece9a21b5f7d2d49a68dd8bae274337
+  languageName: node
+  linkType: hard
+
 "@angular/build@npm:22.2.3, @angular/build@npm:^22.2.3":
   version: 22.2.3
   resolution: "@angular/build@npm:22.2.3"
@@ -4254,6 +4266,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@ngx-daisy/cdk@workspace:."
   dependencies:
+    "@angular/aria": "npm:22.2.3"
     "@angular/build": "npm:^22.2.3"
     "@angular/cdk": "npm:^22.2.3"
     "@angular/cli": "npm:^22.2.3"
