@@ -1,0 +1,157 @@
+<ng-template #headingContent><ng-content select="[dsyCollapseHeader]" /></ng-template>
+<ng-template #titleContent><ng-content select="[dsyCollapseTitle]" /></ng-template>
+<ng-template #body><ng-content /></ng-template>
+@if (disabled()) {
+  @if (trigger() === 'button') {
+    <div
+      (keydown)="containInteraction($event)"
+      [class]="daisy('collapse-title') + ' dsy-collapse-button-heading ' + titleClass()"
+    >
+      <div class="dsy-collapse-header">
+        <span>{{ title() }}</span
+        ><ng-container [ngTemplateOutlet]="headingContent" />
+      </div>
+      @if (triggerTemplate(); as template) {
+        <ng-container
+          [ngTemplateOutlet]="template"
+          [ngTemplateOutletContext]="{ $implicit: this }"
+        />
+      } @else {
+        <button
+          type="button"
+          class="dsy-collapse-trigger dsy-collapse-default-trigger"
+          [id]="id + '-trigger'"
+          disabled
+          [attr.aria-expanded]="opened()"
+          [attr.aria-controls]="id + '-panel'"
+        >
+          {{ opened() ? closeLabel() : openLabel() }}
+        </button>
+      }
+    </div>
+  } @else {
+    <h3 class="dsy-collapse-heading" (keydown)="containInteraction($event)">
+      <button
+        type="button"
+        [class]="daisy('collapse-title') + ' ' + titleClass()"
+        [id]="id + '-trigger'"
+        disabled
+        [attr.aria-expanded]="opened()"
+        [attr.aria-controls]="id + '-panel'"
+      >
+        {{ title() }}<ng-container [ngTemplateOutlet]="titleContent" />
+      </button>
+    </h3>
+  }
+  <div
+    [id]="id + '-panel'"
+    [class]="daisy('collapse-content') + ' ' + contentClass()"
+    role="region"
+    [attr.aria-labelledby]="id + '-trigger'"
+    [hidden]="!contentVisible()"
+    [attr.aria-hidden]="opened() ? null : 'true'"
+    [attr.inert]="opened() ? null : ''"
+    (keydown)="containInteraction($event)"
+  >
+    <ng-container [ngTemplateOutlet]="body" />
+  </div>
+} @else if (customTrigger(); as template) {
+  <div
+    (keydown)="containInteraction($event)"
+    [class]="daisy('collapse-title') + ' dsy-collapse-button-heading ' + titleClass()"
+  >
+    <div class="dsy-collapse-header" (keydown)="containInteraction($event)">
+      <span>{{ title() }}</span
+      ><ng-container [ngTemplateOutlet]="headingContent" />
+    </div>
+    <ng-container [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{ $implicit: this }" />
+  </div>
+  <div
+    [id]="id + '-panel'"
+    [class]="daisy('collapse-content') + ' ' + contentClass()"
+    (keydown)="containInteraction($event)"
+    role="region"
+    [attr.aria-labelledby]="id + '-trigger'"
+    [hidden]="!contentVisible()"
+    [attr.aria-hidden]="opened() ? null : 'true'"
+    [attr.inert]="opened() ? null : ''"
+  >
+    <ng-container [ngTemplateOutlet]="body" />
+  </div>
+} @else {
+  @for (mode of [trigger()]; track mode) {
+    <ng-template #titleButton>
+      <button
+        ngAccordionTrigger
+        dsyCollapseAriaContext
+        [panel]="panel"
+        [(expanded)]="opened"
+        type="button"
+        [class]="daisy('collapse-title') + ' ' + titleClass()"
+        [id]="id + '-trigger'"
+      >
+        {{ title() }}<ng-container [ngTemplateOutlet]="titleContent" />
+      </button>
+    </ng-template>
+    <ng-template #buttonHeading>
+      <div class="dsy-collapse-header" (keydown)="containInteraction($event)">
+        <span>{{ title() }}</span
+        ><ng-container [ngTemplateOutlet]="headingContent" />
+      </div>
+      <button
+        ngAccordionTrigger
+        dsyCollapseAriaContext
+        [panel]="panel"
+        [(expanded)]="opened"
+        type="button"
+        class="dsy-collapse-trigger dsy-collapse-default-trigger"
+        [id]="id + '-trigger'"
+      >
+        {{ opened() ? closeLabel() : openLabel() }}
+      </button>
+    </ng-template>
+    @if (parentAccordion) {
+      @if (mode === 'button') {
+        <div [class]="daisy('collapse-title') + ' dsy-collapse-button-heading ' + titleClass()">
+          <ng-container [ngTemplateOutlet]="buttonHeading" />
+        </div>
+      } @else {
+        <h3 class="dsy-collapse-heading"><ng-container [ngTemplateOutlet]="titleButton" /></h3>
+      }
+    } @else {
+      @if (mode === 'button') {
+        <div
+          ngAccordionGroup
+          [multiExpandable]="true"
+          [softDisabled]="false"
+          [wrap]="false"
+          [class]="daisy('collapse-title') + ' dsy-collapse-button-heading ' + titleClass()"
+        >
+          <ng-container [ngTemplateOutlet]="buttonHeading" />
+        </div>
+      } @else {
+        <h3
+          ngAccordionGroup
+          [multiExpandable]="true"
+          [softDisabled]="false"
+          [wrap]="false"
+          class="dsy-collapse-heading"
+        >
+          <ng-container [ngTemplateOutlet]="titleButton" />
+        </h3>
+      }
+    }
+    <div
+      (keydown)="containInteraction($event)"
+      ngAccordionPanel
+      #panel="ngAccordionPanel"
+      [preserveContent]="true"
+      [id]="id + '-panel'"
+      [class]="daisy('collapse-content') + ' ' + contentClass()"
+      [hidden]="!contentVisible()"
+      [attr.aria-hidden]="opened() ? null : 'true'"
+    >
+      <ng-template ngAccordionContent><ng-container [ngTemplateOutlet]="body" /></ng-template>
+    </div>
+  }
+}

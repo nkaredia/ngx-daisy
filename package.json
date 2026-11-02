@@ -23,6 +23,7 @@
   "private": true,
   "packageManager": "yarn@4.18.1",
   "dependencies": {
+    "@angular/aria": "22.2.3",
     "@angular/cdk": "^22.2.3",
     "@angular/common": "^22.2.0",
     "@angular/compiler": "^22.2.0",
@@ -35,7 +36,6 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/aria": "22.2.3",
     "@angular/build": "^22.2.3",
     "@angular/cli": "^22.2.3",
     "@angular/compiler-cli": "^22.2.0",
