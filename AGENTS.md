@@ -2,7 +2,7 @@
 
 Read docs/requirements.md for the recovered product requirements and outstanding scope.
 
-Create a new branch before starting any feature, fix or hotfix. Use descriptive `feature/*`, `fix/*` or `hotfix/*` branch names without a `codex/` prefix. Split substantial changes into focused commits. Commit and push completed work before starting the next major task. Never mention agents or AI in commit messages.
+Before starting a new task, verify that all previous work is merged into main. Unless the user specifies otherwise, update main from the remote and create the new task branch from main. Create a new branch before starting any feature, fix or hotfix. Use descriptive `feature/*`, `fix/*` or `hotfix/*` branch names without a `codex/` prefix. Split substantial changes into focused commits. Commit and push completed work before starting the next major task. Never mention agents or AI in commit messages.
 
 Use Yarn 4 with the node-modules linker. Keep yarn.lock committed; do not generate an npm lockfile.
 
